@@ -436,3 +436,9 @@ body {
 .character-list a:hover {
   color: #888;
 }
+
+.character-page > .page-label,
+.character-page > h1,
+.character-page > .page-description {
+  text-align: center;
+}
