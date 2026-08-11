@@ -342,10 +342,14 @@ body {
 .world-links a > span:first-child {
   display: inline-block;
   padding-bottom: 6px;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid transparent;
   font-family: "Cormorant Garamond", serif;
   font-size: 22px;
   letter-spacing: 0.18em;
+}
+
+.world-links a:hover > span:first-child {
+  border-bottom-color: #222;
 }
 
 .world-links small {
