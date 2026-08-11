@@ -371,3 +371,68 @@ body {
   font-size: 12px;
   color: #777;
 }
+/* =========================
+   Character
+========================= */
+
+.character-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 120px 40px;
+}
+
+.character-page .page-label {
+  margin-bottom: 24px;
+}
+
+.character-page h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 64px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: #222;
+}
+
+.character-page .page-description {
+  margin-top: 24px;
+  margin-bottom: 90px;
+}
+
+.department {
+  margin-bottom: 90px;
+}
+
+.department-label {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.department h2 {
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  margin-bottom: 35px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.character-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 50px;
+}
+
+.character-list a {
+  color: #222;
+  text-decoration: none;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  transition: color 0.3s ease;
+}
+
+.character-list a:hover {
+  color: #888;
+}
