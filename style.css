@@ -2,6 +2,8 @@
    Base
 ========================= */
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -12,26 +14,11 @@ html {
 
 body {
   margin: 0;
-
   background: #f7f7f5;
   color: #1f1f1f;
-
-  font-family:
-    "Noto Sans JP",
-    "Hiragino Kaku Gothic ProN",
-    "Yu Gothic",
-    YuGothic,
-    sans-serif;
-
+  font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
 }
-
-
-/* =========================
-   Google Fonts
-========================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Sans+JP:wght@400&display=swap');
 
 
 /* =========================
@@ -40,80 +27,49 @@ body {
 
 .hero {
   min-height: 100vh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   text-align: center;
-
   padding: 80px 24px;
 }
 
-
-/* BREAK MY CASE ARCHIVE */
-
 .eyebrow {
-  margin: 0 0 24px;
-
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    "Times New Roman",
-    serif;
-
+  margin: 0 0 28px;
+  font-family: "Cormorant Garamond", serif;
   font-size: 16px;
   letter-spacing: 0.38em;
   font-weight: 400;
 }
 
-
-/* BREAK MY CASE */
-
 .hero h1 {
   margin: 0;
-
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    "Times New Roman",
-    serif;
-
+  font-family: "Cormorant Garamond", serif;
   font-size: clamp(64px, 8vw, 112px);
   line-height: 0.95;
-
   letter-spacing: 0.02em;
   font-weight: 400;
 }
 
-
-/* Description */
-
 .description {
-  margin: 36px 0 0;
-
+  margin: 44px 0 0;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 15px;
   letter-spacing: 0.04em;
+  line-height: 1.8;
 }
 
 
-/* SCROLL */
+/* =========================
+   Scroll
+========================= */
 
 .scroll {
-  margin: 72px 0 0;
-
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    "Times New Roman",
-    serif;
-
+  margin-top: 78px;
+  font-family: "Cormorant Garamond", serif;
   font-size: 11px;
   letter-spacing: 0.42em;
-
-  line-height: 1.8;
-
   color: #9a9a9a;
 }
 
@@ -124,84 +80,79 @@ body {
 
 .about {
   min-height: 100vh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   text-align: center;
-
   padding: 80px 24px;
-
+  box-sizing: border-box;
   border-top: 1px solid #dededb;
 }
 
-
-/* ABOUT THIS SITE */
-
 .about-label {
-  margin: 0 0 32px;
-
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    "Times New Roman",
-    serif;
-
+  margin: 0 0 30px;
+  font-family: "Cormorant Garamond", serif;
   font-size: 13px;
   letter-spacing: 0.38em;
   font-weight: 400;
+  color: #777;
 }
 
 
-/* unofficial fan site */
+/* =========================
+   About title
+========================= */
 
 .about h2 {
   margin: 0;
-
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    "Times New Roman",
-    serif;
-
+  font-family: "Cormorant Garamond", serif;
   font-size: clamp(40px, 5vw, 64px);
   line-height: 1.1;
-
   font-weight: 400;
   letter-spacing: 0.01em;
-
-  text-transform: lowercase;
 }
 
 
-/* About description */
+/* =========================
+   About text
+========================= */
 
-.about > p:not(.about-label):not(.site-name) {
-  margin: 48px 0 0;
-
-  font-size: 14px;
-  line-height: 2.2;
+.about > p:not(.about-label):not(.site-name):not(.unofficial) {
+  max-width: 520px;
+  margin: 42px auto 0;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 12.5px;
+  line-height: 2.25;
   letter-spacing: 0.04em;
 }
 
 
-/* by APORIA FANCAFE */
+/* =========================
+   Site name
+========================= */
 
 .site-name {
-  margin: 72px 0 0;
+  margin: 46px 0 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  letter-spacing: 0.24em;
+  font-weight: 400;
+  color: #999;
+}
 
-  font-family:
-    "Cormorant Garamond",
-    Georgia,
-    "Times New Roman",
-    serif;
 
-  font-size: 12px;
-  letter-spacing: 0.35em;
+/* =========================
+   Unofficial
+========================= */
 
-  color: #aaa9a5;
+.unofficial {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  font-weight: 400;
+  color: #999;
 }
 
 
@@ -218,7 +169,7 @@ body {
   .eyebrow {
     font-size: 12px;
     letter-spacing: 0.3em;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
 
   .hero h1 {
@@ -227,7 +178,7 @@ body {
   }
 
   .description {
-    margin-top: 28px;
+    margin-top: 30px;
     font-size: 13px;
   }
 
@@ -241,20 +192,28 @@ body {
 
   .about-label {
     font-size: 11px;
-    margin-bottom: 28px;
+    margin-bottom: 26px;
   }
 
   .about h2 {
     font-size: clamp(32px, 9vw, 48px);
   }
 
-  .about > p:not(.about-label):not(.site-name) {
+  .about > p:not(.about-label):not(.site-name):not(.unofficial) {
+    max-width: 440px;
     font-size: 13px;
     line-height: 2;
-    margin-top: 40px;
+    margin-top: 36px;
   }
 
   .site-name {
-    margin-top: 56px;
+    font-size: 11px;
+    margin-top: 38px;
+    letter-spacing: 0.22em;
+  }
+
+  .unofficial {
+    font-size: 11px;
+    letter-spacing: 0.24em;
   }
 }
