@@ -16,13 +16,10 @@ body {
   color: #1f1f1f;
 
   font-family:
-    "Helvetica Neue",
-    "Hiragino Kaku Gothic ProN",
-    "Yu Gothic",
-    YuGothic,
-    sans-serif;
-
-  font-weight: 400;
+    "Times New Roman",
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
 }
 
 
@@ -41,17 +38,19 @@ body {
   text-align: center;
 
   padding: 80px 24px;
+
+  position: relative;
 }
 
 
 /* CHARACTER DATABASE */
 
 .eyebrow {
-  margin: 0 0 24px;
+  margin: 0 0 22px;
 
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 16px;
-  letter-spacing: 0.38em;
+  font-size: 15px;
+  letter-spacing: 0.42em;
+
   font-weight: 400;
 }
 
@@ -61,34 +60,64 @@ body {
 .hero h1 {
   margin: 0;
 
-  font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(64px, 8vw, 112px);
   line-height: 0.95;
-  letter-spacing: 0.02em;
+
   font-weight: 400;
+  letter-spacing: 0.025em;
+
+  white-space: nowrap;
 }
 
 
-/* description */
+/* Description */
 
 .description {
-  margin: 36px 0 0;
+  margin: 38px 0 0;
 
-  font-size: 15px;
-  letter-spacing: 0.04em;
+  font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
+
+  font-size: 14px;
+  letter-spacing: 0.05em;
 }
 
 
-/* SCROLL */
+/* =========================
+   Scroll
+========================= */
 
 .scroll {
-  margin: 72px 0 0;
+  margin: 54px 0 0;
 
-  font-family: Georgia, "Times New Roman", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-family:
+    "Times New Roman",
+    serif;
+
   font-size: 11px;
   letter-spacing: 0.42em;
 
-  color: #9a9a9a;
+  color: #8d8d8d;
+}
+
+
+/* ↓ */
+
+.arrow {
+  display: block;
+
+  margin-top: 10px;
+
+  font-size: 16px;
+  letter-spacing: 0;
+
+  color: #a2a2a2;
 }
 
 
@@ -107,21 +136,20 @@ body {
   text-align: center;
 
   padding: 80px 24px;
-  box-sizing: border-box;
 
-  border-top: 1px solid #dededb;
+  border-top: 1px solid #e4e4e1;
 }
 
 
 /* ABOUT THIS SITE */
 
 .about-label {
-  margin: 0 0 32px;
+  margin: 0 0 34px;
 
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 13px;
-  letter-spacing: 0.38em;
-  font-weight: 400;
+  letter-spacing: 0.42em;
+
+  color: #777;
 }
 
 
@@ -130,48 +158,51 @@ body {
 .about h2 {
   margin: 0;
 
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(40px, 5vw, 64px);
-  line-height: 1.1;
+  font-size: clamp(42px, 5vw, 62px);
+  line-height: 1;
+
   font-weight: 400;
   letter-spacing: 0.01em;
 }
 
 
-/* 非公式表記 */
+/* 非公式説明 */
 
-.about > p:not(.about-label):not(.site-name):not(.unofficial) {
-  margin: 48px 0 0;
+.about-text {
+  margin: 46px 0 0;
+
+  font-family:
+    "Yu Mincho",
+    "Hiragino Mincho ProN",
+    serif;
 
   font-size: 14px;
   line-height: 2.2;
+
   letter-spacing: 0.04em;
 }
 
 
-/* APORIA FANCAFE */
+/* =========================
+   Site name
+========================= */
 
-.site-name {
-  margin: 72px 0 8px;
+.site-credit {
+  margin-top: 150px;
 
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 12px;
-  letter-spacing: 0.35em;
+  font-family:
+    "Times New Roman",
+    serif;
 
-  color: #aaa9a5;
+  font-size: 11px;
+
+  letter-spacing: 0.38em;
+
+  line-height: 2;
 }
 
-
-/* UNOFFICIAL FAN SITE */
-
-.unofficial {
+.site-credit p {
   margin: 0;
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 11px;
-  letter-spacing: 0.32em;
-
-  color: #aaa9a5;
 }
 
 
@@ -186,14 +217,14 @@ body {
   }
 
   .eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.3em;
+    font-size: 11px;
+    letter-spacing: 0.32em;
     margin-bottom: 20px;
   }
 
   .hero h1 {
-    font-size: clamp(42px, 12vw, 72px);
-    letter-spacing: 0;
+    font-size: clamp(42px, 11vw, 72px);
+    white-space: normal;
   }
 
   .description {
@@ -202,11 +233,11 @@ body {
   }
 
   .scroll {
-    margin-top: 64px;
+    margin-top: 48px;
   }
 
   .about {
-    padding: 60px 20px;
+    padding: 70px 20px;
   }
 
   .about-label {
@@ -215,13 +246,17 @@ body {
   }
 
   .about h2 {
-    font-size: clamp(32px, 9vw, 48px);
+    font-size: 38px;
   }
 
-  .about > p:not(.about-label):not(.site-name):not(.unofficial) {
+  .about-text {
+    margin-top: 38px;
     font-size: 13px;
-    line-height: 2;
-    margin-top: 40px;
+  }
+
+  .site-credit {
+    margin-top: 110px;
+    font-size: 10px;
   }
 
 }
