@@ -44,7 +44,7 @@ body {
 /* BREAK MY CASE ARCHIVE */
 
 .eyebrow {
-  margin: 0 0 24px;
+  margin: 0 0 42px;
 
   font-family:
     "Cormorant Garamond",
@@ -76,7 +76,7 @@ body {
 /* Japanese description */
 
 .description {
-  margin: 36px 0 0;
+  margin: 48px 0 0;
 
   font-family:
     "Noto Sans JP",
@@ -90,7 +90,7 @@ body {
 /* SCROLL */
 
 .scroll {
-  margin: 72px 0 0;
+  margin: 110px 0 0;
 
   font-family:
     "Cormorant Garamond",
@@ -154,7 +154,7 @@ body {
 }
 
 
-/* A personal fan database */
+/* UNOFFICIAL FAN SITE */
 
 .about h2 {
   margin: 0;
@@ -232,7 +232,7 @@ body {
   .eyebrow {
     font-size: 12px;
     letter-spacing: 0.3em;
-    margin-bottom: 20px;
+    margin-bottom: 28px;
   }
 
   .hero h1 {
@@ -241,12 +241,12 @@ body {
   }
 
   .description {
-    margin-top: 28px;
+    margin-top: 34px;
     font-size: 13px;
   }
 
   .scroll {
-    margin-top: 64px;
+    margin-top: 80px;
   }
 
   .about {
