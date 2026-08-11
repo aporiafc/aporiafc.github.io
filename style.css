@@ -442,3 +442,26 @@ body {
 .character-page > .page-description {
   text-align: center;
 }
+
+.character-list a {
+  display: block;
+  color: #222;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.character-list a span {
+  display: block;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+}
+
+.character-list a small {
+  display: block;
+  margin-top: 6px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  color: #777;
+}
