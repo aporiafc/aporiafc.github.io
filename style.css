@@ -456,6 +456,7 @@ body {
 
 .character-list a:hover::after {
   transform: scaleX(1);
+  background: var(--character-color, #888);
 }
 
 .character-page > .page-label,
