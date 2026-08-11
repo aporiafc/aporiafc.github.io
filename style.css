@@ -16,10 +16,13 @@ body {
   color: #1f1f1f;
 
   font-family:
-    "Times New Roman",
-    "Yu Mincho",
-    "Hiragino Mincho ProN",
-    serif;
+    "Helvetica Neue",
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    YuGothic,
+    sans-serif;
+
+  font-weight: 400;
 }
 
 
@@ -38,19 +41,21 @@ body {
   text-align: center;
 
   padding: 80px 24px;
-
-  position: relative;
 }
 
 
 /* CHARACTER DATABASE */
 
 .eyebrow {
-  margin: 0 0 22px;
+  margin: 0 0 24px;
 
-  font-size: 15px;
-  letter-spacing: 0.42em;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
+  font-size: 16px;
+  letter-spacing: 0.38em;
   font-weight: 400;
 }
 
@@ -60,64 +65,60 @@ body {
 .hero h1 {
   margin: 0;
 
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
   font-size: clamp(64px, 8vw, 112px);
   line-height: 0.95;
 
+  letter-spacing: 0.02em;
   font-weight: 400;
-  letter-spacing: 0.025em;
-
-  white-space: nowrap;
 }
 
 
 /* Description */
 
 .description {
-  margin: 38px 0 0;
+  margin: 36px 0 0;
 
-  font-family:
-    "Yu Mincho",
-    "Hiragino Mincho ProN",
-    serif;
-
-  font-size: 14px;
-  letter-spacing: 0.05em;
+  font-size: 15px;
+  letter-spacing: 0.04em;
 }
 
 
-/* =========================
-   Scroll
-========================= */
+/* SCROLL */
 
 .scroll {
-  margin: 54px 0 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 72px 0 0;
 
   font-family:
+    Georgia,
     "Times New Roman",
     serif;
 
   font-size: 11px;
   letter-spacing: 0.42em;
 
-  color: #8d8d8d;
+  color: #9a9a9a;
 }
 
 
 /* ↓ */
 
-.arrow {
+.scroll span {
   display: block;
 
   margin-top: 10px;
 
-  font-size: 16px;
-  letter-spacing: 0;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
-  color: #a2a2a2;
+  font-size: 15px;
+  letter-spacing: 0;
 }
 
 
@@ -137,19 +138,25 @@ body {
 
   padding: 80px 24px;
 
-  border-top: 1px solid #e4e4e1;
+  box-sizing: border-box;
+
+  border-top: 1px solid #dedede;
 }
 
 
 /* ABOUT THIS SITE */
 
 .about-label {
-  margin: 0 0 34px;
+  margin: 0 0 32px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 
   font-size: 13px;
-  letter-spacing: 0.42em;
-
-  color: #777;
+  letter-spacing: 0.38em;
+  font-weight: 400;
 }
 
 
@@ -158,51 +165,61 @@ body {
 .about h2 {
   margin: 0;
 
-  font-size: clamp(42px, 5vw, 62px);
-  line-height: 1;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.1;
 
   font-weight: 400;
   letter-spacing: 0.01em;
 }
 
 
-/* 非公式説明 */
+/* 非公式表記 */
 
 .about-text {
-  margin: 46px 0 0;
-
-  font-family:
-    "Yu Mincho",
-    "Hiragino Mincho ProN",
-    serif;
+  margin: 48px 0 0;
 
   font-size: 14px;
   line-height: 2.2;
-
   letter-spacing: 0.04em;
 }
 
 
-/* =========================
-   Site name
-========================= */
+/* APORIA FANCAFE */
 
-.site-credit {
-  margin-top: 150px;
+.site-name {
+  margin: 48px 0 8px;
 
   font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 12px;
+  letter-spacing: 0.35em;
+
+  color: #aaa9a5;
+}
+
+
+/* UNOFFICIAL FAN SITE */
+
+.unofficial {
+  margin: 0;
+
+  font-family:
+    Georgia,
     "Times New Roman",
     serif;
 
   font-size: 11px;
+  letter-spacing: 0.32em;
 
-  letter-spacing: 0.38em;
-
-  line-height: 2;
-}
-
-.site-credit p {
-  margin: 0;
+  color: #aaa9a5;
 }
 
 
@@ -217,14 +234,14 @@ body {
   }
 
   .eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.32em;
+    font-size: 12px;
+    letter-spacing: 0.3em;
     margin-bottom: 20px;
   }
 
   .hero h1 {
-    font-size: clamp(42px, 11vw, 72px);
-    white-space: normal;
+    font-size: clamp(42px, 12vw, 72px);
+    letter-spacing: 0;
   }
 
   .description {
@@ -233,11 +250,11 @@ body {
   }
 
   .scroll {
-    margin-top: 48px;
+    margin-top: 64px;
   }
 
   .about {
-    padding: 70px 20px;
+    padding: 60px 20px;
   }
 
   .about-label {
@@ -246,17 +263,13 @@ body {
   }
 
   .about h2 {
-    font-size: 38px;
+    font-size: clamp(32px, 9vw, 48px);
   }
 
   .about-text {
-    margin-top: 38px;
     font-size: 13px;
-  }
-
-  .site-credit {
-    margin-top: 110px;
-    font-size: 10px;
+    line-height: 2;
+    margin-top: 40px;
   }
 
 }
