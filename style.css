@@ -340,16 +340,17 @@ body {
 }
 
 .world-links a > span:first-child {
-  display: inline-block;
-  padding-bottom: 6px;
-  border-bottom: 1px solid transparent;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 22px;
-  letter-spacing: 0.18em;
+    display: inline-block;
+    padding-bottom: 6px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.35s ease;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    letter-spacing: 0.18em;
 }
 
 .world-links a:hover > span:first-child {
-  border-bottom-color: #222;
+    border-bottom-color: #222;
 }
 
 .world-links small {
