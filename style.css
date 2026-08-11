@@ -448,7 +448,8 @@ body {
   transition: transform 0.35s ease;
 }
 
-.character-list a:hover {
+.character-list a:hover,
+.character-list a:hover small {
   color: var(--character-color);
 }
 
