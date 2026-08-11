@@ -1,227 +1,50 @@
-/* =========================
-   Base
-========================= */
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
 
-* {
-  box-sizing: border-box;
-}
+  <title>Aporia fancafe | Break My Case</title>
 
-html {
-  scroll-behavior: smooth;
-}
+  <link rel="stylesheet" href="style.css">
+</head>
 
-body {
-  margin: 0;
-  background: #f7f7f5;
-  color: #1f1f1f;
+<body>
 
-  font-family:
-    "Helvetica Neue",
-    "Hiragino Kaku Gothic ProN",
-    "Yu Gothic",
-    YuGothic,
-    sans-serif;
+  <main class="hero">
 
-  font-weight: 400;
-}
+    <p class="eyebrow">CHARACTER DATABASE</p>
 
+    <h1>BREAK MY CASE</h1>
 
-/* =========================
-   Hero
-========================= */
+    <p class="description">
+      ブレイクマイケースに関する情報をまとめています。
+    </p>
 
-.hero {
-  min-height: 100vh;
+    <p class="scroll">
+      SCROLL
+      <span class="arrow">↓</span>
+    </p>
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  </main>
 
-  text-align: center;
 
-  padding: 80px 24px;
-}
+  <section class="about">
 
+    <p class="about-label">ABOUT THIS SITE</p>
 
-/* CHARACTER DATABASE */
+    <h2>A personal fan database</h2>
 
-.eyebrow {
-  margin: 0 0 24px;
+    <p class="about-text">
+      個人が運営する非公式ファンサイトです。<br>
+      本サイトは株式会社colyおよび『ブレイクマイケース』公式とは一切関係ありません。
+    </p>
 
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 16px;
-  letter-spacing: 0.38em;
-  font-weight: 400;
-}
+    <div class="site-credit">
+      <p>APORIA FANCAFE</p>
+      <p>UNOFFICIAL FAN SITE</p>
+    </div>
 
+  </section>
 
-/* BREAK MY CASE */
-
-.hero h1 {
-  margin: 0;
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(64px, 8vw, 112px);
-  line-height: 0.95;
-  letter-spacing: 0.02em;
-  font-weight: 400;
-}
-
-
-/* description */
-
-.description {
-  margin: 36px 0 0;
-
-  font-size: 15px;
-  letter-spacing: 0.04em;
-}
-
-
-/* SCROLL */
-
-.scroll {
-  margin: 72px 0 0;
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 11px;
-  letter-spacing: 0.42em;
-
-  color: #9a9a9a;
-}
-
-
-/* =========================
-   About
-========================= */
-
-.about {
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  padding: 80px 24px;
-  box-sizing: border-box;
-
-  border-top: 1px solid #dededb;
-}
-
-
-/* ABOUT THIS SITE */
-
-.about-label {
-  margin: 0 0 32px;
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 13px;
-  letter-spacing: 0.38em;
-  font-weight: 400;
-}
-
-
-/* A personal fan database */
-
-.about h2 {
-  margin: 0;
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(40px, 5vw, 64px);
-  line-height: 1.1;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-}
-
-
-/* 非公式表記 */
-
-.about > p:not(.about-label):not(.site-name):not(.unofficial) {
-  margin: 48px 0 0;
-
-  font-size: 14px;
-  line-height: 2.2;
-  letter-spacing: 0.04em;
-}
-
-
-/* APORIA FANCAFE */
-
-.site-name {
-  margin: 72px 0 8px;
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 12px;
-  letter-spacing: 0.35em;
-
-  color: #aaa9a5;
-}
-
-
-/* UNOFFICIAL FAN SITE */
-
-.unofficial {
-  margin: 0;
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 11px;
-  letter-spacing: 0.32em;
-
-  color: #aaa9a5;
-}
-
-
-/* =========================
-   Mobile
-========================= */
-
-@media (max-width: 700px) {
-
-  .hero {
-    padding: 60px 20px;
-  }
-
-  .eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.3em;
-    margin-bottom: 20px;
-  }
-
-  .hero h1 {
-    font-size: clamp(42px, 12vw, 72px);
-    letter-spacing: 0;
-  }
-
-  .description {
-    margin-top: 28px;
-    font-size: 13px;
-  }
-
-  .scroll {
-    margin-top: 64px;
-  }
-
-  .about {
-    padding: 60px 20px;
-  }
-
-  .about-label {
-    font-size: 11px;
-    margin-bottom: 28px;
-  }
-
-  .about h2 {
-    font-size: clamp(32px, 9vw, 48px);
-  }
-
-  .about > p:not(.about-label):not(.site-name):not(.unofficial) {
-    font-size: 13px;
-    line-height: 2;
-    margin-top: 40px;
-  }
-
-}
+</body>
+</html>
