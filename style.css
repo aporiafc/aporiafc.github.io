@@ -16,10 +16,7 @@ body {
   color: #1f1f1f;
 
   font-family:
-    "Helvetica Neue",
-    "Hiragino Kaku Gothic ProN",
-    "Yu Gothic",
-    YuGothic,
+    "Noto Sans JP",
     sans-serif;
 
   font-weight: 400;
@@ -44,14 +41,13 @@ body {
 }
 
 
-/* CHARACTER DATABASE */
+/* BREAK MY CASE ARCHIVE */
 
 .eyebrow {
   margin: 0 0 24px;
 
   font-family:
-    Georgia,
-    "Times New Roman",
+    "Cormorant Garamond",
     serif;
 
   font-size: 16px;
@@ -66,8 +62,7 @@ body {
   margin: 0;
 
   font-family:
-    Georgia,
-    "Times New Roman",
+    "Cormorant Garamond",
     serif;
 
   font-size: clamp(64px, 8vw, 112px);
@@ -78,10 +73,14 @@ body {
 }
 
 
-/* Description */
+/* Japanese description */
 
 .description {
   margin: 36px 0 0;
+
+  font-family:
+    "Noto Sans JP",
+    sans-serif;
 
   font-size: 15px;
   letter-spacing: 0.04em;
@@ -94,30 +93,26 @@ body {
   margin: 72px 0 0;
 
   font-family:
-    Georgia,
-    "Times New Roman",
+    "Cormorant Garamond",
     serif;
 
   font-size: 11px;
   letter-spacing: 0.42em;
 
   color: #9a9a9a;
+
+  line-height: 1.8;
 }
 
-
-/* ↓ */
-
 .scroll span {
-  display: block;
-
-  margin-top: 10px;
+  display: inline-block;
 
   font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+    "Noto Sans JP",
+    sans-serif;
 
-  font-size: 15px;
+  font-size: 13px;
+
   letter-spacing: 0;
 }
 
@@ -138,9 +133,7 @@ body {
 
   padding: 80px 24px;
 
-  box-sizing: border-box;
-
-  border-top: 1px solid #dedede;
+  border-top: 1px solid #dededb;
 }
 
 
@@ -150,13 +143,14 @@ body {
   margin: 0 0 32px;
 
   font-family:
-    Georgia,
-    "Times New Roman",
+    "Cormorant Garamond",
     serif;
 
   font-size: 13px;
   letter-spacing: 0.38em;
   font-weight: 400;
+
+  color: #666;
 }
 
 
@@ -166,60 +160,62 @@ body {
   margin: 0;
 
   font-family:
-    Georgia,
-    "Times New Roman",
+    "Cormorant Garamond",
     serif;
 
   font-size: clamp(40px, 5vw, 64px);
+
   line-height: 1.1;
 
   font-weight: 400;
+
   letter-spacing: 0.01em;
 }
 
 
-/* 非公式表記 */
+/* About text */
 
 .about-text {
   margin: 48px 0 0;
 
+  font-family:
+    "Noto Sans JP",
+    sans-serif;
+
   font-size: 14px;
+
   line-height: 2.2;
+
   letter-spacing: 0.04em;
 }
 
 
-/* APORIA FANCAFE */
+/* =========================
+   Site Credit
+========================= */
 
-.site-name {
-  margin: 48px 0 8px;
+.site-credit {
+  margin-top: 52px;
 
-  font-family:
-    Georgia,
-    "Times New Roman",
-    serif;
+  text-align: center;
 
-  font-size: 12px;
-  letter-spacing: 0.35em;
-
-  color: #aaa9a5;
+  color: #aaa;
 }
 
-
-/* UNOFFICIAL FAN SITE */
-
-.unofficial {
+.site-credit p {
   margin: 0;
 
   font-family:
-    Georgia,
-    "Times New Roman",
+    "Cormorant Garamond",
     serif;
 
   font-size: 11px;
+
   letter-spacing: 0.32em;
 
-  color: #aaa9a5;
+  line-height: 1.7;
+
+  font-weight: 400;
 }
 
 
@@ -270,6 +266,15 @@ body {
     font-size: 13px;
     line-height: 2;
     margin-top: 40px;
+  }
+
+  .site-credit {
+    margin-top: 44px;
+  }
+
+  .site-credit p {
+    font-size: 10px;
+    letter-spacing: 0.28em;
   }
 
 }
