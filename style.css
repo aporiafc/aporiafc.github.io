@@ -725,6 +725,10 @@ body {
   border-top: 1px solid #e5e5e5;
 }
 
+/* 無言の圧：3列ぶんを使う */
+.spin-card-wide {
+  grid-column: 1 / -1;
+}
 
 /* =========================
    SPIN レスポンシブ
