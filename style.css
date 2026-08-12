@@ -759,6 +759,11 @@ body {
   .spin-card {
     padding: 24px 22px;
   }
+
+   .spin-pressure-columns {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 .spin-subtitle {
   margin: 0 0 10px !important;
