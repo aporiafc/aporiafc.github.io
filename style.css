@@ -657,82 +657,34 @@ body {
 }
 
 /* =========================
-   SPIN
+   SPIN カード一覧
 ========================= */
 
-.spin-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
+.spin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .spin-card {
-    width: 100%;
-    margin: 0;
-    padding: 28px 30px;
-    box-sizing: border-box;
-    border: 1px solid #e5e5e5;
-    border-left: 3px solid #3F60BE;
-    background: #fff;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.spin-card-header {
-    padding-bottom: 18px;
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.spin-card-header h3 {
-    margin: 0 0 8px;
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-}
-
-.spin-members {
-    margin: 0 0 6px;
-    font-size: 14px;
-}
-
-.spin-location {
-    margin: 0;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    color: #888;
-}
-
-.spin-card-body {
-    padding-top: 20px;
-}
-
-.spin-card-body p {
-    margin: 0 0 14px;
-    font-size: 13px;
-    line-height: 1.8;
-    color: #555;
-}
-
-.spin-card-body p:last-child {
-    margin-bottom: 0;
-}
-
-
-/* =========================
-   SPIN RESPONSIVE
-========================= */
-
-/* PCの大きな画面では3列 */
+/* 大きめの画面では3列 */
 @media (min-width: 1200px) {
-    .spin-list {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
+  .spin-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 /* スマホでは1列 */
 @media (max-width: 700px) {
-    .spin-list {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
+  .spin-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
