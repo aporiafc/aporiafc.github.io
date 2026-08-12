@@ -767,3 +767,16 @@ body {
   color: #444 !important;
   letter-spacing: 0.05em;
 }
+/* =========================
+   無言の圧：本文を2列にする
+========================= */
+
+.spin-pressure-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.spin-pressure-column {
+  min-width: 0;
+}
