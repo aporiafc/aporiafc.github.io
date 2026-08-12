@@ -613,3 +613,22 @@ body {
   font-size: 15px;
   line-height: 1.8;
 }
+
+.personal-data {
+  border-top: 1px solid #ddd;
+}
+
+.data-row {
+  display: flex;
+  padding: 16px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.data-label {
+  width: 140px;
+  color: #888;
+}
+
+.data-value {
+  color: #222;
+}
