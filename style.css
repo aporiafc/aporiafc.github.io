@@ -661,9 +661,10 @@ body {
 ========================= */
 
 .spin-card {
-  max-width: 700px;
-  margin: 0 auto 40px;
+  max-width: none;
+  margin: 0;
   padding: 28px 30px;
+  box-sizing: border-box;
   border: 1px solid #e5e5e5;
   border-left: 3px solid #3F60BE;
   background: #fff;
