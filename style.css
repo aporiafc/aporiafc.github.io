@@ -585,3 +585,31 @@ body {
   height: 100%;
   border: none;
 }
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.profile-item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 30px;
+  padding: 18px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.profile-label {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: #888;
+}
+
+.profile-value {
+  font-size: 15px;
+  line-height: 1.8;
+}
