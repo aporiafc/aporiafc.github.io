@@ -860,11 +860,6 @@ body {
 /* タブレット */
 @media (max-width: 1000px) {
 
-  .relationship-item {
-    grid-template-columns: 120px minmax(0, 1fr);
-    gap: 22px;
-  }
-
   .calling-row {
     grid-template-columns: 1.2fr 1fr 1fr;
   }
