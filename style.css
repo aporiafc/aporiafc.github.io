@@ -641,3 +641,8 @@ body {
   font-size: 15px;
   color: #222;
 }
+.background-value {
+  font-size: 15px;
+  line-height: 2;
+  color: #222;
+}
