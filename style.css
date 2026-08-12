@@ -672,7 +672,7 @@ body {
 .spin-card {
   box-sizing: border-box;
   width: 100%;
-  padding: 28px 30px;
+  padding: 24px 22px;
   border: 1px solid #e5e5e5;
   border-left: 3px solid #3F60BE;
   background: #fff;
