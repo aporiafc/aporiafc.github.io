@@ -698,9 +698,10 @@ body {
 }
 
 .spin-card-body p {
-  margin: 0 0 16px;
-  font-size: 14px;
-  line-height: 1.9;
+  margin: 0 0 14px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #555;
 }
 
 .spin-card-body p:last-child {
