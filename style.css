@@ -755,3 +755,10 @@ body {
     padding: 24px 22px;
   }
 }
+.spin-subtitle {
+  margin: 0 0 10px !important;
+  font-size: 12px !important;
+  font-weight: 500;
+  color: #444 !important;
+  letter-spacing: 0.05em;
+}
