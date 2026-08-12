@@ -660,7 +660,16 @@ body {
    SPIN
 ========================= */
 
+.spin-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .spin-card {
+  width: 100%;
   max-width: none;
   margin: 0;
   padding: 28px 30px;
@@ -709,57 +718,16 @@ body {
   margin-bottom: 0;
 }
 
+
 /* =========================
-   SPIN LIST
+   SPIN スマホ表示
 ========================= */
 
-.spin-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-/* カード */
-.spin-card {
-  max-width: none;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-/* 大きめの画面では3列 */
-@media (min-width: 1200px) {
-  .spin-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* スマホ */
 @media (max-width: 700px) {
+
   .spin-list {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-}
-/* =========================
-   SPIN カード一覧
-========================= */
 
-.spin-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.spin-card {
-  max-width: none;
-  margin: 0;
-}
-
-/* スマホでは1列 */
-@media (max-width: 700px) {
-  .spin-list {
-    grid-template-columns: 1fr;
-  }
 }
