@@ -646,3 +646,12 @@ body {
   line-height: 2;
   color: #222;
 }
+
+.color-code {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: #3F60BE;
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+}
