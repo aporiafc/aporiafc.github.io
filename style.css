@@ -587,7 +587,7 @@ body {
 }
 
 /* =========================
-   PROFILE
+   PROFILE / RELATIONSHIP
 ========================= */
 
 .profile-list {
@@ -597,7 +597,7 @@ body {
 
 .profile-item {
   display: grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 160px minmax(0, 1fr);
   gap: 30px;
   padding: 18px 0;
   border-bottom: 1px solid #e5e5e5;
@@ -607,6 +607,7 @@ body {
   font-size: 12px;
   letter-spacing: 0.12em;
   color: #888;
+  line-height: 1.8;
 }
 
 .profile-value {
@@ -785,11 +786,11 @@ body {
 .spin-pressure-column {
   min-width: 0;
 }
+
 /* =========================
    RELATIONSHIP
 ========================= */
 
-/* 関係性本文 */
 .relationship-section {
   margin-top: 70px;
 }
@@ -797,43 +798,6 @@ body {
 .relationship-section h2 {
   margin: 0 0 32px;
 }
-
-/* 関係性：PROFILE型 */
-.relationship-list {
-  margin: 0 auto;
-  max-width: 1000px;
-}
-
-.relationship-item {
-  display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
-  gap: 28px;
-  padding: 18px 0;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.relationship-item:first-child {
-  padding-top: 0;
-}
-
-.relationship-item:last-child {
-  border-bottom: 0;
-}
-
-.relationship-item h3 {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.8;
-}
-
-.relationship-item p {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.9;
-  color: #555;
-}
-
 
 /* =========================
    呼び方
