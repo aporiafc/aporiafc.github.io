@@ -879,20 +879,25 @@ body {
     margin-top: 55px;
   }
 
-  .relationship-item {
-    grid-template-columns: 1fr;
-    gap: 5px;
-    padding: 16px 0;
-  }
+.profile-list {
+  width: 100%;
+  max-width: none;
+}
 
-  .relationship-item h3 {
-    font-size: 12px;
-  }
+.profile-item {
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 18px;
+  padding: 15px 0;
+}
 
-  .relationship-item p {
-    font-size: 12px;
-    line-height: 1.8;
-  }
+.profile-label {
+  font-size: 11px;
+}
+
+.profile-value {
+  font-size: 14px;
+  line-height: 1.8;
+}
 
   .relationship-calling {
     margin-top: 45px;
