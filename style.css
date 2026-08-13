@@ -616,6 +616,15 @@ body {
 }
 
 /* =========================
+SPECIAL VOICE
+========================= */
+
+.special-voice-section .profile-value {
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* =========================
    SUB SECTION TITLE
 ========================= */
 
