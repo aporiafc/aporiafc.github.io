@@ -1097,3 +1097,93 @@ line-height: 1.8;
   }
 
 }
+
+/* =========================
+   CARD
+========================= */
+
+.cards-section {
+  margin-top: 70px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 36px 28px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* カード1枚 */
+.card-item {
+  min-width: 0;
+}
+
+/* レアリティ */
+.card-rarity {
+  margin-bottom: 6px;
+  font-size: 10px;
+  color: #888;
+  letter-spacing: 0.12em;
+}
+
+/* カード名・画像のリンク */
+.card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* カード名 */
+.card-link h3 {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* 画像 */
+.card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f3f3;
+  overflow: hidden;
+}
+
+.card-image span {
+  font-size: 10px;
+  color: #aaa;
+  letter-spacing: 0.12em;
+}
+
+/* ホバー */
+.card-link:hover .card-image {
+  opacity: 0.8;
+}
+
+.card-link:hover h3 {
+  opacity: 0.7;
+}
+
+
+/* =========================
+   CARD レスポンシブ
+========================= */
+
+/* タブレット */
+@media (min-width: 701px) and (max-width: 1199px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* スマホ */
+@media (max-width: 700px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 18px;
+  }
+}
