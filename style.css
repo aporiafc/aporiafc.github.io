@@ -835,6 +835,11 @@ line-height: 1.8;
   color: #555 !important;
   letter-spacing: 0.05em;
 }
+
+.spin-subtitle-group {
+  margin-top: 28px !important;
+}
+
 /* =========================
    無言の圧：本文を2列にする
 ========================= */
