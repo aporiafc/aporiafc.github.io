@@ -1011,3 +1011,89 @@ line-height: 1.8;
   }
 
 }
+
+/* =========================
+   PERSONAL SONG
+========================= */
+
+.personal-song-section {
+  margin-top: 70px;
+}
+
+.personal-song-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.personal-song-card {
+  min-width: 0;
+}
+
+.personal-song-card h3 {
+  margin: 0 0 20px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.personal-song-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.personal-song-video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.personal-song-info {
+  margin-top: 22px;
+}
+
+.personal-song-row {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr);
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.personal-song-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #888;
+}
+
+.personal-song-value {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #555;
+}
+
+
+/* =========================
+   PERSONAL SONG レスポンシブ
+========================= */
+
+@media (max-width: 700px) {
+
+  .personal-song-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .personal-song-card h3 {
+    font-size: 15px;
+  }
+
+  .personal-song-row {
+    grid-template-columns: 55px minmax(0, 1fr);
+    gap: 15px;
+  }
+
+}
