@@ -876,6 +876,18 @@ line-height: 1.8;
   margin: 0 0 32px;
 }
 
+.relationship-subtitle {
+  margin: 0;
+}
+
+.relationship-subtitle h3,
+.relationship-calling h3 {
+  margin: 0 0 22px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
 /* =========================
    呼び方
 ========================= */
