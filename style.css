@@ -626,6 +626,87 @@ SPECIAL VOICE
 }
 
 /* =========================
+BIRTHDAY PAGE
+========================= */
+
+.birthday-page .profile-list {
+max-width: 700px;
+margin: 0 auto;
+}
+
+.birthday-page .profile-item {
+display: grid;
+grid-template-columns: 160px minmax(0, 1fr);
+gap: 30px;
+padding: 18px 0;
+border-bottom: 1px solid #e5e5e5;
+}
+
+.birthday-page .profile-label {
+font-size: 12px;
+letter-spacing: 0.12em;
+color: #888;
+line-height: 1.8;
+}
+
+.birthday-page .profile-value {
+font-size: 12px;
+line-height: 1.8;
+color: #555;
+}
+
+/* 年ごとの見出し */
+
+.birthday-year {
+margin: 55px 0 0;
+padding-bottom: 14px;
+border-bottom: 1px solid #ddd;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 15px;
+font-weight: 400;
+letter-spacing: 0.18em;
+color: #777;
+}
+
+.birthday-year:first-child {
+margin-top: 0;
+}
+
+/* =========================
+BIRTHDAY PAGE レスポンシブ
+========================= */
+
+@media (max-width: 700px) {
+
+.birthday-page .profile-list {
+width: 100%;
+max-width: none;
+}
+
+.birthday-page .profile-item {
+grid-template-columns: 100px minmax(0, 1fr);
+gap: 18px;
+padding: 15px 0;
+}
+
+.birthday-page .profile-label {
+font-size: 11px;
+}
+
+.birthday-page .profile-value {
+font-size: 12px;
+line-height: 1.8;
+}
+
+.birthday-year {
+margin-top: 45px;
+padding-bottom: 12px;
+font-size: 13px;
+}
+
+}
+/* =========================
    SUB SECTION TITLE
 ========================= */
 
