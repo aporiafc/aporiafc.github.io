@@ -616,6 +616,16 @@ body {
   line-height: 1.8;
 }
 
+.relationship-subtitle {
+  margin-top: 34px;
+}
+
+.relationship-subtitle h3 {
+  margin: 0 0 18px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
 /* =========================
 SPECIAL VOICE
 ========================= */
