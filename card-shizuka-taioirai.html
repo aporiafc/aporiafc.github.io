@@ -3,250 +3,496 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>対応依頼 | CARD</title>
+
+  <title>対応依頼 | 節見静 | Break My Case</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =========================
+       CARD DETAIL
+    ========================= */
+
+    .card-detail {
+      padding-top: 120px;
+      padding-bottom: 120px;
+    }
+
+    /* 最上部の CARD */
+    .card-detail-header {
+      text-align: center;
+      margin-bottom: 90px;
+    }
+
+    .card-detail-header .eyebrow {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 14px;
+      letter-spacing: 0.35em;
+      color: #8f8790;
+    }
+
+    /* カード情報 */
+    .card-heading {
+      margin-bottom: 28px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #dedede;
+    }
+
+    .card-heading-inner {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .card-heading .rarity {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      color: #8f8790;
+    }
+
+    .card-heading .character {
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    .card-heading .title {
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+    }
+
+    /* カード画像 */
+    .card-detail-image {
+      width: 180px;
+      height: 180px;
+      background: #f5f5f5;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 100px;
+    }
+
+    .card-detail-image span {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 15px;
+      letter-spacing: 0.2em;
+      color: #111;
+    }
+
+    /* セクション */
+    .card-section {
+      margin-bottom: 100px;
+    }
+
+    .card-section-title {
+      margin: 0 0 28px;
+      padding-bottom: 12px;
+
+      border-bottom: 1px solid #dedede;
+
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+    }
+
+    /* 情報テーブル */
+    .card-info {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .card-info-row {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+
+      padding: 18px 0;
+      border-bottom: 1px solid #e5e5e5;
+
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .card-info-label {
+      color: #999;
+    }
+
+    .card-info-value {
+      color: #111;
+    }
+
+    /* SKILL */
+    .skill-block {
+      margin-top: 15px;
+    }
+
+    .skill-name {
+      margin-bottom: 10px;
+
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .skill-row {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+
+      padding: 13px 0;
+      border-bottom: 1px solid #e5e5e5;
+
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .skill-level {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 12px;
+      color: #999;
+      letter-spacing: 0.08em;
+    }
+
+    /* EVENT */
+    .event-video {
+      width: 560px;
+      max-width: 100%;
+      aspect-ratio: 16 / 9;
+
+      background: #f5f5f5;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-top: 30px;
+    }
+
+    .event-video span {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      color: #999;
+    }
+
+    /* RELATED */
+    .related-link {
+      display: inline-block;
+
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 13px;
+      color: #111;
+      text-decoration: none;
+
+      padding-bottom: 5px;
+      border-bottom: 1px solid #111;
+
+      transition: opacity 0.2s ease;
+    }
+
+    .related-link:hover {
+      opacity: 0.5;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 768px) {
+
+      .card-detail {
+        padding-top: 80px;
+        padding-bottom: 80px;
+      }
+
+      .card-detail-header {
+        margin-bottom: 70px;
+      }
+
+      .card-heading-inner {
+        gap: 10px;
+      }
+
+      .card-heading .character,
+      .card-heading .title {
+        font-size: 13px;
+      }
+
+      .card-detail-image {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 80px;
+      }
+
+      .card-section {
+        margin-bottom: 80px;
+      }
+
+      .card-info {
+        max-width: 100%;
+      }
+
+      .card-info-row {
+        grid-template-columns: 120px 1fr;
+        font-size: 12px;
+      }
+
+      .skill-row {
+        grid-template-columns: 55px 1fr;
+        font-size: 12px;
+      }
+
+      .event-video {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
+
 
 <body>
 
-  <main class="card-detail-page">
+  <main class="card-detail">
 
     <!-- =========================
          CARD HEADER
     ========================= -->
-    <p class="page-label">CARD</p>
 
-<section class="card-detail-card">
-
-  <h2>
-    <span class="card-detail-rarity">SSR</span>
-    節見 静
-    <span class="card-detail-name">[ 対応依頼 ]</span>
-  </h2>
-
-  <div class="card-detail-image-section">
-    <div class="card-detail-image">
-      <span>CARD</span>
-    </div>
-  </div>
-
-</section>
+    <header class="card-detail-header">
+      <div class="eyebrow">C A R D</div>
+    </header>
 
 
     <!-- =========================
-         ABOUT
+         CARD
     ========================= -->
-    <section class="card-detail-section">
 
-      <h2>ABOUT</h2>
+    <section class="card-content">
 
-      <div class="profile-list">
-
-        <div class="profile-item">
-          <span class="profile-label">属性</span>
-          <span class="profile-value">ムーン</span>
+      <div class="card-heading">
+        <div class="card-heading-inner">
+          <span class="rarity">S S R</span>
+          <span class="character">節見 静</span>
+          <span class="title">[対応依頼]</span>
         </div>
-
-        <div class="profile-item">
-          <span class="profile-label">コンビネーション</span>
-          <span class="profile-value">相沢 篠信</span>
-        </div>
-
-        <div class="profile-item">
-          <span class="profile-label">SPスキル名</span>
-          <span class="profile-value">止まないタイピング</span>
-        </div>
-
-        <div class="profile-item">
-          <span class="profile-label">入手方法</span>
-          <span class="profile-value">ガチャ</span>
-        </div>
-
       </div>
 
-    </section>
 
+      <!-- 仮カード画像 -->
 
-        <!-- =========================
-         VOICE
-    ==================== -->
-    <section class="card-detail-section">
-
-      <h2>VOICE</h2>
-
-      <div class="profile-list">
-
-        <div class="profile-item">
-          <span class="profile-label">ホームボイス①</span>
-          <span class="profile-value">ムーン</span>
-        </div>
-
-        <div class="profile-item">
-          <span class="profile-label">ホームボイス②</span>
-          <span class="profile-value">相沢 篠信</span>
-        </div>
-
-        <div class="profile-item">
-          <span class="profile-label">ホームボイス③</span>
-          <span class="profile-value">止まないタイピング</span>
-        </div>
-
-        <div class="profile-item">
-          <span class="profile-label">スキル発動ボイス</span>
-          <span class="profile-value">ガチャ</span>
-        </div>
-
+      <div class="card-detail-image">
+        <span>C A R D</span>
       </div>
 
-    </section>
 
+      <!-- =========================
+           ABOUT
+      ========================= -->
 
-    <!-- =========================
-         SKILL
-    ========================= -->
-    <section class="card-detail-section">
+      <section class="card-section">
 
-      <h2>SKILL</h2>
+        <h2 class="card-section-title">A B O U T</h2>
 
-      <div class="profile-list">
+        <div class="card-info">
 
-        <!-- リーダースキル -->
-        <div class="profile-item">
-          <span class="profile-label">リーダースキル</span>
-          <span class="profile-value">
-            チームのオーラ50％UP！
-          </span>
-        </div>
-
-
-        <!-- オートスキル -->
-        <div class="profile-item card-skill-item">
-          <span class="profile-label">オートスキル</span>
-
-          <div class="profile-value">
-
-            <div class="skill-level">
-              <span class="skill-level-label">Lv.1</span>
-              <span>
-                ムーンピース×40／6秒間、獲得スコア70%UP！
-              </span>
-            </div>
-
-            <div class="skill-level">
-              <span class="skill-level-label">Lv.5</span>
-              <span>
-                ムーンピース×30／8秒間、獲得スコア70%UP！
-              </span>
-            </div>
-
+          <div class="card-info-row">
+            <div class="card-info-label">属性</div>
+            <div class="card-info-value">ムーン</div>
           </div>
-        </div>
 
-
-        <!-- SPスキル -->
-        <div class="profile-item card-skill-item">
-          <span class="profile-label">SPスキル</span>
-
-          <div class="profile-value">
-
-            <div class="skill-level">
-              <span class="skill-level-label">Lv.1</span>
-              <span>
-                コスト700／ムーンピース（青色）を10個作る！
-              </span>
-            </div>
-
-            <div class="skill-level">
-              <span class="skill-level-label">Lv.5</span>
-              <span>
-                コスト620／ムーンピース（青色）を20個作る！
-              </span>
-            </div>
-
+          <div class="card-info-row">
+            <div class="card-info-label">コンビネーション</div>
+            <div class="card-info-value">相沢 篠信</div>
           </div>
-        </div>
 
-
-        <!-- SPスキルコンビネーション -->
-        <div class="profile-item">
-          <span class="profile-label">SPスキル<br>コンビネーション</span>
-          <span class="profile-value">
-            さらにムーンピース（青色）を2個作る！
-          </span>
-        </div>
-
-
-        <!-- コンビネーション -->
-        <div class="profile-item card-skill-item">
-          <span class="profile-label">コンビネーション</span>
-
-          <div class="profile-value">
-
-            <div class="skill-level">
-              <span class="skill-level-label">Lv.1</span>
-              <span>
-                自分のオーラ3%UP！
-              </span>
-            </div>
-
-            <div class="skill-level">
-              <span class="skill-level-label">Lv.3</span>
-              <span>
-                自分のオーラ10%UP！
-              </span>
-            </div>
-
+          <div class="card-info-row">
+            <div class="card-info-label">SPスキル名</div>
+            <div class="card-info-value">止まないタイピング</div>
           </div>
+
+          <div class="card-info-row">
+            <div class="card-info-label">入手方法</div>
+            <div class="card-info-value">ガチャ</div>
+          </div>
+
         </div>
 
-      </div>
-
-    </section>
+      </section>
 
 
-    <!-- =========================
-         EVENT
-    ========================= -->
-    <section class="card-detail-section">
+      <!-- =========================
+           SKILL
+      ========================= -->
 
-      <h2>EVENT</h2>
+      <section class="card-section">
 
-      <div class="profile-list">
+        <h2 class="card-section-title">S K I L L</h2>
 
-        <div class="profile-item">
-          <span class="profile-label">イベント</span>
-          <span class="profile-value">
-            イベントタイトル
-          </span>
+
+        <div class="card-info">
+
+          <!-- リーダースキル -->
+
+          <div class="card-info-row">
+            <div class="card-info-label">リーダースキル</div>
+            <div class="card-info-value">
+              チームのオーラ50％UP！
+            </div>
+          </div>
+
+
+          <!-- オートスキル -->
+
+          <div class="card-info-row">
+            <div class="card-info-label">オートスキル</div>
+
+            <div class="card-info-value">
+
+              <div class="skill-block">
+
+                <div class="skill-row">
+                  <div class="skill-level">Lv.1</div>
+                  <div>
+                    ムーンピース×40／6秒間、獲得スコア70%UP！
+                  </div>
+                </div>
+
+                <div class="skill-row">
+                  <div class="skill-level">Lv.5</div>
+                  <div>
+                    ムーンピース×30／8秒間、獲得スコア70%UP！
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- SPスキル -->
+
+          <div class="card-info-row">
+            <div class="card-info-label">SPスキル</div>
+
+            <div class="card-info-value">
+
+              <div class="skill-block">
+
+                <div class="skill-row">
+                  <div class="skill-level">Lv.1</div>
+                  <div>
+                    コスト700／ムーンピース（青色）を10個作る！
+                  </div>
+                </div>
+
+                <div class="skill-row">
+                  <div class="skill-level">Lv.5</div>
+                  <div>
+                    コスト620／ムーンピース（青色）を20個作る！
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- SPスキルコンビネーション -->
+
+          <div class="card-info-row">
+            <div class="card-info-label">SPスキル<br>コンビネーション</div>
+
+            <div class="card-info-value">
+              さらにムーンピース（青色）を2個作る！
+            </div>
+          </div>
+
+
+          <!-- コンビネーション -->
+
+          <div class="card-info-row">
+            <div class="card-info-label">コンビネーション</div>
+
+            <div class="card-info-value">
+
+              <div class="skill-block">
+
+                <div class="skill-row">
+                  <div class="skill-level">Lv.1</div>
+                  <div>
+                    自分のオーラ3%UP！
+                  </div>
+                </div>
+
+                <div class="skill-row">
+                  <div class="skill-level">Lv.3</div>
+                  <div>
+                    自分のオーラ10%UP！
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
         </div>
 
-      </div>
+      </section>
 
 
-      <!-- 動画仮置き場 -->
-      <div class="card-event-video">
+      <!-- =========================
+           EVENT
+      ========================= -->
 
-        <span>EVENT VIDEO</span>
+      <section class="card-section">
 
-      </div>
+        <h2 class="card-section-title">E V E N T</h2>
+
+
+        <!--
+          現在は仮の動画表示。
+          後でYouTubeなどを入れる場合は、
+          この部分を iframe に置き換える。
+        -->
+
+        <div class="event-video">
+          <span>E V E N T&nbsp;&nbsp;V I D E O</span>
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           RELATED
+      ========================= -->
+
+      <section class="card-section">
+
+        <h2 class="card-section-title">R E L A T E D</h2>
+
+        <a href="shizuka.html" class="related-link">
+          節見静のキャラクターページへ
+        </a>
+
+      </section>
 
     </section>
-
-
-    <!-- =========================
-         RELATED
-    ========================= -->
-    <section class="card-detail-section card-related-section">
-
-      <h2>RELATED</h2>
-
-      <a href="shizuka.html" class="card-related-link">
-        <span>節見 静</span>
-        <small>CHARACTER</small>
-      </a>
-
-    </section>
-
 
   </main>
 
