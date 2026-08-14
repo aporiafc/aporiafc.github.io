@@ -1466,3 +1466,16 @@ line-height: 1.8;
 .card-detail-page .profile-label {
   font-size: 12px;
 }
+
+/* =========================
+   X
+========================= */
+
+.card-x-section {
+  margin-top: 100px;
+}
+
+.x-post {
+  max-width: 550px;
+  margin: 0 auto;
+}
