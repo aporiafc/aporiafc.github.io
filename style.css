@@ -1479,3 +1479,47 @@ line-height: 1.8;
   max-width: 550px;
   margin: 0 auto;
 }
+
+/* =========================
+   X POST
+========================= */
+
+.card-x-section {
+  margin-top: 100px;
+}
+
+.x-posts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  align-items: start;
+}
+
+.x-post {
+  min-width: 0;
+}
+
+.x-post .twitter-tweet {
+  margin: 0 auto !important;
+}
+
+
+/* ポストが1つだけの場合は中央寄せ */
+.x-posts:has(.x-post:only-child) {
+  grid-template-columns: minmax(0, 550px);
+  justify-content: center;
+}
+
+
+/* =========================
+   X POST レスポンシブ
+========================= */
+
+@media (max-width: 700px) {
+
+  .x-posts {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+}
