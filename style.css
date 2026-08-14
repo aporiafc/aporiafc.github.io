@@ -1216,30 +1216,35 @@ line-height: 1.8;
    CARD TITLE
 ========================= */
 
-.card-detail-title {
-  text-align: center;
+.card-detail-card {
+  margin-top: 70px;
+}
+
+.card-detail-card h2 {
+  margin: 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #ddd;
+
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
 }
 
 .card-detail-rarity {
-  margin: 0 0 12px;
+  margin-right: 12px;
+
   font-family: "Cormorant Garamond", serif;
   font-size: 13px;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.18em;
   color: #888;
 }
 
-.card-detail-title h1 {
-  margin: 0;
-  font-size: 42px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-}
-
 .card-detail-name {
-  margin: 14px 0 0;
+  margin-left: 10px;
+
   font-family: "Cormorant Garamond", serif;
-  font-size: 18px;
-  letter-spacing: 0.14em;
+  font-size: 14px;
+  letter-spacing: 0.08em;
   color: #555;
 }
 
@@ -1249,21 +1254,24 @@ line-height: 1.8;
 ========================= */
 
 .card-detail-image-section {
-  margin-top: 70px;
+  margin-top: 35px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .card-detail-image {
-  width: 360px;
+  width: 230px;
   aspect-ratio: 1 / 1;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   background: #f3f3f3;
   color: #222;
+
   font-family: "Cormorant Garamond", serif;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0.12em;
 }
 
@@ -1435,4 +1443,48 @@ line-height: 1.8;
     margin-top: 30px;
   }
 
+}
+
+.card-detail-card {
+  margin-top: 50px;
+}
+
+.card-detail-card h2 {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.card-detail-rarity {
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.card-detail-name {
+  font-size: 13px;
+  margin-left: 6px;
+}
+
+.card-detail-image-section {
+  margin-top: 28px;
+}
+
+.card-detail-image {
+  width: 180px;
+}
+
+/* =========================
+   CARD DETAIL TEXT
+========================= */
+
+.card-detail-page .profile-item {
+  font-size: 14px;
+}
+
+.card-detail-page .profile-value {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.card-detail-page .profile-label {
+  font-size: 12px;
 }
