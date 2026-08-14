@@ -1255,9 +1255,11 @@ line-height: 1.8;
    CARD IMAGE
 ========================= */
 
-.card-detail-image {
-  width: 230px;
-  aspect-ratio: 1 / 1;
+.card-detail-image-section {
+   margin-top: 35px;
+   display: flex;
+   justify-content: flex-start;
+    } 
 
   display: flex;
   align-items: center;
@@ -1266,6 +1268,9 @@ line-height: 1.8;
   background: #f3f3f3;
   color: #222;
 
+ font-family: "Cormorant Garamond", serif;
+ font-size: 16px;
+ letter-spacing: 0.12em; }
 
 /* =========================
    CARD DETAIL SECTION
