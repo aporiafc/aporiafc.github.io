@@ -2172,56 +2172,7 @@
   </div>
 
 </div>
-
-
-  <script>
-  const indexButton = document.querySelector(".page-index-button");
-  const indexPanel = document.querySelector(".page-index-panel");
-  const indexClose = document.querySelector(".page-index-close");
-  const indexLinks = document.querySelectorAll(".page-index-nav a");
-
-  indexButton.addEventListener("click", () => {
-    indexPanel.classList.add("is-open");
-  });
-
-  indexClose.addEventListener("click", () => {
-    indexPanel.classList.remove("is-open");
-  });
-
-  indexLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      indexPanel.classList.remove("is-open");
-    });
-  });
-</script>
-  
-<script>
-  const siteMenuButton = document.querySelector(".site-menu-button");
-  const siteMenuPanel = document.querySelector(".site-menu-panel");
-  const siteMenuClose = document.querySelector(".site-menu-close");
-  const siteMenuLinks = document.querySelectorAll(".site-menu-nav a");
-
-  siteMenuButton.addEventListener("click", () => {
-    siteMenuPanel.classList.add("is-open");
-  });
-
-  siteMenuClose.addEventListener("click", () => {
-    siteMenuPanel.classList.remove("is-open");
-  });
-
-  siteMenuLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      siteMenuPanel.classList.remove("is-open");
-    });
-  });
-
-  siteMenuPanel.addEventListener("click", (event) => {
-    if (event.target === siteMenuPanel) {
-      siteMenuPanel.classList.remove("is-open");
-    }
-  });
-</script>
-  
+ 
 
 <!-- =========================
      SITE MENU
@@ -2258,6 +2209,65 @@
   </div>
 
 </div>
+
+<script>
+  /* =========================
+     PAGE INDEX
+  ========================= */
+
+  const indexButton = document.querySelector(".page-index-button");
+  const indexPanel = document.querySelector(".page-index-panel");
+  const indexClose = document.querySelector(".page-index-close");
+  const indexLinks = document.querySelectorAll(".page-index-nav a");
+
+  indexButton.addEventListener("click", () => {
+    indexPanel.classList.add("is-open");
+  });
+
+  indexClose.addEventListener("click", () => {
+    indexPanel.classList.remove("is-open");
+  });
+
+  indexLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      indexPanel.classList.remove("is-open");
+    });
+  });
+
+
+  /* =========================
+     SITE MENU
+  ========================= */
+
+  const siteMenuButton = document.querySelector(".site-menu-button");
+  const siteMenuPanel = document.querySelector(".site-menu-panel");
+  const siteMenuClose = document.querySelector(".site-menu-close");
+  const siteMenuLinks = document.querySelectorAll(".site-menu-nav a");
+
+  siteMenuButton.addEventListener("click", () => {
+    siteMenuPanel.classList.add("is-open");
+  });
+
+  siteMenuClose.addEventListener("click", () => {
+    siteMenuPanel.classList.remove("is-open");
+  });
+
+  siteMenuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      siteMenuPanel.classList.remove("is-open");
+    });
+  });
+
+  siteMenuPanel.addEventListener("click", (event) => {
+    if (event.target === siteMenuPanel) {
+      siteMenuPanel.classList.remove("is-open");
+    }
+  });
+
+</script>
+
+</body>
+</html>
   
 </body>
 
