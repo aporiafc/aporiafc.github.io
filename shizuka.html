@@ -29,6 +29,7 @@
 
 
     <section class="character-video">
+      <section id="character-pv" class="character-section">
 
       <h2>CHARACTER PV</h2>
 
@@ -46,6 +47,8 @@
 
 
 <section class="profile-section">
+  <section id="profile" class="character-section">
+    
   <h2>PROFILE</h2>
 
   <div class="profile-list">
@@ -75,6 +78,8 @@
 
     <section>
 <section class="character-section">
+  <section id="personal-data" class="character-section">
+    
   <h2>PERSONAL DATA</h2>
 
   <div class="personal-data">
@@ -125,7 +130,10 @@
     </div>
 
   </div>
+    
 <section>
+  <section id="background" class="character-section">
+    
   <h2>BACKGROUND</h2>
 
   <div class="profile-list">
@@ -185,6 +193,7 @@
 </section>
 
 <section>
+  <section id="character-data" class="character-section">
   <h2>CHARACTER DATA</h2>
 
   <div class="profile-list">
@@ -216,7 +225,10 @@
   </div>
 </section>
 
+  
   <section>
+  <section id="spin" class="character-section">
+    
   <h2>SPIN</h2>
 
   <div class="spin-grid">
@@ -527,6 +539,8 @@
   ========================= -->
 
 <section class="relationship-section">
+  <section id="relationship" class="character-section">
+    
   <h2>RELATIONSHIP</h2>
 
   <div class="relationship-subtitle">
@@ -778,6 +792,8 @@
       
 <!-- HOME VOICE -->
 <section class="profile-section home-voice-section">
+  <section id="home-voice" class="character-section">
+    
   <h2>HOME VOICE</h2>
 
   <div class="profile-list">
@@ -1004,6 +1020,8 @@
       
 <!-- SPECIAL VOICE -->
 <section class="special-voice-section">
+  <section id="special-voice" class="character-section">
+    
   <h2>SPECIAL VOICE</h2>
 
   <div class="profile-list">
@@ -1560,6 +1578,8 @@
       
 <!-- BIRTHDAY PAGE -->
 <section class="profile-section birthday-page">
+  <section id="personal-song" class="character-section">
+    
   <h2>BIRTHDAY PAGE</h2>
 
   <div class="profile-list">
@@ -1648,6 +1668,8 @@
 ========================= -->
 
 <section class="personal-song-section">
+  <section id="personal-song" class="character-section">
+    
   <h2>PERSONAL SONG</h2>
 
   <div class="personal-song-grid">
@@ -1735,6 +1757,8 @@
 ========================= -->
 
 <section class="cards-section">
+  <section id="card" class="character-section">
+    
   <h2>CARD</h2>
 
   <div class="cards-grid">
@@ -1981,6 +2005,7 @@
 ========================= -->
 
 <section class="character-detail-section character-event-section">
+  <section id="event" class="character-section">
 
   <h2>EVENT</h2>
 
@@ -2071,6 +2096,107 @@
 
 </section>
 
+
+  <!-- =========================
+     PAGE INDEX
+========================= -->
+
+<button class="page-index-button" type="button" aria-label="ページ内INDEXを開く">
+  <span>INDEX</span>
+</button>
+
+<div class="page-index-panel">
+
+  <div class="page-index-inner">
+
+    <div class="page-index-header">
+      <span>PAGE INDEX</span>
+      <button class="page-index-close" type="button" aria-label="INDEXを閉じる">
+        ×
+      </button>
+    </div>
+
+    <nav class="page-index-nav">
+
+      <a href="#character-pv">
+        <span>CHARACTER PV</span>
+      </a>
+
+      <a href="#profile">
+        <span>PROFILE</span>
+      </a>
+
+      <a href="#personal-data">
+        <span>PERSONAL DATA</span>
+      </a>
+
+      <a href="#background">
+        <span>BACKGROUND</span>
+      </a>
+
+      <a href="#character-data">
+        <span>CHARACTER DATA</span>
+      </a>
+
+      <a href="#spin">
+        <span>SPIN</span>
+      </a>
+
+      <a href="#relationship">
+        <span>RELATIONSHIP</span>
+      </a>
+
+      <a href="#home-voice">
+        <span>HOME VOICE</span>
+      </a>
+
+      <a href="#special-voice">
+        <span>SPECIAL VOICE</span>
+      </a>
+
+      <a href="#birthday-page">
+        <span>BIRTHDAY PAGE</span>
+      </a>
+
+      <a href="#personal-song">
+        <span>PERSONAL SONG</span>
+      </a>
+
+      <a href="#card">
+        <span>CARD</span>
+      </a>
+
+      <a href="#event">
+        <span>EVENT</span>
+      </a>
+
+    </nav>
+
+  </div>
+
+</div>
+  
 </body>
+
+<script>
+  const indexButton = document.querySelector(".page-index-button");
+  const indexPanel = document.querySelector(".page-index-panel");
+  const indexClose = document.querySelector(".page-index-close");
+  const indexLinks = document.querySelectorAll(".page-index-nav a");
+
+  indexButton.addEventListener("click", () => {
+    indexPanel.classList.add("is-open");
+  });
+
+  indexClose.addEventListener("click", () => {
+    indexPanel.classList.remove("is-open");
+  });
+
+  indexLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      indexPanel.classList.remove("is-open");
+    });
+  });
+</script>
 
 </html>
