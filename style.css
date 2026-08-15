@@ -1381,57 +1381,34 @@ line-height: 1.8;
 
 
 /* =========================
-   RELATED
+   PAGE BACK LINK
 ========================= */
 
-.card-related-section {
-  margin-top: 120px;
-}
-.card-related-section {
-  margin-bottom: 80px;
-}
-
-.card-related-link {
-  position: relative;
-  display: block;
-  width: fit-content;
-  margin: 0 auto;
-  padding-bottom: 8px;
-  color: #222;
-  text-decoration: none;
+.page-back-section {
   text-align: center;
+  margin-top: 80px;
+  padding-bottom: 80px;
 }
 
-.card-related-link span {
-  display: block;
+.page-back-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.page-back-link span {
   font-size: 14px;
-  letter-spacing: 0.08em;
+  color: #111;
+  letter-spacing: 0.05em;
 }
 
-.card-related-link small {
-  display: block;
-  margin-top: 7px;
+.page-back-link small {
+  margin-top: 8px;
   font-family: "Cormorant Garamond", serif;
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  color: #888;
-}
-
-.card-related-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: #222;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.35s ease;
-}
-
-.card-related-link:hover::after {
-  transform: scaleX(1);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: #b8aeb0;
 }
 
 
