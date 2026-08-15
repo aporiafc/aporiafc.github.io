@@ -1385,6 +1385,9 @@ line-height: 1.8;
 ========================= */
 
 .card-related-section {
+  margin-top: 80px;
+}
+.card-related-section {
   margin-bottom: 80px;
 }
 
