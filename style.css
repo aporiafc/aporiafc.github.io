@@ -1387,7 +1387,7 @@ line-height: 1.8;
 .page-back-section {
   text-align: center;
   margin-top: 180px;
-  padding-bottom: 0px;
+  padding-bottom: -20px;
 }
 
 .page-back-link {
