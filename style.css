@@ -1638,3 +1638,166 @@ line-height: 1.8;
 .character-list-link:hover::after {
   transform: scaleX(1);
 }
+
+/* =========================
+   PAGE INDEX
+========================= */
+
+.page-index-button {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 1000;
+
+  width: 58px;
+  height: 58px;
+
+  border: 1px solid #111;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.94);
+  color: #111;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.page-index-button:hover {
+  background: #111;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+
+/* INDEX PANEL */
+
+.page-index-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.page-index-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.page-index-inner {
+  width: min(620px, calc(100% - 80px));
+  height: 100%;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* HEADER */
+
+.page-index-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #ddd;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+}
+
+
+.page-index-close {
+  border: none;
+  background: none;
+
+  padding: 0;
+
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1;
+
+  cursor: pointer;
+
+  color: #111;
+}
+
+
+/* NAV */
+
+.page-index-nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  column-gap: 60px;
+  row-gap: 0;
+
+  margin-top: 28px;
+}
+
+
+.page-index-nav a {
+  position: relative;
+
+  display: block;
+
+  padding: 13px 0;
+
+  color: #111;
+  text-decoration: none;
+
+  font-family: "Cormorant Garamond", "Noto Sans JP", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+
+  border-bottom: 1px solid #eee;
+}
+
+
+.page-index-nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+
+  width: 0;
+  height: 1px;
+
+  background: #111;
+
+  transform: translateX(-50%);
+
+  transition: width 0.25s ease;
+}
+
+
+.page-index-nav a:hover::after {
+  width: 100%;
+}
