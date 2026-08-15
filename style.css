@@ -747,7 +747,7 @@ line-height: 1.8;
   width: 100%;
   padding: 24px 22px;
   border: 1px solid #e5e5e5;
-  border-left: 3px solid #3F60BE;
+  border-left: 3px solid var(--character-color);
   background: #fff;
 }
 
