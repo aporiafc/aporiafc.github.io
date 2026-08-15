@@ -1411,6 +1411,30 @@ line-height: 1.8;
   color: #b8aeb0;
 }
 
+.page-back-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+}
+
+.page-back-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 1px;
+  background: #111;
+  transform: translateX(-50%);
+  transition: width 0.25s ease;
+}
+
+.page-back-link:hover::after {
+  width: 100%;
+}
+
 
 /* =========================
    CARD DETAIL MOBILE
