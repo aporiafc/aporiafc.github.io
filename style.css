@@ -1804,6 +1804,7 @@ body {
 
 }
 
+
 /* =========================
    CHARACTER EVENT
 ========================= */
@@ -1814,7 +1815,8 @@ body {
 }
 
 .character-event-link {
-  display: block;
+  display: inline-block;
+  width: fit-content;
   padding: 8px 0;
 
   color: #222;
@@ -1827,6 +1829,7 @@ body {
 .character-event-link:hover {
   opacity: 0.6;
 }
+
 
 /* =========================
    CHARACTER LIST
