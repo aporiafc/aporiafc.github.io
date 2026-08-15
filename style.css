@@ -1605,7 +1605,7 @@ line-height: 1.8;
 
 .character-list-link span {
   display: block;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0.08em;
 }
 
@@ -1613,7 +1613,7 @@ line-height: 1.8;
   display: block;
   margin-top: 7px;
   font-family: "Cormorant Garamond", serif;
-  font-size: 12px;
+  font-size: 10px;
   letter-spacing: 0.18em;
   color: #888;
 }
