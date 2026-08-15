@@ -1801,3 +1801,23 @@ line-height: 1.8;
 .page-index-nav a:hover::after {
   width: 100%;
 }
+
+@media (max-width: 600px) {
+
+  .page-index-button {
+    right: 18px;
+    bottom: 18px;
+
+    width: 52px;
+    height: 52px;
+  }
+
+  .page-index-inner {
+    width: calc(100% - 48px);
+  }
+
+  .page-index-nav {
+    grid-template-columns: 1fr;
+  }
+
+}
