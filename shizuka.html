@@ -2189,7 +2189,13 @@
   });
 
   indexLinks.forEach(link => {
-    link.addEve<script>
+    link.addEventListener("click", () => {
+      indexPanel.classList.remove("is-open");
+    });
+  });
+</script>
+  
+<script>
   const siteMenuButton = document.querySelector(".site-menu-button");
   const siteMenuPanel = document.querySelector(".site-menu-panel");
   const siteMenuClose = document.querySelector(".site-menu-close");
@@ -2214,11 +2220,8 @@
       siteMenuPanel.classList.remove("is-open");
     }
   });
-</script>l.classList.remove("is-open");
-    });
-  });
 </script>
-
+  
 
 <!-- =========================
      SITE MENU
