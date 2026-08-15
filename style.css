@@ -1567,23 +1567,17 @@ line-height: 1.8;
 .character-event-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
 .character-event-link {
   display: block;
-  padding: 16px 0;
-  border-bottom: 1px solid #ddd;
+  padding: 8px 0;
 
   color: #222;
   text-decoration: none;
 
-  font-size: 14px;
+  font-size: 13px;
   letter-spacing: 0.06em;
-}
-
-.character-event-link:first-child {
-  border-top: 1px solid #ddd;
 }
 
 .character-event-link:hover {
