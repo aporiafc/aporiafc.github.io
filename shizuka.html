@@ -2235,34 +2235,38 @@
   });
 
 
-  /* =========================
-     SITE MENU
-  ========================= */
+/* =========================
+   SITE MENU
+========================= */
 
-  const siteMenuButton = document.querySelector(".site-menu-button");
-  const siteMenuPanel = document.querySelector(".site-menu-panel");
-  const siteMenuClose = document.querySelector(".site-menu-close");
-  const siteMenuLinks = document.querySelectorAll(".site-menu-nav a");
+const siteMenuButton = document.querySelector(".site-menu-button");
+const siteMenuPanel = document.querySelector(".site-menu-panel");
+const siteMenuClose = document.querySelector(".site-menu-close");
+const siteMenuLinks = document.querySelectorAll(".site-menu-nav a");
 
-  siteMenuButton.addEventListener("click", () => {
-    siteMenuPanel.classList.add("is-open");
-  });
+siteMenuButton.addEventListener("click", () => {
+  siteMenuPanel.classList.add("is-open");
+  siteMenuButton.classList.add("is-hidden");
+});
 
-  siteMenuClose.addEventListener("click", () => {
+siteMenuClose.addEventListener("click", () => {
+  siteMenuPanel.classList.remove("is-open");
+  siteMenuButton.classList.remove("is-hidden");
+});
+
+siteMenuLinks.forEach(link => {
+  link.addEventListener("click", () => {
     siteMenuPanel.classList.remove("is-open");
+    siteMenuButton.classList.remove("is-hidden");
   });
+});
 
-  siteMenuLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      siteMenuPanel.classList.remove("is-open");
-    });
-  });
-
-  siteMenuPanel.addEventListener("click", (event) => {
-    if (event.target === siteMenuPanel) {
-      siteMenuPanel.classList.remove("is-open");
-    }
-  });
+siteMenuPanel.addEventListener("click", (event) => {
+  if (event.target === siteMenuPanel) {
+    siteMenuPanel.classList.remove("is-open");
+    siteMenuButton.classList.remove("is-hidden");
+  }
+});
 
 </script>
 
