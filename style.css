@@ -2257,22 +2257,25 @@ body {
 @media (max-width: 600px) {
 
 .site-menu-button {
-  top: 18px !important;
-  left: 18px !important;
+  top: 50% !important;
+  left: 0 !important;
 
-  width: 44px !important;
-  height: 44px !important;
+  width: 42px !important;
+  height: 72px !important;
 
   box-sizing: border-box;
 
   border: 1px solid #111 !important;
-  border-radius: 4px !important;
+  border-left: none !important;
+  border-radius: 0 6px 6px 0 !important;
 
   background: rgba(255, 255, 255, 0.94) !important;
 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transform: translateY(-50%);
 }
 
   .site-menu-inner {
