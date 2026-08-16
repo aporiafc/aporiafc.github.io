@@ -2273,12 +2273,3 @@ body {
   }
 
 }
-
-/* =========================
-   MENU BUTTON：OPEN時
-========================= */
-
-.page-menu-button.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
