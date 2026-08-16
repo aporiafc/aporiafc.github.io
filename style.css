@@ -2252,16 +2252,6 @@ body {
 }
 
 
-/* =========================
-   MENU BUTTON：OPEN時
-========================= */
-
-.page-menu-button.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-
 /* MOBILE */
 
 @media (max-width: 600px) {
@@ -2282,4 +2272,13 @@ body {
     font-size: 13px;
   }
 
+}
+
+/* =========================
+   MENU BUTTON：OPEN時
+========================= */
+
+.site-menu-button.is-hidden {
+  opacity: 0;
+  pointer-events: none;
 }
