@@ -2257,8 +2257,7 @@ body {
 @media (max-width: 600px) {
 
 .site-menu-button {
-  top: auto !important;
-  bottom: 18px !important;
+  top: 18px !important;
   left: 18px !important;
 
   width: 58px !important;
