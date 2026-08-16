@@ -1351,12 +1351,17 @@ body {
     line-height: 1.8;
   }
 
-     /* PERSONAL DATA */
+/* PERSONAL DATA */
 
-  .data-row {
-    grid-template-columns: 100px minmax(0, 1fr);
-    gap: 18px;
-  }
+.data-row {
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 18px;
+}
+
+.data-value {
+  font-size: 14px;
+  line-height: 1.8;
+}
 
   /* BIRTHDAY */
 
