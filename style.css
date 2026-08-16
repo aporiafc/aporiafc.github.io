@@ -2256,10 +2256,11 @@ body {
 
 @media (max-width: 600px) {
 
-  .site-menu-button {
-    top: 20px;
-    left: 20px;
-  }
+　.site-menu-button {
+  top: auto;
+  bottom: 18px;
+  left: 18px;
+}
 
   .site-menu-inner {
     width: min(300px, 82vw);
@@ -2273,6 +2274,7 @@ body {
   }
 
 }
+
 
 /* =========================
    MENU BUTTON：OPEN時
