@@ -2256,31 +2256,41 @@ body {
 
 @media (max-width: 600px) {
 
-.site-menu-button {
-  top: 50% !important;
-  left: 0 !important;
+  .site-menu-button {
+    top: 18px !important;
+    left: 0 !important;
 
-  width: 42px !important;
-  height: 72px !important;
+    width: 44px !important;
+    height: 34px !important;
 
-  box-sizing: border-box;
+    box-sizing: border-box;
 
-  border: 1px solid #111 !important;
-  border-left: none !important;
-  border-radius: 0 6px 6px 0 !important;
+    border: 1px solid #111 !important;
+    border-left: none !important;
+    border-radius: 0 5px 5px 0 !important;
 
-  background: rgba(255, 255, 255, 0.94) !important;
+    background: rgba(255, 255, 255, 0.94) !important;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  transform: translateY(-50%);
-}
+    transform: none !important;
+  }
+
+  /* スマホだけハンバーガー */
+  .site-menu-button span {
+    font-size: 0;
+  }
+
+  .site-menu-button span::before {
+    content: "☰";
+    font-size: 15px;
+    letter-spacing: 0;
+  }
 
   .site-menu-inner {
     width: min(300px, 82vw);
-
     padding: 34px 28px;
   }
 
@@ -2289,19 +2299,8 @@ body {
     font-size: 13px;
   }
 
-  /* スマホだけハンバーガー表示 */
-
-  .site-menu-button span {
-    font-size: 0;
-  }
-
-  .site-menu-button span::before {
-    content: "☰";
-    font-size: 16px;
-    letter-spacing: 0;
-  }
-
 }
+
 
 .site-menu-button.is-hidden {
   opacity: 0;
