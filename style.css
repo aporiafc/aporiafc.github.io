@@ -1832,6 +1832,30 @@ body {
 
 
 /* =========================
+   MEMO
+========================= */
+
+.memo-list {
+  margin-top: 28px;
+  max-width: 760px;
+}
+
+.memo-list p {
+  margin: 0 0 12px;
+  padding-left: 0;
+
+  font-size: 11px;
+  line-height: 2;
+
+  color: #777;
+}
+
+.memo-list p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
    CHARACTER LIST
 ========================= */
 
