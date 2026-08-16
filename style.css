@@ -2256,11 +2256,11 @@ body {
 
 @media (max-width: 600px) {
 
-　.site-menu-button {
-  top: auto;
-  bottom: 18px;
-  left: 18px;
-}
+  .site-menu-button {
+    top: auto !important;
+    bottom: 18px !important;
+    left: 18px !important;
+  }
 
   .site-menu-inner {
     width: min(300px, 82vw);
