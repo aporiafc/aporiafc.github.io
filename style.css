@@ -2092,10 +2092,6 @@ body {
     padding: 11px 0;
   }
 
-   .page-index-nav a[href="#memo"] {
-  grid-column: 1;
-}
-
 }
 
 
