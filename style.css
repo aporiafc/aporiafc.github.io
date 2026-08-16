@@ -721,6 +721,14 @@ body {
    BIRTHDAY PAGE
 ========================= */
 
+/* =========================
+   SPECIAL VOICE → BIRTHDAY PAGE
+========================= */
+
+.character-detail-page .birthday-page {
+  margin-top: 50px;
+}
+
 .birthday-page .birthday-year {
   margin: 28px 0 0;
 
