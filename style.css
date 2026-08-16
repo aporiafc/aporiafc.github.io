@@ -2256,24 +2256,24 @@ body {
 
 @media (max-width: 600px) {
 
-.site-menu-button {
-  top: 18px !important;
-  left: 18px !important;
+  .site-menu-button {
+    top: 18px !important;
+    left: 18px !important;
 
-  width: 44px !important;
-  height: 44px !important;
+    width: 44px !important;
+    height: 44px !important;
 
-  box-sizing: border-box;
+    box-sizing: border-box;
 
-  border: 1px solid #111 !important;
-  border-radius: 50% !important;
+    border: 1px solid #111 !important;
+    border-radius: 50% !important;
 
-  background: rgba(255, 255, 255, 0.94) !important;
+    background: rgba(255, 255, 255, 0.94) !important;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .site-menu-inner {
     width: min(300px, 82vw);
@@ -2286,21 +2286,19 @@ body {
     font-size: 13px;
   }
 
-}
+  /* スマホだけハンバーガー表示 */
 
-.site-menu-button span {
-  font-size: 0;
-}
+  .site-menu-button span {
+    font-size: 0;
+  }
 
-.site-menu-button span::before {
-  content: "☰";
-  font-size: 16px;
-  letter-spacing: 0;
-}
+  .site-menu-button span::before {
+    content: "☰";
+    font-size: 16px;
+    letter-spacing: 0;
+  }
 
-/* =========================
-   MENU BUTTON：OPEN時
-========================= */
+}
 
 .site-menu-button.is-hidden {
   opacity: 0;
