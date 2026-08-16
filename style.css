@@ -802,7 +802,7 @@ body {
 
   padding: 4px 10px;
 
-  background-color: #3F60BE;
+  background-color: var(--character-color);
   color: #fff;
 
   font-size: 13px;
