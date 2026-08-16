@@ -2260,6 +2260,11 @@ body {
     top: auto !important;
     bottom: 18px !important;
     left: 18px !important;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
   }
 
   .site-menu-inner {
