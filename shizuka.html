@@ -2244,13 +2244,22 @@
   const siteMenuClose = document.querySelector(".site-menu-close");
   const siteMenuLinks = document.querySelectorAll(".site-menu-nav a");
 
-  siteMenuButton.addEventListener("click", () => {
-    siteMenuPanel.classList.add("is-open");
-  });
+menuButton.addEventListener("click", () => {
+  menuPanel.classList.add("is-open");
+  menuButton.classList.add("is-hidden");
+});
 
-  siteMenuClose.addEventListener("click", () => {
-    siteMenuPanel.classList.remove("is-open");
+menuClose.addEventListener("click", () => {
+  menuPanel.classList.remove("is-open");
+  menuButton.classList.remove("is-hidden");
+});
+
+menuLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    menuPanel.classList.remove("is-open");
+    menuButton.classList.remove("is-hidden");
   });
+});
 
   siteMenuLinks.forEach(link => {
     link.addEventListener("click", () => {
