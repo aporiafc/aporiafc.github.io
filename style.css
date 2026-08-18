@@ -1599,23 +1599,18 @@ body {
 ========================= */
 
 /* 動画全体 */
-.card-event-videos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  max-width: 1000px;
-  margin: 40px auto 0;
-}
-
-/* 動画1本 */
 .card-event-video {
-  flex: 0 1 calc(50% - 15px);
-  max-width: 470px;
-  aspect-ratio: 16 / 9;
   position: relative;
-  background: #f3f3f3;
+
+  width: 100%;
+  max-width: 550px;
+
+  aspect-ratio: 16 / 9;
+
+  margin: 40px 0 0;
+
   overflow: hidden;
+  background: #f3f3f3;
 }
 
 /* YouTube iframe */
@@ -1783,7 +1778,7 @@ body {
 
 .x-post {
   max-width: 550px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 /* =========================
@@ -1807,13 +1802,6 @@ body {
 
 .x-post .twitter-tweet {
   margin: 0 auto !important;
-}
-
-
-/* ポストが1つだけの場合は中央寄せ */
-.x-posts:has(.x-post:only-child) {
-  grid-template-columns: minmax(0, 550px);
-  justify-content: center;
 }
 
 
