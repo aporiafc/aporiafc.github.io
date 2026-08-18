@@ -1217,12 +1217,14 @@ body {
 .card-event-video {
   position: relative;
 
-  flex: 0 1 calc(50% - 15px);
-  max-width: 470px;
+  width: 280px;
+  max-width: 280px;
+
   aspect-ratio: 16 / 9;
 
-  overflow: hidden;
+  margin: 40px 0 0;
 
+  overflow: hidden;
   background: #f3f3f3;
 }
 
@@ -1776,11 +1778,6 @@ body {
   margin-top: 100px;
 }
 
-.x-post {
-  max-width: 550px;
-  margin: 0;
-}
-
 /* =========================
    X POST
 ========================= */
@@ -1791,17 +1788,21 @@ body {
 
 .x-posts {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 30px;
-  align-items: start;
+  grid-template-columns: repeat(3, 280px);
+  gap: 20px;
+
+  justify-content: start;
 }
 
 .x-post {
   min-width: 0;
+  width: 280px;
 }
 
 .x-post .twitter-tweet {
-  margin: 0 auto !important;
+  max-width: 280px !important;
+  min-width: 0 !important;
+  margin: 0 !important;
 }
 
 
@@ -1814,6 +1815,10 @@ body {
   .x-posts {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  .x-post {
+    width: 280px;
   }
 
 }
