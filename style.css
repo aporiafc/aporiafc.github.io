@@ -173,9 +173,11 @@ body {
   }
 
   .description {
-    margin-top: 30px;
-    font-size: 13px;
-  }
+  margin-top: 30px;
+  font-size: 13px;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
 
 
   /* ---------- NAVIGATION ---------- */
