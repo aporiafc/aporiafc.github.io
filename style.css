@@ -504,9 +504,7 @@ body {
   transform: scaleX(0);
   transform-origin: center;
 
-  transition:
-    transform 0.35s ease,
-    background-color 0.35s ease;
+  transition: transform 0.35s ease;
 }
 
 
@@ -519,7 +517,6 @@ body {
 
 .character-list a:hover::after {
   transform: scaleX(1);
-  background: var(--character-color, #888);
 }
 
 
