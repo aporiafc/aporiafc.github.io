@@ -67,19 +67,6 @@ body {
 
 
 /* =========================
-   Scroll
-========================= */
-
-.scroll {
-  margin-top: 78px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 11px;
-  letter-spacing: 0.42em;
-  color: #9a9a9a;
-}
-
-
-/* =========================
    About
 ========================= */
 
@@ -185,10 +172,6 @@ body {
   .description {
     margin-top: 30px;
     font-size: 13px;
-  }
-
-  .scroll {
-    margin-top: 64px;
   }
 
   .about {
