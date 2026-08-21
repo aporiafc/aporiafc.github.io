@@ -2482,3 +2482,42 @@ body {
   }
 
 }
+
+/* =========================
+   MOBILE NAVIGATION
+========================= */
+
+@media (max-width: 700px) {
+
+  .navigation-links {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 8px;
+    row-gap: 18px;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .navigation-links a {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-align: center;
+  }
+
+  /* 1段目：WORLD / CHARACTER / STORY */
+  .navigation-links a:nth-child(1),
+  .navigation-links a:nth-child(2),
+  .navigation-links a:nth-child(3) {
+    grid-column: span 4;
+  }
+
+  /* 2段目：EVENT / MUSIC / MEDIA / × stmy */
+  .navigation-links a:nth-child(4),
+  .navigation-links a:nth-child(5),
+  .navigation-links a:nth-child(6),
+  .navigation-links a:nth-child(7) {
+    grid-column: span 3;
+  }
+
+}
