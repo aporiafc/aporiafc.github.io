@@ -2546,7 +2546,7 @@ body {
 .site-guide-list {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 24px;
 }
 
 .site-guide-item h3 {
