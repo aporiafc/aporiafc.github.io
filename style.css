@@ -2567,3 +2567,8 @@ body {
   letter-spacing: 0.04em;
   color: #555;
 }
+
+.section-divider {
+  width: 100%;
+  border-top: 1px solid #e5e5e5;
+}
