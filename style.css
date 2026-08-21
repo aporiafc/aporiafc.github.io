@@ -192,19 +192,20 @@ body {
   }
 
   .navigation-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    column-gap: 20px;
-    row-gap: 12px;
-    max-width: 360px;
-    margin: 0 auto;
-  }
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 8px;
+  row-gap: 18px;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
 
   .navigation-links a {
-    font-size: 13px;
-    letter-spacing: 0.12em;
-  }
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
 
 
   /* ---------- ABOUT ---------- */
