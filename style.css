@@ -2550,12 +2550,12 @@ body {
 }
 
 .site-guide-item h3 {
-  margin: 0 0 6px;
+  margin: 0 0 5px;
 
   font-family: "Cormorant Garamond", serif;
   font-size: 14px;
   font-weight: 400;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
 }
 
 .site-guide-item p {
