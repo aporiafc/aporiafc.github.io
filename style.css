@@ -241,7 +241,7 @@ body {
 
   .about > p:not(.about-label):not(.site-name):not(.unofficial) {
     max-width: 440px;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 2;
     margin-top: 30px;
   }
