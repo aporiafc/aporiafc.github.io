@@ -207,6 +207,21 @@ body {
   text-align: center;
 }
 
+/* 1段目：WORLD / CHARACTER / STORY */
+.navigation-links a:nth-child(1),
+.navigation-links a:nth-child(2),
+.navigation-links a:nth-child(3) {
+  grid-column: span 4;
+}
+
+/* 2段目：EVENT / MUSIC / MEDIA / × stmy */
+.navigation-links a:nth-child(4),
+.navigation-links a:nth-child(5),
+.navigation-links a:nth-child(6),
+.navigation-links a:nth-child(7) {
+  grid-column: span 3;
+}
+
 
   /* ---------- ABOUT ---------- */
 
