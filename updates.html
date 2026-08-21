@@ -46,6 +46,48 @@
     <a class="back-link" href="index.html">BACK TO HOME</a>
 
   </main>
+  
+
+  <script>
+  /* =========================
+     SITE MENU
+  ========================= */
+
+  const siteMenuButton = document.querySelector(".site-menu-button");
+  const siteMenuPanel = document.querySelector(".site-menu-panel");
+  const siteMenuClose = document.querySelector(".site-menu-close");
+  const siteMenuLinks = document.querySelectorAll(".site-menu-nav a");
+
+
+  /* =========================
+     SITE MENU：OPEN / CLOSE
+  ========================= */
+
+  siteMenuButton.addEventListener("click", () => {
+    siteMenuPanel.classList.add("is-open");
+    siteMenuButton.classList.add("is-hidden");
+  });
+
+  siteMenuClose.addEventListener("click", () => {
+    siteMenuPanel.classList.remove("is-open");
+    siteMenuButton.classList.remove("is-hidden");
+  });
+
+  siteMenuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      siteMenuPanel.classList.remove("is-open");
+      siteMenuButton.classList.remove("is-hidden");
+    });
+  });
+
+  siteMenuPanel.addEventListener("click", (event) => {
+    if (event.target === siteMenuPanel) {
+      siteMenuPanel.classList.remove("is-open");
+      siteMenuButton.classList.remove("is-hidden");
+    }
+  });
+
+</script>
 
 </body>
 </html>
