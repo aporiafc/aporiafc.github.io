@@ -1177,7 +1177,9 @@ body {
 }
 
 
-/* CARD DETAIL IMAGE */
+/* =========================
+   CARD DETAIL IMAGE
+========================= */
 
 .card-detail-image-section {
   display: flex;
@@ -1187,19 +1189,15 @@ body {
 }
 
 .card-detail-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
 
-  width: 230px;
-  aspect-ratio: 1 / 1;
-
-  background: #f3f3f3;
-  color: #222;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 16px;
-  letter-spacing: 0.12em;
+.card-detail-image img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 
@@ -2770,20 +2768,4 @@ body {
 .update-log-link:focus-visible span {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* =========================
-   CARD DETAIL IMAGE
-========================= */
-
-.card-detail-image {
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
-}
-
-.card-detail-image img {
-  display: block;
-  width: 100%;
-  height: auto;
 }
