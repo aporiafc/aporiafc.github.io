@@ -2771,3 +2771,19 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* =========================
+   CARD DETAIL IMAGE
+========================= */
+
+.card-detail-image {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.card-detail-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
