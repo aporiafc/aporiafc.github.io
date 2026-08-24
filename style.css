@@ -2817,15 +2817,17 @@ body {
 
   /* ---------- CHARACTER LIST ---------- */
 
-  .character-list {
+.character-list {
   display: flex;
   flex-direction: column;
   gap: 26px;
 
-  width: 100%;
+  width: 88%;
+  max-width: 520px;
+  margin: 0 auto;
 }
 
-  .character-list a {
+.character-list a {
   width: 100%;
 }
 
