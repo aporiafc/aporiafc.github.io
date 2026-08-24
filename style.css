@@ -333,34 +333,28 @@ body {
 ======================== */
 
 .world-page {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 140px 40px;
+  padding: 120px 40px;
   text-align: center;
 }
 
-.page-label {
+.world-page > .page-label {
   margin-bottom: 24px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 12px;
-  letter-spacing: 0.35em;
-  color: #777;
 }
 
 .world-page h1 {
   margin: 0;
+
   font-family: "Cormorant Garamond", serif;
-  font-size: 72px;
+  font-size: 64px;
   font-weight: 400;
   letter-spacing: 0.12em;
   color: #222;
 }
 
-.page-description {
-  margin-top: 28px;
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  color: #555;
+.world-page .page-description {
+  margin-top: 24px;
 }
 
 .world-links {
