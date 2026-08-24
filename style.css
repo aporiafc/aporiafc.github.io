@@ -2761,3 +2761,93 @@ body {
 .card-detail-image:has(img) {
   background: transparent;
 }
+
+
+/* =========================
+   CHARACTER LIST MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  /* ---------- PAGE ---------- */
+
+  .character-page {
+    padding: 85px 20px 90px;
+  }
+
+  .character-page > .page-label {
+    margin-bottom: 20px;
+    font-size: 11px;
+  }
+
+  .character-page h1 {
+    font-size: 44px;
+    letter-spacing: 0.08em;
+  }
+
+  .character-page > .page-description {
+    margin-top: 20px;
+    margin-bottom: 55px;
+    font-size: 12px;
+    line-height: 2;
+    letter-spacing: 0.06em;
+  }
+
+
+  /* ---------- DEPARTMENT ---------- */
+
+  .department {
+    margin-bottom: 55px;
+  }
+
+  .department-label {
+    margin-bottom: 5px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+
+  .department h2 {
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+
+    font-size: 24px;
+    letter-spacing: 0.08em;
+  }
+
+
+  /* ---------- CHARACTER LIST ---------- */
+
+  .character-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    column-gap: 20px;
+    row-gap: 22px;
+
+    width: 100%;
+  }
+
+  .character-list a {
+    width: 100%;
+    min-width: 0;
+
+    font-size: 14px;
+    letter-spacing: 0.05em;
+  }
+
+  .character-list a span {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .character-list a small {
+    margin-top: 4px;
+
+    font-size: 11px;
+    letter-spacing: 0.08em;
+
+    white-space: nowrap;
+  }
+
+}
