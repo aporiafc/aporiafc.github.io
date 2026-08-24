@@ -460,7 +460,7 @@ body {
 
 .character-page .page-description {
   margin-top: 24px;
-  margin-bottom: 90px;
+  margin-bottom: 65px; /* 90px → 65px */
 }
 
 
@@ -469,11 +469,12 @@ body {
 ========================= */
 
 .department {
-  margin-bottom: 90px;
+  margin-bottom: 60px; /* 90px → 60px */
 }
 
 .department-label {
-  margin-bottom: 10px;
+  margin-bottom: 8px; /* 10px → 8px */
+
   font-family: "Cormorant Garamond", serif;
   font-size: 14px;
   letter-spacing: 0.16em;
@@ -481,8 +482,9 @@ body {
 }
 
 .department h2 {
-  margin-bottom: 35px;
-  padding-bottom: 15px;
+  margin-bottom: 22px; /* 35px → 22px */
+  padding-bottom: 12px; /* 15px → 12px */
+
   border-bottom: 1px solid #ddd;
 
   font-size: 28px;
@@ -498,7 +500,7 @@ body {
 .character-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px 50px;
+  gap: 14px 50px; /* 上下20px → 14px */
 }
 
 .character-list a {
@@ -525,7 +527,7 @@ body {
 
 .character-list a small {
   display: block;
-  margin-top: 6px;
+  margin-top: 4px; /* 6px → 4px */
 
   font-family: "Cormorant Garamond", serif;
   font-size: 14px;
@@ -567,7 +569,6 @@ body {
 .character-list a:hover::after {
   transform: scaleX(1);
 }
-
 
 /* =========================
    YOUTUBE
