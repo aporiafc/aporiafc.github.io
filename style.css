@@ -571,6 +571,34 @@ body {
 }
 
 /* =========================
+   DEPARTMENT COLORS
+========================= */
+
+.department-headquarters {
+  color: #B22222;
+}
+
+.department-dating {
+  color: #FD1493;
+}
+
+.department-administrative {
+  color: #8BCCD6;
+}
+
+.department-watchdog {
+  color: #3F60BE;
+}
+
+.department-negotiation {
+  color: #DF507F;
+}
+
+.department-st {
+  color: #61C892;
+}
+
+/* =========================
    YOUTUBE
 ========================= */
 
