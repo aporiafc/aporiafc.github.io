@@ -2826,26 +2826,16 @@ body {
 }
 
   .character-list a {
-    width: 100%;
-    min-width: 0;
+  width: 100%;
+}
 
-    font-size: 14px;
-    letter-spacing: 0.05em;
-  }
+.character-list a span {
+  display: block;
+}
 
-  .character-list a span {
-    font-size: 14px;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-  }
-
-  .character-list a small {
-    margin-top: 4px;
-
-    font-size: 11px;
-    letter-spacing: 0.08em;
-
-    white-space: nowrap;
-  }
+.character-list a small {
+  display: block;
+  margin-top: 5px;
+}
 
 }
