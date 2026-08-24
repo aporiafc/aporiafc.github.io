@@ -65,6 +65,27 @@ body {
   line-height: 1.8;
 }
 
+/* =========================
+   Common Page Header
+========================= */
+
+.page-label {
+  margin: 0 0 24px;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  font-weight: 400;
+  color: #777;
+}
+
+.page-description {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: #555;
+}
+
 
 /* =========================
    About
