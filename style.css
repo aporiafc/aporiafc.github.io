@@ -1190,10 +1190,8 @@ body {
 
 .card-detail-image {
   width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
-
-  background: transparent;
+  max-width: 520px;
+  margin: 0;
 }
 
 .card-detail-image img {
@@ -2770,4 +2768,25 @@ body {
 .update-log-link:focus-visible span {
   opacity: 1;
   transform: translateY(0);
+}
+
+
+/* 仮画像 */
+.card-detail-image:has(span) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  aspect-ratio: 1 / 1;
+
+  background: #f3f3f3;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+}
+
+/* 本物のカード画像 */
+.card-detail-image:has(img) {
+  background: transparent;
 }
