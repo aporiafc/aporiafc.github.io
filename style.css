@@ -320,11 +320,15 @@ body {
 .navigation-links a {
   position: relative;
   display: inline-block;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
-  letter-spacing: 0.18em;
+
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+
   color: #222;
   text-decoration: none;
+
   transition: transform 0.3s ease;
 }
 
