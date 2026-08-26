@@ -2610,7 +2610,7 @@ body {
   margin: 0 0 28px;
 
   font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: 0.38em;
   font-weight: 400;
   color: #777;
@@ -2713,12 +2713,12 @@ body {
 
   margin: 36px auto 20px;
 
-  color: #1f1f1f;
+  color: #555;
   text-decoration: none;
 }
 
 .update-log-link img {
-  width: 18px;
+  width: 16px;
   height: auto;
   display: block;
 
@@ -2730,10 +2730,10 @@ body {
   margin-top: 8px;
 
   font-family: "Cormorant Garamond", serif;
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.22em;
 
-  color: #1f1f1f;
+  color: #555;
 
   opacity: 0;
   transform: translateY(-3px);
