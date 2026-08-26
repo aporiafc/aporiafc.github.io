@@ -26,26 +26,6 @@ body {
 }
 
 
-<header class="site-header">
-
-  <a href="index.html" class="site-header-logo">
-    <span>APORIA FANCAFE</span>
-    <small>by APORIA FANCAFE</small>
-  </a>
-
-  <nav class="site-header-nav">
-    <a href="world.html">WORLD</a>
-    <a href="character.html">CHARACTER</a>
-    <a href="#">STORY</a>
-    <a href="#">EVENT</a>
-    <a href="#">MUSIC</a>
-    <a href="#">MEDIA</a>
-    <a href="#">× stmy</a>
-  </nav>
-
-</header>
-
-
 /* =========================
    FIXED SITE HEADER
 ========================= */
