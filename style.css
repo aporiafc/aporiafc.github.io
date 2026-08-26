@@ -670,11 +670,11 @@ body {
 }
 
 .character-name-en {
-  margin-top: 12px;
+  margin-top: 15px;
 
   text-align: center;
 
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: 0.25em;
   color: #888;
 }
