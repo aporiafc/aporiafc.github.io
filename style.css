@@ -2610,7 +2610,7 @@ body {
   margin: 0 0 28px;
 
   font-family: "Cormorant Garamond", serif;
-  font-size: 13px;
+  font-size: 15px;
   letter-spacing: 0.38em;
   font-weight: 400;
   color: #777;
@@ -2713,7 +2713,7 @@ body {
 
   margin: 36px auto 20px;
 
-  color: #555;
+  color: #1f1f1f;
   text-decoration: none;
 }
 
@@ -2730,7 +2730,7 @@ body {
   margin-top: 8px;
 
   font-family: "Cormorant Garamond", serif;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 0.22em;
 
   color: #1f1f1f;
