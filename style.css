@@ -783,7 +783,7 @@ body {
 
 .calling-row {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-columns: 1.2fr 0.5fr 1fr 1fr;
 
   border-bottom: 1px solid #e5e5e5;
 }
