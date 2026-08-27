@@ -2251,8 +2251,8 @@ body {
 
 .page-index-button {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
+  right: 30px;
+  bottom: 30px;
   z-index: 1101;
 
   width: 64px;
@@ -2415,8 +2415,8 @@ body {
 @media (max-width: 600px) {
 
   .page-index-button {
-    right: 18px;
-    bottom: 18px;
+    right: 23px;
+    bottom: 23px;
 
     width: 52px;
     height: 52px;
@@ -2644,8 +2644,8 @@ body {
   .site-menu-button {
     position: fixed;
 
-    top: 14px;
-    right: 14px;
+    top: 23px;
+    right: 23px;
     left: auto;
 
     width: 52px;
