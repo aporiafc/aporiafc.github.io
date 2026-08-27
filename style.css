@@ -613,7 +613,6 @@ body {
   margin: 0 auto;
   padding: 120px 40px;
   text-align: left;
-  position: relative;
 }
 
 
@@ -655,8 +654,43 @@ body {
 ========================= */
 
 .department {
+  --department-color: #777;
+
   width: 100%;
-  margin-top: 68px;
+  margin-top: 40px;
+
+  padding: 28px 30px 30px;
+
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+}
+
+
+/* ---------- DEPARTMENT COLORS ---------- */
+
+.department-headquarters {
+  --department-color: #2384DE;
+}
+
+.department-dating {
+  --department-color: #F17EB3;
+}
+
+.department-administrative {
+  --department-color: #E0A82B;
+}
+
+.department-watchdog {
+  --department-color: #BB3838;
+}
+
+.department-negotiation {
+  --department-color: #9A22B3;
+}
+
+.department-st {
+  --department-color: #74A450;
 }
 
 
@@ -669,6 +703,7 @@ body {
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.32em;
+
   color: #777;
 }
 
@@ -676,42 +711,34 @@ body {
 /* ---------- DEPARTMENT NAME ---------- */
 
 .department h2 {
-  margin: 8px 0 0;
+  position: relative;
+
+  margin: 9px 0 0;
+  padding-top: 13px;
 
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 27px;
+  font-size: 25px;
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: 0.08em;
+
+  color: var(--department-color);
 }
 
 
-/* =========================
-   DEPARTMENT COLORS
-========================= */
+/* 細い線：部署名と日本語部署名の間 */
 
-.department-headquarters {
-  color: #2384DE;
-}
+.department h2::before {
+  content: "";
 
-.department-dating {
-  color: #F17EB3;
-}
+  position: absolute;
+  top: 0;
+  left: 0;
 
-.department-administrative {
-  color: #E0A82B;
-}
+  width: 100%;
+  height: 1px;
 
-.department-watchdog {
-  color: #BB3838;
-}
-
-.department-negotiation {
-  color: #9A22B3;
-}
-
-.department-st {
-  color: #74A450;
+  background: #e5e5e5;
 }
 
 
@@ -724,15 +751,12 @@ body {
 
   grid-template-columns: repeat(4, minmax(0, 1fr));
 
-  column-gap: 28px;
-  row-gap: 28px;
+  column-gap: 20px;
+  row-gap: 24px;
 
   width: 100%;
 
-  margin-top: 30px;
-  padding-top: 28px;
-
-  border-top: 1px solid #e5e5e5;
+  margin-top: 25px;
 }
 
 
@@ -756,6 +780,8 @@ body {
 
   color: #222;
   text-decoration: none;
+
+  transition: transform 0.2s ease;
 }
 
 
@@ -769,6 +795,8 @@ body {
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.06em;
+
+  color: #222;
 
   transition: color 0.2s ease;
 }
@@ -795,6 +823,8 @@ body {
    CHARACTER HOVER
 ========================= */
 
+/* 日本語名 */
+
 .character-list a span::after {
   content: "";
 
@@ -813,15 +843,22 @@ body {
   transition: transform 0.3s ease;
 }
 
-.character-list a:hover span::after {
-  transform: scaleX(1);
+
+/* hover時：部署カラー */
+
+.department .character-list a:hover span {
+  color: var(--department-color);
+}
+
+.department .character-list a:hover small {
+  color: var(--department-color);
 }
 
 
-/* 英字も少しだけ濃く */
+/* hover時：中央から横線 */
 
-.character-list a:hover small {
-  color: #777;
+.department .character-list a:hover span::after {
+  transform: scaleX(1);
 }
 
 
@@ -836,7 +873,7 @@ body {
     max-width: none;
 
     margin: 58px 0 0;
-    padding: 75px 24px 90px;
+    padding: 85px 24px 90px;
 
     text-align: left;
   }
@@ -845,40 +882,46 @@ body {
   /* ---------- HEADER ---------- */
 
   .character-page > .page-label {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 
     font-size: 11px;
     letter-spacing: 0.32em;
   }
 
   .character-page h1 {
-    font-size: 56px;
+    font-size: 44px;
     line-height: 0.95;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
   }
 
   .character-page .page-description {
-    margin-top: 25px;
+    margin-top: 20px;
+    margin-bottom: 55px;
 
     font-size: 12px;
     line-height: 2;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
   }
 
 
   /* ---------- DEPARTMENT ---------- */
 
   .department {
-    margin-top: 58px;
+    margin-top: 24px;
+
+    padding: 22px 20px 24px;
+
+    border-radius: 7px;
   }
 
   .department-label {
     font-size: 11px;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.18em;
   }
 
   .department h2 {
-    margin-top: 7px;
+    margin-top: 8px;
+    padding-top: 11px;
 
     font-size: 23px;
     letter-spacing: 0.06em;
@@ -891,13 +934,11 @@ body {
   .department:first-of-type .character-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    column-gap: 22px;
-    row-gap: 25px;
+    column-gap: 16px;
+    row-gap: 23px;
 
-    margin-top: 25px;
-    padding-top: 24px;
+    margin-top: 23px;
   }
-
 
   .character-list a span {
     font-size: 13px;
@@ -909,181 +950,6 @@ body {
 
     font-size: 10px;
     letter-spacing: 0.12em;
-  }
-
-}
-
-/* =========================
-   CHARACTER MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
-  .character-page {
-    width: auto;
-    max-width: none;
-
-    margin: 58px 0 0;
-    padding: 75px 24px 90px;
-  }
-
-  .character-page > .page-label {
-    margin-bottom: 18px;
-
-    font-size: 11px;
-    letter-spacing: 0.32em;
-  }
-
-  .character-page h1 {
-    font-size: 56px;
-    line-height: 0.95;
-    letter-spacing: 0.04em;
-  }
-
-  .character-page .page-description {
-    margin-top: 25px;
-
-    font-size: 12px;
-    line-height: 2;
-    letter-spacing: 0.05em;
-  }
-
-
-  /* ---------- DEPARTMENT ---------- */
-
-  .department {
-    width: 100%;
-    margin-top: 58px;
-  }
-
-  .department-label {
-    margin-bottom: 7px;
-
-    font-size: 11px;
-    letter-spacing: 0.32em;
-  }
-
-  .department h2 {
-    font-size: 24px;
-  }
-
-
-  /* ---------- CHARACTER LIST ---------- */
-
-  .character-list {
-    grid-template-columns: repeat(2, 1fr);
-
-    margin-top: 27px;
-    padding-bottom: 22px;
-
-    column-gap: 24px;
-    row-gap: 25px;
-  }
-
-  .character-list a span {
-    font-size: 13px;
-  }
-
-  .character-list a small {
-    margin-top: 4px;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-  }
-
-}
-
-
-/* =========================
-   CHARACTER MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
-  .character-page {
-    width: auto;
-    max-width: none;
-
-    margin: 58px 0 0;
-    padding: 75px 24px 90px;
-
-    text-align: left;
-  }
-
-
-  /* ---------- PAGE HEADER ---------- */
-
-  .character-page > .page-label {
-    margin-bottom: 18px;
-
-    font-size: 11px;
-    letter-spacing: 0.32em;
-  }
-
-  .character-page h1 {
-    font-size: 56px;
-    line-height: 0.95;
-    letter-spacing: 0.04em;
-  }
-
-  .character-page .page-description {
-    margin-top: 25px;
-
-    font-size: 12px;
-    line-height: 2;
-    letter-spacing: 0.05em;
-  }
-
-
-  /* ---------- DEPARTMENT ---------- */
-
-  .department {
-    margin-top: 58px;
-  }
-
-  .department-label {
-    margin-bottom: 7px;
-
-    padding-left: 15px;
-
-    font-size: 11px;
-    letter-spacing: 0.3em;
-  }
-
-  .department-label::before {
-    width: 5px;
-    height: 5px;
-  }
-
-  .department h2 {
-    font-size: 25px;
-    letter-spacing: 0.05em;
-  }
-
-  .department::after {
-    margin-top: 16px;
-  }
-
-
-  /* ---------- CHARACTER LIST ---------- */
-
-  .character-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    column-gap: 28px;
-    row-gap: 27px;
-
-    margin-top: 28px;
-  }
-
-  .character-list a span {
-    font-size: 14px;
-  }
-
-  .character-list a small {
-    margin-top: 3px;
-
-    font-size: 10px;
-    letter-spacing: 0.13em;
   }
 
 }
@@ -3197,86 +3063,6 @@ body {
 /* 本物のカード画像 */
 .card-detail-image:has(img) {
   background: transparent;
-}
-
-
-/* =========================
-   CHARACTER LIST MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
-  /* ---------- PAGE ---------- */
-
-  .character-page {
-  padding: 85px 24px 90px;
-}
-
-  .character-page > .page-label {
-    margin-bottom: 20px;
-    font-size: 11px;
-  }
-
-  .character-page h1 {
-    font-size: 44px;
-    letter-spacing: 0.08em;
-  }
-
-  .character-page > .page-description {
-    margin-top: 20px;
-    margin-bottom: 55px;
-    font-size: 12px;
-    line-height: 2;
-    letter-spacing: 0.06em;
-  }
-
-
-  /* ---------- DEPARTMENT ---------- */
-
-  .department {
-    margin-bottom: 55px;
-  }
-
-  .department-label {
-    margin-bottom: 5px;
-    font-size: 11px;
-    letter-spacing: 0.14em;
-  }
-
-  .department h2 {
-    margin-bottom: 25px;
-    padding-bottom: 12px;
-
-    font-size: 24px;
-    letter-spacing: 0.08em;
-  }
-
-
-  /* ---------- CHARACTER LIST ---------- */
-
-.character-list {
-  display: flex;
-  flex-direction: column;
-  gap: 26px;
-
-  width: 88%;
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-.character-list a {
-  width: 100%;
-}
-
-.character-list a span {
-  display: block;
-}
-
-.character-list a small {
-  display: block;
-  margin-top: 5px;
-}
-
 }
 
 
