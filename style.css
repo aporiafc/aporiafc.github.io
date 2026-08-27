@@ -2250,12 +2250,12 @@ body {
 
 .page-index-button {
   position: fixed;
-  right: 28px;
-  bottom: 28px;
+  right: 24px;
+  bottom: 24px;
   z-index: 1000;
 
-  width: 58px;
-  height: 58px;
+  width: 64px;
+  height: 64px;
 
   border: 1px solid #111;
   border-radius: 50%;
@@ -2271,7 +2271,7 @@ body {
 
   font-family: "Cormorant Garamond", serif;
   font-size: 11px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
 
   transition:
     background 0.25s ease,
@@ -2412,8 +2412,8 @@ body {
   .page-index-button {
     right: 18px;
     bottom: 18px;
-    width: 52px;
-    height: 52px;
+    width: 54px;
+    height: 54px;
   }
 
   .page-index-inner {
