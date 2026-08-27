@@ -2244,6 +2244,7 @@ body {
   transform: scaleX(1);
 }
 
+
 /* =========================
    PAGE INDEX
 ========================= */
@@ -2257,11 +2258,11 @@ body {
   width: 64px;
   height: 64px;
 
-  border: 1px solid #111;
+  border: 1px solid #c8c8c8;
   border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.94);
-  color: #111;
+  background: rgba(255, 255, 255, 0.92);
+  color: #222;
 
   display: flex;
   align-items: center;
@@ -2277,6 +2278,10 @@ body {
     background 0.25s ease,
     color 0.25s ease,
     transform 0.25s ease;
+}
+
+.page-index-button:hover {
+  transform: translateY(-2px);
 }
 
 
@@ -2303,18 +2308,6 @@ body {
 }
 
 
-.page-index-inner {
-  width: min(620px, calc(100% - 80px));
-  height: 100%;
-
-  margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-
 /* HEADER */
 
 .page-index-header {
@@ -2331,7 +2324,6 @@ body {
   letter-spacing: 0.2em;
 }
 
-
 .page-index-close {
   border: none;
   background: none;
@@ -2344,22 +2336,11 @@ body {
 
   cursor: pointer;
 
-  color: #111;
+  color: #222;
 }
 
 
 /* NAV */
-
-.page-index-nav {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-
-  column-gap: 60px;
-  row-gap: 0;
-
-  margin-top: 28px;
-}
-
 
 .page-index-nav a {
   position: relative;
@@ -2368,7 +2349,7 @@ body {
 
   padding: 13px 0;
 
-  color: #111;
+  color: #222;
   text-decoration: none;
 
   font-family: "Cormorant Garamond", "Noto Sans JP", sans-serif;
@@ -2377,7 +2358,6 @@ body {
 
   border-bottom: 1px solid #eee;
 }
-
 
 .page-index-nav a::after {
   content: "";
@@ -2389,25 +2369,25 @@ body {
   width: 0;
   height: 1px;
 
-  background: #111;
+  background: #222;
 
   transform: translateX(-50%);
 
   transition: width 0.25s ease;
 }
 
-
 .page-index-nav a:hover::after {
   width: 100%;
 }
+
 
 @media (max-width: 600px) {
 
   .page-index-button {
     right: 18px;
     bottom: 18px;
-    width: 54px;
-    height: 54px;
+    width: 52px;
+    height: 52px;
   }
 
   .page-index-inner {
