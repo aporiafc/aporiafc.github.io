@@ -2253,7 +2253,7 @@ body {
   position: fixed;
   right: 24px;
   bottom: 24px;
-  z-index: 1000;
+  z-index: 1101;
 
   width: 64px;
   height: 64px;
@@ -2285,12 +2285,15 @@ body {
 }
 
 
-/* INDEX PANEL */
+/* =========================
+   INDEX PANEL
+========================= */
 
 .page-index-panel {
   position: fixed;
   inset: 0;
-  z-index: 999;
+
+  z-index: 1100;
 
   background: rgba(255, 255, 255, 0.97);
 
@@ -2308,7 +2311,25 @@ body {
 }
 
 
-/* HEADER */
+/* =========================
+   INDEX INNER
+========================= */
+
+.page-index-inner {
+  width: min(720px, calc(100% - 80px));
+  height: 100%;
+
+  margin: 0 auto;
+  padding: 100px 0 80px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================
+   INDEX HEADER
+========================= */
 
 .page-index-header {
   display: flex;
@@ -2340,7 +2361,13 @@ body {
 }
 
 
-/* NAV */
+/* =========================
+   INDEX NAV
+========================= */
+
+.page-index-nav {
+  margin-top: 25px;
+}
 
 .page-index-nav a {
   position: relative;
@@ -2381,22 +2408,33 @@ body {
 }
 
 
+/* =========================
+   INDEX MOBILE
+========================= */
+
 @media (max-width: 600px) {
 
   .page-index-button {
     right: 18px;
     bottom: 18px;
+
     width: 52px;
     height: 52px;
   }
 
   .page-index-inner {
     width: calc(100% - 48px);
+
+    padding: 80px 0 60px;
+  }
+
+  .page-index-nav {
+    margin-top: 22px;
   }
 
   .page-index-nav {
     display: grid;
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
     column-gap: 0;
   }
 
