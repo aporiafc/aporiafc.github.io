@@ -409,7 +409,7 @@ body {
   flex-direction: column;
   gap: 18px;
 
-  width: min(100%, 1000px);
+  width: min(100%, 800px);
   margin-top: 60px;
 }
 
