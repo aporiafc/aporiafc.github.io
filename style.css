@@ -355,99 +355,187 @@ body {
   transform: translateY(-2px);
 }
 
+
 /* ========================
    WORLD PAGE
 ======================== */
 
 .world-page {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 120px 40px;
-  text-align: center;
+  position: relative;
+
+  width: min(1100px, calc(100% - 160px));
+  min-height: calc(100vh - 72px);
+
+  margin: 72px auto 0;
+  padding: 100px 0;
+
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  column-gap: 100px;
+  align-items: center;
 }
 
+
+/* ---------- TITLE ---------- */
+
 .world-page > .page-label {
-  margin-bottom: 24px;
+  grid-column: 1;
+
+  margin: 0 0 18px;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  font-weight: 400;
+  color: #777;
 }
 
 .world-page h1 {
+  grid-column: 1;
+
   margin: 0;
 
   font-family: "Cormorant Garamond", serif;
-  font-size: 64px;
+  font-size: clamp(72px, 8vw, 110px);
+  line-height: 0.9;
   font-weight: 400;
-  letter-spacing: 0.12em;
+
+  letter-spacing: 0.04em;
   color: #222;
 }
 
+
+/* ---------- DESCRIPTION ---------- */
+
 .world-page .page-description {
-  margin-top: 24px;
+  grid-column: 1;
+
+  margin: 28px 0 0;
+
+  font-size: 14px;
+  line-height: 2;
+
+  letter-spacing: 0.05em;
+  color: #555;
 }
 
+
+/* ---------- LINKS ---------- */
+
 .world-links {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+
   display: flex;
-  justify-content: center;
-  gap: 60px;
-  margin-top: 100px;
+  flex-direction: column;
+  gap: 34px;
+
+  margin: 0;
+  padding-left: 30px;
+
+  align-self: center;
 }
+
 
 .world-links a {
   position: relative;
-  display: block;
-  width: 220px;
-  padding: 35px 20px;
-  text-decoration: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
+
+  padding: 0 0 16px;
+
   color: #222;
-  border: 1px solid #ddd;
+  text-decoration: none;
+
+  border: none;
+
   transition: transform 0.3s ease;
 }
 
-.world-links a:hover {
-  transform: translateY(-4px);
-}
 
-.world-links a {
-    position: relative;
-    display: block;
-    width: 220px;
-    padding: 35px 20px;
-    text-decoration: none;
-    color: #222;
-    border: 1px solid #ddd;
-    transition: transform 0.3s ease;
-}
+/* ---------- LINK TITLE ---------- */
 
 .world-links a > span:first-child {
-    display: inline-block;
-    position: relative;
-    padding-bottom: 6px;
-    font-family: "Cormorant Garamond", serif;
-    font-size: 22px;
-    letter-spacing: 0.18em;
+  position: relative;
+
+  display: inline-block;
+
+  padding-bottom: 7px;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+  letter-spacing: 0.16em;
 }
 
+
+/* ---------- LINK LINE ---------- */
+
 .world-links a > span:first-child::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 1px;
-    background: #222;
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.35s ease;
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 0;
+  height: 1px;
+
+  background: #222;
+
+  transform: translateX(-50%);
+
+  transition: width 0.3s ease;
 }
 
 .world-links a:hover > span:first-child::after {
-    transform: scaleX(1);
+  width: 100%;
 }
+
+
+/* ---------- LINK SUBTITLE ---------- */
 
 .world-links small {
   display: block;
-  margin-top: 12px;
-  font-size: 12px;
+
+  margin-top: 6px;
+
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 11px;
+
+  letter-spacing: 0.08em;
   color: #777;
+}
+
+
+/* ---------- LINK HOVER ---------- */
+
+.world-links a:hover {
+  transform: translateX(5px);
+}
+
+
+/* ---------- SIDE LABEL ---------- */
+
+.world-page::after {
+  content: "WORLD / 01";
+
+  position: absolute;
+
+  top: 50%;
+  right: -70px;
+
+  transform: translateY(-50%) rotate(90deg);
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 10px;
+
+  letter-spacing: 0.22em;
+  color: #999;
 }
 
 
@@ -2411,53 +2499,98 @@ body {
 }
 
 
-/* =========================
+/* ========================
    WORLD MOBILE
-========================= */
+======================== */
 
 @media (max-width: 700px) {
 
   .world-page {
-    padding: 85px 20px 90px;
+    width: auto;
+    min-height: calc(100svh - 58px);
+
+    margin: 58px 0 0;
+    padding: 75px 24px 90px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
+
+  /* ---------- TITLE ---------- */
+
   .world-page > .page-label {
-    margin-bottom: 20px;
+    margin: 0 0 18px;
+
     font-size: 11px;
+    letter-spacing: 0.32em;
   }
 
   .world-page h1 {
-    font-size: 44px;
-    letter-spacing: 0.08em;
+    margin: 0;
+
+    font-size: 56px;
+    line-height: 0.95;
+
+    letter-spacing: 0.04em;
   }
+
+
+  /* ---------- DESCRIPTION ---------- */
 
   .world-page .page-description {
-    margin-top: 20px;
+    margin: 25px 0 0;
+
     font-size: 12px;
     line-height: 2;
-    letter-spacing: 0.06em;
+
+    letter-spacing: 0.05em;
   }
+
+
+  /* ---------- LINKS ---------- */
 
   .world-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    margin-top: 55px;
+    width: 100%;
+
+    margin-top: 65px;
+    padding-left: 0;
+
+    gap: 28px;
+
+    align-self: stretch;
   }
+
 
   .world-links a {
-    width: min(100%, 320px);
-    padding: 27px 20px;
+    width: 100%;
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid #e5e5e5;
   }
 
+
   .world-links a > span:first-child {
-    font-size: 20px;
+    font-size: 22px;
     letter-spacing: 0.14em;
   }
 
+
   .world-links small {
-    margin-top: 10px;
-    font-size: 11px;
+    margin-top: 5px;
+
+    font-size: 10px;
+  }
+
+
+  /* ---------- SIDE LABEL ---------- */
+
+  .world-page::after {
+    top: 50%;
+    right: 3px;
+
+    font-size: 8px;
   }
 
 }
