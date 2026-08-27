@@ -437,23 +437,92 @@ body {
 }
 
 
-.world-links a {
-  position: relative;
+.world-links {
+  width: min(620px, 100%);
+  margin-left: auto;
+  margin-top: 40px;
+}
 
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.world-link {
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  align-items: center;
 
   width: 100%;
+  box-sizing: border-box;
 
-  padding: 0 0 16px;
+  padding: 20px 24px;
 
-  color: #222;
+  background: #ffffff;
+  border: 1px solid #E5E5E5;
+  border-radius: 7px;
+
   text-decoration: none;
+  color: #222222;
 
-  border: none;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
 
-  transition: transform 0.3s ease;
+.world-link + .world-link {
+  margin-top: 10px;
+}
+
+
+/* NUMBER */
+
+.world-number {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: #777777;
+}
+
+
+/* TEXT */
+
+.world-link-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.world-link-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  letter-spacing: 0.16em;
+  color: #222222;
+}
+
+.world-link-text small {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #777777;
+}
+
+
+/* ARROW */
+
+.world-arrow {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  color: #777777;
+
+  transition: transform 0.2s ease;
+}
+
+
+/* HOVER */
+
+.world-link:hover {
+  border-color: #D8D8D8;
+  transform: translateX(4px);
+}
+
+.world-link:hover .world-arrow {
+  transform: translateX(4px);
 }
 
 
@@ -3152,3 +3221,36 @@ body {
 
 }
 
+
+@media (max-width: 600px) {
+
+  .world-links {
+    width: 100%;
+    margin-top: 42px;
+  }
+
+  .world-link {
+    grid-template-columns: 32px 1fr auto;
+
+    padding: 18px 18px;
+    border-radius: 6px;
+  }
+
+  .world-number {
+    font-size: 13px;
+  }
+
+  .world-link-title {
+    font-size: 16px;
+    letter-spacing: 0.14em;
+  }
+
+  .world-link-text small {
+    font-size: 10px;
+  }
+
+  .world-arrow {
+    font-size: 17px;
+  }
+
+}
