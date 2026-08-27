@@ -743,13 +743,6 @@ body {
 }
 
 
-/* ---------- 本部：3人 ---------- */
-
-.department:first-of-type .character-list {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-
 /* ---------- CHARACTER LINK ---------- */
 
 .character-list a {
@@ -910,8 +903,7 @@ body {
 
   /* ---------- CHARACTER LIST ---------- */
 
-  .character-list,
-  .department:first-of-type .character-list {
+  .character-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 
     column-gap: 16px;
