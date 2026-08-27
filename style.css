@@ -685,57 +685,6 @@ body {
 }
 
 
-/* ---------- COLOR DOT ---------- */
-
-.department-label::before {
-  content: "";
-
-  position: absolute;
-  left: 0;
-  top: 50%;
-
-  width: 6px;
-  height: 6px;
-
-  border-radius: 50%;
-
-  background: #999;
-
-  transform: translateY(-50%);
-}
-
-
-/* ---------- DEPARTMENT COLORS ---------- */
-
-.department:nth-of-type(1) .department-label::before {
-  background: #B22222;
-}
-
-.department:nth-of-type(2) .department-label::before {
-  background: #FD1493;
-}
-
-.department:nth-of-type(3) .department-label::before {
-  background: #E9A825;
-}
-
-.department:nth-of-type(4) .department-label::before {
-  background: #3F60BE;
-}
-
-.department:nth-of-type(5) .department-label::before {
-  background: #DF507F;
-}
-
-.department:nth-of-type(6) .department-label::before {
-  background: #61C892;
-}
-
-.department:nth-of-type(7) .department-label::before {
-  background: #777;
-}
-
-
 /* =========================
    DEPARTMENT TITLE
 ========================= */
