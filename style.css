@@ -2279,12 +2279,6 @@ body {
     transform 0.25s ease;
 }
 
-.page-index-button:hover {
-  background: #111;
-  color: #fff;
-  transform: translateY(-2px);
-}
-
 
 /* INDEX PANEL */
 
