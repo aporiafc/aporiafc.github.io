@@ -1,1 +1,1088 @@
+<!DOCTYPE html>
+<html lang="ja">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>STORY | Aporia fancafe</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- =========================
+       OGP
+  ========================= -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="STORY | Aporia fancafe">
+  <meta property="og:description" content="『ブレイクマイケース』にまつわるストーリー情報をまとめた非公式ファンサイトです。">
+  <meta property="og:url" content="https://aporiafc.github.io/story.html">
+  <meta property="og:image" content="https://aporiafc.github.io/images/ogp.png">
+
+  <meta property="og:site_name" content="Aporia fancafe">
+  <meta property="og:locale" content="ja_JP">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="STORY | Aporia fancafe">
+  <meta name="twitter:description" content="『ブレイクマイケース』にまつわるストーリー情報をまとめた非公式ファンサイトです。">
+  <meta name="twitter:image" content="https://aporiafc.github.io/images/ogp.png">
+
+</head>
+
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header class="site-header">
+
+    <a href="index.html" class="site-header-logo">
+      <span>APORIA FANCAFE</span>
+    </a>
+
+    <nav class="site-header-nav">
+      <a href="world.html">WORLD</a>
+      <a href="character.html">CHARACTER</a>
+      <a href="story.html">STORY</a>
+      <a href="#">EVENT</a>
+      <a href="#">MUSIC</a>
+      <a href="#">MEDIA</a>
+      <a href="#">× stmy</a>
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       SITE MENU
+  ========================= -->
+
+  <button class="site-menu-button" type="button" aria-label="サイトメニューを開く">
+    <span>MENU</span>
+  </button>
+
+
+  <div class="site-menu-panel">
+
+    <div class="site-menu-inner">
+
+      <div class="site-menu-header">
+        <span>SITE MENU</span>
+
+        <button class="site-menu-close" type="button" aria-label="メニューを閉じる">
+          ×
+        </button>
+      </div>
+
+
+      <nav class="site-menu-nav">
+
+        <a href="index.html">TOP</a>
+        <a href="world.html">WORLD</a>
+        <a href="character.html">CHARACTER</a>
+        <a href="story.html">STORY</a>
+        <a href="event.html">EVENT</a>
+        <a href="music.html">MUSIC</a>
+        <a href="media.html">MEDIA</a>
+        <a href="media.html">× stmy</a>
+
+      </nav>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =========================
+       STORY PAGE
+  ========================= -->
+
+  <main class="story-page">
+
+
+    <!-- =========================
+         PAGE HEADER
+    ========================= -->
+
+    <section class="story-intro">
+
+      <p class="page-label">STORY DATABASE</p>
+
+      <h1>STORY</h1>
+
+      <p class="page-description">
+        ブレイクマイケースに登場する<br>
+        ストーリー情報をまとめています。
+      </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         SEARCH
+    ========================= -->
+
+    <section class="story-search">
+
+      <div class="story-search-header">
+
+        <p class="section-label">SEARCH</p>
+
+        <h2>STORY SEARCH</h2>
+
+      </div>
+
+
+      <!-- ストーリー種類 -->
+
+      <div class="story-search-group">
+
+        <p class="story-search-label">
+          STORY TYPE
+        </p>
+
+        <div class="story-filter-buttons">
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-type"
+              value="main"
+            >
+            <span>MAIN</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-type"
+              value="personal"
+            >
+            <span>PERSONAL</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-type"
+              value="event"
+            >
+            <span>EVENT</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-type"
+              value="card"
+            >
+            <span>CARD</span>
+          </label>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ストーリータイトル -->
+
+      <div class="story-search-group">
+
+        <label
+          class="story-search-label"
+          for="story-title"
+        >
+          STORY TITLE
+        </label>
+
+        <input
+          type="text"
+          id="story-title"
+          class="story-search-input"
+          placeholder="ストーリータイトルを入力"
+        >
+
+      </div>
+
+
+
+      <!-- 登場キャラクター -->
+
+      <div class="story-search-group">
+
+        <p class="story-search-label">
+          CHARACTERS
+        </p>
+
+        <div class="story-character-select">
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="ai"
+            >
+            <span>皇坂 逢</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="yuzuru"
+            >
+            <span>城瀬 由鶴</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="roka"
+            >
+            <span>須王 芦佳</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="kou"
+            >
+            <span>綾戸 恋</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="mao"
+            >
+            <span>宇京 真央</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="akehoshi"
+            >
+            <span>樋宮 明星</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="yuragi"
+            >
+            <span>環野 揺</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="taiga"
+            >
+            <span>槻本 大河</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="haruhi"
+            >
+            <span>壱川 春日</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="sei"
+            >
+            <span>隠岐谷 誓</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="shizuka"
+            >
+            <span>節見 静</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="takeru"
+            >
+            <span>御門 尊</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="soyogu"
+            >
+            <span>新開 戦</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="shinobu"
+            >
+            <span>相沢 篠信</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="kiho"
+            >
+            <span>在間 樹帆</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="kyoya"
+            >
+            <span>祠堂 恭耶</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="riku"
+            >
+            <span>立科 吏来</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="tomose"
+            >
+            <span>恩田 灯世</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="yu"
+            >
+            <span>新名 有</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="kamiya"
+            >
+            <span>神家</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="urara"
+            >
+            <span>麻波 麗</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="heroine"
+            >
+            <span>主人公</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="togo"
+            >
+            <span>弥代 透吾</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="yukimura"
+            >
+            <span>伊達 幸邑</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="ran"
+            >
+            <span>天羽 嵐</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-character"
+              value="rare"
+            >
+            <span>レア</span>
+          </label>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 視点 -->
+
+      <div class="story-search-group">
+
+        <p class="story-search-label">
+          VIEWPOINT
+        </p>
+
+        <div class="story-filter-buttons">
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-viewpoint"
+              value="heroine"
+            >
+            <span>主人公</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-viewpoint"
+              value="ai"
+            >
+            <span>皇坂 逢</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-viewpoint"
+              value="yuzuru"
+            >
+            <span>城瀬 由鶴</span>
+          </label>
+
+          <label>
+            <input
+              type="checkbox"
+              name="story-viewpoint"
+              value="roka"
+            >
+            <span>須王 芦佳</span>
+          </label>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 検索ボタン -->
+
+      <div class="story-search-action">
+
+        <button
+          type="button"
+          id="story-search-button"
+          class="story-search-button"
+        >
+          SEARCH
+        </button>
+
+        <button
+          type="button"
+          id="story-reset-button"
+          class="story-reset-button"
+        >
+          RESET
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         RESULT
+    ========================= -->
+
+    <section class="story-results">
+
+      <div class="story-results-header">
+
+        <p class="section-label">RESULT</p>
+
+        <h2>STORY LIST</h2>
+
+        <p id="story-result-count">
+          ALL STORIES
+        </p>
+
+      </div>
+
+
+      <div
+        id="story-list"
+        class="story-list"
+      ></div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =========================
+       SCRIPT
+  ========================= -->
+
+  <script>
+
+    /* =========================
+       SITE MENU
+    ========================= */
+
+    const siteMenuButton =
+      document.querySelector(".site-menu-button");
+
+    const siteMenuPanel =
+      document.querySelector(".site-menu-panel");
+
+    const siteMenuClose =
+      document.querySelector(".site-menu-close");
+
+    const siteMenuLinks =
+      document.querySelectorAll(".site-menu-nav a");
+
+
+    siteMenuButton.addEventListener("click", () => {
+
+      siteMenuPanel.classList.add("is-open");
+
+      siteMenuButton.classList.add("is-hidden");
+
+    });
+
+
+    siteMenuClose.addEventListener("click", () => {
+
+      siteMenuPanel.classList.remove("is-open");
+
+      siteMenuButton.classList.remove("is-hidden");
+
+    });
+
+
+    siteMenuLinks.forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        siteMenuPanel.classList.remove("is-open");
+
+        siteMenuButton.classList.remove("is-hidden");
+
+      });
+
+    });
+
+
+    siteMenuPanel.addEventListener("click", (event) => {
+
+      if (event.target === siteMenuPanel) {
+
+        siteMenuPanel.classList.remove("is-open");
+
+        siteMenuButton.classList.remove("is-hidden");
+
+      }
+
+    });
+
+
+
+    /* =========================
+       STORY DATA
+    ========================= */
+
+    const stories = [
+
+      /*
+       * ここにストーリーを追加していく
+       *
+       * type:
+       * main / personal / event / card
+       *
+       * episode:
+       * 話数
+       *
+       * characters:
+       * その話に登場するキャラクター
+       *
+       * viewpoints:
+       * 誰視点で描かれているか
+       *
+       * link:
+       * event / card の詳細ページ
+       */
+
+
+      /*
+      {
+        type: "main",
+        title: "〇〇〇〇",
+        episode: 1,
+
+        characters: [
+          "heroine",
+          "ai",
+          "yuzuru"
+        ],
+
+        viewpoints: [
+          "heroine"
+        ],
+
+        link: ""
+      },
+      */
+
+
+      /*
+       * サンプル
+       *
+       * 実際のデータを入れるときに
+       * この形式で追加していく。
+       */
+
+      {
+        type: "main",
+        title: "サンプルストーリー",
+        episode: 1,
+
+        characters: [
+          "heroine",
+          "ai"
+        ],
+
+        viewpoints: [
+          "heroine"
+        ],
+
+        link: ""
+      }
+
+    ];
+
+
+
+    /* =========================
+       CHARACTER NAME
+    ========================= */
+
+    const characterNames = {
+
+      heroine: "主人公",
+
+      ai: "皇坂 逢",
+      yuzuru: "城瀬 由鶴",
+      roka: "須王 芦佳",
+
+      kou: "綾戸 恋",
+      mao: "宇京 真央",
+      akehoshi: "樋宮 明星",
+      yuragi: "環野 揺",
+
+      taiga: "槻本 大河",
+      haruhi: "壱川 春日",
+      sei: "隠岐谷 誓",
+
+      shizuka: "節見 静",
+      takeru: "御門 尊",
+      soyogu: "新開 戦",
+      shinobu: "相沢 篠信",
+
+      kiho: "在間 樹帆",
+      kyoya: "祠堂 恭耶",
+      riku: "立科 吏来",
+
+      tomose: "恩田 灯世",
+      yu: "新名 有",
+      kamiya: "神家",
+      urara: "麻波 麗",
+
+      togo: "弥代 透吾",
+      yukimura: "伊達 幸邑",
+      ran: "天羽 嵐",
+      rare: "レア"
+
+    };
+
+
+
+    /* =========================
+       STORY TYPE NAME
+    ========================= */
+
+    const storyTypeNames = {
+
+      main: "MAIN",
+      personal: "PERSONAL",
+      event: "EVENT",
+      card: "CARD"
+
+    };
+
+
+
+    /* =========================
+       ELEMENTS
+    ========================= */
+
+    const storyTitleInput =
+      document.querySelector("#story-title");
+
+    const searchButton =
+      document.querySelector("#story-search-button");
+
+    const resetButton =
+      document.querySelector("#story-reset-button");
+
+    const storyList =
+      document.querySelector("#story-list");
+
+    const resultCount =
+      document.querySelector("#story-result-count");
+
+
+
+    /* =========================
+       GET SELECTED VALUES
+    ========================= */
+
+    function getCheckedValues(name) {
+
+      return Array.from(
+        document.querySelectorAll(
+          `input[name="${name}"]:checked`
+        )
+      ).map(input => input.value);
+
+    }
+
+
+
+    /* =========================
+       RENDER STORIES
+    ========================= */
+
+    function renderStories(results) {
+
+      storyList.innerHTML = "";
+
+
+      if (results.length === 0) {
+
+        storyList.innerHTML = `
+          <p class="story-no-result">
+            該当するストーリーがありません。
+          </p>
+        `;
+
+        resultCount.textContent = "0 STORIES";
+
+        return;
+
+      }
+
+
+      resultCount.textContent =
+        `${results.length} STORIES`;
+
+
+      results.forEach(story => {
+
+        const article =
+          document.createElement("article");
+
+        article.className = "story-item";
+
+
+        const characters =
+          story.characters
+            .map(character =>
+              characterNames[character] || character
+            )
+            .join(" / ");
+
+
+        const viewpoints =
+          story.viewpoints
+            .map(viewpoint =>
+              characterNames[viewpoint] || viewpoint
+            )
+            .join(" / ");
+
+
+        article.innerHTML = `
+
+          <div class="story-item-type">
+            ${storyTypeNames[story.type]}
+          </div>
+
+          <div class="story-item-main">
+
+            <h3>
+              ${story.title}
+            </h3>
+
+            <p class="story-item-episode">
+              EPISODE ${story.episode}
+            </p>
+
+          </div>
+
+          <div class="story-item-info">
+
+            <p>
+              <span>CHARACTERS</span>
+              ${characters}
+            </p>
+
+            <p>
+              <span>VIEWPOINT</span>
+              ${viewpoints}
+            </p>
+
+          </div>
+
+          ${
+            story.link
+              ? `
+                <a
+                  href="${story.link}"
+                  class="story-item-link"
+                >
+                  DETAIL
+                </a>
+              `
+              : ""
+          }
+
+        `;
+
+
+        storyList.appendChild(article);
+
+      });
+
+    }
+
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    function searchStories() {
+
+      const selectedTypes =
+        getCheckedValues("story-type");
+
+      const selectedCharacters =
+        getCheckedValues("story-character");
+
+      const selectedViewpoints =
+        getCheckedValues("story-viewpoint");
+
+      const titleKeyword =
+        storyTitleInput.value
+          .trim()
+          .toLowerCase();
+
+
+      const results =
+        stories.filter(story => {
+
+
+          /* -------------------------
+             TYPE
+          ------------------------- */
+
+          if (
+            selectedTypes.length > 0 &&
+            !selectedTypes.includes(story.type)
+          ) {
+
+            return false;
+
+          }
+
+
+
+          /* -------------------------
+             TITLE
+          ------------------------- */
+
+          if (
+            titleKeyword &&
+            !story.title
+              .toLowerCase()
+              .includes(titleKeyword)
+          ) {
+
+            return false;
+
+          }
+
+
+
+          /* -------------------------
+             CHARACTERS
+          ------------------------- */
+
+          if (
+            selectedCharacters.length > 0
+          ) {
+
+            const hasAllCharacters =
+              selectedCharacters.every(
+                character =>
+                  story.characters.includes(character)
+              );
+
+            if (!hasAllCharacters) {
+
+              return false;
+
+            }
+
+          }
+
+
+
+          /* -------------------------
+             VIEWPOINT
+          ------------------------- */
+
+          if (
+            selectedViewpoints.length > 0
+          ) {
+
+            const hasAllViewpoints =
+              selectedViewpoints.every(
+                viewpoint =>
+                  story.viewpoints.includes(viewpoint)
+              );
+
+            if (!hasAllViewpoints) {
+
+              return false;
+
+            }
+
+          }
+
+
+          return true;
+
+        });
+
+
+      renderStories(results);
+
+    }
+
+
+
+    /* =========================
+       RESET
+    ========================= */
+
+    function resetSearch() {
+
+      document
+        .querySelectorAll(
+          '.story-search input[type="checkbox"]'
+        )
+        .forEach(input => {
+
+          input.checked = false;
+
+        });
+
+
+      storyTitleInput.value = "";
+
+
+      renderStories(stories);
+
+    }
+
+
+
+    /* =========================
+       EVENTS
+    ========================= */
+
+    searchButton.addEventListener(
+      "click",
+      searchStories
+    );
+
+
+    resetButton.addEventListener(
+      "click",
+      resetSearch
+    );
+
+
+
+    /* =========================
+       INITIAL DISPLAY
+    ========================= */
+
+    renderStories(stories);
+
+  </script>
+
+
+</body>
+</html>
