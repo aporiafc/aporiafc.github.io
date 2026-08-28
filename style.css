@@ -1,3233 +1,1219 @@
-/* =========================
-   Base
-========================= */
+<!DOCTYPE html>
+<html lang="ja">
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap');
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-* {
-  box-sizing: border-box;
-}
+  <title>STORY | Aporia fancafe</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
 
-html {
-  scroll-behavior: smooth;
-}
+  <!-- =========================
+       OGP
+  ========================= -->
 
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="STORY | Aporia fancafe">
+  <meta property="og:description" content="『ブレイクマイケース』にまつわるストーリー情報をまとめた非公式ファンサイトです。">
+  <meta property="og:url" content="https://aporiafc.github.io/story.html">
+  <meta property="og:image" content="https://aporiafc.github.io/images/ogp.png">
 
-body {
-  margin: 0;
-  background: #F7F8FA;
-  color: #222222;
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 400;
-}
+  <meta property="og:site_name" content="Aporia fancafe">
+  <meta property="og:locale" content="ja_JP">
 
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="STORY | Aporia fancafe">
+  <meta name="twitter:description" content="『ブレイクマイケース』にまつわるストーリー情報をまとめた非公式ファンサイトです。">
+  <meta name="twitter:image" content="https://aporiafc.github.io/images/ogp.png">
+</head>
 
-/* =========================
-   FIXED SITE HEADER
-========================= */
 
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
+<body>
 
-  width: 100%;
-  height: 90px;
+  <!-- =========================
+       SITE HEADER
+  ========================= -->
 
-  padding: 0 42px;
+  <header class="site-header">
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    <a href="index.html" class="site-header-logo">
+      <span>APORIA FANCAFE</span>
+    </a>
 
-  z-index: 1000;
+    <nav class="site-header-nav">
+      <a href="world.html">WORLD</a>
+      <a href="character.html">CHARACTER</a>
+      <a href="story.html">STORY</a>
+      <a href="#">EVENT</a>
+      <a href="#">MUSIC</a>
+      <a href="#">MEDIA</a>
+      <a href="#">× stmy</a>
+    </nav>
 
-  background: rgba(247, 248, 250, 0.82);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
+  </header>
 
 
-/* SITE NAME */
+  <!-- =========================
+       SITE MENU
+  ========================= -->
 
-.site-header-logo {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
+  <button class="site-menu-button"
+          type="button"
+          aria-label="サイトメニューを開く">
 
-  color: #222;
-  text-decoration: none;
+    <span>MENU</span>
 
-  white-space: nowrap;
-}
+  </button>
 
-.site-header-logo span {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
-  letter-spacing: 0.18em;
-}
 
-.site-header-logo small {
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 8px;
-  letter-spacing: 0.08em;
-  color: #777;
-}
+  <div class="site-menu-panel">
 
+    <div class="site-menu-inner">
 
-/* NAVIGATION */
+      <div class="site-menu-header">
 
-.site-header-nav {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+        <span>SITE MENU</span>
 
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
+        <button class="site-menu-close"
+                type="button"
+                aria-label="メニューを閉じる">
 
-.site-header-nav a {
-  position: relative;
+          ×
 
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.14em;
+        </button>
 
-  color: #222;
-  text-decoration: none;
+      </div>
 
-  white-space: nowrap;
-}
 
-.site-header-nav a::after {
-  content: "";
+      <nav class="site-menu-nav">
 
-  position: absolute;
-  left: 50%;
-  bottom: -7px;
-
-  width: 0;
-  height: 1px;
+        <a href="index.html">TOP</a>
+        <a href="world.html">WORLD</a>
+        <a href="character.html">CHARACTER</a>
+        <a href="story.html">STORY</a>
+        <a href="event.html">EVENT</a>
+        <a href="music.html">MUSIC</a>
+        <a href="media.html">MEDIA</a>
+        <a href="media.html">× stmy</a>
 
-  background: #222;
+      </nav>
 
-  transform: translateX(-50%);
-  transition: width 0.25s ease;
-}
+    </div>
 
-.site-header-nav a:hover::after {
-  width: 100%;
-}
-
-
-/* =========================
-   SIDE LABEL
-========================= */
-
-.side-label {
-  position: fixed;
-
-  top: 50%;
-  right: 24px;
-
-  z-index: 900;
-
-  transform: translateY(-50%);
-
-  writing-mode: vertical-rl;
-
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 8px;
-  letter-spacing: 0.22em;
-
-  color: #777;
-}
-
-.side-label span {
-  display: block;
-}
-
-
-/* =========================
-   Hero
-========================= */
-
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 80px 24px;
-}
-
-.eyebrow {
-  margin: 0 0 28px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 16px;
-  letter-spacing: 0.38em;
-  font-weight: 400;
-}
-
-.hero h1 {
-  margin: 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(64px, 8vw, 112px);
-  line-height: 0.95;
-  letter-spacing: 0.02em;
-  font-weight: 400;
-}
-
-.description {
-  margin: 44px 0 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.04em;
-  line-height: 1.8;
-}
-
-/* =========================
-   Common Page Header
-========================= */
-
-.page-label {
-  margin: 0 0 24px;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 12px;
-  letter-spacing: 0.35em;
-  font-weight: 400;
-  color: #777;
-}
-
-.page-description {
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  color: #555;
-}
-
-
-/* =========================
-   About
-========================= */
-
-.about {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 80px 24px;
-  box-sizing: border-box;
-}
-
-.about-label {
-  margin: 0 0 30px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 13px;
-  letter-spacing: 0.38em;
-  font-weight: 400;
-  color: #777;
-}
-
-
-/* =========================
-   About title
-========================= */
-
-.about h2 {
-  margin: 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(40px, 5vw, 64px);
-  line-height: 1.1;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-}
-
-
-/* =========================
-   About text
-========================= */
-
-.about > p:not(.about-label):not(.site-name):not(.unofficial) {
-  max-width: 520px;
-  margin: 42px auto 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 12px;
-  line-height: 2.25;
-  letter-spacing: 0.04em;
-}
-
-
-/* =========================
-   Site name
-========================= */
-
-.site-name {
-  margin: 46px 0 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 13px;
-  letter-spacing: 0.24em;
-  font-weight: 400;
-  color: #999;
-}
-
-
-/* =========================
-   Unofficial
-========================= */
-
-.unofficial {
-  margin: 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 13px;
-  letter-spacing: 0.28em;
-  font-weight: 400;
-  color: #999;
-}
-
-
-/* =========================
-   MAIN NAVIGATION
-========================= */
-
-.main-navigation {
-  margin-top: 45px;
-  text-align: center;
-}
-
-.navigation-label {
-  margin-bottom: 28px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 12px;
-  letter-spacing: 0.35em;
-  color: #777;
-}
-
-.navigation-links {
-  display: flex;
-  justify-content: center;
-  gap: 42px;
-}
-
-.navigation-links a {
-  position: relative;
-  display: inline-block;
-
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.16em;
-
-  color: #222;
-  text-decoration: none;
-
-  transition: transform 0.3s ease;
-}
-
-.navigation-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: 1px;
-    background: #222;
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.35s ease;
-}
-
-.navigation-links a:hover::after {
-    transform: scaleX(1);
-}
-
-.navigation-links a:hover {
-  transform: translateY(-2px);
-}
-
-
-/* =========================
-   WORLD PAGE
-========================= */
-
-.world-page {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 120px 40px;
-  text-align: left;
-
-  position: relative;
-}
-
-.world-page > .page-label {
-  margin: 0 0 24px;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 12px;
-  letter-spacing: 0.35em;
-  font-weight: 400;
-  color: #777;
-}
-
-.world-page h1 {
-  margin: 0;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 64px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  color: #222;
-}
-
-.world-page .page-description {
-  margin: 24px 0 0;
-
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 14px;
-  line-height: 2;
-  letter-spacing: 0.08em;
-  color: #555;
-}
-
-
-/* =========================
-   WORLD LINKS
-========================= */
-
-.world-links {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-
-  width: min(100%, 800px);
-  margin-top: 60px;
-}
-
-.world-link {
-  display: grid;
-  grid-template-columns: 46px 1fr auto;
-  align-items: center;
-
-  width: 100%;
-  min-height: 96px;
-
-  padding: 20px 24px;
-
-  background: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-
-  color: #222;
-  text-decoration: none;
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease;
-}
-
-.world-link:hover {
-  transform: translateY(-2px);
-  border-color: #d8d8d8;
-}
-
-
-/* ---------- NUMBER ---------- */
-
-.world-number {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
-  letter-spacing: 0.12em;
-  color: #777;
-}
-
-
-/* ---------- TEXT ---------- */
-
-.world-link-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.world-link-title {
-  position: relative;
-
-  display: inline-block;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 22px;
-  letter-spacing: 0.18em;
-  line-height: 1.2;
-}
-
+  </div>
 
-/* hover時：中央から横線 */
-
-.world-link-title::after {
-  content: "";
-
-  position: absolute;
-  left: 0;
-  bottom: -5px;
 
-  width: 100%;
-  height: 1px;
 
-  background: currentColor;
+  <!-- =========================
+       STORY PAGE
+  ========================= -->
 
-  transform: scaleX(0);
-  transform-origin: center;
+  <main class="story-page">
 
-  transition: transform 0.3s ease;
-}
 
-.world-link:hover .world-link-title::after {
-  transform: scaleX(1);
-}
+    <p class="page-label">
+      STORY DATABASE
+    </p>
 
 
-/* ---------- JAPANESE LABEL ---------- */
+    <h1>
+      STORY
+    </h1>
 
-.world-link-text small {
-  margin-top: 7px;
 
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 11px;
-  line-height: 1.5;
-  letter-spacing: 0.06em;
-  color: #777;
-}
+    <p class="page-description">
+      ブレイクマイケースに登場する<br>
+      ストーリーにまつわる情報をまとめています。
+    </p>
 
 
-/* ---------- ARROW ---------- */
 
-.world-arrow {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 18px;
-  color: #777;
+    <!-- =========================
+         SEARCH
+    ========================= -->
 
-  transition:
-    transform 0.25s ease,
-    color 0.25s ease;
-}
+    <section class="story-search">
 
-.world-link:hover .world-arrow {
-  transform: translateX(4px);
-  color: #222;
-}
 
+      <div class="story-search-header">
 
-/* =========================
-   WORLD MOBILE
-========================= */
+        <p class="section-label">
+          SEARCH
+        </p>
 
-@media (max-width: 700px) {
+        <button
+          type="button"
+          class="story-search-reset"
+          id="storySearchReset">
 
-  .world-page {
-    width: auto;
-    max-width: none;
+          RESET
 
-    margin: 58px 0 0;
-    padding: 75px 24px 90px;
+        </button>
 
-    text-align: left;
-  }
+      </div>
 
-  .world-page > .page-label {
-    margin-bottom: 18px;
-    font-size: 11px;
-    letter-spacing: 0.32em;
-  }
 
-  .world-page h1 {
-    font-size: 56px;
-    line-height: 0.95;
-    letter-spacing: 0.04em;
-  }
 
-  .world-page .page-description {
-    margin-top: 25px;
+      <!-- =========================
+           TYPE
+      ========================= -->
 
-    font-size: 12px;
-    line-height: 2;
-    letter-spacing: 0.05em;
-  }
+      <div class="story-search-item">
 
+        <label for="storyType">
+          STORY TYPE
+        </label>
 
-  /* ---------- LINKS ---------- */
+        <select id="storyType">
 
-  .world-links {
-    width: 100%;
-    margin-top: 55px;
+          <option value="">
+            ALL
+          </option>
 
-    gap: 14px;
-  }
+          <option value="main">
+            MAIN
+          </option>
 
-  .world-link {
-    grid-template-columns: 38px 1fr auto;
+          <option value="personal">
+            PERSONAL
+          </option>
 
-    min-height: 88px;
+          <option value="event">
+            EVENT
+          </option>
 
-    padding: 18px 18px;
+          <option value="card">
+            CARD
+          </option>
 
-    border-radius: 7px;
-  }
+        </select>
 
-  .world-number {
-    font-size: 13px;
-  }
+      </div>
 
-  .world-link-title {
-    font-size: 20px;
-    letter-spacing: 0.14em;
-  }
 
-  .world-link-text small {
-    margin-top: 6px;
-    font-size: 10px;
-  }
 
-  .world-arrow {
-    font-size: 16px;
-  }
+      <!-- =========================
+           TITLE
+      ========================= -->
 
-}
+      <div class="story-search-item">
 
+        <label for="storyTitle">
+          STORY TITLE
+        </label>
 
-/* =========================
-   CHARACTER PAGE
-========================= */
+        <select id="storyTitle">
 
-.character-page {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 120px 40px;
-  text-align: left;
-}
+          <option value="">
+            ALL
+          </option>
 
+        </select>
 
-/* ---------- PAGE HEADER ---------- */
+      </div>
 
-.character-page > .page-label {
-  margin: 0 0 24px;
 
-  font-family: "Cormorant Garamond", serif;
-  font-size: 12px;
-  letter-spacing: 0.35em;
-  font-weight: 400;
-  color: #777;
-}
 
-.character-page h1 {
-  margin: 0;
+      <!-- =========================
+           CHARACTERS
+      ========================= -->
 
-  font-family: "Cormorant Garamond", serif;
-  font-size: 64px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  color: #222;
-}
+      <div class="story-search-item">
 
-.character-page .page-description {
-  margin: 24px 0 0;
+        <p class="story-search-label">
+          CHARACTERS
+        </p>
 
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 14px;
-  line-height: 2;
-  letter-spacing: 0.08em;
-  color: #555;
-}
+        <div
+          class="story-checkbox-list"
+          id="characterFilters">
 
+        </div>
 
-/* =========================
-   DEPARTMENT BLOCK
-========================= */
+      </div>
 
-.department {
-  --department-color: #777;
 
-  width: 100%;
-  margin-top: 40px;
 
-  padding: 28px 30px 30px;
+      <!-- =========================
+           VIEWPOINT
+      ========================= -->
 
-  background: #fff;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-}
+      <div class="story-search-item">
 
+        <p class="story-search-label">
+          VIEWPOINT
+        </p>
 
-/* ---------- DEPARTMENT COLORS ---------- */
+        <div
+          class="story-checkbox-list"
+          id="viewpointFilters">
 
-.department-headquarters {
-  --department-color: #2384DE;
-}
+        </div>
 
-.department-dating {
-  --department-color: #F17EB3;
-}
+      </div>
 
-.department-administrative {
-  --department-color: #E0A82B;
-}
 
-.department-watchdog {
-  --department-color: #BB3838;
-}
+    </section>
 
-.department-negotiation {
-  --department-color: #9A22B3;
-}
 
-.department-st {
-  --department-color: #74A450;
-}
 
+    <!-- =========================
+         SEARCH RESULT
+    ========================= -->
 
-/* ---------- DEPARTMENT LABEL ---------- */
+    <section class="story-results">
 
-.department-label {
-  margin: 0;
 
-  font-family: "Cormorant Garamond", serif;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.32em;
+      <div class="story-results-header">
 
-  color: var(--department-color);
-}
+        <p class="section-label">
+          STORIES
+        </p>
 
+        <p class="story-result-count">
+          <span id="resultCount">0</span>
+          STORIES
+        </p>
 
-/* ---------- DEPARTMENT JAPANESE NAME ---------- */
+      </div>
 
-.department h2 {
-  margin: 8px 0 0;
 
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+      <div
+        class="story-list"
+        id="storyList">
 
-  color: var(--department-color);
-}
+      </div>
 
 
-/* =========================
-   CHARACTER LIST
-========================= */
+      <p
+        class="story-no-result"
+        id="storyNoResult">
 
-.character-list {
-  display: grid;
+        該当するストーリーがありません。
 
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+      </p>
 
-  column-gap: 20px;
-  row-gap: 24px;
 
-  width: 100%;
+    </section>
 
-  margin-top: 25px;
-  padding-top: 25px;
 
-  border-top: 1px solid #e5e5e5;
-}
+  </main>
 
 
-/* ---------- CHARACTER LINK ---------- */
 
-.character-list a {
-  position: relative;
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
 
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  <script>
 
-  min-width: 0;
+    /* =========================
+       STORY DATA
+    ========================= */
 
-  color: #222;
-  text-decoration: none;
+    /*
+      ストーリーを追加するときは
+      ここにデータを追加してください。
 
-  transition: transform 0.2s ease;
-}
+      type:
+        main
+        personal
+        event
+        card
 
+      title:
+        ストーリータイトル
 
-/* ---------- JAPANESE NAME ---------- */
+      episode:
+        話数
+        ※タイトル検索では使用しません
 
-.character-list a span {
-  position: relative;
+      characters:
+        その話に登場するキャラクター
 
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: 0.06em;
+      viewpoints:
+        視点キャラクター
 
-  color: #222;
+      link:
+        詳細ページへのリンク
+        EVENT / CARD 以外は "" でもOK
+    */
 
-  transition: color 0.2s ease;
-}
 
+    const storyData = [
 
-/* ---------- ENGLISH NAME ---------- */
+      {
+        type: "main",
+        title: "メインストーリー 01",
+        episode: 1,
+        characters: [
+          "皇坂 逢",
+          "城瀬 由鶴"
+        ],
+        viewpoints: [
+          "主人公"
+        ],
+        link: ""
+      },
 
-.character-list a small {
-  margin-top: 5px;
 
-  font-family: "Cormorant Garamond", serif;
-  font-size: 11px;
-  font-weight: 400;
-  line-height: 1.3;
-  letter-spacing: 0.16em;
+      {
+        type: "main",
+        title: "メインストーリー 01",
+        episode: 2,
+        characters: [
+          "皇坂 逢",
+          "城瀬 由鶴",
+          "須王 芦佳"
+        ],
+        viewpoints: [
+          "主人公",
+          "皇坂 逢"
+        ],
+        link: ""
+      },
 
-  color: #999;
 
-  transition: color 0.2s ease;
-}
+      {
+        type: "personal",
+        title: "皇坂 逢 PERSONAL STORY",
+        episode: 1,
+        characters: [
+          "皇坂 逢"
+        ],
+        viewpoints: [
+          "皇坂 逢"
+        ],
+        link: ""
+      },
 
 
-/* =========================
-   CHARACTER HOVER
-========================= */
+      {
+        type: "event",
+        title: "〇〇〇〇",
+        episode: 1,
+        characters: [
+          "皇坂 逢",
+          "節見 静"
+        ],
+        viewpoints: [
+          "皇坂 逢"
+        ],
+        link: "event-example.html"
+      },
 
-/* 日本語名 */
 
-.character-list a span::after {
-  content: "";
+      {
+        type: "card",
+        title: "〇〇〇〇",
+        episode: 1,
+        characters: [
+          "節見 静"
+        ],
+        viewpoints: [
+          "節見 静"
+        ],
+        link: "card-example.html"
+      }
 
-  position: absolute;
-  left: 0;
-  bottom: -4px;
+    ];
 
-  width: 100%;
-  height: 1px;
 
-  background: currentColor;
 
-  transform: scaleX(0);
-  transform-origin: center;
+    /* =========================
+       CHARACTER LIST
+    ========================= */
 
-  transition: transform 0.3s ease;
-}
+    /*
+      検索に使うキャラクター名。
 
+      今後 character.html の登録名と
+      同じ表記にしておくと管理しやすいです。
+    */
 
-/* hover時：キャラクターカラー */
+    const characterList = [
 
-.character-list a:hover span,
-.character-list a:hover small {
-  color: var(--character-color);
-}
+      "主人公",
 
+      "皇坂 逢",
+      "城瀬 由鶴",
+      "須王 芦佳",
 
-/* hover時：中央から横線 */
+      "綾戸 恋",
+      "宇京 真央",
+      "樋宮 明星",
+      "環野 揺",
 
-.character-list a:hover span::after {
-  transform: scaleX(1);
-}
+      "槻本 大河",
+      "壱川 春日",
+      "隠岐谷 誓",
 
+      "節見 静",
+      "御門 尊",
+      "新開 戦",
+      "相沢 篠信",
 
-/* =========================
-   CHARACTER MOBILE
-========================= */
+      "在間 樹帆",
+      "祠堂 恭耶",
+      "立科 吏来",
 
-@media (max-width: 700px) {
+      "恩田 灯世",
+      "新名 有",
+      "神家",
+      "麻波 麗",
 
-  .character-page {
-    width: auto;
-    max-width: none;
+      "弥代 透吾",
+      "伊達 幸邑",
+      "天羽 嵐",
+      "レア"
 
-    margin: 58px 0 0;
-    padding: 85px 24px 90px;
+    ];
 
-    text-align: left;
-  }
 
 
-  /* ---------- HEADER ---------- */
+    /* =========================
+       VIEWPOINT LIST
+    ========================= */
 
-  .character-page > .page-label {
-    margin-bottom: 20px;
+    /*
+      視点として使用する可能性がある人物。
+    */
 
-    font-size: 11px;
-    letter-spacing: 0.32em;
-  }
+    const viewpointList = [
 
-  .character-page h1 {
-    font-size: 44px;
-    line-height: 0.95;
-    letter-spacing: 0.08em;
-  }
+      "主人公",
 
-  .character-page .page-description {
-    margin-top: 20px;
-    margin-bottom: 55px;
+      "皇坂 逢",
+      "城瀬 由鶴",
+      "須王 芦佳",
 
-    font-size: 12px;
-    line-height: 2;
-    letter-spacing: 0.06em;
-  }
+      "綾戸 恋",
+      "宇京 真央",
+      "樋宮 明星",
+      "環野 揺",
 
+      "槻本 大河",
+      "壱川 春日",
+      "隠岐谷 誓",
 
-  /* ---------- DEPARTMENT ---------- */
+      "節見 静",
+      "御門 尊",
+      "新開 戦",
+      "相沢 篠信",
 
-  .department {
-    margin-top: 24px;
+      "在間 樹帆",
+      "祠堂 恭耶",
+      "立科 吏来",
 
-    padding: 22px 20px 24px;
+      "恩田 灯世",
+      "新名 有",
+      "神家",
+      "麻波 麗",
 
-    border-radius: 7px;
-  }
+      "弥代 透吾",
+      "伊達 幸邑",
+      "天羽 嵐",
+      "レア"
 
-  .department-label {
-    font-size: 11px;
-    letter-spacing: 0.18em;
-  }
+    ];
 
-  .department h2 {
-    margin-top: 8px;
-    padding-top: 11px;
 
-    font-size: 23px;
-    letter-spacing: 0.06em;
-  }
 
+    /* =========================
+       ELEMENTS
+    ========================= */
 
-  /* ---------- CHARACTER LIST ---------- */
+    const storyType =
+      document.querySelector("#storyType");
 
-  .character-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    const storyTitle =
+      document.querySelector("#storyTitle");
 
-    column-gap: 16px;
-    row-gap: 23px;
+    const characterFilters =
+      document.querySelector("#characterFilters");
 
-    margin-top: 23px;
-  }
+    const viewpointFilters =
+      document.querySelector("#viewpointFilters");
 
-  .character-list a span {
-    font-size: 13px;
-    letter-spacing: 0.04em;
-  }
+    const storyList =
+      document.querySelector("#storyList");
 
-  .character-list a small {
-    margin-top: 4px;
+    const resultCount =
+      document.querySelector("#resultCount");
 
-    font-size: 10px;
-    letter-spacing: 0.12em;
-  }
+    const storyNoResult =
+      document.querySelector("#storyNoResult");
 
-}
+    const storySearchReset =
+      document.querySelector("#storySearchReset");
 
 
-/* =========================
-   YOUTUBE
-========================= */
 
-.youtube-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  aspect-ratio: 16 / 9;
-  margin: 40px auto;
-}
+    /* =========================
+       TYPE LABEL
+    ========================= */
 
-.youtube-wrapper iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
+    const typeLabels = {
 
+      main: "MAIN",
 
-/* =========================
-   CHARACTER DETAIL PAGE
-========================= */
+      personal: "PERSONAL",
 
-.character-detail-page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 120px 40px;
-}
+      event: "EVENT",
 
-.character-detail-page > .page-label {
-  margin-bottom: 35px;
-  text-align: center;
-}
+      card: "CARD"
 
-.character-detail-page h1 {
-  margin: 0;
+    };
 
-  text-align: center;
 
-  font-size: 40px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-}
 
-.character-name-en {
-  margin-top: 20px;
+    /* =========================
+       CREATE CHECKBOXES
+    ========================= */
 
-  text-align: center;
+    function createCheckboxes(
+      container,
+      items,
+      name
+    ) {
 
-  font-size: 12px;
-  letter-spacing: 0.25em;
-  color: #888;
-}
+      container.innerHTML = "";
 
-.character-intro {
-  max-width: 650px;
-  margin: 55px auto 100px;
 
-  text-align: center;
-}
+      items.forEach(item => {
 
-.character-intro blockquote {
-  margin: 35px 0;
+        const label =
+          document.createElement("label");
 
-  font-size: 16px;
-  line-height: 2;
-}
+        label.className =
+          "story-checkbox";
 
-.character-detail-page section {
-  margin-top: 90px;
-}
 
-.character-detail-page h2 {
-  margin-bottom: 40px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid #ddd;
+        const checkbox =
+          document.createElement("input");
 
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: 0.2em;
-}
+        checkbox.type = "checkbox";
 
+        checkbox.value = item;
 
-/* =========================
-   PROFILE
-========================= */
+        checkbox.name = name;
 
-.profile-list {
-  max-width: 700px;
-  margin: 0 auto;
-}
 
-.profile-item {
-  display: grid;
-  grid-template-columns: 160px minmax(0, 1fr);
-  gap: 30px;
+        const text =
+          document.createElement("span");
 
-  padding: 18px 0;
-  border-bottom: 1px solid #e5e5e5;
-}
+        text.textContent = item;
 
-.profile-label {
-  font-size: 12px;
-  line-height: 1.8;
-  letter-spacing: 0.12em;
-  color: #888;
-}
 
-.profile-value {
-  font-size: 14px;
-  line-height: 1.8;
-}
+        label.appendChild(checkbox);
 
+        label.appendChild(text);
 
-/* =========================
-   RELATIONSHIP
-========================= */
+        container.appendChild(label);
 
-.relationship-section {
-  margin-top: 70px;
-}
 
-.relationship-section h2 {
-  margin: 0 0 32px;
-}
+        checkbox.addEventListener(
+          "change",
+          filterStories
+        );
 
-.relationship-subtitle {
-  margin: 0;
-}
+      });
 
-.relationship-subtitle h3,
-.relationship-calling h3 {
-  margin: 0 0 22px;
+    }
 
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-}
 
-.relationship-calling {
-  margin-top: 55px;
-}
 
+    /* =========================
+       UPDATE TITLE OPTIONS
+    ========================= */
 
-/* =========================
-   呼び方 TABLE
-========================= */
+    function updateTitleOptions() {
 
-.calling-table {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
+      const selectedType =
+        storyType.value;
 
-  border-top: 1px solid #e5e5e5;
-}
 
-.calling-row {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
+      const titles = [
+        ...new Set(
 
-  border-bottom: 1px solid #e5e5e5;
-}
+          storyData
 
-.calling-row > div {
-  box-sizing: border-box;
+            .filter(story => {
 
-  padding: 13px 16px;
+              if (!selectedType) {
+                return true;
+              }
 
-  font-size: 12px;
-  line-height: 1.7;
-}
+              return story.type === selectedType;
 
-.calling-header {
-  background: #fff;
-}
+            })
 
-.calling-header > div {
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  color: #888;
-}
+            .map(story => story.title)
 
+        )
 
-/* =========================
-   SPECIAL / HOME VOICE
-========================= */
+      ];
 
-.special-voice-section .profile-value,
-.home-voice-section .profile-value {
-  font-size: 12px;
-  line-height: 1.8;
-}
 
+      storyTitle.innerHTML = "";
 
-/* =========================
-   BIRTHDAY PAGE
-========================= */
 
-/* =========================
-   SPECIAL VOICE → BIRTHDAY PAGE
-========================= */
+      const allOption =
+        document.createElement("option");
 
-.character-detail-page .birthday-page {
-  margin-top: -20px;
-}
+      allOption.value = "";
 
-.birthday-page .birthday-year {
-  margin: 28px 0 0;
+      allOption.textContent = "ALL";
 
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  color: #555;
-}
+      storyTitle.appendChild(allOption);
 
-.birthday-page .birthday-year:first-child {
-  margin-top: 0;
-}
 
-.birthday-page .profile-value {
-  font-size: 12px;
-  line-height: 1.8;
-}
+      titles.forEach(title => {
 
+        const option =
+          document.createElement("option");
 
-/* =========================
-   SUB SECTION TITLE
-========================= */
+        option.value = title;
 
-.sub-section-title {
-  margin: 24px 0 0;
-  padding: 0 0 10px;
+        option.textContent = title;
 
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  color: #555;
-}
+        storyTitle.appendChild(option);
 
+      });
 
-/* =========================
-   PERSONAL DATA
-========================= */
 
-.personal-data {
-  max-width: 700px;
-  margin: 0 auto;
-}
+      /*
+        タイトル候補を更新したあと、
+        現在の条件でもう一度検索します。
+      */
 
-.data-row {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 30px;
+      filterStories();
 
-  padding: 18px 0;
-  border-bottom: 1px solid #ddd;
-}
+    }
 
-.data-label {
-  font-size: 12px;
-  color: #888;
-}
 
-.data-value {
-  font-size: 14px;
-  color: #222;
-}
 
-.background-value {
-  font-size: 14px;
-  line-height: 2;
-  color: #222;
-}
+    /* =========================
+       GET SELECTED CHECKBOXES
+    ========================= */
 
-.color-code {
-  display: inline-block;
+    function getSelectedValues(
+      container
+    ) {
 
-  padding: 4px 10px;
+      return [
 
-  background-color: var(--character-color);
-  color: #fff;
+        ...container.querySelectorAll(
+          'input[type="checkbox"]:checked'
+        )
 
-  font-size: 13px;
-  letter-spacing: 0.05em;
-}
+      ].map(
+        checkbox => checkbox.value
+      );
 
+    }
 
-/* =========================
-   SPIN
-========================= */
 
-.spin-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 30px;
 
-  max-width: 1000px;
-  margin: 0 auto;
-}
+    /* =========================
+       FILTER STORIES
+    ========================= */
 
-.spin-card {
-  box-sizing: border-box;
-  width: 100%;
+    function filterStories() {
 
-  padding: 24px 22px;
+      const selectedType =
+        storyType.value;
 
-  border: 1px solid #e5e5e5;
-  border-left: 3px solid var(--character-color);
+      const selectedTitle =
+        storyTitle.value;
 
-  background: #fff;
-}
+      const selectedCharacters =
+        getSelectedValues(
+          characterFilters
+        );
 
+      const selectedViewpoints =
+        getSelectedValues(
+          viewpointFilters
+        );
 
-/* SPIN HEADER */
 
-.spin-card-header {
-  padding-bottom: 18px;
-  border-bottom: 1px solid #e5e5e5;
-}
+      const filteredStories =
+        storyData.filter(story => {
 
-.spin-card-header h3 {
-  margin: 0 0 8px;
 
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-}
+          /*
+            STORY TYPE
+          */
 
-.spin-members {
-  margin: 0 0 6px;
-  font-size: 12px;
-}
+          if (
+            selectedType &&
+            story.type !== selectedType
+          ) {
 
-.spin-location {
-  margin: 0;
+            return false;
 
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  color: #888;
-}
+          }
 
 
-/* SPIN BODY */
+          /*
+            STORY TITLE
+          */
 
-.spin-card-body {
-  padding-top: 18px;
-}
+          if (
+            selectedTitle &&
+            story.title !== selectedTitle
+          ) {
 
-.spin-card-body p {
-  margin: 0 0 12px;
+            return false;
 
-  font-size: 12px;
-  line-height: 1.8;
-  color: #555;
-}
+          }
 
-.spin-card-body p:last-child {
-  margin-bottom: 0;
-}
 
-.spin-card-body hr {
-  margin: 22px 0;
+          /*
+            CHARACTERS
 
-  border: 0;
-  border-top: 1px solid #e5e5e5;
-}
+            複数選択された場合、
+            どれか1人でも登場していれば該当。
+          */
 
+          if (
+            selectedCharacters.length > 0
+          ) {
 
-/* SPIN SUBTITLE */
+            const hasCharacter =
+              selectedCharacters.some(
+                character =>
+                  story.characters.includes(character)
+              );
 
-.spin-subtitle {
-  margin: 0 0 10px !important;
 
-  font-size: 11px !important;
-  font-weight: 500;
+            if (!hasCharacter) {
 
-  letter-spacing: 0.05em;
-  color: #555 !important;
-}
+              return false;
 
-.spin-subtitle-group {
-  margin-top: 28px !important;
-}
+            }
 
+          }
 
-/* 無言の圧：本文2列 */
 
-.spin-pressure-columns {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 40px;
-}
+          /*
+            VIEWPOINT
 
-.spin-pressure-column {
-  min-width: 0;
-}
+            複数選択された場合、
+            どれか1人でも視点になっていれば該当。
+          */
 
+          if (
+            selectedViewpoints.length > 0
+          ) {
 
-/* =========================
-   PERSONAL SONG
-========================= */
+            const hasViewpoint =
+              selectedViewpoints.some(
+                viewpoint =>
+                  story.viewpoints.includes(viewpoint)
+              );
 
-.personal-song-section {
-  margin-top: 70px;
-}
 
-.personal-song-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 40px;
+            if (!hasViewpoint) {
 
-  max-width: 1000px;
-  margin: 0 auto;
-}
+              return false;
 
-.personal-song-card {
-  min-width: 0;
-}
+            }
 
-.personal-song-card h3 {
-  margin: 0 0 20px;
+          }
 
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-}
 
-.personal-song-video {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-}
+          return true;
 
-.personal-song-video iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
+        });
 
-.personal-song-info {
-  margin-top: 22px;
-}
 
-.personal-song-row {
-  display: grid;
-  grid-template-columns: 60px minmax(0, 1fr);
-  gap: 20px;
+      renderStories(
+        filteredStories
+      );
 
-  padding: 10px 0;
-  border-bottom: 1px solid #e5e5e5;
-}
+    }
 
-.personal-song-label {
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  color: #888;
-}
 
-.personal-song-value {
-  font-size: 12px;
-  line-height: 1.8;
-  color: #555;
-}
 
+    /* =========================
+       RENDER STORIES
+    ========================= */
 
-/* =========================
-   CARD
-========================= */
+    function renderStories(
+      stories
+    ) {
 
-.cards-section {
-  margin-top: 100px;
-}
+      storyList.innerHTML = "";
 
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 36px 28px;
 
-  max-width: 1000px;
-  margin: 0 auto;
-}
+      resultCount.textContent =
+        stories.length;
 
-.card-item {
-  min-width: 0;
-}
 
+      if (
+        stories.length === 0
+      ) {
 
-/* CARD RARITY */
+        storyNoResult.style.display =
+          "block";
 
-.card-rarity {
-  margin-bottom: 3px;
+        return;
 
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  color: #888;
-}
+      }
 
 
-/* CARD LINK */
+      storyNoResult.style.display =
+        "none";
 
-.card-link {
-  display: block;
 
-  color: inherit;
-  text-decoration: none;
-}
+      stories.forEach(story => {
 
-.card-link h3 {
-  margin: 0 0 8px;
+        const article =
+          document.createElement("article");
 
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-}
+        article.className =
+          "story-card";
 
 
-/* CARD IMAGE */
+        /*
+          EVENT / CARD の場合、
+          詳細ページへのリンクを作成。
+        */
 
-.card-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+        if (
+          story.link &&
+          (
+            story.type === "event" ||
+            story.type === "card"
+          )
+        ) {
 
-  width: 120px;
-  aspect-ratio: 1 / 1;
+          article.classList.add(
+            "has-link"
+          );
 
-  overflow: hidden;
+        }
 
-  background: #f3f3f3;
 
-  font-family: "Cormorant Garamond", serif;
-  font-size: 13px;
-  letter-spacing: 0.12em;
-}
+        /* =========================
+           TYPE
+        ========================= */
 
-.card-image img {
-  display: block;
+        const type =
+          document.createElement("p");
 
-  width: 100%;
-  height: 100%;
+        type.className =
+          "story-card-type";
 
-  object-fit: cover;
-  object-position: 50% 25%;
-}
+        type.textContent =
+          typeLabels[story.type];
 
 
-/* CARD HOVER */
+        /* =========================
+           TITLE
+        ========================= */
 
-.card-link:hover .card-image {
-  opacity: 0.8;
-}
+        const title =
+          document.createElement("h2");
 
-.card-link:hover h3 {
-  opacity: 0.7;
-}
+        title.className =
+          "story-card-title";
 
+        title.textContent =
+          story.title;
 
-/* =========================
-   CARD DETAIL PAGE
-========================= */
 
-.card-detail-page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 120px 40px;
-}
+        /* =========================
+           EPISODE
+        ========================= */
 
-.card-detail-page > .page-label {
-  margin-bottom: 35px;
-  text-align: center;
-}
+        const episode =
+          document.createElement("p");
 
+        episode.className =
+          "story-card-episode";
 
-/* CARD TITLE */
+        episode.textContent =
+          "EPISODE " + story.episode;
 
-.card-detail-card {
-  margin-top: 100px;
-}
 
-.card-detail-card h2 {
-  margin: 0;
-  padding-bottom: 14px;
-  border-bottom: 1px solid #ddd;
+        /* =========================
+           CHARACTERS
+        ========================= */
 
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  line-height: 1.8;
-}
+        const characters =
+          document.createElement("p");
 
-.card-detail-rarity,
-.card-detail-name {
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 15px;
-  letter-spacing: 0.08em;
-  color: #222;
-}
+        characters.className =
+          "story-card-info";
 
-.card-detail-rarity {
-  margin-right: 12px;
-}
+        characters.innerHTML =
+          "<span>CHARACTERS</span> " +
+          story.characters.join(" / ");
 
-.card-detail-name {
-  margin-left: 10px;
-}
 
+        /* =========================
+           VIEWPOINT
+        ========================= */
 
-/* =========================
-   CARD DETAIL IMAGE
-========================= */
+        const viewpoints =
+          document.createElement("p");
 
-.card-detail-image-section {
-  display: flex;
-  justify-content: flex-start;
+        viewpoints.className =
+          "story-card-info";
 
-  margin-top: 15px;
-}
+        viewpoints.innerHTML =
+          "<span>VIEWPOINT</span> " +
+          story.viewpoints.join(" / ");
 
-.card-detail-image {
-  width: 100%;
-  max-width: 520px;
-  margin: 0;
-}
 
-.card-detail-image img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
 
+        /* =========================
+           APPEND
+        ========================= */
 
-/* CARD DETAIL SECTION */
+        article.appendChild(type);
 
-.card-detail-section {
-  margin-top: 100px;
-}
+        article.appendChild(title);
 
-.card-detail-section h2 {
-  margin: 0 0 40px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid #ddd;
+        article.appendChild(episode);
 
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.2em;
-}
+        article.appendChild(characters);
 
-/* CARD PLACEHOLDER */
+        article.appendChild(viewpoints);
 
-.card-detail-image.placeholder {
-  width: 230px;
-  aspect-ratio: 1 / 1;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  background: #f3f3f3;
+        /* =========================
+           DETAIL LINK
+        ========================= */
 
-  font-family: "Cormorant Garamond", serif;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  color: #222;
-}
+        if (
+          story.link &&
+          (
+            story.type === "event" ||
+            story.type === "card"
+          )
+        ) {
 
+          const link =
+            document.createElement("a");
 
-/* =========================
-   SKILL
-========================= */
+          link.href =
+            story.link;
 
-.card-skill-item .profile-value {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
+          link.className =
+            "story-card-link";
 
-.skill-level {
-  display: grid;
-  grid-template-columns: 48px minmax(0, 1fr);
-  gap: 14px;
+          link.textContent =
+            "VIEW STORY →";
 
-  line-height: 1.8;
-}
+          article.appendChild(link);
 
-.skill-level-label {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  color: #888;
-}
+        }
 
 
-/* =========================
-   CARD EVENT VIDEO
-========================= */
+        storyList.appendChild(article);
 
-.card-event-videos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+      });
 
-  max-width: 1000px;
-  margin: 40px auto 0;
-}
+    }
 
-.card-event-video {
-  position: relative;
 
-  width: 280px;
-  max-width: 280px;
 
-  aspect-ratio: 16 / 9;
+    /* =========================
+       RESET
+    ========================= */
 
-  margin: 40px 0 0;
+    storySearchReset.addEventListener(
+      "click",
+      () => {
 
-  overflow: hidden;
-  background: #f3f3f3;
-}
+        storyType.value = "";
 
-.card-event-video iframe {
-  display: block;
+        storyTitle.value = "";
 
-  width: 100%;
-  height: 100%;
 
-  border: none;
-}
+        characterFilters
+          .querySelectorAll(
+            'input[type="checkbox"]'
+          )
+          .forEach(
+            checkbox =>
+              checkbox.checked = false
+          );
 
 
-/* =========================
-   PAGE BACK LINK
-========================= */
+        viewpointFilters
+          .querySelectorAll(
+            'input[type="checkbox"]'
+          )
+          .forEach(
+            checkbox =>
+              checkbox.checked = false
+          );
 
-.page-back-section {
-  margin-top: 150px;
-  text-align: center;
-}
 
-.page-back-link {
-  position: relative;
+        updateTitleOptions();
 
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
+      }
+    );
 
-  text-decoration: none;
-}
 
-.page-back-link span {
-  font-size: 14px;
-  letter-spacing: 0.05em;
-  color: #111;
-}
 
-.page-back-link small {
-  margin-top: 8px;
+    /* =========================
+       TYPE CHANGE
+    ========================= */
 
-  font-family: "Cormorant Garamond", serif;
-  font-size: 11px;
-  letter-spacing: 0.25em;
-  color: #b8aeb0;
-}
+    storyType.addEventListener(
+      "change",
+      () => {
 
-.page-back-link::after {
-  content: "";
+        updateTitleOptions();
 
-  position: absolute;
-  left: 50%;
-  bottom: -6px;
+      }
+    );
 
-  width: 0;
-  height: 1px;
 
-  background: #111;
 
-  transform: translateX(-50%);
-  transition: width 0.25s ease;
-}
+    /* =========================
+       TITLE CHANGE
+    ========================= */
 
-.page-back-link:hover::after {
-  width: 100%;
-}
+    storyTitle.addEventListener(
+      "change",
+      filterStories
+    );
 
 
-/* =========================
-   RESPONSIVE
-========================= */
 
+    /* =========================
+       INITIALIZE
+    ========================= */
 
-/* ---------- Tablet ---------- */
+    createCheckboxes(
+      characterFilters,
+      characterList,
+      "characters"
+    );
 
-@media (min-width: 701px) and (max-width: 1199px) {
 
-  .spin-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+    createCheckboxes(
+      viewpointFilters,
+      viewpointList,
+      "viewpoints"
+    );
 
-  .cards-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 
-}
+    updateTitleOptions();
 
 
-/* ---------- Mobile ---------- */
 
-@media (max-width: 700px) {
+    /* =========================
+       SITE MENU
+    ========================= */
 
-  /* CHARACTER */
+    const siteMenuButton =
+      document.querySelector(
+        ".site-menu-button"
+      );
 
-  .character-page,
-  .character-detail-page,
-  .card-detail-page {
-    padding: 90px 24px;
-  }
+    const siteMenuPanel =
+      document.querySelector(
+        ".site-menu-panel"
+      );
 
-  .character-page h1 {
-    font-size: 48px;
-  }
+    const siteMenuClose =
+      document.querySelector(
+        ".site-menu-close"
+      );
 
+    const siteMenuLinks =
+      document.querySelectorAll(
+        ".site-menu-nav a"
+      );
 
-  /* PROFILE */
 
-  .profile-list {
-    width: 100%;
-    max-width: none;
-  }
+    siteMenuButton.addEventListener(
+      "click",
+      () => {
 
-  .profile-item {
-    grid-template-columns: 100px minmax(0, 1fr);
-    gap: 18px;
+        siteMenuPanel.classList.add(
+          "is-open"
+        );
 
-    padding: 15px 0;
-  }
+        siteMenuButton.classList.add(
+          "is-hidden"
+        );
 
-  .profile-label {
-    font-size: 11px;
-  }
+      }
+    );
 
-  .profile-value {
-    font-size: 14px;
-    line-height: 1.8;
-  }
 
-/* PERSONAL DATA */
+    siteMenuClose.addEventListener(
+      "click",
+      () => {
 
-.data-row {
-  grid-template-columns: 100px minmax(0, 1fr);
-  gap: 18px;
-}
+        siteMenuPanel.classList.remove(
+          "is-open"
+        );
 
-.data-value {
-  font-size: 14px;
-  line-height: 1.8;
-}
+        siteMenuButton.classList.remove(
+          "is-hidden"
+        );
 
-  /* BIRTHDAY */
+      }
+    );
 
-  .birthday-page .birthday-year {
-    margin-top: 24px;
-    font-size: 11px;
-  }
 
-  .birthday-page .profile-value {
-    font-size: 12px;
-    line-height: 1.8;
-  }
+    siteMenuLinks.forEach(
+      link => {
 
+        link.addEventListener(
+          "click",
+          () => {
 
-  /* RELATIONSHIP */
+            siteMenuPanel.classList.remove(
+              "is-open"
+            );
 
-  .relationship-section {
-    margin-top: 55px;
-  }
+            siteMenuButton.classList.remove(
+              "is-hidden"
+            );
 
-  .relationship-calling {
-    margin-top: 45px;
-  }
+          }
+        );
 
-  .calling-table {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+      }
+    );
 
-  .calling-row {
-    min-width: 560px;
-    grid-template-columns: 1.2fr 1fr 1fr;
-  }
 
-  .calling-row > div {
-    padding: 11px 13px;
-    font-size: 11px;
-  }
+    siteMenuPanel.addEventListener(
+      "click",
+      event => {
 
-  .calling-header > div {
-    font-size: 10px;
-  }
+        if (
+          event.target === siteMenuPanel
+        ) {
 
+          siteMenuPanel.classList.remove(
+            "is-open"
+          );
 
-  /* SPIN */
+          siteMenuButton.classList.remove(
+            "is-hidden"
+          );
 
-  .spin-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+        }
 
-  .spin-card {
-    padding: 24px 22px;
-  }
+      }
+    );
 
-  .spin-pressure-columns {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+  </script>
 
 
-  /* PERSONAL SONG */
-
-  .personal-song-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-
-  .personal-song-card h3 {
-    font-size: 15px;
-  }
-
-  .personal-song-row {
-    grid-template-columns: 55px minmax(0, 1fr);
-    gap: 15px;
-  }
-
-
-  /* CARD */
-
-  .cards-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px 18px;
-  }
-
-  .card-image {
-    width: 100px;
-    height: 100px;
-  }
-
-
-  /* CARD EVENT VIDEO */
-
-  .card-event-videos {
-    gap: 24px;
-    margin-top: 30px;
-  }
-
-  .card-event-video {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-
-}
-
-
-/* =========================
-   SKILL
-========================= */
-
-.card-skill-item .profile-value {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.skill-level {
-  display: grid;
-  grid-template-columns: 48px minmax(0, 1fr);
-  gap: 14px;
-  line-height: 1.8;
-}
-
-.skill-level-label {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  color: #888;
-}
-
-
-/* =========================
-   EVENT VIDEO
-========================= */
-
-/* 動画全体 */
-.card-event-video {
-  position: relative;
-
-  width: 100%;
-  max-width: 550px;
-
-  aspect-ratio: 16 / 9;
-
-  margin: 40px 0 0;
-
-  overflow: hidden;
-  background: #f3f3f3;
-}
-
-/* YouTube iframe */
-.card-event-video iframe {
-  width: 100%;
-  height: 100%;
-  display: block;
-  border: none;
-}
-
-
-/* =========================
-   EVENT VIDEO MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
-  .card-event-videos {
-    gap: 24px;
-    margin-top: 30px;
-  }
-
-  .card-event-video {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-
-}
-
-
-/* =========================
-   PAGE BACK LINK
-========================= */
-
-.page-back-section {
-  text-align: center;
-  margin-top: 150px;
-  padding-bottom: -20px;
-}
-
-.page-back-link {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-}
-
-.page-back-link span {
-  font-size: 14px;
-  color: #111;
-  letter-spacing: 0.05em;
-}
-
-.page-back-link small {
-  margin-top: 8px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 11px;
-  letter-spacing: 0.25em;
-  color: #b8aeb0;
-}
-
-.page-back-link {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  position: relative;
-}
-
-.page-back-link::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -6px;
-  width: 0;
-  height: 1px;
-  background: #111;
-  transform: translateX(-50%);
-  transition: width 0.25s ease;
-}
-
-.page-back-link:hover::after {
-  width: 100%;
-}
-
-
-/* =========================
-   CARD DETAIL MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
-  .card-detail-page {
-    padding: 80px 20px;
-  }
-
-  .card-detail-page > .page-label {
-    margin-bottom: 28px;
-  }
-
-  .card-detail-title h1 {
-    font-size: 34px;
-    letter-spacing: 0.08em;
-  }
-
-  .card-detail-name {
-    font-size: 16px;
-  }
-
-  .card-detail-image-section {
-    margin-top: 15px;
-  }
-
-  .card-detail-image {
-    width: 480px;
-  }
-
-  .card-detail-section {
-    margin-top: 75px;
-  }
-
-  .card-detail-section h2 {
-    margin-bottom: 30px;
-  }
-
-  .card-skill-item .profile-value {
-    gap: 15px;
-  }
-
-  .skill-level {
-    grid-template-columns: 42px minmax(0, 1fr);
-    gap: 10px;
-  }
-
-  .card-event-video {
-    margin-top: 30px;
-  }
-
-}
-
-/* =========================
-   CARD DETAIL TEXT
-========================= */
-
-.card-detail-page .profile-item {
-  font-size: 14px;
-}
-
-.card-detail-page .profile-value {
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-.card-detail-page .profile-label {
-  font-size: 12px;
-}
-
-/* =========================
-   X
-========================= */
-
-.card-x-section {
-  margin-top: 100px;
-}
-
-/* =========================
-   X POST
-========================= */
-
-.card-x-section {
-  margin-top: 100px;
-}
-
-.x-posts {
-  display: grid;
-  grid-template-columns: repeat(3, 280px);
-  gap: 20px;
-
-  justify-content: start;
-}
-
-.x-post {
-  min-width: 0;
-  width: 280px;
-}
-
-.x-post .twitter-tweet {
-  max-width: 280px !important;
-  min-width: 0 !important;
-  margin: 0 !important;
-}
-
-
-/* =========================
-   X POST レスポンシブ
-========================= */
-
-@media (max-width: 700px) {
-
-  .x-posts {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .x-post {
-    width: 280px;
-  }
-
-}
-
-
-/* =========================
-   CHARACTER EVENT
-========================= */
-
-.character-event-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.character-event-link {
-  display: inline-block;
-  width: fit-content;
-  padding: 8px 0;
-
-  color: #222;
-  text-decoration: none;
-
-  font-size: 12px;
-  letter-spacing: 0.06em;
-}
-
-.character-event-link:hover {
-  opacity: 0.6;
-}
-
-
-/* =========================
-   MEMO
-========================= */
-
-.memo-list {
-  margin-top: 28px;
-  max-width: 760px;
-}
-
-.memo-list p {
-  margin: 0 0 12px;
-  padding-left: 0;
-
-  font-size: 11px;
-  line-height: 2;
-
-  color: #777;
-}
-
-.memo-list p:last-child {
-  margin-bottom: 0;
-}
-
-
-/* =========================
-   CHARACTER LIST
-========================= */
-
-.character-list-section {
-  margin-bottom: 80px;
-}
-
-.character-list-link {
-  position: relative;
-  display: block;
-  width: fit-content;
-  margin: 0 auto;
-  padding-bottom: 8px;
-  color: #222;
-  text-decoration: none;
-  text-align: center;
-}
-
-.character-list-link span {
-  display: block;
-  font-size: 14px;
-  letter-spacing: 0.08em;
-}
-
-.character-list-link small {
-  display: block;
-  margin-top: 7px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  color: #888;
-}
-
-.character-list-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: #222;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.35s ease;
-}
-
-.character-list-link:hover::after {
-  transform: scaleX(1);
-}
-
-
-/* =========================
-   PAGE INDEX
-========================= */
-
-.page-index-button {
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  z-index: 1101;
-
-  width: 64px;
-  height: 64px;
-
-  border: 1px solid #c8c8c8;
-  border-radius: 50%;
-
-  background: rgba(255, 255, 255, 0.92);
-  color: #222;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-
-  font-family: "Noto Sans JP", serif;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-
-  transition:
-    background 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.page-index-button:hover {
-  transform: translateY(-2px);
-}
-
-
-/* =========================
-   INDEX PANEL
-========================= */
-
-.page-index-panel {
-  position: fixed;
-  inset: 0;
-
-  z-index: 1100;
-
-  background: rgba(255, 255, 255, 0.97);
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
-}
-
-.page-index-panel.is-open {
-  opacity: 1;
-  visibility: visible;
-}
-
-
-/* =========================
-   INDEX INNER
-========================= */
-
-.page-index-inner {
-  width: min(520px, calc(100% - 48px));
-  height: 100%;
-
-  margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  text-align: center;
-}
-
-
-/* =========================
-   INDEX HEADER
-========================= */
-
-.page-index-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding-bottom: 18px;
-
-  border-bottom: 1px solid #ddd;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 13px;
-  letter-spacing: 0.2em;
-}
-
-.page-index-close {
-  border: none;
-  background: none;
-
-  padding: 0;
-
-  font-size: 22px;
-  font-weight: 300;
-  line-height: 1;
-
-  cursor: pointer;
-
-  color: #222;
-}
-
-
-/* =========================
-   INDEX NAV
-========================= */
-
-.page-index-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin-top: 28px;
-}
-
-.page-index-nav a {
-  position: relative;
-
-  display: block;
-  width: 100%;
-  max-width: 420px;
-
-  padding: 13px 0;
-
-  color: #111;
-  text-decoration: none;
-
-  font-family: "Cormorant Garamond", "Noto Sans JP", sans-serif;
-  font-size: 13px;
-  letter-spacing: 0.14em;
-
-  border-bottom: 1px solid #eee;
-
-  text-align: center;
-}
-
-.page-index-nav a::after {
-  content: "";
-
-  position: absolute;
-  left: 50%;
-  bottom: -1px;
-
-  width: 0;
-  height: 1px;
-
-  background: #222;
-
-  transform: translateX(-50%);
-
-  transition: width 0.25s ease;
-}
-
-.page-index-nav a:hover::after {
-  width: 100%;
-}
-
-
-/* =========================
-   INDEX MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-  .page-index-button {
-    right: 18px;
-    bottom: 18px;
-
-    width: 52px;
-    height: 52px;
-  }
-
-  .page-index-inner {
-    width: calc(100% - 48px);
-
-    padding: 80px 0 60px;
-  }
-
-  .page-index-nav {
-    margin-top: 22px;
-  }
-
-  .page-index-nav {
-    display: grid;
-    grid-template-columns: 1fr;
-    column-gap: 0;
-  }
-
-  .page-index-nav a {
-    padding: 11px 0;
-  }
-
-}
-
-
-/* =========================
-   SITE MENU
-========================= */
-
-/* MENU BUTTON */
-
-.site-menu-button {
-  position: fixed;
-  top: 28px;
-  left: 28px;
-  z-index: 1001;
-
-  border: none;
-  background: transparent;
-
-  padding: 0;
-
-  color: #111;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-
-  cursor: pointer;
-}
-
-.site-menu-button span {
-  position: relative;
-}
-
-.site-menu-button span::after {
-  content: "";
-
-  position: absolute;
-  left: 50%;
-  bottom: -6px;
-
-  width: 0;
-  height: 1px;
-
-  background: #111;
-
-  transform: translateX(-50%);
-  transition: width 0.25s ease;
-}
-
-.site-menu-button:hover span::after {
-  width: 100%;
-}
-
-
-/* PANEL */
-
-.site-menu-panel {
-  position: fixed;
-  inset: 0;
-
-  z-index: 1000;
-
-  background: rgba(0, 0, 0, 0.08);
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
-}
-
-.site-menu-panel.is-open {
-  opacity: 1;
-  visibility: visible;
-}
-
-
-/* INNER */
-
-.site-menu-inner {
-  width: min(340px, 82vw);
-  height: 100%;
-
-  margin-left: auto;
-
-  background: rgba(255, 255, 255, 0.97);
-
-  box-sizing: border-box;
-
-  padding: 42px 42px;
-
-  transform: translateX(100%);
-
-  transition: transform 0.35s ease;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.site-menu-panel.is-open .site-menu-inner {
-  transform: translateX(0);
-}
-
-
-/* HEADER */
-
-.site-menu-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding-bottom: 18px;
-
-  border-bottom: 1px solid #ddd;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 13px;
-  letter-spacing: 0.2em;
-}
-
-.site-menu-close {
-  border: none;
-  background: none;
-
-  padding: 0;
-
-  color: #111;
-
-  font-size: 22px;
-  font-weight: 300;
-  line-height: 1;
-
-  cursor: pointer;
-}
-
-
-/* NAV */
-
-.site-menu-nav {
-  margin-top: 30px;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.site-menu-nav a {
-  position: relative;
-
-  display: block;
-
-  padding: 14px 0;
-
-  color: #111;
-  text-decoration: none;
-
-  font-family: "Cormorant Garamond", "Noto Sans JP", sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.16em;
-}
-
-
-/* HOVER LINE */
-
-.site-menu-nav a::after {
-  content: "";
-
-  position: absolute;
-  left: 50%;
-  bottom: 7px;
-
-  width: 0;
-  height: 1px;
-
-  background: #111;
-
-  transform: translateX(-50%);
-
-  transition: width 0.25s ease;
-}
-
-.site-menu-nav a:hover::after {
-  width: 100%;
-}
-
-
-/* =========================
-   SITE MENU BUTTON
-   PCでは非表示
-========================= */
-
-.site-menu-button {
-  display: none;
-}
-
-/* =========================
-   MOBILE MENU BUTTON
-========================= */
-
-@media (max-width: 600px) {
-
-  .site-menu-button {
-    position: fixed;
-
-    top: 18px;
-    right: 18px;
-    left: auto;
-
-    width: 52px;
-    height: 52px;
-
-    padding: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid #c8c8c8;
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.92);
-
-    color: #222;
-
-    font-family: "Noto Sans JP", serif;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-
-    cursor: pointer;
-
-    transition:
-      background 0.25s ease,
-      color 0.25s ease,
-      transform 0.25s ease;
-  }
-
-  .site-menu-button:hover {
-    transform: translateY(-2px);
-  }
-
-  /* MENUの下線は消す */
-  .site-menu-button span::after {
-    display: none;
-  }
-
-  .site-menu-inner {
-    width: min(300px, 82vw);
-    padding: 34px 28px;
-  }
-
-  .site-menu-nav a {
-    padding: 13px 0;
-    font-size: 13px;
-  }
-
-}
-
-
-/* =========================
-   MENU BUTTON：OPEN時
-========================= */
-
-.site-menu-button.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-
-/* =========================
-   Contact Links
-========================= */
-
-.contact-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 22px;
-  margin-top: 32px;
-}
-
-.contact-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 42px;
-  height: 42px;
-
-  color: #222;
-  text-decoration: none;
-
-  transition: opacity 0.25s ease,
-              transform 0.25s ease;
-}
-
-.contact-links a:hover {
-  opacity: 0.55;
-  transform: translateY(-2px);
-}
-
-.contact-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 38px;
-  height: 38px;
-
-  border: 1px solid #222;
-  border-radius: 50%;
-
-  font-family: "Noto Sans JP", serif;
-  font-size: 16px;
-  letter-spacing: 0.05em;
-}
-
-
-/* =========================
-   MOBILE NAVIGATION
-========================= */
-
-@media (max-width: 700px) {
-
-  .navigation-links {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    column-gap: 8px;
-    row-gap: 18px;
-    width: 100%;
-    max-width: 360px;
-    margin: 0 auto;
-  }
-
-  .navigation-links a {
-    font-size: 13px;
-    letter-spacing: 0.12em;
-    text-align: center;
-  }
-
-  /* 1段目：WORLD / CHARACTER / STORY */
-  .navigation-links a:nth-child(1),
-  .navigation-links a:nth-child(2),
-  .navigation-links a:nth-child(3) {
-    grid-column: span 4;
-  }
-
-  /* 2段目：EVENT / MUSIC / MEDIA / × stmy */
-  .navigation-links a:nth-child(4),
-  .navigation-links a:nth-child(5),
-  .navigation-links a:nth-child(6),
-  .navigation-links a:nth-child(7) {
-    grid-column: span 3;
-  }
-
-}
-
-
-/* =========================
-   SITE GUIDE
-========================= */
-
-.site-guide {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 70px 24px;
-  text-align: center;
-}
-
-.site-guide-label {
-  margin: 0 0 35px;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 11px;
-  letter-spacing: 0.38em;
-  font-weight: 400;
-  color: #999;
-}
-
-.site-guide-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.site-guide-item h3 {
-  margin: 0 0 5px;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-}
-
-.site-guide-item p {
-  margin: 0;
-
-  font-size: 10px;
-  line-height: 1.8;
-  letter-spacing: 0.04em;
-  color: #777;
-}
-
-.section-divider {
-  width: 100%;
-  height: 1px;
-  background: #e5e5e5;
-}
-
-/* =========================
-   Update Link
-========================= */
-
-.update-link {
-  margin-top: 36px;
-  text-align: center;
-}
-
-.update-link a {
-  position: relative;
-
-  font-family: "Noto Sans JP", serif;
-  font-size: 11px;
-  letter-spacing: 0.25em;
-  color: #777;
-  text-decoration: none;
-}
-
-.update-link a::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -5px;
-
-  width: 0;
-  height: 1px;
-
-  background: #777;
-
-  transform: translateX(-50%);
-  transition: width 0.25s ease;
-}
-
-.update-link a:hover::after {
-  width: 100%;
-}
-
-
-/* =========================
-   Update Log
-========================= */
-
-.updates {
-  max-width: 720px;
-  min-height: 100vh;
-  margin: 0 auto;
-  padding: 120px 24px 100px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.updates-label {
-  margin: 0 0 28px;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 13px;
-  letter-spacing: 0.38em;
-  font-weight: 400;
-  color: #777;
-}
-
-.updates h1 {
-  margin: 0 0 28px;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 42px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-}
-
-.updates-description {
-  margin: 0 0 80px;
-
-  font-size: 12px;
-  line-height: 1.9;
-  letter-spacing: 0.04em;
-  color: #555;
-}
-
-
-/* 更新履歴 */
-
-.update-list {
-  max-width: 620px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.update-item {
-  padding: 0 0 32px;
-  margin: 0 0 32px;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.update-item:last-child {
-  margin-bottom: 0;
-}
-
-.update-item time {
-  display: block;
-  margin-bottom: 10px;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 14px;
-  letter-spacing: 0.12em;
-  color: #777;
-}
-
-.update-item h2 {
-  margin: 0 0 8px;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-}
-
-.update-item p {
-  margin: 0;
-
-  font-size: 12px;
-  line-height: 1.9;
-  letter-spacing: 0.04em;
-  color: #555;
-}
-
-
-/* HOMEへ戻る */
-
-.back-link {
-  display: inline-block;
-  margin-top: 80px;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  color: #555;
-  text-decoration: none;
-}
-
-.back-link:hover {
-  color: #222;
-  text-decoration: underline;
-  text-underline-offset: 5px;
-}
-
-
-/* =========================
-   UPDATE LOG LINK
-========================= */
-
-.update-log-link {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin: 36px auto 20px;
-
-  color: #555;
-  text-decoration: none;
-}
-
-.update-log-link img {
-  width: 16px;
-  height: auto;
-  display: block;
-
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
-}
-
-.update-log-link span {
-  margin-top: 8px;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 12px;
-  letter-spacing: 0.22em;
-
-  color: #555;
-
-  opacity: 0;
-  transform: translateY(-3px);
-
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
-}
-
-.update-log-link:hover img {
-  opacity: 1;
-}
-
-.update-log-link:hover span,
-.update-log-link:focus-visible span {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-
-/* 仮画像 */
-.card-detail-image:has(span) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  aspect-ratio: 1 / 1;
-
-  background: #f3f3f3;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 16px;
-  letter-spacing: 0.12em;
-}
-
-/* 本物のカード画像 */
-.card-detail-image:has(img) {
-  background: transparent;
-}
-
-
-/* =========================
-   Mobile
-========================= */
-
-@media (max-width: 700px) {
-
-  /* ---------- HOME ---------- */
-
-  .hero {
-  min-height: 84svh;
-  padding: 80px 20px 80px;
-  }
-
-  .eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.3em;
-    margin-bottom: 22px;
-  }
-
-  .hero h1 {
-  font-size: clamp(40px, 11vw, 72px);
-  letter-spacing: 0;
-}
-
-  .description {
-  margin-top: 30px;
-  font-size: 13px;
-  line-height: 1.8;
-  letter-spacing: 0.02em;
-}
-
-
-  /* ---------- NAVIGATION ---------- */
-
-  .main-navigation {
-    margin-top: 45px;
-  }
-
-  .navigation-label {
-    margin-bottom: 22px;
-    font-size: 11px;
-  }
-
-  .navigation-links {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: 8px;
-  row-gap: 18px;
-  width: 100%;
-  max-width: 360px;
-  margin: 0 auto;
-}
-
-  .navigation-links a {
-  font-size: 13px;
-  letter-spacing: 0.12em;
-  text-align: center;
-}
-
-/* 1段目：WORLD / CHARACTER / STORY */
-.navigation-links a:nth-child(1),
-.navigation-links a:nth-child(2),
-.navigation-links a:nth-child(3) {
-  grid-column: span 4;
-}
-
-/* 2段目：EVENT / MUSIC / MEDIA / × stmy */
-.navigation-links a:nth-child(4),
-.navigation-links a:nth-child(5),
-.navigation-links a:nth-child(6),
-.navigation-links a:nth-child(7) {
-  grid-column: span 3;
-}
-
-
-  /* ---------- ABOUT ---------- */
-
-  .about {
-  min-height: auto;
-  padding: 110px 20px 100px;
-}
-
-  .about-label {
-    font-size: 11px;
-    margin-bottom: 26px;
-  }
-
-  .about h2 {
-    font-size: clamp(32px, 9vw, 48px);
-  }
-
-  .about > p:not(.about-label):not(.site-name):not(.unofficial) {
-    max-width: 440px;
-    font-size: 12px;
-    line-height: 2;
-    margin-top: 30px;
-  }
-
-  .site-name {
-    font-size: 11px;
-    margin-top: 38px;
-    letter-spacing: 0.22em;
-  }
-
-  .unofficial {
-    font-size: 11px;
-    letter-spacing: 0.24em;
-  }
-
-
-    /* ---------- CONTACT ---------- */
-
-  .contact-links {
-    gap: 18px;
-    margin-top: 28px;
-  }
-
-  .contact-icon {
-    width: 36px;
-    height: 36px;
-    font-size: 15px;
-  }
-
-
-  /* ---------- FIXED HEADER ---------- */
-
-  .site-header {
-    height: 58px;
-    padding: 0 18px;
-  }
-
-  .site-header-logo span {
-    font-size: 13px;
-    letter-spacing: 0.14em;
-  }
-
-  .site-header-logo small {
-    display: none;
-  }
-
-  .site-header-nav {
-    display: none;
-  }
-
-  .side-label {
-    right: 10px;
-    font-size: 7px;
-  }
-
-}
+</body>
+</html>
