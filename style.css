@@ -1,1219 +1,3137 @@
-<!DOCTYPE html>
-<html lang="ja">
+/* =========================
+Base
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap');
+
+{
+box-sizing: border-box;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+html {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+body {
+margin: 0;
+background: #F7F8FA;
+color: #222222;
+font-family: "Noto Sans JP", sans-serif;
+font-weight: 400;
+}
 
-  <title>STORY | Aporia fancafe</title>
-  <link rel="icon" href="favicon.png" type="image/png">
-  <link rel="stylesheet" href="style.css">
+/* =========================
+FIXED SITE HEADER
+========================= */
 
-  <!-- =========================
-       OGP
-  ========================= -->
+.site-header {
+position: fixed;
+top: 0;
+left: 0;
 
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="STORY | Aporia fancafe">
-  <meta property="og:description" content="『ブレイクマイケース』にまつわるストーリー情報をまとめた非公式ファンサイトです。">
-  <meta property="og:url" content="https://aporiafc.github.io/story.html">
-  <meta property="og:image" content="https://aporiafc.github.io/images/ogp.png">
+width: 100%;
+height: 90px;
 
-  <meta property="og:site_name" content="Aporia fancafe">
-  <meta property="og:locale" content="ja_JP">
+padding: 0 42px;
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="STORY | Aporia fancafe">
-  <meta name="twitter:description" content="『ブレイクマイケース』にまつわるストーリー情報をまとめた非公式ファンサイトです。">
-  <meta name="twitter:image" content="https://aporiafc.github.io/images/ogp.png">
-</head>
+display: flex;
+align-items: center;
+justify-content: space-between;
 
+z-index: 1000;
 
-<body>
+background: rgba(247, 248, 250, 0.82);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+}
 
-  <!-- =========================
-       SITE HEADER
-  ========================= -->
+/* SITE NAME */
 
-  <header class="site-header">
+.site-header-logo {
+display: flex;
+align-items: baseline;
+gap: 12px;
 
-    <a href="index.html" class="site-header-logo">
-      <span>APORIA FANCAFE</span>
-    </a>
+color: #222;
+text-decoration: none;
 
-    <nav class="site-header-nav">
-      <a href="world.html">WORLD</a>
-      <a href="character.html">CHARACTER</a>
-      <a href="story.html">STORY</a>
-      <a href="#">EVENT</a>
-      <a href="#">MUSIC</a>
-      <a href="#">MEDIA</a>
-      <a href="#">× stmy</a>
-    </nav>
+white-space: nowrap;
+}
 
-  </header>
+.site-header-logo span {
+font-family: "Cormorant Garamond", serif;
+font-size: 15px;
+letter-spacing: 0.18em;
+}
 
+.site-header-logo small {
+font-family: "Noto Sans JP", sans-serif;
+font-size: 8px;
+letter-spacing: 0.08em;
+color: #777;
+}
+
+/* NAVIGATION */
+
+.site-header-nav {
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+
+display: flex;
+align-items: center;
+gap: 32px;
+}
+
+.site-header-nav a {
+position: relative;
+
+font-family: "Noto Sans JP", sans-serif;
+font-size: 11px;
+font-weight: 400;
+letter-spacing: 0.14em;
+
+color: #222;
+text-decoration: none;
+
+white-space: nowrap;
+}
+
+.site-header-nav a::after {
+content: "";
+
+position: absolute;
+left: 50%;
+bottom: -7px;
+
+width: 0;
+height: 1px;
+
+background: #222;
+
+transform: translateX(-50%);
+transition: width 0.25s ease;
+}
+
+.site-header-nav a:hover::after {
+width: 100%;
+}
+
+/* =========================
+SIDE LABEL
+========================= */
+
+.side-label {
+position: fixed;
+
+top: 50%;
+right: 24px;
+
+z-index: 900;
+
+transform: translateY(-50%);
+
+writing-mode: vertical-rl;
+
+font-family: "Noto Sans JP", sans-serif;
+font-size: 8px;
+letter-spacing: 0.22em;
+
+color: #777;
+}
+
+.side-label span {
+display: block;
+}
+
+/* =========================
+Hero
+========================= */
+
+.hero {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 80px 24px;
+}
+
+.eyebrow {
+margin: 0 0 28px;
+font-family: "Cormorant Garamond", serif;
+font-size: 16px;
+letter-spacing: 0.38em;
+font-weight: 400;
+}
+
+.hero h1 {
+margin: 0;
+font-family: "Cormorant Garamond", serif;
+font-size: clamp(64px, 8vw, 112px);
+line-height: 0.95;
+letter-spacing: 0.02em;
+font-weight: 400;
+}
+
+.description {
+margin: 44px 0 0;
+font-family: "Noto Sans JP", sans-serif;
+font-size: 14px;
+letter-spacing: 0.04em;
+line-height: 1.8;
+}
+
+/* =========================
+Common Page Header
+========================= */
+
+.page-label {
+margin: 0 0 24px;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 12px;
+letter-spacing: 0.35em;
+font-weight: 400;
+color: #777;
+}
+
+.page-description {
+font-family: "Noto Sans JP", sans-serif;
+font-size: 14px;
+letter-spacing: 0.08em;
+color: #555;
+}
+
+/* =========================
+About
+========================= */
+
+.about {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 80px 24px;
+box-sizing: border-box;
+}
+
+.about-label {
+margin: 0 0 30px;
+font-family: "Cormorant Garamond", serif;
+font-size: 13px;
+letter-spacing: 0.38em;
+font-weight: 400;
+color: #777;
+}
+
+/* =========================
+About title
+========================= */
+
+.about h2 {
+margin: 0;
+font-family: "Cormorant Garamond", serif;
+font-size: clamp(40px, 5vw, 64px);
+line-height: 1.1;
+font-weight: 400;
+letter-spacing: 0.01em;
+}
+
+/* =========================
+About text
+========================= */
+
+.about > p(.about-label)(.site-name)(.unofficial) {
+max-width: 520px;
+margin: 42px auto 0;
+font-family: "Noto Sans JP", sans-serif;
+font-size: 12px;
+line-height: 2.25;
+letter-spacing: 0.04em;
+}
+
+/* =========================
+Site name
+========================= */
+
+.site-name {
+margin: 46px 0 0;
+font-family: "Cormorant Garamond", serif;
+font-size: 13px;
+letter-spacing: 0.24em;
+font-weight: 400;
+color: #999;
+}
+
+/* =========================
+Unofficial
+========================= */
+
+.unofficial {
+margin: 0;
+font-family: "Cormorant Garamond", serif;
+font-size: 13px;
+letter-spacing: 0.28em;
+font-weight: 400;
+color: #999;
+}
+
+/* =========================
+MAIN NAVIGATION
+========================= */
+
+.main-navigation {
+margin-top: 45px;
+text-align: center;
+}
+
+.navigation-label {
+margin-bottom: 28px;
+font-family: "Cormorant Garamond", serif;
+font-size: 12px;
+letter-spacing: 0.35em;
+color: #777;
+}
+
+.navigation-links {
+display: flex;
+justify-content: center;
+gap: 42px;
+}
+
+.navigation-links a {
+position: relative;
+display: inline-block;
+
+font-family: "Noto Sans JP", sans-serif;
+font-size: 13px;
+font-weight: 400;
+letter-spacing: 0.16em;
+
+color: #222;
+text-decoration: none;
+
+transition: transform 0.3s ease;
+}
+
+.navigation-links a::after {
+content: "";
+position: absolute;
+left: 0;
+bottom: -6px;
+width: 100%;
+height: 1px;
+background: #222;
+transform: scaleX(0);
+transform-origin: center;
+transition: transform 0.35s ease;
+}
+
+.navigation-links a:hover::after {
+transform: scaleX(1);
+}
+
+.navigation-links a {
+transform: translateY(-2px);
+}
+
+/* =========================
+WORLD PAGE
+========================= */
+
+.world-page {
+max-width: 1000px;
+margin: 0 auto;
+padding: 120px 40px;
+text-align: left;
+
+position: relative;
+}
+
+.world-page > .page-label {
+margin: 0 0 24px;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 12px;
+letter-spacing: 0.35em;
+font-weight: 400;
+color: #777;
+}
+
+.world-page h1 {
+margin: 0;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 64px;
+font-weight: 400;
+letter-spacing: 0.12em;
+color: #222;
+}
+
+.world-page .page-description {
+margin: 24px 0 0;
+
+font-family: "Noto Sans JP", sans-serif;
+font-size: 14px;
+line-height: 2;
+letter-spacing: 0.08em;
+color: #555;
+}
+
+/* =========================
+WORLD LINKS
+========================= */
+
+.world-links {
+display: flex;
+flex-direction: column;
+gap: 18px;
+
+width: min(100%, 800px);
+margin-top: 60px;
+}
+
+.world-link {
+display: grid;
+grid-template-columns: 46px 1fr auto;
+align-items: center;
+
+width: 100%;
+min-height: 96px;
+
+padding: 20px 24px;
+
+background: #fff;
+border: 1px solid #e5e5e5;
+border-radius: 8px;
+
+color: #222;
+text-decoration: none;
+
+transition:
+transform 0.25s ease,
+border-color 0.25s ease;
+}
+
+.world-link {
+transform: translateY(-2px);
+border-color: #d8d8d8;
+}
+
+/* ---------- NUMBER ---------- */
+
+.world-number {
+font-family: "Cormorant Garamond", serif;
+font-size: 15px;
+letter-spacing: 0.12em;
+color: #777;
+}
+
+/* ---------- TEXT ---------- */
+
+.world-link-text {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+}
+
+.world-link-title {
+position: relative;
+
+display: inline-block;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 22px;
+letter-spacing: 0.18em;
+line-height: 1.2;
+}
+
+/* hover時：中央から横線 */
+
+.world-link-title::after {
+content: "";
+
+position: absolute;
+left: 0;
+bottom: -5px;
+
+width: 100%;
+height: 1px;
+
+background: currentColor;
+
+transform: scaleX(0);
+transform-origin: center;
+
+transition: transform 0.3s ease;
+}
+
+.world-link .world-link-title::after {
+transform: scaleX(1);
+}
+
+/* ---------- JAPANESE LABEL ---------- */
+
+.world-link-text small {
+margin-top: 7px;
+
+font-family: "Noto Sans JP", sans-serif;
+font-size: 11px;
+line-height: 1.5;
+letter-spacing: 0.06em;
+color: #777;
+}
+
+/* ---------- ARROW ---------- */
+
+.world-arrow {
+font-family: "Cormorant Garamond", serif;
+font-size: 18px;
+color: #777;
+
+transition:
+transform 0.25s ease,
+color 0.25s ease;
+}
+
+.world-link .world-arrow {
+transform: translateX(4px);
+color: #222;
+}
+
+/* =========================
+WORLD MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+.world-page {
+width: auto;
+max-width: none;
+
+margin: 58px 0 0;
+padding: 75px 24px 90px;
+
+text-align: left;
+
+}
+
+.world-page > .page-label {
+margin-bottom: 18px;
+font-size: 11px;
+letter-spacing: 0.32em;
+}
+
+.world-page h1 {
+font-size: 56px;
+line-height: 0.95;
+letter-spacing: 0.04em;
+}
+
+.world-page .page-description {
+margin-top: 25px;
+
+font-size: 12px;
+line-height: 2;
+letter-spacing: 0.05em;
+
+}
+
+/* ---------- LINKS ---------- */
+
+.world-links {
+width: 100%;
+margin-top: 55px;
+
+gap: 14px;
+
+}
+
+.world-link {
+grid-template-columns: 38px 1fr auto;
+
+min-height: 88px;
+
+padding: 18px 18px;
+
+border-radius: 7px;
+
+}
+
+.world-number {
+font-size: 13px;
+}
+
+.world-link-title {
+font-size: 20px;
+letter-spacing: 0.14em;
+}
+
+.world-link-text small {
+margin-top: 6px;
+font-size: 10px;
+}
+
+.world-arrow {
+font-size: 16px;
+}
+
+}
+
+/* =========================
+CHARACTER PAGE
+========================= */
+
+.character-page {
+max-width: 1000px;
+margin: 0 auto;
+padding: 120px 40px;
+text-align: left;
+}
+
+/* ---------- PAGE HEADER ---------- */
+
+.character-page > .page-label {
+margin: 0 0 24px;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 12px;
+letter-spacing: 0.35em;
+font-weight: 400;
+color: #777;
+}
+
+.character-page h1 {
+margin: 0;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 64px;
+font-weight: 400;
+letter-spacing: 0.12em;
+color: #222;
+}
+
+.character-page .page-description {
+margin: 24px 0 0;
+
+font-family: "Noto Sans JP", sans-serif;
+font-size: 14px;
+line-height: 2;
+letter-spacing: 0.08em;
+color: #555;
+}
+
+/* =========================
+DEPARTMENT BLOCK
+========================= */
+
+.department {
+--department-color: #777;
+
+width: 100%;
+margin-top: 40px;
+
+padding: 28px 30px 30px;
+
+background: #fff;
+border: 1px solid #e5e5e5;
+border-radius: 8px;
+}
+
+/* ---------- DEPARTMENT COLORS ---------- */
+
+.department-headquarters {
+--department-color: #2384DE;
+}
+
+.department-dating {
+--department-color: #F17EB3;
+}
+
+.department-administrative {
+--department-color: #E0A82B;
+}
+
+.department-watchdog {
+--department-color: #BB3838;
+}
+
+.department-negotiation {
+--department-color: #9A22B3;
+}
+
+.department-st {
+--department-color: #74A450;
+}
+
+/* ---------- DEPARTMENT LABEL ---------- */
+
+.department-label {
+margin: 0;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 12px;
+font-weight: 400;
+letter-spacing: 0.32em;
+
+color: var(--department-color);
+}
+
+/* ---------- DEPARTMENT JAPANESE NAME ---------- */
+
+.department h2 {
+margin: 8px 0 0;
 
-  <!-- =========================
-       SITE MENU
-  ========================= -->
+font-family: "Noto Sans JP", sans-serif;
+font-size: 24px;
+font-weight: 500;
+letter-spacing: 0.06em;
 
-  <button class="site-menu-button"
-          type="button"
-          aria-label="サイトメニューを開く">
+color: var(--department-color);
+}
 
-    <span>MENU</span>
+/* =========================
+CHARACTER LIST
+========================= */
 
-  </button>
+.character-list {
+display: grid;
 
+grid-template-columns: repeat(4, minmax(0, 1fr));
 
-  <div class="site-menu-panel">
+column-gap: 20px;
+row-gap: 24px;
 
-    <div class="site-menu-inner">
+width: 100%;
 
-      <div class="site-menu-header">
+margin-top: 25px;
+padding-top: 25px;
 
-        <span>SITE MENU</span>
+border-top: 1px solid #e5e5e5;
+}
 
-        <button class="site-menu-close"
-                type="button"
-                aria-label="メニューを閉じる">
+/* ---------- CHARACTER LINK ---------- */
 
-          ×
+.character-list a {
+position: relative;
 
-        </button>
+display: flex;
+flex-direction: column;
+align-items: flex-start;
 
-      </div>
+min-width: 0;
 
+color: #222;
+text-decoration: none;
 
-      <nav class="site-menu-nav">
+transition: transform 0.2s ease;
+}
 
-        <a href="index.html">TOP</a>
-        <a href="world.html">WORLD</a>
-        <a href="character.html">CHARACTER</a>
-        <a href="story.html">STORY</a>
-        <a href="event.html">EVENT</a>
-        <a href="music.html">MUSIC</a>
-        <a href="media.html">MEDIA</a>
-        <a href="media.html">× stmy</a>
+/* ---------- JAPANESE NAME ---------- */
 
-      </nav>
+.character-list a span {
+position: relative;
 
-    </div>
+font-family: "Noto Sans JP", sans-serif;
+font-size: 14px;
+font-weight: 400;
+line-height: 1.5;
+letter-spacing: 0.06em;
 
-  </div>
+color: #222;
 
+transition: color 0.2s ease;
+}
 
+/* ---------- ENGLISH NAME ---------- */
 
-  <!-- =========================
-       STORY PAGE
-  ========================= -->
+.character-list a small {
+margin-top: 5px;
 
-  <main class="story-page">
+font-family: "Cormorant Garamond", serif;
+font-size: 11px;
+font-weight: 400;
+line-height: 1.3;
+letter-spacing: 0.16em;
 
+color: #999;
 
-    <p class="page-label">
-      STORY DATABASE
-    </p>
+transition: color 0.2s ease;
+}
 
+/* =========================
+CHARACTER HOVER
+========================= */
 
-    <h1>
-      STORY
-    </h1>
+/* 日本語名 */
 
+.character-list a span::after {
+content: "";
 
-    <p class="page-description">
-      ブレイクマイケースに登場する<br>
-      ストーリーにまつわる情報をまとめています。
-    </p>
+position: absolute;
+left: 0;
+bottom: -4px;
 
+width: 100%;
+height: 1px;
 
+background: currentColor;
 
-    <!-- =========================
-         SEARCH
-    ========================= -->
+transform: scaleX(0);
+transform-origin: center;
 
-    <section class="story-search">
+transition: transform 0.3s ease;
+}
 
+/* hover時：キャラクターカラー */
 
-      <div class="story-search-header">
+.character-list a span,
+.character-list a small {
+color: var(--character-color);
+}
 
-        <p class="section-label">
-          SEARCH
-        </p>
+/* hover時：中央から横線 */
 
-        <button
-          type="button"
-          class="story-search-reset"
-          id="storySearchReset">
+.character-list a span::after {
+transform: scaleX(1);
+}
 
-          RESET
+/* =========================
+CHARACTER MOBILE
+========================= */
 
-        </button>
+@media (max-width: 700px) {
 
-      </div>
+.character-page {
+width: auto;
+max-width: none;
 
+margin: 58px 0 0;
+padding: 85px 24px 90px;
 
+text-align: left;
 
-      <!-- =========================
-           TYPE
-      ========================= -->
+}
 
-      <div class="story-search-item">
+/* ---------- HEADER ---------- */
 
-        <label for="storyType">
-          STORY TYPE
-        </label>
+.character-page > .page-label {
+margin-bottom: 20px;
 
-        <select id="storyType">
+font-size: 11px;
+letter-spacing: 0.32em;
 
-          <option value="">
-            ALL
-          </option>
+}
 
-          <option value="main">
-            MAIN
-          </option>
+.character-page h1 {
+font-size: 44px;
+line-height: 0.95;
+letter-spacing: 0.08em;
+}
 
-          <option value="personal">
-            PERSONAL
-          </option>
+.character-page .page-description {
+margin-top: 20px;
+margin-bottom: 55px;
 
-          <option value="event">
-            EVENT
-          </option>
+font-size: 12px;
+line-height: 2;
+letter-spacing: 0.06em;
 
-          <option value="card">
-            CARD
-          </option>
+}
 
-        </select>
+/* ---------- DEPARTMENT ---------- */
 
-      </div>
+.department {
+margin-top: 24px;
 
+padding: 22px 20px 24px;
 
+border-radius: 7px;
 
-      <!-- =========================
-           TITLE
-      ========================= -->
+}
 
-      <div class="story-search-item">
+.department-label {
+font-size: 11px;
+letter-spacing: 0.18em;
+}
 
-        <label for="storyTitle">
-          STORY TITLE
-        </label>
+.department h2 {
+margin-top: 8px;
+padding-top: 11px;
 
-        <select id="storyTitle">
+font-size: 23px;
+letter-spacing: 0.06em;
 
-          <option value="">
-            ALL
-          </option>
+}
 
-        </select>
+/* ---------- CHARACTER LIST ---------- */
 
-      </div>
+.character-list {
+grid-template-columns: repeat(2, minmax(0, 1fr));
 
+column-gap: 16px;
+row-gap: 23px;
 
+margin-top: 23px;
 
-      <!-- =========================
-           CHARACTERS
-      ========================= -->
+}
 
-      <div class="story-search-item">
+.character-list a span {
+font-size: 13px;
+letter-spacing: 0.04em;
+}
 
-        <p class="story-search-label">
-          CHARACTERS
-        </p>
+.character-list a small {
+margin-top: 4px;
 
-        <div
-          class="story-checkbox-list"
-          id="characterFilters">
+font-size: 10px;
+letter-spacing: 0.12em;
 
-        </div>
+}
 
-      </div>
+}
 
+/* =========================
+YOUTUBE
+========================= */
 
+.youtube-wrapper {
+position: relative;
+width: 100%;
+max-width: 800px;
+aspect-ratio: 16 / 9;
+margin: 40px auto;
+}
 
-      <!-- =========================
-           VIEWPOINT
-      ========================= -->
+.youtube-wrapper iframe {
+width: 100%;
+height: 100%;
+border: none;
+}
 
-      <div class="story-search-item">
+/* =========================
+CHARACTER DETAIL PAGE
+========================= */
 
-        <p class="story-search-label">
-          VIEWPOINT
-        </p>
+.character-detail-page {
+max-width: 900px;
+margin: 0 auto;
+padding: 120px 40px;
+}
 
-        <div
-          class="story-checkbox-list"
-          id="viewpointFilters">
+.character-detail-page > .page-label {
+margin-bottom: 35px;
+text-align: center;
+}
 
-        </div>
+.character-detail-page h1 {
+margin: 0;
 
-      </div>
+text-align: center;
 
+font-size: 40px;
+font-weight: 400;
+letter-spacing: 0.12em;
+}
 
-    </section>
+.character-name-en {
+margin-top: 20px;
 
+text-align: center;
 
+font-size: 12px;
+letter-spacing: 0.25em;
+color: #888;
+}
 
-    <!-- =========================
-         SEARCH RESULT
-    ========================= -->
+.character-intro {
+max-width: 650px;
+margin: 55px auto 100px;
 
-    <section class="story-results">
+text-align: center;
+}
 
+.character-intro blockquote {
+margin: 35px 0;
 
-      <div class="story-results-header">
+font-size: 16px;
+line-height: 2;
+}
 
-        <p class="section-label">
-          STORIES
-        </p>
+.character-detail-page section {
+margin-top: 90px;
+}
 
-        <p class="story-result-count">
-          <span id="resultCount">0</span>
-          STORIES
-        </p>
+.character-detail-page h2 {
+margin-bottom: 40px;
+padding-bottom: 14px;
+border-bottom: 1px solid #ddd;
 
-      </div>
+font-size: 15px;
+font-weight: 400;
+letter-spacing: 0.2em;
+}
 
+/* =========================
+PROFILE
+========================= */
 
-      <div
-        class="story-list"
-        id="storyList">
+.profile-list {
+max-width: 700px;
+margin: 0 auto;
+}
 
-      </div>
+.profile-item {
+display: grid;
+grid-template-columns: 160px minmax(0, 1fr);
+gap: 30px;
 
+padding: 18px 0;
+border-bottom: 1px solid #e5e5e5;
+}
 
-      <p
-        class="story-no-result"
-        id="storyNoResult">
+.profile-label {
+font-size: 12px;
+line-height: 1.8;
+letter-spacing: 0.12em;
+color: #888;
+}
 
-        該当するストーリーがありません。
+.profile-value {
+font-size: 14px;
+line-height: 1.8;
+}
 
-      </p>
+/* =========================
+RELATIONSHIP
+========================= */
 
+.relationship-section {
+margin-top: 70px;
+}
 
-    </section>
+.relationship-section h2 {
+margin: 0 0 32px;
+}
 
+.relationship-subtitle {
+margin: 0;
+}
 
-  </main>
+.relationship-subtitle h3,
+.relationship-calling h3 {
+margin: 0 0 22px;
 
+font-size: 13px;
+font-weight: 500;
+letter-spacing: 0.08em;
+}
 
+.relationship-calling {
+margin-top: 55px;
+}
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
+/* =========================
+呼び方 TABLE
+========================= */
 
-  <script>
+.calling-table {
+width: 100%;
+max-width: 1000px;
+margin: 0 auto;
 
-    /* =========================
-       STORY DATA
-    ========================= */
+border-top: 1px solid #e5e5e5;
+}
 
-    /*
-      ストーリーを追加するときは
-      ここにデータを追加してください。
+.calling-row {
+display: grid;
+grid-template-columns: 1.2fr 1fr 1fr;
 
-      type:
-        main
-        personal
-        event
-        card
+border-bottom: 1px solid #e5e5e5;
+}
 
-      title:
-        ストーリータイトル
+.calling-row > div {
+box-sizing: border-box;
 
-      episode:
-        話数
-        ※タイトル検索では使用しません
+padding: 13px 16px;
 
-      characters:
-        その話に登場するキャラクター
+font-size: 12px;
+line-height: 1.7;
+}
 
-      viewpoints:
-        視点キャラクター
+.calling-header {
+background: #fff;
+}
 
-      link:
-        詳細ページへのリンク
-        EVENT / CARD 以外は "" でもOK
-    */
+.calling-header > div {
+font-size: 11px;
+letter-spacing: 0.06em;
+color: #888;
+}
 
+/* =========================
+SPECIAL / HOME VOICE
+========================= */
 
-    const storyData = [
+.special-voice-section .profile-value,
+.home-voice-section .profile-value {
+font-size: 12px;
+line-height: 1.8;
+}
 
-      {
-        type: "main",
-        title: "メインストーリー 01",
-        episode: 1,
-        characters: [
-          "皇坂 逢",
-          "城瀬 由鶴"
-        ],
-        viewpoints: [
-          "主人公"
-        ],
-        link: ""
-      },
+/* =========================
+BIRTHDAY PAGE
+========================= */
 
+/* =========================
+SPECIAL VOICE → BIRTHDAY PAGE
+========================= */
 
-      {
-        type: "main",
-        title: "メインストーリー 01",
-        episode: 2,
-        characters: [
-          "皇坂 逢",
-          "城瀬 由鶴",
-          "須王 芦佳"
-        ],
-        viewpoints: [
-          "主人公",
-          "皇坂 逢"
-        ],
-        link: ""
-      },
+.character-detail-page .birthday-page {
+margin-top: -20px;
+}
 
+.birthday-page .birthday-year {
+margin: 28px 0 0;
 
-      {
-        type: "personal",
-        title: "皇坂 逢 PERSONAL STORY",
-        episode: 1,
-        characters: [
-          "皇坂 逢"
-        ],
-        viewpoints: [
-          "皇坂 逢"
-        ],
-        link: ""
-      },
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 0.12em;
+color: #555;
+}
 
+.birthday-page .birthday-year {
+margin-top: 0;
+}
 
-      {
-        type: "event",
-        title: "〇〇〇〇",
-        episode: 1,
-        characters: [
-          "皇坂 逢",
-          "節見 静"
-        ],
-        viewpoints: [
-          "皇坂 逢"
-        ],
-        link: "event-example.html"
-      },
+.birthday-page .profile-value {
+font-size: 12px;
+line-height: 1.8;
+}
 
+/* =========================
+SUB SECTION TITLE
+========================= */
 
-      {
-        type: "card",
-        title: "〇〇〇〇",
-        episode: 1,
-        characters: [
-          "節見 静"
-        ],
-        viewpoints: [
-          "節見 静"
-        ],
-        link: "card-example.html"
-      }
+.sub-section-title {
+margin: 24px 0 0;
+padding: 0 0 10px;
 
-    ];
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 0.12em;
+color: #555;
+}
 
+/* =========================
+PERSONAL DATA
+========================= */
 
+.personal-data {
+max-width: 700px;
+margin: 0 auto;
+}
 
-    /* =========================
-       CHARACTER LIST
-    ========================= */
+.data-row {
+display: grid;
+grid-template-columns: 160px 1fr;
+gap: 30px;
 
-    /*
-      検索に使うキャラクター名。
+padding: 18px 0;
+border-bottom: 1px solid #ddd;
+}
 
-      今後 character.html の登録名と
-      同じ表記にしておくと管理しやすいです。
-    */
+.data-label {
+font-size: 12px;
+color: #888;
+}
 
-    const characterList = [
+.data-value {
+font-size: 14px;
+color: #222;
+}
 
-      "主人公",
+.background-value {
+font-size: 14px;
+line-height: 2;
+color: #222;
+}
 
-      "皇坂 逢",
-      "城瀬 由鶴",
-      "須王 芦佳",
+.color-code {
+display: inline-block;
 
-      "綾戸 恋",
-      "宇京 真央",
-      "樋宮 明星",
-      "環野 揺",
+padding: 4px 10px;
 
-      "槻本 大河",
-      "壱川 春日",
-      "隠岐谷 誓",
+background-color: var(--character-color);
+color: #fff;
 
-      "節見 静",
-      "御門 尊",
-      "新開 戦",
-      "相沢 篠信",
+font-size: 13px;
+letter-spacing: 0.05em;
+}
 
-      "在間 樹帆",
-      "祠堂 恭耶",
-      "立科 吏来",
+/* =========================
+SPIN
+========================= */
 
-      "恩田 灯世",
-      "新名 有",
-      "神家",
-      "麻波 麗",
+.spin-grid {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 30px;
 
-      "弥代 透吾",
-      "伊達 幸邑",
-      "天羽 嵐",
-      "レア"
+max-width: 1000px;
+margin: 0 auto;
+}
 
-    ];
+.spin-card {
+box-sizing: border-box;
+width: 100%;
 
+padding: 24px 22px;
 
+border: 1px solid #e5e5e5;
+border-left: 3px solid var(--character-color);
 
-    /* =========================
-       VIEWPOINT LIST
-    ========================= */
+background: #fff;
+}
 
-    /*
-      視点として使用する可能性がある人物。
-    */
+/* SPIN HEADER */
 
-    const viewpointList = [
+.spin-card-header {
+padding-bottom: 18px;
+border-bottom: 1px solid #e5e5e5;
+}
 
-      "主人公",
+.spin-card-header h3 {
+margin: 0 0 8px;
 
-      "皇坂 逢",
-      "城瀬 由鶴",
-      "須王 芦佳",
+font-size: 15px;
+font-weight: 500;
+letter-spacing: 0.06em;
+}
 
-      "綾戸 恋",
-      "宇京 真央",
-      "樋宮 明星",
-      "環野 揺",
+.spin-members {
+margin: 0 0 6px;
+font-size: 12px;
+}
 
-      "槻本 大河",
-      "壱川 春日",
-      "隠岐谷 誓",
+.spin-location {
+margin: 0;
 
-      "節見 静",
-      "御門 尊",
-      "新開 戦",
-      "相沢 篠信",
+font-size: 10px;
+letter-spacing: 0.14em;
+color: #888;
+}
 
-      "在間 樹帆",
-      "祠堂 恭耶",
-      "立科 吏来",
+/* SPIN BODY */
 
-      "恩田 灯世",
-      "新名 有",
-      "神家",
-      "麻波 麗",
+.spin-card-body {
+padding-top: 18px;
+}
 
-      "弥代 透吾",
-      "伊達 幸邑",
-      "天羽 嵐",
-      "レア"
+.spin-card-body p {
+margin: 0 0 12px;
 
-    ];
+font-size: 12px;
+line-height: 1.8;
+color: #555;
+}
 
+.spin-card-body p {
+margin-bottom: 0;
+}
 
+.spin-card-body hr {
+margin: 22px 0;
 
-    /* =========================
-       ELEMENTS
-    ========================= */
+border: 0;
+border-top: 1px solid #e5e5e5;
+}
 
-    const storyType =
-      document.querySelector("#storyType");
+/* SPIN SUBTITLE */
 
-    const storyTitle =
-      document.querySelector("#storyTitle");
+.spin-subtitle {
+margin: 0 0 10px !important;
 
-    const characterFilters =
-      document.querySelector("#characterFilters");
+font-size: 11px !important;
+font-weight: 500;
 
-    const viewpointFilters =
-      document.querySelector("#viewpointFilters");
+letter-spacing: 0.05em;
+color: #555 !important;
+}
 
-    const storyList =
-      document.querySelector("#storyList");
+.spin-subtitle-group {
+margin-top: 28px !important;
+}
 
-    const resultCount =
-      document.querySelector("#resultCount");
+/* 無言の圧：本文2列 */
 
-    const storyNoResult =
-      document.querySelector("#storyNoResult");
+.spin-pressure-columns {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 40px;
+}
 
-    const storySearchReset =
-      document.querySelector("#storySearchReset");
+.spin-pressure-column {
+min-width: 0;
+}
 
+/* =========================
+PERSONAL SONG
+========================= */
 
+.personal-song-section {
+margin-top: 70px;
+}
 
-    /* =========================
-       TYPE LABEL
-    ========================= */
+.personal-song-grid {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 40px;
 
-    const typeLabels = {
+max-width: 1000px;
+margin: 0 auto;
+}
 
-      main: "MAIN",
+.personal-song-card {
+min-width: 0;
+}
 
-      personal: "PERSONAL",
+.personal-song-card h3 {
+margin: 0 0 20px;
 
-      event: "EVENT",
+font-size: 16px;
+font-weight: 500;
+letter-spacing: 0.06em;
+}
 
-      card: "CARD"
+.personal-song-video {
+position: relative;
+width: 100%;
+aspect-ratio: 16 / 9;
+}
 
-    };
+.personal-song-video iframe {
+width: 100%;
+height: 100%;
+border: none;
+}
 
+.personal-song-info {
+margin-top: 22px;
+}
 
+.personal-song-row {
+display: grid;
+grid-template-columns: 60px minmax(0, 1fr);
+gap: 20px;
 
-    /* =========================
-       CREATE CHECKBOXES
-    ========================= */
+padding: 10px 0;
+border-bottom: 1px solid #e5e5e5;
+}
 
-    function createCheckboxes(
-      container,
-      items,
-      name
-    ) {
+.personal-song-label {
+font-size: 11px;
+letter-spacing: 0.08em;
+color: #888;
+}
 
-      container.innerHTML = "";
+.personal-song-value {
+font-size: 12px;
+line-height: 1.8;
+color: #555;
+}
 
+/* =========================
+CARD
+========================= */
 
-      items.forEach(item => {
+.cards-section {
+margin-top: 100px;
+}
 
-        const label =
-          document.createElement("label");
+.cards-grid {
+display: grid;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+gap: 36px 28px;
 
-        label.className =
-          "story-checkbox";
+max-width: 1000px;
+margin: 0 auto;
+}
 
+.card-item {
+min-width: 0;
+}
 
-        const checkbox =
-          document.createElement("input");
+/* CARD RARITY */
 
-        checkbox.type = "checkbox";
+.card-rarity {
+margin-bottom: 3px;
 
-        checkbox.value = item;
+font-size: 10px;
+letter-spacing: 0.12em;
+color: #888;
+}
 
-        checkbox.name = name;
+/* CARD LINK */
 
+.card-link {
+display: block;
 
-        const text =
-          document.createElement("span");
+color: inherit;
+text-decoration: none;
+}
 
-        text.textContent = item;
+.card-link h3 {
+margin: 0 0 8px;
 
+font-size: 12px;
+font-weight: 500;
+letter-spacing: 0.04em;
+}
 
-        label.appendChild(checkbox);
+/* CARD IMAGE */
 
-        label.appendChild(text);
+.card-image {
+display: flex;
+align-items: center;
+justify-content: center;
 
-        container.appendChild(label);
+width: 120px;
+aspect-ratio: 1 / 1;
 
+overflow: hidden;
 
-        checkbox.addEventListener(
-          "change",
-          filterStories
-        );
+background: #f3f3f3;
 
-      });
+font-family: "Cormorant Garamond", serif;
+font-size: 13px;
+letter-spacing: 0.12em;
+}
 
-    }
+.card-image img {
+display: block;
 
+width: 100%;
+height: 100%;
 
+object-fit: cover;
+object-position: 50% 25%;
+}
 
-    /* =========================
-       UPDATE TITLE OPTIONS
-    ========================= */
+/* CARD HOVER */
 
-    function updateTitleOptions() {
+.card-link .card-image {
+opacity: 0.8;
+}
 
-      const selectedType =
-        storyType.value;
+.card-link h3 {
+opacity: 0.7;
+}
 
+/* =========================
+CARD DETAIL PAGE
+========================= */
 
-      const titles = [
-        ...new Set(
+.card-detail-page {
+max-width: 900px;
+margin: 0 auto;
+padding: 120px 40px;
+}
 
-          storyData
+.card-detail-page > .page-label {
+margin-bottom: 35px;
+text-align: center;
+}
 
-            .filter(story => {
+/* CARD TITLE */
 
-              if (!selectedType) {
-                return true;
-              }
+.card-detail-card {
+margin-top: 100px;
+}
 
-              return story.type === selectedType;
+.card-detail-card h2 {
+margin: 0;
+padding-bottom: 14px;
+border-bottom: 1px solid #ddd;
 
-            })
+font-family: "Noto Sans JP", sans-serif;
+font-size: 14px;
+font-weight: 400;
+letter-spacing: 0.08em;
+line-height: 1.8;
+}
 
-            .map(story => story.title)
+.card-detail-rarity,
+.card-detail-name {
+font-family: "Noto Sans JP", sans-serif;
+font-size: 15px;
+letter-spacing: 0.08em;
+color: #222;
+}
 
-        )
+.card-detail-rarity {
+margin-right: 12px;
+}
 
-      ];
+.card-detail-name {
+margin-left: 10px;
+}
 
+/* =========================
+CARD DETAIL IMAGE
+========================= */
 
-      storyTitle.innerHTML = "";
+.card-detail-image-section {
+display: flex;
+justify-content: flex-start;
 
+margin-top: 15px;
+}
 
-      const allOption =
-        document.createElement("option");
+.card-detail-image {
+width: 100%;
+max-width: 520px;
+margin: 0;
+}
 
-      allOption.value = "";
+.card-detail-image img {
+display: block;
+width: 100%;
+height: auto;
+}
 
-      allOption.textContent = "ALL";
+/* CARD DETAIL SECTION */
 
-      storyTitle.appendChild(allOption);
+.card-detail-section {
+margin-top: 100px;
+}
 
+.card-detail-section h2 {
+margin: 0 0 40px;
+padding-bottom: 14px;
+border-bottom: 1px solid #ddd;
 
-      titles.forEach(title => {
+font-size: 13px;
+font-weight: 400;
+letter-spacing: 0.2em;
+}
 
-        const option =
-          document.createElement("option");
+/* CARD PLACEHOLDER */
 
-        option.value = title;
+.card-detail-image.placeholder {
+width: 230px;
+aspect-ratio: 1 / 1;
 
-        option.textContent = title;
+display: flex;
+align-items: center;
+justify-content: center;
 
-        storyTitle.appendChild(option);
+background: #f3f3f3;
 
-      });
+font-family: "Cormorant Garamond", serif;
+font-size: 11px;
+letter-spacing: 0.12em;
+color: #222;
+}
 
+/* =========================
+SKILL
+========================= */
 
-      /*
-        タイトル候補を更新したあと、
-        現在の条件でもう一度検索します。
-      */
+.card-skill-item .profile-value {
+display: flex;
+flex-direction: column;
+gap: 18px;
+}
 
-      filterStories();
+.skill-level {
+display: grid;
+grid-template-columns: 48px minmax(0, 1fr);
+gap: 14px;
 
-    }
+line-height: 1.8;
+}
 
+.skill-level-label {
+font-family: "Cormorant Garamond", serif;
+font-size: 11px;
+letter-spacing: 0.08em;
+color: #888;
+}
 
+/* =========================
+CARD EVENT VIDEO
+========================= */
 
-    /* =========================
-       GET SELECTED CHECKBOXES
-    ========================= */
+.card-event-videos {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 30px;
 
-    function getSelectedValues(
-      container
-    ) {
+max-width: 1000px;
+margin: 40px auto 0;
+}
 
-      return [
+.card-event-video {
+position: relative;
 
-        ...container.querySelectorAll(
-          'input[type="checkbox"]:checked'
-        )
+width: 280px;
+max-width: 280px;
 
-      ].map(
-        checkbox => checkbox.value
-      );
+aspect-ratio: 16 / 9;
 
-    }
+margin: 40px 0 0;
 
+overflow: hidden;
+background: #f3f3f3;
+}
 
+.card-event-video iframe {
+display: block;
 
-    /* =========================
-       FILTER STORIES
-    ========================= */
+width: 100%;
+height: 100%;
 
-    function filterStories() {
+border: none;
+}
 
-      const selectedType =
-        storyType.value;
+/* =========================
+PAGE BACK LINK
+========================= */
 
-      const selectedTitle =
-        storyTitle.value;
+.page-back-section {
+margin-top: 150px;
+text-align: center;
+}
 
-      const selectedCharacters =
-        getSelectedValues(
-          characterFilters
-        );
+.page-back-link {
+position: relative;
 
-      const selectedViewpoints =
-        getSelectedValues(
-          viewpointFilters
-        );
+display: inline-flex;
+flex-direction: column;
+align-items: center;
 
+text-decoration: none;
+}
 
-      const filteredStories =
-        storyData.filter(story => {
+.page-back-link span {
+font-size: 14px;
+letter-spacing: 0.05em;
+color: #111;
+}
 
+.page-back-link small {
+margin-top: 8px;
 
-          /*
-            STORY TYPE
-          */
+font-family: "Cormorant Garamond", serif;
+font-size: 11px;
+letter-spacing: 0.25em;
+color: #b8aeb0;
+}
 
-          if (
-            selectedType &&
-            story.type !== selectedType
-          ) {
+.page-back-link::after {
+content: "";
 
-            return false;
+position: absolute;
+left: 50%;
+bottom: -6px;
 
-          }
+width: 0;
+height: 1px;
 
+background: #111;
 
-          /*
-            STORY TITLE
-          */
+transform: translateX(-50%);
+transition: width 0.25s ease;
+}
 
-          if (
-            selectedTitle &&
-            story.title !== selectedTitle
-          ) {
+.page-back-link:hover::after {
+width: 100%;
+}
 
-            return false;
+/* =========================
+RESPONSIVE
+========================= */
 
-          }
+/* ---------- Tablet ---------- */
 
+@media (min-width: 701px) and (max-width: 1199px) {
 
-          /*
-            CHARACTERS
+.spin-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 
-            複数選択された場合、
-            どれか1人でも登場していれば該当。
-          */
+.cards-grid {
+grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 
-          if (
-            selectedCharacters.length > 0
-          ) {
+}
 
-            const hasCharacter =
-              selectedCharacters.some(
-                character =>
-                  story.characters.includes(character)
-              );
+/* ---------- Mobile ---------- */
 
+@media (max-width: 700px) {
 
-            if (!hasCharacter) {
+/* CHARACTER */
 
-              return false;
+.character-page,
+.character-detail-page,
+.card-detail-page {
+padding: 90px 24px;
+}
 
-            }
+.character-page h1 {
+font-size: 48px;
+}
 
-          }
+/* PROFILE */
 
+.profile-list {
+width: 100%;
+max-width: none;
+}
 
-          /*
-            VIEWPOINT
+.profile-item {
+grid-template-columns: 100px minmax(0, 1fr);
+gap: 18px;
 
-            複数選択された場合、
-            どれか1人でも視点になっていれば該当。
-          */
+padding: 15px 0;
 
-          if (
-            selectedViewpoints.length > 0
-          ) {
+}
 
-            const hasViewpoint =
-              selectedViewpoints.some(
-                viewpoint =>
-                  story.viewpoints.includes(viewpoint)
-              );
+.profile-label {
+font-size: 11px;
+}
 
+.profile-value {
+font-size: 14px;
+line-height: 1.8;
+}
 
-            if (!hasViewpoint) {
+/* PERSONAL DATA */
 
-              return false;
+.data-row {
+grid-template-columns: 100px minmax(0, 1fr);
+gap: 18px;
+}
 
-            }
+.data-value {
+font-size: 14px;
+line-height: 1.8;
+}
 
-          }
+/* BIRTHDAY */
 
+.birthday-page .birthday-year {
+margin-top: 24px;
+font-size: 11px;
+}
 
-          return true;
+.birthday-page .profile-value {
+font-size: 12px;
+line-height: 1.8;
+}
 
-        });
+/* RELATIONSHIP */
 
+.relationship-section {
+margin-top: 55px;
+}
 
-      renderStories(
-        filteredStories
-      );
+.relationship-calling {
+margin-top: 45px;
+}
 
-    }
+.calling-table {
+overflow-x: auto;
+-webkit-overflow-scrolling: touch;
+}
 
+.calling-row {
+min-width: 560px;
+grid-template-columns: 1.2fr 1fr 1fr;
+}
 
+.calling-row > div {
+padding: 11px 13px;
+font-size: 11px;
+}
 
-    /* =========================
-       RENDER STORIES
-    ========================= */
+.calling-header > div {
+font-size: 10px;
+}
 
-    function renderStories(
-      stories
-    ) {
+/* SPIN */
 
-      storyList.innerHTML = "";
+.spin-grid {
+grid-template-columns: 1fr;
+gap: 20px;
+}
 
+.spin-card {
+padding: 24px 22px;
+}
 
-      resultCount.textContent =
-        stories.length;
+.spin-pressure-columns {
+grid-template-columns: 1fr;
+gap: 20px;
+}
 
+/* PERSONAL SONG */
 
-      if (
-        stories.length === 0
-      ) {
+.personal-song-grid {
+grid-template-columns: 1fr;
+gap: 50px;
+}
 
-        storyNoResult.style.display =
-          "block";
+.personal-song-card h3 {
+font-size: 15px;
+}
 
-        return;
+.personal-song-row {
+grid-template-columns: 55px minmax(0, 1fr);
+gap: 15px;
+}
 
-      }
+/* CARD */
 
+.cards-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 28px 18px;
+}
 
-      storyNoResult.style.display =
-        "none";
+.card-image {
+width: 100px;
+height: 100px;
+}
 
+/* CARD EVENT VIDEO */
 
-      stories.forEach(story => {
+.card-event-videos {
+gap: 24px;
+margin-top: 30px;
+}
 
-        const article =
-          document.createElement("article");
+.card-event-video {
+flex-basis: 100%;
+max-width: 100%;
+}
 
-        article.className =
-          "story-card";
+}
 
+/* =========================
+SKILL
+========================= */
 
-        /*
-          EVENT / CARD の場合、
-          詳細ページへのリンクを作成。
-        */
+.card-skill-item .profile-value {
+display: flex;
+flex-direction: column;
+gap: 18px;
+}
 
-        if (
-          story.link &&
-          (
-            story.type === "event" ||
-            story.type === "card"
-          )
-        ) {
+.skill-level {
+display: grid;
+grid-template-columns: 48px minmax(0, 1fr);
+gap: 14px;
+line-height: 1.8;
+}
 
-          article.classList.add(
-            "has-link"
-          );
+.skill-level-label {
+font-family: "Cormorant Garamond", serif;
+font-size: 13px;
+letter-spacing: 0.08em;
+color: #888;
+}
 
-        }
+/* =========================
+EVENT VIDEO
+========================= */
 
+/* 動画全体 */
+.card-event-video {
+position: relative;
 
-        /* =========================
-           TYPE
-        ========================= */
+width: 100%;
+max-width: 550px;
 
-        const type =
-          document.createElement("p");
+aspect-ratio: 16 / 9;
 
-        type.className =
-          "story-card-type";
+margin: 40px 0 0;
 
-        type.textContent =
-          typeLabels[story.type];
+overflow: hidden;
+background: #f3f3f3;
+}
 
+/* YouTube iframe */
+.card-event-video iframe {
+width: 100%;
+height: 100%;
+display: block;
+border: none;
+}
 
-        /* =========================
-           TITLE
-        ========================= */
+/* =========================
+EVENT VIDEO MOBILE
+========================= */
 
-        const title =
-          document.createElement("h2");
+@media (max-width: 700px) {
 
-        title.className =
-          "story-card-title";
+.card-event-videos {
+gap: 24px;
+margin-top: 30px;
+}
 
-        title.textContent =
-          story.title;
+.card-event-video {
+flex-basis: 100%;
+max-width: 100%;
+}
 
+}
 
-        /* =========================
-           EPISODE
-        ========================= */
+/* =========================
+PAGE BACK LINK
+========================= */
 
-        const episode =
-          document.createElement("p");
+.page-back-section {
+text-align: center;
+margin-top: 150px;
+padding-bottom: -20px;
+}
 
-        episode.className =
-          "story-card-episode";
+.page-back-link {
+display: inline-flex;
+flex-direction: column;
+align-items: center;
+text-decoration: none;
+}
 
-        episode.textContent =
-          "EPISODE " + story.episode;
+.page-back-link span {
+font-size: 14px;
+color: #111;
+letter-spacing: 0.05em;
+}
 
+.page-back-link small {
+margin-top: 8px;
+font-family: "Cormorant Garamond", serif;
+font-size: 11px;
+letter-spacing: 0.25em;
+color: #b8aeb0;
+}
 
-        /* =========================
-           CHARACTERS
-        ========================= */
+.page-back-link {
+display: inline-flex;
+flex-direction: column;
+align-items: center;
+text-decoration: none;
+position: relative;
+}
 
-        const characters =
-          document.createElement("p");
+.page-back-link::after {
+content: "";
+position: absolute;
+left: 50%;
+bottom: -6px;
+width: 0;
+height: 1px;
+background: #111;
+transform: translateX(-50%);
+transition: width 0.25s ease;
+}
 
-        characters.className =
-          "story-card-info";
+.page-back-link:hover::after {
+width: 100%;
+}
 
-        characters.innerHTML =
-          "<span>CHARACTERS</span> " +
-          story.characters.join(" / ");
+/* =========================
+CARD DETAIL MOBILE
+========================= */
 
+@media (max-width: 700px) {
 
-        /* =========================
-           VIEWPOINT
-        ========================= */
+.card-detail-page {
+padding: 80px 20px;
+}
 
-        const viewpoints =
-          document.createElement("p");
+.card-detail-page > .page-label {
+margin-bottom: 28px;
+}
 
-        viewpoints.className =
-          "story-card-info";
+.card-detail-title h1 {
+font-size: 34px;
+letter-spacing: 0.08em;
+}
 
-        viewpoints.innerHTML =
-          "<span>VIEWPOINT</span> " +
-          story.viewpoints.join(" / ");
+.card-detail-name {
+font-size: 16px;
+}
 
+.card-detail-image-section {
+margin-top: 15px;
+}
 
+.card-detail-image {
+width: 480px;
+}
 
-        /* =========================
-           APPEND
-        ========================= */
+.card-detail-section {
+margin-top: 75px;
+}
 
-        article.appendChild(type);
+.card-detail-section h2 {
+margin-bottom: 30px;
+}
 
-        article.appendChild(title);
+.card-skill-item .profile-value {
+gap: 15px;
+}
 
-        article.appendChild(episode);
+.skill-level {
+grid-template-columns: 42px minmax(0, 1fr);
+gap: 10px;
+}
 
-        article.appendChild(characters);
+.card-event-video {
+margin-top: 30px;
+}
 
-        article.appendChild(viewpoints);
+}
 
+/* =========================
+CARD DETAIL TEXT
+========================= */
 
+.card-detail-page .profile-item {
+font-size: 14px;
+}
 
-        /* =========================
-           DETAIL LINK
-        ========================= */
+.card-detail-page .profile-value {
+font-size: 14px;
+line-height: 1.8;
+}
 
-        if (
-          story.link &&
-          (
-            story.type === "event" ||
-            story.type === "card"
-          )
-        ) {
+.card-detail-page .profile-label {
+font-size: 12px;
+}
 
-          const link =
-            document.createElement("a");
+/* =========================
+X
+========================= */
 
-          link.href =
-            story.link;
+.card-x-section {
+margin-top: 100px;
+}
 
-          link.className =
-            "story-card-link";
+/* =========================
+X POST
+========================= */
 
-          link.textContent =
-            "VIEW STORY →";
+.card-x-section {
+margin-top: 100px;
+}
 
-          article.appendChild(link);
+.x-posts {
+display: grid;
+grid-template-columns: repeat(3, 280px);
+gap: 20px;
 
-        }
+justify-content: start;
+}
 
+.x-post {
+min-width: 0;
+width: 280px;
+}
 
-        storyList.appendChild(article);
+.x-post .twitter-tweet {
+max-width: 280px !important;
+min-width: 0 !important;
+margin: 0 !important;
+}
 
-      });
+/* =========================
+X POST レスポンシブ
+========================= */
 
-    }
+@media (max-width: 700px) {
+
+.x-posts {
+grid-template-columns: 1fr;
+gap: 30px;
+}
+
+.x-post {
+width: 280px;
+}
+
+}
+
+/* =========================
+CHARACTER EVENT
+========================= */
+
+.character-event-list {
+display: flex;
+flex-direction: column;
+}
+
+.character-event-link {
+display: inline-block;
+width: fit-content;
+padding: 8px 0;
+
+color: #222;
+text-decoration: none;
+
+font-size: 12px;
+letter-spacing: 0.06em;
+}
+
+.character-event-link {
+opacity: 0.6;
+}
+
+/* =========================
+MEMO
+========================= */
+
+.memo-list {
+margin-top: 28px;
+max-width: 760px;
+}
+
+.memo-list p {
+margin: 0 0 12px;
+padding-left: 0;
+
+font-size: 11px;
+line-height: 2;
+
+color: #777;
+}
+
+.memo-list p {
+margin-bottom: 0;
+}
+
+/* =========================
+CHARACTER LIST
+========================= */
 
+.character-list-section {
+margin-bottom: 80px;
+}
 
+.character-list-link {
+position: relative;
+display: block;
+width: fit-content;
+margin: 0 auto;
+padding-bottom: 8px;
+color: #222;
+text-decoration: none;
+text-align: center;
+}
+
+.character-list-link span {
+display: block;
+font-size: 14px;
+letter-spacing: 0.08em;
+}
+
+.character-list-link small {
+display: block;
+margin-top: 7px;
+font-family: "Cormorant Garamond", serif;
+font-size: 10px;
+letter-spacing: 0.18em;
+color: #888;
+}
 
-    /* =========================
-       RESET
-    ========================= */
+.character-list-link::after {
+content: "";
+position: absolute;
+left: 0;
+bottom: 0;
+width: 100%;
+height: 1px;
+background: #222;
+transform: scaleX(0);
+transform-origin: center;
+transition: transform 0.35s ease;
+}
 
-    storySearchReset.addEventListener(
-      "click",
-      () => {
+.character-list-link:hover::after {
+transform: scaleX(1);
+}
 
-        storyType.value = "";
+/* =========================
+PAGE INDEX
+========================= */
 
-        storyTitle.value = "";
+.page-index-button {
+position: fixed;
+right: 30px;
+bottom: 30px;
+z-index: 1101;
 
+width: 64px;
+height: 64px;
 
-        characterFilters
-          .querySelectorAll(
-            'input[type="checkbox"]'
-          )
-          .forEach(
-            checkbox =>
-              checkbox.checked = false
-          );
+border: 1px solid #c8c8c8;
+border-radius: 50%;
 
+background: rgba(255, 255, 255, 0.92);
+color: #222;
 
-        viewpointFilters
-          .querySelectorAll(
-            'input[type="checkbox"]'
-          )
-          .forEach(
-            checkbox =>
-              checkbox.checked = false
-          );
+display: flex;
+align-items: center;
+justify-content: center;
 
+cursor: pointer;
 
-        updateTitleOptions();
+font-family: "Noto Sans JP", serif;
+font-size: 11px;
+letter-spacing: 0.2em;
 
-      }
-    );
+transition:
+background 0.25s ease,
+color 0.25s ease,
+transform 0.25s ease;
+}
 
+.page-index-button {
+transform: translateY(-2px);
+}
 
+/* =========================
+INDEX PANEL
+========================= */
 
-    /* =========================
-       TYPE CHANGE
-    ========================= */
+.page-index-panel {
+position: fixed;
+inset: 0;
 
-    storyType.addEventListener(
-      "change",
-      () => {
+z-index: 1100;
 
-        updateTitleOptions();
+background: rgba(255, 255, 255, 0.97);
 
-      }
-    );
+opacity: 0;
+visibility: hidden;
 
+transition:
+opacity 0.3s ease,
+visibility 0.3s ease;
+}
 
+.page-index-panel.is-open {
+opacity: 1;
+visibility: visible;
+}
 
-    /* =========================
-       TITLE CHANGE
-    ========================= */
+/* =========================
+INDEX INNER
+========================= */
 
-    storyTitle.addEventListener(
-      "change",
-      filterStories
-    );
+.page-index-inner {
+width: min(520px, calc(100% - 48px));
+height: 100%;
 
+margin: 0 auto;
 
+display: flex;
+flex-direction: column;
+justify-content: center;
 
-    /* =========================
-       INITIALIZE
-    ========================= */
+text-align: center;
+}
 
-    createCheckboxes(
-      characterFilters,
-      characterList,
-      "characters"
-    );
+/* =========================
+INDEX HEADER
+========================= */
 
+.page-index-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
 
-    createCheckboxes(
-      viewpointFilters,
-      viewpointList,
-      "viewpoints"
-    );
+padding-bottom: 18px;
 
+border-bottom: 1px solid #ddd;
 
-    updateTitleOptions();
+font-family: "Cormorant Garamond", serif;
+font-size: 13px;
+letter-spacing: 0.2em;
+}
 
+.page-index-close {
+border: none;
+background: none;
 
+padding: 0;
 
-    /* =========================
-       SITE MENU
-    ========================= */
+font-size: 22px;
+font-weight: 300;
+line-height: 1;
 
-    const siteMenuButton =
-      document.querySelector(
-        ".site-menu-button"
-      );
+cursor: pointer;
 
-    const siteMenuPanel =
-      document.querySelector(
-        ".site-menu-panel"
-      );
+color: #222;
+}
 
-    const siteMenuClose =
-      document.querySelector(
-        ".site-menu-close"
-      );
+/* =========================
+INDEX NAV
+========================= */
 
-    const siteMenuLinks =
-      document.querySelectorAll(
-        ".site-menu-nav a"
-      );
+.page-index-nav {
+display: flex;
+flex-direction: column;
+align-items: center;
 
+margin-top: 28px;
+}
 
-    siteMenuButton.addEventListener(
-      "click",
-      () => {
+.page-index-nav a {
+position: relative;
 
-        siteMenuPanel.classList.add(
-          "is-open"
-        );
+display: block;
+width: 100%;
+max-width: 420px;
 
-        siteMenuButton.classList.add(
-          "is-hidden"
-        );
+padding: 13px 0;
 
-      }
-    );
+color: #111;
+text-decoration: none;
 
+font-family: "Cormorant Garamond", "Noto Sans JP", sans-serif;
+font-size: 13px;
+letter-spacing: 0.14em;
 
-    siteMenuClose.addEventListener(
-      "click",
-      () => {
+border-bottom: 1px solid #eee;
 
-        siteMenuPanel.classList.remove(
-          "is-open"
-        );
+text-align: center;
+}
 
-        siteMenuButton.classList.remove(
-          "is-hidden"
-        );
+.page-index-nav a::after {
+content: "";
 
-      }
-    );
+position: absolute;
+left: 50%;
+bottom: -1px;
 
+width: 0;
+height: 1px;
 
-    siteMenuLinks.forEach(
-      link => {
+background: #222;
 
-        link.addEventListener(
-          "click",
-          () => {
+transform: translateX(-50%);
 
-            siteMenuPanel.classList.remove(
-              "is-open"
-            );
+transition: width 0.25s ease;
+}
 
-            siteMenuButton.classList.remove(
-              "is-hidden"
-            );
+.page-index-nav a:hover::after {
+width: 100%;
+}
 
-          }
-        );
+/* =========================
+INDEX MOBILE
+========================= */
 
-      }
-    );
+@media (max-width: 600px) {
 
+.page-index-button {
+right: 18px;
+bottom: 18px;
 
-    siteMenuPanel.addEventListener(
-      "click",
-      event => {
+width: 52px;
+height: 52px;
 
-        if (
-          event.target === siteMenuPanel
-        ) {
+}
 
-          siteMenuPanel.classList.remove(
-            "is-open"
-          );
+.page-index-inner {
+width: calc(100% - 48px);
 
-          siteMenuButton.classList.remove(
-            "is-hidden"
-          );
+padding: 80px 0 60px;
 
-        }
+}
 
-      }
-    );
+.page-index-nav {
+margin-top: 22px;
+}
 
-  </script>
+.page-index-nav {
+display: grid;
+grid-template-columns: 1fr;
+column-gap: 0;
+}
 
+.page-index-nav a {
+padding: 11px 0;
+}
 
-</body>
-</html>
+}
+
+/* =========================
+SITE MENU
+========================= */
+
+/* MENU BUTTON */
+
+.site-menu-button {
+position: fixed;
+top: 28px;
+left: 28px;
+z-index: 1001;
+
+border: none;
+background: transparent;
+
+padding: 0;
+
+color: #111;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 11px;
+letter-spacing: 0.18em;
+
+cursor: pointer;
+}
+
+.site-menu-button span {
+position: relative;
+}
+
+.site-menu-button span::after {
+content: "";
+
+position: absolute;
+left: 50%;
+bottom: -6px;
+
+width: 0;
+height: 1px;
+
+background: #111;
+
+transform: translateX(-50%);
+transition: width 0.25s ease;
+}
+
+.site-menu-button span::after {
+width: 100%;
+}
+
+/* PANEL */
+
+.site-menu-panel {
+position: fixed;
+inset: 0;
+
+z-index: 1000;
+
+background: rgba(0, 0, 0, 0.08);
+
+opacity: 0;
+visibility: hidden;
+
+transition:
+opacity 0.3s ease,
+visibility 0.3s ease;
+}
+
+.site-menu-panel.is-open {
+opacity: 1;
+visibility: visible;
+}
+
+/* INNER */
+
+.site-menu-inner {
+width: min(340px, 82vw);
+height: 100%;
+
+background: rgba(255, 255, 255, 0.97);
+
+box-sizing: border-box;
+
+padding: 42px 42px;
+
+transform: translateX(100%);
+
+transition: transform 0.35s ease;
+
+display: flex;
+flex-direction: column;
+}
+
+.site-menu-panel.is-open .site-menu-inner {
+transform: translateX(0);
+}
+
+/* HEADER */
+
+.site-menu-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+
+padding-bottom: 18px;
+
+border-bottom: 1px solid #ddd;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 13px;
+letter-spacing: 0.2em;
+}
+
+.site-menu-close {
+border: none;
+background: none;
+
+padding: 0;
+
+color: #111;
+
+font-size: 22px;
+font-weight: 300;
+line-height: 1;
+
+cursor: pointer;
+}
+
+/* NAV */
+
+.site-menu-nav {
+margin-top: 30px;
+
+display: flex;
+flex-direction: column;
+}
+
+.site-menu-nav a {
+position: relative;
+
+display: block;
+
+padding: 14px 0;
+
+color: #111;
+text-decoration: none;
+
+font-family: "Cormorant Garamond", "Noto Sans JP", sans-serif;
+font-size: 14px;
+letter-spacing: 0.16em;
+}
+
+/* HOVER LINE */
+
+.site-menu-nav a::after {
+content: "";
+
+position: absolute;
+left: 50%;
+bottom: 7px;
+
+width: 0;
+height: 1px;
+
+background: #111;
+
+transform: translateX(-50%);
+
+transition: width 0.25s ease;
+}
+
+.site-menu-nav a:hover::after {
+width: 100%;
+}
+
+/* =========================
+SITE MENU BUTTON
+PCでは非表示
+========================= */
+
+.site-menu-button {
+display: none;
+}
+
+/* =========================
+MOBILE MENU BUTTON
+========================= */
+
+@media (max-width: 600px) {
+
+.site-menu-button {
+position: fixed;
+
+top: 18px;
+right: 18px;
+left: auto;
+
+width: 52px;
+height: 52px;
+
+padding: 0;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border: 1px solid #c8c8c8;
+border-radius: 50%;
+
+background: rgba(255, 255, 255, 0.92);
+
+color: #222;
+
+font-family: "Noto Sans JP", serif;
+font-size: 10px;
+letter-spacing: 0.18em;
+
+cursor: pointer;
+
+transition:
+  background 0.25s ease,
+  color 0.25s ease,
+  transform 0.25s ease;
+
+}
+
+.site-menu-button {
+transform: translateY(-2px);
+}
+
+/* MENUの下線は消す */
+.site-menu-button span::after {
+display: none;
+}
+
+.site-menu-inner {
+width: min(300px, 82vw);
+padding: 34px 28px;
+}
+
+.site-menu-nav a {
+padding: 13px 0;
+font-size: 13px;
+}
+
+}
+
+/* =========================
+MENU BUTTON：OPEN時
+========================= */
+
+.site-menu-button.is-hidden {
+opacity: 0;
+pointer-events: none;
+}
+
+/* =========================
+Contact Links
+========================= */
+
+.contact-links {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 22px;
+margin-top: 32px;
+}
+
+.contact-links a {
+display: flex;
+align-items: center;
+justify-content: center;
+
+width: 42px;
+height: 42px;
+
+color: #222;
+text-decoration: none;
+
+transition: opacity 0.25s ease,
+transform 0.25s ease;
+}
+
+.contact-links a {
+opacity: 0.55;
+transform: translateY(-2px);
+}
+
+.contact-icon {
+display: flex;
+align-items: center;
+justify-content: center;
+
+width: 38px;
+height: 38px;
+
+border: 1px solid #222;
+border-radius: 50%;
+
+font-family: "Noto Sans JP", serif;
+font-size: 16px;
+letter-spacing: 0.05em;
+}
+
+/* =========================
+MOBILE NAVIGATION
+========================= */
+
+@media (max-width: 700px) {
+
+.navigation-links {
+display: grid;
+grid-template-columns: repeat(12, minmax(0, 1fr));
+column-gap: 8px;
+row-gap: 18px;
+width: 100%;
+max-width: 360px;
+margin: 0 auto;
+}
+
+.navigation-links a {
+font-size: 13px;
+letter-spacing: 0.12em;
+text-align: center;
+}
+
+/* 1段目：WORLD / CHARACTER / STORY */
+.navigation-links a(1),
+.navigation-links a(2),
+.navigation-links a(3) {
+grid-column: span 4;
+}
+
+/* 2段目：EVENT / MUSIC / MEDIA / × stmy */
+.navigation-links a(4),
+.navigation-links a(5),
+.navigation-links a(6),
+.navigation-links a(7) {
+grid-column: span 3;
+}
+
+}
+
+/* =========================
+SITE GUIDE
+========================= */
+
+.site-guide {
+max-width: 600px;
+margin: 0 auto;
+padding: 70px 24px;
+text-align: center;
+}
+
+.site-guide-label {
+margin: 0 0 35px;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 11px;
+letter-spacing: 0.38em;
+font-weight: 400;
+color: #999;
+}
+
+.site-guide-list {
+display: flex;
+flex-direction: column;
+gap: 24px;
+}
+
+.site-guide-item h3 {
+margin: 0 0 5px;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 14px;
+font-weight: 400;
+letter-spacing: 0.14em;
+}
+
+.site-guide-item p {
+margin: 0;
+
+font-size: 10px;
+line-height: 1.8;
+letter-spacing: 0.04em;
+color: #777;
+}
+
+.section-divider {
+width: 100%;
+height: 1px;
+background: #e5e5e5;
+}
+
+/* =========================
+Update Link
+========================= */
+
+.update-link {
+margin-top: 36px;
+text-align: center;
+}
+
+.update-link a {
+position: relative;
+
+font-family: "Noto Sans JP", serif;
+font-size: 11px;
+letter-spacing: 0.25em;
+color: #777;
+text-decoration: none;
+}
+
+.update-link a::after {
+content: "";
+position: absolute;
+left: 50%;
+bottom: -5px;
+
+width: 0;
+height: 1px;
+
+background: #777;
+
+transform: translateX(-50%);
+transition: width 0.25s ease;
+}
+
+.update-link a:hover::after {
+width: 100%;
+}
+
+/* =========================
+Update Log
+========================= */
+
+.updates {
+max-width: 720px;
+min-height: 100vh;
+margin: 0 auto;
+padding: 120px 24px 100px;
+box-sizing: border-box;
+text-align: center;
+}
+
+.updates-label {
+margin: 0 0 28px;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 13px;
+letter-spacing: 0.38em;
+font-weight: 400;
+color: #777;
+}
+
+.updates h1 {
+margin: 0 0 28px;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 42px;
+font-weight: 400;
+letter-spacing: 0.12em;
+}
+
+.updates-description {
+margin: 0 0 80px;
+
+font-size: 12px;
+line-height: 1.9;
+letter-spacing: 0.04em;
+color: #555;
+}
+
+/* 更新履歴 */
+
+.update-list {
+max-width: 620px;
+margin: 0 auto;
+text-align: left;
+}
+
+.update-item {
+padding: 0 0 32px;
+margin: 0 0 32px;
+border-bottom: 1px solid #e5e5e5;
+}
+
+.update-item {
+margin-bottom: 0;
+}
+
+.update-item time {
+display: block;
+margin-bottom: 10px;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 14px;
+letter-spacing: 0.12em;
+color: #777;
+}
+
+.update-item h2 {
+margin: 0 0 8px;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 20px;
+font-weight: 400;
+letter-spacing: 0.08em;
+}
+
+.update-item p {
+margin: 0;
+
+font-size: 12px;
+line-height: 1.9;
+letter-spacing: 0.04em;
+color: #555;
+}
+
+/* HOMEへ戻る */
+
+.back-link {
+display: inline-block;
+margin-top: 80px;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 13px;
+letter-spacing: 0.16em;
+color: #555;
+text-decoration: none;
+}
+
+.back-link {
+color: #222;
+text-decoration: underline;
+text-underline-offset: 5px;
+}
+
+/* =========================
+UPDATE LOG LINK
+========================= */
+
+.update-log-link {
+display: inline-flex;
+flex-direction: column;
+align-items: center;
+
+margin: 36px auto 20px;
+
+color: #555;
+text-decoration: none;
+}
+
+.update-log-link img {
+width: 16px;
+height: auto;
+display: block;
+
+opacity: 0.8;
+transition: opacity 0.2s ease;
+}
+
+.update-log-link span {
+margin-top: 8px;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 12px;
+letter-spacing: 0.22em;
+
+color: #555;
+
+opacity: 0;
+transform: translateY(-3px);
+
+transition:
+opacity 0.2s ease,
+transform 0.2s ease;
+}
+
+.update-log-link img {
+opacity: 1;
+}
+
+.update-log-link span,
+.update-log-link span {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* 仮画像 */
+.card-detail-image(span) {
+display: flex;
+align-items: center;
+justify-content: center;
+
+aspect-ratio: 1 / 1;
+
+background: #f3f3f3;
+
+font-family: "Cormorant Garamond", serif;
+font-size: 16px;
+letter-spacing: 0.12em;
+}
+
+/* 本物のカード画像 */
+.card-detail-image(img) {
+background: transparent;
+}
+
+/* =========================
+Mobile
+========================= */
+
+@media (max-width: 700px) {
+
+/* ---------- HOME ---------- */
+
+.hero {
+min-height: 84svh;
+padding: 80px 20px 80px;
+}
+
+.eyebrow {
+font-size: 12px;
+letter-spacing: 0.3em;
+margin-bottom: 22px;
+}
+
+.hero h1 {
+font-size: clamp(40px, 11vw, 72px);
+letter-spacing: 0;
+}
+
+.description {
+margin-top: 30px;
+font-size: 13px;
+line-height: 1.8;
+letter-spacing: 0.02em;
+}
+
+/* ---------- NAVIGATION ---------- */
+
+.main-navigation {
+margin-top: 45px;
+}
+
+.navigation-label {
+margin-bottom: 22px;
+font-size: 11px;
+}
+
+.navigation-links {
+display: grid;
+grid-template-columns: repeat(12, minmax(0, 1fr));
+column-gap: 8px;
+row-gap: 18px;
+width: 100%;
+max-width: 360px;
+margin: 0 auto;
+}
+
+.navigation-links a {
+font-size: 13px;
+letter-spacing: 0.12em;
+text-align: center;
+}
+
+/* 1段目：WORLD / CHARACTER / STORY */
+.navigation-links a(1),
+.navigation-links a(2),
+.navigation-links a(3) {
+grid-column: span 4;
+}
+
+/* 2段目：EVENT / MUSIC / MEDIA / × stmy */
+.navigation-links a(4),
+.navigation-links a(5),
+.navigation-links a(6),
+.navigation-links a(7) {
+grid-column: span 3;
+}
+
+/* ---------- ABOUT ---------- */
+
+.about {
+min-height: auto;
+padding: 110px 20px 100px;
+}
+
+.about-label {
+font-size: 11px;
+margin-bottom: 26px;
+}
+
+.about h2 {
+font-size: clamp(32px, 9vw, 48px);
+}
+
+.about > p(.about-label)(.site-name)(.unofficial) {
+max-width: 440px;
+font-size: 12px;
+line-height: 2;
+margin-top: 30px;
+}
+
+.site-name {
+font-size: 11px;
+margin-top: 38px;
+letter-spacing: 0.22em;
+}
+
+.unofficial {
+font-size: 11px;
+letter-spacing: 0.24em;
+}
+
+/* ---------- CONTACT ---------- */
+
+.contact-links {
+gap: 18px;
+margin-top: 28px;
+}
+
+.contact-icon {
+width: 36px;
+height: 36px;
+font-size: 15px;
+}
+
+/* ---------- FIXED HEADER ---------- */
+
+.site-header {
+height: 58px;
+padding: 0 18px;
+}
+
+.site-header-logo span {
+font-size: 13px;
+letter-spacing: 0.14em;
+}
+
+.site-header-logo small {
+display: none;
+}
+
+.site-header-nav {
+display: none;
+}
+
+.side-label {
+right: 10px;
+font-size: 7px;
+}
+
+}
