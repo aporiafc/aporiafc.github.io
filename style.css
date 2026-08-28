@@ -3250,7 +3250,8 @@ body {
 .story-page {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 120px 40px;
+  padding: 120px 40px 140px;
+  text-align: left;
 }
 
 
@@ -3259,11 +3260,11 @@ body {
 ========================= */
 
 .story-intro {
-  margin-bottom: 70px;
+  margin: 0 0 70px;
 }
 
 .story-intro .page-label {
-  margin: 0 0 20px;
+  margin: 0 0 24px;
 
   font-family: "Cormorant Garamond", serif;
   font-size: 12px;
@@ -3280,21 +3281,21 @@ body {
   font-family: "Cormorant Garamond", serif;
   font-size: 64px;
   font-weight: 400;
-
   line-height: 1;
+
   letter-spacing: 0.12em;
 
   color: #222;
 }
 
 .story-intro .page-description {
-  margin: 24px 0 0;
+  margin: 26px 0 0;
 
   font-family: "Noto Sans JP", sans-serif;
   font-size: 14px;
   font-weight: 400;
-
   line-height: 2;
+
   letter-spacing: 0.08em;
 
   color: #555;
@@ -3307,43 +3308,47 @@ body {
 
 .story-search {
   width: 100%;
-  margin-top: 0;
 
-  padding: 32px 34px 34px;
+  padding: 46px 40px 42px;
 
   background: #fff;
 
   border: 1px solid #e5e5e5;
   border-radius: 8px;
+
+  box-sizing: border-box;
 }
 
 
-/* ---------- SEARCH HEADER ---------- */
+/* =========================
+   SEARCH HEADER
+========================= */
 
 .story-search-header {
-  margin-bottom: 32px;
+  margin-bottom: 44px;
 }
 
 .story-search-header .section-label {
-  margin: 0 0 8px;
+  margin: 0 0 18px;
 
   font-family: "Cormorant Garamond", serif;
   font-size: 12px;
   font-weight: 400;
 
-  letter-spacing: 0.3em;
+  letter-spacing: 0.35em;
 
-  color: #999;
+  color: #777;
 }
 
 .story-search-header h2 {
   margin: 0;
 
   font-family: "Cormorant Garamond", serif;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 400;
+  line-height: 1.2;
 
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
 
   color: #222;
 }
@@ -3354,8 +3359,17 @@ body {
 ========================= */
 
 .story-search-group {
-  margin-top: 28px;
+  margin-top: 34px;
 }
+
+.story-search-group:first-of-type {
+  margin-top: 0;
+}
+
+
+/* =========================
+   SEARCH LABEL
+========================= */
 
 .story-search-label {
   display: block;
@@ -3366,84 +3380,94 @@ body {
   font-size: 12px;
   font-weight: 400;
 
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
 
   color: #777;
 }
 
 
 /* =========================
-   FILTER BUTTONS
+   STORY TYPE / VIEWPOINT
 ========================= */
 
 .story-filter-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 10px;
+  gap: 10px;
 }
 
 
-/* checkbox label */
+/* ---------- CHECKBOX LABEL ---------- */
 
-.story-filter-buttons label,
-.story-character-select label {
+.story-filter-buttons label {
+  position: relative;
+
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+
+  min-width: 100px;
+  height: 42px;
+
+  padding: 0 20px;
+
+  border: 1px solid #ddd;
+
+  background: #fff;
+
+  box-sizing: border-box;
 
   cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
 }
 
 
-/* hide default checkbox */
+/* checkbox itself */
 
-.story-filter-buttons input[type="checkbox"],
-.story-character-select input[type="checkbox"] {
+.story-filter-buttons input {
   position: absolute;
+
+  width: 1px;
+  height: 1px;
 
   opacity: 0;
   pointer-events: none;
 }
 
 
-/* button appearance */
+/* label text */
 
 .story-filter-buttons span {
-  display: inline-block;
-
-  padding: 8px 15px;
-
-  border: 1px solid #ddd;
-
-  background: #fff;
-
   font-family: "Cormorant Garamond", serif;
-  font-size: 12px;
+  font-size: 13px;
 
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
 
-  color: #555;
+  color: #666;
 
-  transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
-
-  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
 
 /* checked */
 
-.story-filter-buttons input:checked + span {
-  background: #222;
+.story-filter-buttons label:has(input:checked) {
   border-color: #222;
+  background: #222;
+}
+
+.story-filter-buttons label:has(input:checked) span {
   color: #fff;
 }
 
 
 /* hover */
 
-.story-filter-buttons label:hover span {
+.story-filter-buttons label:hover {
   border-color: #aaa;
 }
 
@@ -3453,11 +3477,14 @@ body {
 ========================= */
 
 .story-search-input {
+  display: block;
+
   width: 100%;
+  height: 48px;
+
+  padding: 0 16px;
 
   box-sizing: border-box;
-
-  padding: 11px 13px;
 
   border: 1px solid #ddd;
   border-radius: 0;
@@ -3465,11 +3492,15 @@ body {
   background: #fff;
 
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 12px;
+  font-size: 13px;
 
   letter-spacing: 0.05em;
 
   color: #222;
+
+  outline: none;
+
+  transition: border-color 0.2s ease;
 }
 
 .story-search-input::placeholder {
@@ -3477,7 +3508,6 @@ body {
 }
 
 .story-search-input:focus {
-  outline: none;
   border-color: #999;
 }
 
@@ -3492,27 +3522,70 @@ body {
   grid-template-columns:
     repeat(4, minmax(0, 1fr));
 
-  gap: 10px 18px;
+  gap: 8px 10px;
 
-  max-height: 260px;
-
-  overflow-y: auto;
+  max-height: 230px;
 
   padding: 16px;
 
-  border: 1px solid #e5e5e5;
+  overflow-y: auto;
 
-  background: #fafafa;
+  border: 1px solid #ddd;
+
+  box-sizing: border-box;
+
+  background: #fff;
 }
 
 
-/* character label */
+/* character checkbox */
 
 .story-character-select label {
-  min-width: 0;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 34px;
+
+  padding: 5px 8px;
+
+  box-sizing: border-box;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
+}
+
+.story-character-select label:hover {
+  background: #f7f7f7;
+}
+
+
+/* hide checkbox */
+
+.story-character-select input {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* character name */
+
+.story-character-select span {
+  position: relative;
+
+  padding-left: 18px;
 
   font-family: "Noto Sans JP", sans-serif;
   font-size: 11px;
+
+  line-height: 1.5;
 
   letter-spacing: 0.04em;
 
@@ -3520,21 +3593,26 @@ body {
 }
 
 
-/* character checkbox */
+/* custom checkbox */
 
-.story-character-select label::before {
+.story-character-select span::before {
   content: "";
 
-  flex: 0 0 auto;
+  position: absolute;
 
-  width: 12px;
-  height: 12px;
+  left: 0;
+  top: 50%;
 
-  margin-right: 7px;
+  width: 10px;
+  height: 10px;
+
+  transform: translateY(-50%);
 
   border: 1px solid #ccc;
 
   background: #fff;
+
+  box-sizing: border-box;
 
   transition:
     background-color 0.2s ease,
@@ -3542,24 +3620,31 @@ body {
 }
 
 
-/* checked character */
+/* checked */
 
 .story-character-select input:checked + span::before {
-  background: #222;
-}
-
-
-/* =========================
-   CHARACTER CHECKED STATE
-========================= */
-
-.story-character-select label:has(input:checked) {
-  color: #222;
-}
-
-.story-character-select label:has(input:checked)::before {
-  background: #222;
   border-color: #222;
+
+  background: #222;
+}
+
+.story-character-select input:checked + span::after {
+  content: "";
+
+  position: absolute;
+
+  left: 3px;
+  top: 50%;
+
+  width: 4px;
+  height: 7px;
+
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+
+  transform:
+    translateY(-65%)
+    rotate(45deg);
 }
 
 
@@ -3569,17 +3654,19 @@ body {
 
 .story-search-action {
   display: flex;
+
   justify-content: center;
-  align-items: center;
 
-  gap: 24px;
+  gap: 26px;
 
-  margin-top: 32px;
-  padding-top: 26px;
+  margin-top: 40px;
+  padding-top: 28px;
 
   border-top: 1px solid #e5e5e5;
 }
 
+
+/* buttons */
 
 .story-search-button,
 .story-reset-button {
@@ -3594,7 +3681,7 @@ body {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 11px;
 
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
 
   color: #555;
 
@@ -3634,46 +3721,48 @@ body {
 ========================= */
 
 .story-results {
-  margin-top: 80px;
+  margin-top: 100px;
 }
 
 
+/* =========================
+   RESULT HEADER
+========================= */
+
 .story-results-header {
-  margin-bottom: 26px;
+  margin-bottom: 30px;
 }
 
 .story-results-header .section-label {
-  margin: 0 0 8px;
+  margin: 0 0 18px;
 
   font-family: "Cormorant Garamond", serif;
   font-size: 12px;
 
-  letter-spacing: 0.3em;
+  letter-spacing: 0.35em;
 
-  color: #999;
+  color: #777;
 }
-
 
 .story-results-header h2 {
   margin: 0;
 
   font-family: "Cormorant Garamond", serif;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 400;
 
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
 
   color: #222;
 }
 
-
 #story-result-count {
-  margin: 10px 0 0;
+  margin: 14px 0 0;
 
   font-family: "Cormorant Garamond", serif;
   font-size: 12px;
 
-  letter-spacing: 0.15em;
+  letter-spacing: 0.16em;
 
   color: #999;
 }
@@ -3689,7 +3778,7 @@ body {
 
   gap: 12px;
 
-  margin-top: 20px;
+  margin-top: 28px;
 }
 
 
@@ -3701,47 +3790,46 @@ body {
   display: grid;
 
   grid-template-columns:
-    70px
+    80px
     minmax(0, 1fr)
-    minmax(260px, auto)
+    minmax(250px, auto)
     auto;
 
   align-items: center;
 
-  gap: 24px;
+  min-height: 110px;
 
-  width: 100%;
+  padding: 22px 26px;
 
   box-sizing: border-box;
-
-  padding: 22px 24px;
 
   background: #fff;
 
   border: 1px solid #e5e5e5;
+
+  border-radius: 8px;
 
   transition:
     transform 0.25s ease,
     border-color 0.25s ease;
 }
 
-
 .story-item:hover {
   transform: translateY(-2px);
 
-  border-color: #d2d2d2;
+  border-color: #d5d5d5;
 }
 
 
 /* =========================
-   STORY ITEM TYPE
+   STORY TYPE
 ========================= */
 
 .story-item-type {
   font-family: "Cormorant Garamond", serif;
   font-size: 11px;
 
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
 
   color: #999;
 
@@ -3750,34 +3838,39 @@ body {
 
 
 /* =========================
-   STORY ITEM MAIN
+   STORY MAIN
 ========================= */
 
 .story-item-main {
   min-width: 0;
-}
 
+  padding: 0 20px;
+}
 
 .story-item-main h3 {
   margin: 0;
 
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 500;
 
   line-height: 1.6;
 
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 
   color: #222;
 }
 
 
+/* =========================
+   EPISODE
+========================= */
+
 .story-item-episode {
-  margin: 6px 0 0;
+  margin: 7px 0 0;
 
   font-family: "Cormorant Garamond", serif;
-  font-size: 11px;
+  font-size: 12px;
 
   letter-spacing: 0.12em;
 
@@ -3786,18 +3879,14 @@ body {
 
 
 /* =========================
-   STORY ITEM INFO
+   STORY INFO
 ========================= */
 
 .story-item-info {
-  display: flex;
-  flex-direction: column;
+  padding-left: 20px;
 
-  gap: 5px;
-
-  min-width: 0;
+  border-left: 1px solid #e8e8e8;
 }
-
 
 .story-item-info p {
   margin: 0;
@@ -3805,15 +3894,18 @@ body {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 10px;
 
-  line-height: 1.6;
+  line-height: 1.8;
 
   letter-spacing: 0.04em;
 
   color: #777;
 }
 
+.story-item-info p + p {
+  margin-top: 5px;
+}
 
-.story-item-info p span {
+.story-item-info span {
   display: inline-block;
 
   margin-right: 8px;
@@ -3821,7 +3913,7 @@ body {
   font-family: "Cormorant Garamond", serif;
   font-size: 10px;
 
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
 
   color: #999;
 }
@@ -3834,10 +3926,12 @@ body {
 .story-item-link {
   position: relative;
 
+  margin-left: 24px;
+
   font-family: "Cormorant Garamond", serif;
   font-size: 11px;
 
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
 
   color: #555;
 
@@ -3846,14 +3940,13 @@ body {
   white-space: nowrap;
 }
 
-
 .story-item-link::after {
   content: "";
 
   position: absolute;
 
   left: 50%;
-  bottom: -5px;
+  bottom: -6px;
 
   width: 0;
   height: 1px;
@@ -3865,7 +3958,6 @@ body {
   transition: width 0.25s ease;
 }
 
-
 .story-item-link:hover::after {
   width: 100%;
 }
@@ -3876,7 +3968,8 @@ body {
 ========================= */
 
 .story-no-result {
-  margin: 40px 0;
+  margin: 40px 0 0;
+
   padding: 50px 20px;
 
   border-top: 1px solid #e5e5e5;
@@ -3884,17 +3977,17 @@ body {
 
   text-align: center;
 
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 12px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
 
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
 
   color: #999;
 }
 
 
 /* =========================
-   MOBILE
+   STORY MOBILE
 ========================= */
 
 @media (max-width: 700px) {
@@ -3903,129 +3996,246 @@ body {
     width: auto;
     max-width: none;
 
-    margin: 0;
+    margin: 58px 0 0;
 
-    padding: 90px 24px;
+    padding: 85px 24px 90px;
+
+    box-sizing: border-box;
   }
 
 
   /* ---------- INTRO ---------- */
 
   .story-intro {
-    margin-bottom: 55px;
+    margin-bottom: 70px;
   }
-
 
   .story-intro .page-label {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 
     font-size: 11px;
-    letter-spacing: 0.3em;
-  }
 
+    letter-spacing: 0.32em;
+  }
 
   .story-intro h1 {
     font-size: 48px;
+
+    line-height: 0.95;
+
     letter-spacing: 0.08em;
   }
-
 
   .story-intro .page-description {
     margin-top: 20px;
 
     font-size: 12px;
+
     line-height: 2;
 
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
   }
 
 
   /* ---------- SEARCH ---------- */
 
   .story-search {
-    padding: 24px 20px 26px;
+    padding: 42px 20px 36px;
 
-    border-radius: 7px;
+    border-radius: 8px;
   }
 
 
   .story-search-header {
-    margin-bottom: 26px;
+    margin-bottom: 42px;
   }
 
+  .story-search-header .section-label {
+    margin-bottom: 17px;
+
+    font-size: 11px;
+  }
 
   .story-search-header h2 {
-    font-size: 24px;
+    font-size: 29px;
+
+    letter-spacing: 0.1em;
   }
 
+
+  /* ---------- GROUP ---------- */
 
   .story-search-group {
-    margin-top: 24px;
+    margin-top: 32px;
   }
 
 
-  /* ---------- CHARACTER ---------- */
+  .story-search-label {
+    margin-bottom: 12px;
+
+    font-size: 11px;
+
+    letter-spacing: 0.22em;
+  }
+
+
+  /* ---------- TYPE ---------- */
+
+  .story-filter-buttons {
+    gap: 8px;
+  }
+
+  .story-filter-buttons label {
+    min-width: 0;
+
+    height: 42px;
+
+    padding: 0 19px;
+  }
+
+  .story-filter-buttons span {
+    font-size: 12px;
+
+    letter-spacing: 0.12em;
+  }
+
+
+  /* ---------- TITLE ---------- */
+
+  .story-search-input {
+    height: 48px;
+
+    padding: 0 14px;
+
+    font-size: 12px;
+  }
+
+
+  /* ---------- CHARACTERS ---------- */
 
   .story-character-select {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr 1fr;
 
-    gap: 10px;
+    max-height: 230px;
 
-    max-height: 240px;
+    padding: 12px;
 
-    padding: 13px;
+    gap: 4px 8px;
+  }
+
+  .story-character-select label {
+    min-height: 34px;
+
+    padding: 4px 5px;
+  }
+
+  .story-character-select span {
+    padding-left: 17px;
+
+    font-size: 10px;
   }
 
 
-  /* ---------- RESULTS ---------- */
+  /* ---------- ACTION ---------- */
+
+  .story-search-action {
+    margin-top: 34px;
+    padding-top: 25px;
+
+    gap: 24px;
+  }
+
+
+  /* ---------- RESULT ---------- */
 
   .story-results {
-    margin-top: 60px;
+    margin-top: 75px;
+  }
+
+  .story-results-header {
+    margin-bottom: 24px;
+  }
+
+  .story-results-header .section-label {
+    margin-bottom: 17px;
+
+    font-size: 11px;
+  }
+
+  .story-results-header h2 {
+    font-size: 29px;
+
+    letter-spacing: 0.1em;
+  }
+
+  #story-result-count {
+    margin-top: 12px;
+
+    font-size: 11px;
   }
 
 
-  .story-results-header h2 {
-    font-size: 24px;
+  /* ---------- LIST ---------- */
+
+  .story-list {
+    gap: 10px;
+
+    margin-top: 22px;
   }
 
 
   /* ---------- ITEM ---------- */
 
   .story-item {
-    display: flex;
-    flex-direction: column;
+    display: block;
 
-    align-items: flex-start;
+    min-height: 0;
 
-    gap: 10px;
-
-    padding: 18px;
+    padding: 20px;
   }
 
-
   .story-item-type {
+    margin-bottom: 12px;
+
     font-size: 10px;
   }
 
+  .story-item-main {
+    padding: 0;
+  }
 
   .story-item-main h3 {
-    font-size: 15px;
+    font-size: 14px;
   }
 
+  .story-item-episode {
+    margin-top: 6px;
+
+    font-size: 11px;
+  }
 
   .story-item-info {
-    gap: 4px;
-  }
+    margin-top: 16px;
+    padding: 14px 0 0;
 
+    border-top: 1px solid #eee;
+    border-left: none;
+  }
 
   .story-item-info p {
     font-size: 9px;
   }
 
+  .story-item-info span {
+    font-size: 9px;
+  }
 
   .story-item-link {
-    margin-top: 4px;
+    display: inline-block;
+
+    margin: 16px 0 0;
+
+    font-size: 10px;
   }
 
 }
