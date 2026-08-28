@@ -363,7 +363,7 @@ body {
 .world-page {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 120px 40px;
+  padding: 140px 40px 120px;
   text-align: left;
 
   position: relative;
@@ -611,7 +611,7 @@ body {
 .character-page {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 120px 40px;
+  padding: 140px 40px 120px;
   text-align: left;
 }
 
@@ -3118,10 +3118,8 @@ body {
 
 .story-page {
   max-width: 1000px;
-
   margin: 0 auto;
-  padding: 120px 40px 140px;
-
+  padding: 140px 40px 140px;
   text-align: left;
 }
 
