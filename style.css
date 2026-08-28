@@ -2415,11 +2415,11 @@ body {
 @media (max-width: 600px) {
 
   .page-index-button {
-    right: 15px;
-    bottom: 15px;
+    right: 18px;
+    bottom: 18px;
 
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
   }
 
   .page-index-inner {
@@ -2644,12 +2644,12 @@ body {
   .site-menu-button {
     position: fixed;
 
-    top: 15px;
-    right: 15px;
+    top: 18px;
+    right: 18px;
     left: auto;
 
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
 
     padding: 0;
 
