@@ -3251,187 +3251,367 @@ body {
   max-width: 1000px;
   margin: 0 auto;
   padding: 120px 40px;
-  text-align: left;
 }
 
 
 /* =========================
-   STORY PAGE HEADER
+   STORY INTRO
 ========================= */
 
-.story-page > .page-label {
-  margin: 0 0 24px;
+.story-intro {
+  margin-bottom: 70px;
+}
+
+.story-intro .page-label {
+  margin: 0 0 20px;
 
   font-family: "Cormorant Garamond", serif;
   font-size: 12px;
-  letter-spacing: 0.35em;
   font-weight: 400;
+
+  letter-spacing: 0.35em;
+
   color: #777;
 }
 
-.story-page h1 {
+.story-intro h1 {
   margin: 0;
 
   font-family: "Cormorant Garamond", serif;
   font-size: 64px;
   font-weight: 400;
+
+  line-height: 1;
   letter-spacing: 0.12em;
+
   color: #222;
 }
 
-.story-page .page-description {
+.story-intro .page-description {
   margin: 24px 0 0;
 
   font-family: "Noto Sans JP", sans-serif;
   font-size: 14px;
+  font-weight: 400;
+
   line-height: 2;
   letter-spacing: 0.08em;
+
   color: #555;
 }
 
 
 /* =========================
-   STORY FILTER
+   STORY SEARCH
 ========================= */
 
-.story-filter {
+.story-search {
   width: 100%;
-  margin-top: 60px;
+  margin-top: 0;
 
-  padding: 28px 30px 30px;
+  padding: 32px 34px 34px;
 
   background: #fff;
+
   border: 1px solid #e5e5e5;
   border-radius: 8px;
 }
 
 
-/* ---------- FILTER ROW ---------- */
+/* ---------- SEARCH HEADER ---------- */
 
-.story-filter-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px 30px;
+.story-search-header {
+  margin-bottom: 32px;
 }
 
-
-/* ---------- FILTER ITEM ---------- */
-
-.story-filter-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.story-filter-item label {
-  margin-bottom: 9px;
+.story-search-header .section-label {
+  margin: 0 0 8px;
 
   font-family: "Cormorant Garamond", serif;
   font-size: 12px;
-  letter-spacing: 0.22em;
+  font-weight: 400;
+
+  letter-spacing: 0.3em;
+
+  color: #999;
+}
+
+.story-search-header h2 {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  font-weight: 400;
+
+  letter-spacing: 0.1em;
+
+  color: #222;
+}
+
+
+/* =========================
+   SEARCH GROUP
+========================= */
+
+.story-search-group {
+  margin-top: 28px;
+}
+
+.story-search-label {
+  display: block;
+
+  margin: 0 0 12px;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  font-weight: 400;
+
+  letter-spacing: 0.2em;
 
   color: #777;
 }
 
 
 /* =========================
-   SELECT
+   FILTER BUTTONS
 ========================= */
 
-.story-filter-item select {
-  width: 100%;
+.story-filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
 
-  padding: 11px 34px 11px 12px;
 
-  border: 1px solid #ddd;
-  border-radius: 0;
+/* checkbox label */
 
-  background: #fff;
-  color: #222;
-
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.05em;
-
-  appearance: none;
-  -webkit-appearance: none;
+.story-filter-buttons label,
+.story-character-select label {
+  display: inline-flex;
+  align-items: center;
 
   cursor: pointer;
 }
 
 
-/* select wrapper */
+/* hide default checkbox */
 
-.story-select {
-  position: relative;
-}
-
-.story-select::after {
-  content: "⌄";
-
+.story-filter-buttons input[type="checkbox"],
+.story-character-select input[type="checkbox"] {
   position: absolute;
-  top: 50%;
-  right: 12px;
 
-  transform: translateY(-55%);
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
-
-  color: #777;
-
+  opacity: 0;
   pointer-events: none;
 }
 
 
-/* ---------- SELECT FOCUS ---------- */
+/* button appearance */
 
-.story-filter-item select:focus {
-  outline: none;
+.story-filter-buttons span {
+  display: inline-block;
+
+  padding: 8px 15px;
+
+  border: 1px solid #ddd;
+
+  background: #fff;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+
+  letter-spacing: 0.12em;
+
+  color: #555;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  cursor: pointer;
+}
+
+
+/* checked */
+
+.story-filter-buttons input:checked + span {
+  background: #222;
+  border-color: #222;
+  color: #fff;
+}
+
+
+/* hover */
+
+.story-filter-buttons label:hover span {
   border-color: #aaa;
 }
 
 
 /* =========================
-   STORY FILTER BUTTONS
+   STORY TITLE INPUT
 ========================= */
 
-.story-filter-actions {
+.story-search-input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 11px 13px;
+
+  border: 1px solid #ddd;
+  border-radius: 0;
+
+  background: #fff;
+
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 12px;
+
+  letter-spacing: 0.05em;
+
+  color: #222;
+}
+
+.story-search-input::placeholder {
+  color: #aaa;
+}
+
+.story-search-input:focus {
+  outline: none;
+  border-color: #999;
+}
+
+
+/* =========================
+   CHARACTER SELECT
+========================= */
+
+.story-character-select {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 10px 18px;
+
+  max-height: 260px;
+
+  overflow-y: auto;
+
+  padding: 16px;
+
+  border: 1px solid #e5e5e5;
+
+  background: #fafafa;
+}
+
+
+/* character label */
+
+.story-character-select label {
+  min-width: 0;
+
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 11px;
+
+  letter-spacing: 0.04em;
+
+  color: #555;
+}
+
+
+/* character checkbox */
+
+.story-character-select label::before {
+  content: "";
+
+  flex: 0 0 auto;
+
+  width: 12px;
+  height: 12px;
+
+  margin-right: 7px;
+
+  border: 1px solid #ccc;
+
+  background: #fff;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* checked character */
+
+.story-character-select input:checked + span::before {
+  background: #222;
+}
+
+
+/* =========================
+   CHARACTER CHECKED STATE
+========================= */
+
+.story-character-select label:has(input:checked) {
+  color: #222;
+}
+
+.story-character-select label:has(input:checked)::before {
+  background: #222;
+  border-color: #222;
+}
+
+
+/* =========================
+   SEARCH ACTION
+========================= */
+
+.story-search-action {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
 
-  margin-top: 28px;
-  padding-top: 24px;
+  gap: 24px;
+
+  margin-top: 32px;
+  padding-top: 26px;
 
   border-top: 1px solid #e5e5e5;
 }
 
-.story-filter-actions button {
+
+.story-search-button,
+.story-reset-button {
   position: relative;
 
   padding: 0;
 
   border: none;
-  background: none;
 
-  color: #555;
+  background: none;
 
   font-family: "Noto Sans JP", sans-serif;
   font-size: 11px;
+
   letter-spacing: 0.12em;
+
+  color: #555;
 
   cursor: pointer;
 }
 
 
-/* 中央から横線 */
+/* underline */
 
-.story-filter-actions button::after {
+.story-search-button::after,
+.story-reset-button::after {
   content: "";
 
   position: absolute;
+
   left: 50%;
-  bottom: -5px;
+  bottom: -6px;
 
   width: 0;
   height: 1px;
@@ -3439,24 +3619,61 @@ body {
   background: currentColor;
 
   transform: translateX(-50%);
+
   transition: width 0.25s ease;
 }
 
-.story-filter-actions button:hover::after {
+.story-search-button:hover::after,
+.story-reset-button:hover::after {
   width: 100%;
 }
 
 
 /* =========================
-   STORY RESULT COUNT
+   STORY RESULTS
 ========================= */
 
-.story-result-info {
-  margin-top: 45px;
+.story-results {
+  margin-top: 80px;
+}
+
+
+.story-results-header {
+  margin-bottom: 26px;
+}
+
+.story-results-header .section-label {
+  margin: 0 0 8px;
 
   font-family: "Cormorant Garamond", serif;
   font-size: 12px;
-  letter-spacing: 0.16em;
+
+  letter-spacing: 0.3em;
+
+  color: #999;
+}
+
+
+.story-results-header h2 {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  font-weight: 400;
+
+  letter-spacing: 0.1em;
+
+  color: #222;
+}
+
+
+#story-result-count {
+  margin: 10px 0 0;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+
+  letter-spacing: 0.15em;
 
   color: #999;
 }
@@ -3469,7 +3686,8 @@ body {
 .story-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+
+  gap: 12px;
 
   margin-top: 20px;
 }
@@ -3481,117 +3699,48 @@ body {
 
 .story-item {
   display: grid;
-  grid-template-columns: 70px minmax(0, 1fr) auto;
+
+  grid-template-columns:
+    70px
+    minmax(0, 1fr)
+    minmax(260px, auto)
+    auto;
+
   align-items: center;
 
-  width: 100%;
-  min-height: 96px;
+  gap: 24px;
 
-  padding: 20px 24px;
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 22px 24px;
 
   background: #fff;
+
   border: 1px solid #e5e5e5;
-  border-radius: 8px;
 
   transition:
     transform 0.25s ease,
     border-color 0.25s ease;
 }
 
+
 .story-item:hover {
   transform: translateY(-2px);
-  border-color: #d8d8d8;
+
+  border-color: #d2d2d2;
 }
 
 
 /* =========================
-   STORY EPISODE
+   STORY ITEM TYPE
 ========================= */
 
-.story-episode {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 15px;
-  letter-spacing: 0.12em;
-
-  color: #777;
-}
-
-
-/* =========================
-   STORY MAIN
-========================= */
-
-.story-main {
-  min-width: 0;
-}
-
-.story-title {
-  position: relative;
-
-  display: inline-block;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 22px;
-  line-height: 1.3;
-  letter-spacing: 0.12em;
-
-  color: #222;
-}
-
-
-/* 中央から横線 */
-
-.story-title::after {
-  content: "";
-
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-
-  width: 100%;
-  height: 1px;
-
-  background: currentColor;
-
-  transform: scaleX(0);
-  transform-origin: center;
-
-  transition: transform 0.3s ease;
-}
-
-.story-item:hover .story-title::after {
-  transform: scaleX(1);
-}
-
-
-/* =========================
-   STORY META
-========================= */
-
-.story-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-
-  margin-top: 8px;
-}
-
-.story-meta span {
-  font-size: 10px;
-  line-height: 1.6;
-  letter-spacing: 0.05em;
-
-  color: #888;
-}
-
-
-/* =========================
-   STORY TYPE
-========================= */
-
-.story-type {
+.story-item-type {
   font-family: "Cormorant Garamond", serif;
   font-size: 11px;
+
   letter-spacing: 0.16em;
 
   color: #999;
@@ -3601,20 +3750,35 @@ body {
 
 
 /* =========================
-   STORY EMPTY
+   STORY ITEM MAIN
 ========================= */
 
-.story-empty {
-  margin-top: 40px;
-  padding: 50px 20px;
+.story-item-main {
+  min-width: 0;
+}
 
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
 
-  text-align: center;
+.story-item-main h3 {
+  margin: 0;
+
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+
+  line-height: 1.6;
+
+  letter-spacing: 0.05em;
+
+  color: #222;
+}
+
+
+.story-item-episode {
+  margin: 6px 0 0;
 
   font-family: "Cormorant Garamond", serif;
-  font-size: 13px;
+  font-size: 11px;
+
   letter-spacing: 0.12em;
 
   color: #999;
@@ -3622,7 +3786,115 @@ body {
 
 
 /* =========================
-   STORY MOBILE
+   STORY ITEM INFO
+========================= */
+
+.story-item-info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  min-width: 0;
+}
+
+
+.story-item-info p {
+  margin: 0;
+
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 10px;
+
+  line-height: 1.6;
+
+  letter-spacing: 0.04em;
+
+  color: #777;
+}
+
+
+.story-item-info p span {
+  display: inline-block;
+
+  margin-right: 8px;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 10px;
+
+  letter-spacing: 0.1em;
+
+  color: #999;
+}
+
+
+/* =========================
+   DETAIL LINK
+========================= */
+
+.story-item-link {
+  position: relative;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 11px;
+
+  letter-spacing: 0.14em;
+
+  color: #555;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+}
+
+
+.story-item-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -5px;
+
+  width: 0;
+  height: 1px;
+
+  background: currentColor;
+
+  transform: translateX(-50%);
+
+  transition: width 0.25s ease;
+}
+
+
+.story-item-link:hover::after {
+  width: 100%;
+}
+
+
+/* =========================
+   NO RESULT
+========================= */
+
+.story-no-result {
+  margin: 40px 0;
+  padding: 50px 20px;
+
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+
+  text-align: center;
+
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 12px;
+
+  letter-spacing: 0.08em;
+
+  color: #999;
+}
+
+
+/* =========================
+   MOBILE
 ========================= */
 
 @media (max-width: 700px) {
@@ -3631,131 +3903,129 @@ body {
     width: auto;
     max-width: none;
 
-    margin: 58px 0 0;
-    padding: 85px 24px 90px;
+    margin: 0;
 
-    text-align: left;
+    padding: 90px 24px;
   }
 
 
-  /* ---------- HEADER ---------- */
+  /* ---------- INTRO ---------- */
 
-  .story-page > .page-label {
-    margin-bottom: 20px;
+  .story-intro {
+    margin-bottom: 55px;
+  }
+
+
+  .story-intro .page-label {
+    margin-bottom: 16px;
 
     font-size: 11px;
-    letter-spacing: 0.32em;
+    letter-spacing: 0.3em;
   }
 
-  .story-page h1 {
+
+  .story-intro h1 {
     font-size: 48px;
-    line-height: 0.95;
     letter-spacing: 0.08em;
   }
 
-  .story-page .page-description {
+
+  .story-intro .page-description {
     margin-top: 20px;
 
     font-size: 12px;
     line-height: 2;
-    letter-spacing: 0.06em;
+
+    letter-spacing: 0.05em;
   }
 
 
-  /* ---------- FILTER ---------- */
+  /* ---------- SEARCH ---------- */
 
-  .story-filter {
-    margin-top: 50px;
-
-    padding: 22px 20px 24px;
+  .story-search {
+    padding: 24px 20px 26px;
 
     border-radius: 7px;
   }
 
-  .story-filter-row {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
 
-  .story-filter-item label {
-    margin-bottom: 8px;
-
-    font-size: 11px;
-    letter-spacing: 0.18em;
-  }
-
-  .story-filter-item select {
-    padding: 11px 32px 11px 11px;
-    font-size: 11px;
+  .story-search-header {
+    margin-bottom: 26px;
   }
 
 
-  /* ---------- ACTIONS ---------- */
+  .story-search-header h2 {
+    font-size: 24px;
+  }
 
-  .story-filter-actions {
+
+  .story-search-group {
     margin-top: 24px;
-    padding-top: 20px;
-
-    gap: 18px;
-  }
-
-  .story-filter-actions button {
-    font-size: 10px;
   }
 
 
-  /* ---------- RESULT ---------- */
+  /* ---------- CHARACTER ---------- */
 
-  .story-result-info {
-    margin-top: 38px;
+  .story-character-select {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
 
-    font-size: 11px;
-    letter-spacing: 0.14em;
+    gap: 10px;
+
+    max-height: 240px;
+
+    padding: 13px;
   }
 
 
-  /* ---------- LIST ---------- */
+  /* ---------- RESULTS ---------- */
 
-  .story-list {
-    gap: 12px;
-    margin-top: 18px;
+  .story-results {
+    margin-top: 60px;
+  }
+
+
+  .story-results-header h2 {
+    font-size: 24px;
   }
 
 
   /* ---------- ITEM ---------- */
 
   .story-item {
-    grid-template-columns: 45px minmax(0, 1fr) auto;
+    display: flex;
+    flex-direction: column;
 
-    min-height: 88px;
+    align-items: flex-start;
 
-    padding: 17px 17px;
+    gap: 10px;
 
-    border-radius: 7px;
+    padding: 18px;
   }
 
-  .story-episode {
-    font-size: 13px;
-    letter-spacing: 0.08em;
+
+  .story-item-type {
+    font-size: 10px;
   }
 
-  .story-title {
-    font-size: 19px;
-    letter-spacing: 0.08em;
+
+  .story-item-main h3 {
+    font-size: 15px;
   }
 
-  .story-meta {
-    gap: 5px 10px;
-    margin-top: 7px;
+
+  .story-item-info {
+    gap: 4px;
   }
 
-  .story-meta span {
+
+  .story-item-info p {
     font-size: 9px;
   }
 
-  .story-type {
-    font-size: 10px;
-    letter-spacing: 0.12em;
+
+  .story-item-link {
+    margin-top: 4px;
   }
 
 }
