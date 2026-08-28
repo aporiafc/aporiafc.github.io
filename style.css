@@ -534,14 +534,14 @@ body {
 @media (max-width: 700px) {
 
   .world-page {
-    width: auto;
-    max-width: none;
+  width: auto;
+  max-width: none;
 
-    margin: 58px 0 0;
-    padding: 75px 24px 90px;
+  margin: 58px 0 0;
+  padding: 85px 24px 90px;
 
-    text-align: left;
-  }
+  text-align: left;
+}
 
   .world-page > .page-label {
     margin-bottom: 18px;
