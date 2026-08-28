@@ -2316,14 +2316,16 @@ body {
 ========================= */
 
 .page-index-inner {
-  width: min(720px, calc(100% - 80px));
+  width: min(520px, calc(100% - 48px));
   height: 100%;
 
   margin: 0 auto;
-  padding: 100px 0 80px;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
+  text-align: center;
 }
 
 
@@ -2366,17 +2368,23 @@ body {
 ========================= */
 
 .page-index-nav {
-  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 28px;
 }
 
 .page-index-nav a {
   position: relative;
 
   display: block;
+  width: 100%;
+  max-width: 420px;
 
   padding: 13px 0;
 
-  color: #222;
+  color: #111;
   text-decoration: none;
 
   font-family: "Cormorant Garamond", "Noto Sans JP", sans-serif;
@@ -2384,6 +2392,8 @@ body {
   letter-spacing: 0.14em;
 
   border-bottom: 1px solid #eee;
+
+  text-align: center;
 }
 
 .page-index-nav a::after {
