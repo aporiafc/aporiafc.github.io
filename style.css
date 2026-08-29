@@ -641,7 +641,7 @@ body {
 .character-page .page-description {
   margin: 24px 0 0;
 
-  font-family: "Homemade Apple", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 14px;
   line-height: 2;
   letter-spacing: 0.08em;
@@ -842,14 +842,14 @@ body {
 @media (max-width: 700px) {
 
   .character-page {
-  width: auto;
-  max-width: none;
+    width: auto;
+    max-width: none;
 
-  margin: 58px 0 0;
-  padding: 75px 24px 90px;
+    margin: 58px 0 0;
+    padding: 85px 24px 90px;
 
-  text-align: left;
-}
+    text-align: left;
+  }
 
 
   /* ---------- HEADER ---------- */
