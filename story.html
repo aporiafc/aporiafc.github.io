@@ -437,80 +437,341 @@
 
     const stories = [
 
-      /*
-       * =========================
-       * ストーリーデータ
-       * =========================
-       *
-       * type:
-       * main / personal / event / card
-       *
-       * episode:
-       * 話数
-       *
-       * characters:
-       * その話に登場するキャラクター
-       *
-       * viewpoints:
-       * 実際に視点描写が存在するキャラクター
-       *
-       * link:
-       * event / card の詳細ページ
-       */
+  {
+    type: "main",
+    title: "Thread 0 Blank Slate",
+    episode: 1,
+
+    characters: [
+      "ai",
+      "yuzuru",
+      "roka",
+      "kou",
+      "yuragi",
+      "taiga",
+      "sei",
+      "shizuka",
+      "takeru",
+      "shinobu",
+      "kiho",
+      "riku",
+      "tomose"
+    ],
+
+    viewpoints: [],
+
+    link: ""
+  },
 
 
-      /*
-      {
-        type: "main",
+  {
+    type: "main",
+    title: "Thread 0 Blank Slate",
+    episode: 2,
 
-        title: "〇〇〇〇",
+    characters: [
+      "roka",
+      "heroine",
+      "yukimura"
+    ],
 
-        episode: 1,
+    viewpoints: [
+      "heroine"
+    ],
 
-        characters: [
-          "heroine",
-          "ai",
-          "yuzuru"
-        ],
-
-        viewpoints: [
-          "heroine"
-        ],
-
-        link: ""
-      },
-      */
+    link: ""
+  },
 
 
-      /*
-       * =========================
-       * サンプル
-       * =========================
-       *
-       * このデータを削除して
-       * 実際のストーリーを追加する。
-       */
+  {
+    type: "main",
+    title: "Thread 0 Blank Slate",
+    episode: 3,
 
-      {
-        type: "main",
+    characters: [
+      "ai",
+      "yuzuru",
+      "roka",
+      "heroine",
+      "yukimura",
+      "rare"
+    ],
 
-        title: "サンプルストーリー",
+    viewpoints: [
+      "ai",
+      "yuzuru",
+      "heroine"
+    ],
 
-        episode: 1,
+    link: ""
+  },
 
-        characters: [
-          "heroine",
-          "ai"
-        ],
 
-        viewpoints: [
-          "heroine"
-        ],
+  {
+    type: "main",
+    title: "Thread 0 Blank Slate",
+    episode: 4,
 
-        link: ""
-      }
+    characters: [
+      "kou",
+      "mao",
+      "akehoshi",
+      "yuragi",
+      "taiga",
+      "haruhi",
+      "sei",
+      "shizuka",
+      "takeru",
+      "soyogu",
+      "shinobu",
+      "kiho",
+      "kyoya",
+      "okoge"
+    ],
 
-    ];
+    viewpoints: [],
+
+    link: ""
+  },
+
+
+  {
+    type: "main",
+    title: "Thread 0 Blank Slate",
+    episode: 5,
+
+    characters: [
+      "kiho",
+      "kyoya",
+      "tomose",
+      "yu",
+      "kamiya",
+      "urara"
+    ],
+
+    viewpoints: [],
+
+    link: ""
+  },
+
+
+  {
+    type: "main",
+    title: "Thread 0 Blank Slate",
+    episode: 6,
+
+    characters: [
+      "ai",
+      "riku",
+      "kamiya",
+      "urara",
+      "rare"
+    ],
+
+    viewpoints: [],
+
+    link: ""
+  },
+
+
+  {
+    type: "main",
+    title: "Thread 0 Blank Slate",
+    episode: 7,
+
+    characters: [
+      "ai",
+      "yuzuru",
+      "heroine",
+      "rare"
+    ],
+
+    viewpoints: [
+      "heroine"
+    ],
+
+    link: ""
+  },
+
+
+  {
+    type: "main",
+    title: "Thread 0 Blank Slate",
+    episode: 8,
+
+    characters: [
+      "ai",
+      "yuzuru",
+      "kou",
+      "heroine"
+    ],
+
+    viewpoints: [
+      "heroine"
+    ],
+
+    link: ""
+  },
+
+
+  {
+    type: "main",
+    title: "Thread 1 Irresponsible Pink",
+    episode: 1,
+
+    characters: [
+      "kou",
+      "heroine"
+    ],
+
+    viewpoints: [
+      "heroine"
+    ],
+
+    link: ""
+  },
+
+
+  {
+    type: "main",
+    title: "Thread 1 Irresponsible Pink",
+    episode: 2,
+
+    characters: [
+      "kou",
+      "mao",
+      "akehoshi",
+      "yuragi",
+      "heroine"
+    ],
+
+    viewpoints: [
+      "heroine"
+    ],
+
+    link: ""
+  },
+
+
+  {
+    type: "main",
+    title: "Thread 1 Irresponsible Pink",
+    episode: 3,
+
+    characters: [
+      "kou",
+      "mao",
+      "akehoshi",
+      "heroine"
+    ],
+
+    viewpoints: [
+      "heroine"
+    ],
+
+    link: ""
+  },
+
+
+  {
+    type: "main",
+    title: "Thread 1 Irresponsible Pink",
+    episode: 4,
+
+    characters: [
+      "kou",
+      "mao",
+      "akehoshi",
+      "heroine"
+    ],
+
+    viewpoints: [
+      "heroine"
+    ],
+
+    link: ""
+  },
+
+
+  {
+    type: "main",
+    title: "Thread 1 Irresponsible Pink",
+    episode: 5,
+
+    characters: [
+      "mao",
+      "akehoshi",
+      "heroine",
+      "moe"
+    ],
+
+    viewpoints: [
+      "heroine"
+    ],
+
+    link: ""
+  },
+
+
+  {
+    type: "main",
+    title: "Thread 1 Irresponsible Pink",
+    episode: 6,
+
+    characters: [
+      "akehoshi",
+      "heroine",
+      "moe"
+    ],
+
+    viewpoints: [
+      "heroine"
+    ],
+
+    link: ""
+  },
+
+
+  {
+    type: "main",
+    title: "Thread 1 Irresponsible Pink",
+    episode: 7,
+
+    characters: [
+      "kou",
+      "akehoshi",
+      "heroine",
+      "moe"
+    ],
+
+    viewpoints: [
+      "akehoshi",
+      "heroine"
+    ],
+
+    link: ""
+  },
+
+
+  {
+    type: "main",
+    title: "Thread 1 Irresponsible Pink",
+    episode: 8,
+
+    characters: [
+      "yuzuru",
+      "kou",
+      "akehoshi",
+      "yuragi",
+      "heroine"
+    ],
+
+    viewpoints: [],
+
+    link: ""
+  }
+
+];
 
 
 
@@ -552,10 +813,12 @@
       togo: "弥代 透吾",
       yukimura: "伊達 幸邑",
       ran: "天羽 嵐",
-      rare: "レア"
-
+      rare: "レア",
+      
+      moe: "モエさん",
+      okoge: "おこげ"
+    
     };
-
 
 
     /* =========================
