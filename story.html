@@ -238,21 +238,23 @@
 
       <div class="story-search-group">
 
-        <label
-          class="story-search-label"
-          for="story-title"
-        >
-          STORY TITLE
-        </label>
+  <label
+    class="story-search-label"
+    for="story-title"
+  >
+    STORY TITLE
+  </label>
 
-        <input
-          type="text"
-          id="story-title"
-          class="story-search-input"
-          placeholder="ストーリータイトルを入力"
-        >
+  <select
+    id="story-title"
+    class="story-search-input story-title-select"
+  >
+    <option value="">
+      ALL TITLES
+    </option>
+  </select>
 
-      </div>
+</div>
 
 
 
@@ -905,6 +907,40 @@
     }
 
 
+    /* =========================
+   RENDER TITLE FILTER
+========================= */
+
+function renderTitleFilter() {
+
+  storyTitleInput.innerHTML = `
+    <option value="">
+      ALL TITLES
+    </option>
+  `;
+
+
+  const titles = [
+    ...new Set(
+      stories.map(story => story.title)
+    )
+  ];
+
+
+  titles.forEach(title => {
+
+    const option =
+      document.createElement("option");
+
+    option.value = title;
+    option.textContent = title;
+
+    storyTitleInput.appendChild(option);
+
+  });
+
+}
+
 
     /* =========================
        RENDER VIEWPOINT FILTERS
@@ -1100,10 +1136,8 @@
         getCheckedValues("story-viewpoint");
 
 
-      const titleKeyword =
-        storyTitleInput.value
-          .trim()
-          .toLowerCase();
+      const selectedTitle =
+  storyTitleInput.value;
 
 
       const results =
@@ -1130,16 +1164,13 @@
           ========================= */
 
           if (
-            titleKeyword &&
-            !story.title
-              .toLowerCase()
-              .includes(titleKeyword)
-          ) {
+  selectedTitle &&
+  story.title !== selectedTitle
+) {
 
-            return false;
+  return false;
 
-          }
-
+}
 
 
           /* =========================
@@ -1250,9 +1281,11 @@
        INITIAL DISPLAY
     ========================= */
 
-    renderViewpointFilters();
+    renderTitleFilter();
 
-    renderStories(stories);
+renderViewpointFilters();
+
+renderStories(stories);
 
   </script>
 
