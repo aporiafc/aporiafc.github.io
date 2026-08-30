@@ -865,6 +865,9 @@
     const viewpointSelect =
       document.querySelector("#story-viewpoint-select");
 
+    const characterSelect =
+  document.querySelector("#story-character-select");
+
 
 
     /* =========================
@@ -881,6 +884,63 @@
 
     }
 
+
+    /* =========================
+   GENERATE CHARACTER LIST
+========================= */
+
+function getStoryCharacters() {
+
+  return [
+    ...new Set(
+      stories.flatMap(story =>
+        story.characters || []
+      )
+    )
+  ];
+
+}
+
+
+/* =========================
+   RENDER CHARACTER FILTERS
+========================= */
+
+function renderCharacterFilters() {
+
+  characterSelect.innerHTML = "";
+
+
+  const characters =
+    getStoryCharacters();
+
+
+  characters.forEach(character => {
+
+    const label =
+      document.createElement("label");
+
+
+    label.innerHTML = `
+
+      <input
+        type="checkbox"
+        name="story-character"
+        value="${character}"
+      >
+
+      <span>
+        ${characterNames[character] || character}
+      </span>
+
+    `;
+
+
+    characterSelect.appendChild(label);
+
+  });
+
+}
 
 
     /* =========================
@@ -1306,6 +1366,8 @@ resetButton.addEventListener(
     ========================= */
 
     renderTitleFilter();
+
+renderCharacterFilters();
 
 renderViewpointFilters();
 
