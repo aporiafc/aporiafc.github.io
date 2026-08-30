@@ -3669,12 +3669,12 @@ body {
 /* ---------- EPISODE ---------- */
 
 .story-item-episode {
-  margin: 7px 0 0;
+  margin: 6px 0 0;
 
-  font-family: "Cormorant Garamond", serif;
-  font-size: 12px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 11px;
+
   letter-spacing: 0.12em;
-
   color: #999;
 }
 
