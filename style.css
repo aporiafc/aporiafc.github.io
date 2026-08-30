@@ -3293,14 +3293,20 @@ body {
 }
 
 .story-filter-buttons span {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 13px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
 
   color: #666;
 
   transition: color 0.2s ease;
 }
+
+
+.story-type-buttons span {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
 
 .story-filter-buttons label:has(input:checked) {
   border-color: #222;
