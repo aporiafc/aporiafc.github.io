@@ -4152,3 +4152,118 @@ body {
   }
 
 }
+
+
+/* =========================================
+   STORY STAFF / VIEWPOINT FILTER
+========================================= */
+
+#story-viewpoint-select label,
+#story-supervisor-select label,
+#story-writer-select label {
+  border-radius: 999px;
+  padding: 5px 13px;
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+
+/* =========================================
+   STORY LIST
+   タイトル欄が情報量に押しつぶされないようにする
+========================================= */
+
+.story-item {
+  grid-template-columns:
+    90px
+    minmax(0, 1fr)
+    minmax(0, 1.6fr);
+}
+
+.story-item-main,
+.story-item-info {
+  min-width: 0;
+}
+
+.story-item-info {
+  overflow-wrap: anywhere;
+}
+
+.story-item-info p {
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   STORY EPISODE
+========================================= */
+
+.story-item-episode {
+  margin-top: 14px;
+  padding-left: 10px;
+  border-left: 2px solid #999;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #444;
+}
+
+
+/* =========================================
+   STORY FILTER - VIEWPOINT / STAFF
+========================================= */
+
+#story-viewpoint-select label,
+#story-supervisor-select label,
+#story-writer-select label {
+  border-radius: 999px;
+  padding: 5px 13px;
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+
+/* =========================================
+   STORY LIST - LAYOUT
+========================================= */
+
+.story-item {
+  grid-template-columns:
+    90px
+    minmax(0, 1fr)
+    minmax(0, 1.6fr);
+}
+
+.story-item-main,
+.story-item-info {
+  min-width: 0;
+}
+
+.story-item-info {
+  overflow-wrap: anywhere;
+}
+
+.story-item-info p {
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   STORY EPISODE
+========================================= */
+
+.story-item-episode {
+  margin-top: 14px;
+  padding-left: 10px;
+  border-left: 2px solid #999;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #444;
+}
