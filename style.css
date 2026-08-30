@@ -4275,3 +4275,20 @@ body {
 }
 
 
+/* =========================
+   SUB FILTER BUTTONS
+   VIEWPOINT / SUPERVISOR / WRITER
+========================= */
+
+#story-viewpoint-select span,
+#story-supervisor-select span,
+#story-writer-select span {
+
+  padding: 4px 9px;
+
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 11px;
+
+  letter-spacing: 0.03em;
+
+}
