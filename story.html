@@ -911,6 +911,14 @@
    RENDER TITLE FILTER
 ========================= */
 
+/* =========================
+   RENDER TITLE FILTER
+========================= */
+
+/* =========================
+   RENDER TITLE FILTER
+========================= */
+
 function renderTitleFilter() {
 
   storyTitleInput.innerHTML = `
@@ -920,22 +928,48 @@ function renderTitleFilter() {
   `;
 
 
-  const titles = [
-    ...new Set(
-      stories.map(story => story.title)
-    )
+  const typeOrder = [
+    "main",
+    "personal",
+    "event",
+    "card"
   ];
 
 
-  titles.forEach(title => {
+  typeOrder.forEach(type => {
 
-    const option =
-      document.createElement("option");
+    const titles = [
+      ...new Set(
+        stories
+          .filter(story =>
+            story.type === type
+          )
+          .map(story =>
+            story.title
+          )
+      )
+    ];
 
-    option.value = title;
-    option.textContent = title;
 
-    storyTitleInput.appendChild(option);
+    titles.forEach(title => {
+
+      const option =
+        document.createElement("option");
+
+
+      option.value =
+        title;
+
+
+      option.textContent =
+        title;
+
+
+      storyTitleInput.appendChild(
+        option
+      );
+
+    });
 
   });
 
@@ -1265,17 +1299,15 @@ function renderTitleFilter() {
     ========================= */
 
     searchButton.addEventListener(
-      "click",
-      searchStories
-    );
+  "click",
+  searchStories
+);
 
-
-    resetButton.addEventListener(
-      "click",
-      resetSearch
-    );
-
-
+resetButton.addEventListener(
+  "click",
+  resetSearch
+);
+    
 
     /* =========================
        INITIAL DISPLAY
