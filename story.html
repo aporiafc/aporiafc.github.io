@@ -1252,6 +1252,21 @@ function renderTitleFilter() {
             )
             .join(" / ");
 
+        const supervisors =
+  (story.supervisors || [])
+    .map(supervisor =>
+      staffNames[supervisor] || supervisor
+    )
+    .join(" / ");
+
+
+const writers =
+  (story.writers || [])
+    .map(writer =>
+      staffNames[writer] || writer
+    )
+    .join(" / ");
+
 
         article.innerHTML = `
 
@@ -1280,28 +1295,50 @@ function renderTitleFilter() {
 
           <div class="story-item-info">
 
-            <p>
+  <p>
 
-              <span>
-                CHARACTERS
-              </span>
+    <span>
+      CHARACTERS
+    </span>
 
-              ${characters}
+    ${characters}
 
-            </p>
+  </p>
 
 
-            <p>
+  <p>
 
-              <span>
-                VIEWPOINT
-              </span>
+    <span>
+      VIEWPOINT
+    </span>
 
-              ${viewpoints}
+    ${viewpoints}
 
-            </p>
+  </p>
 
-          </div>
+
+  <p>
+
+    <span>
+      SUPERVISOR
+    </span>
+
+    ${supervisors}
+
+  </p>
+
+
+  <p>
+
+    <span>
+      WRITER
+    </span>
+
+    ${writers}
+
+  </p>
+
+</div>
 
 
           ${
