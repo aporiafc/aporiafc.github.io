@@ -4219,20 +4219,6 @@ body {
 
 
 /* =========================================
-   STORY FILTER - VIEWPOINT / STAFF
-========================================= */
-
-#story-viewpoint-select label,
-#story-supervisor-select label,
-#story-writer-select label {
-  border-radius: 999px;
-  padding: 5px 13px;
-  font-size: 0.78rem;
-  line-height: 1.2;
-}
-
-
-/* =========================================
    STORY LIST - LAYOUT
 ========================================= */
 
@@ -4275,37 +4261,18 @@ body {
 }
 
 
-/* =========================
-   SUB FILTER BUTTONS
+/* =========================================
+   STORY SUB FILTER
    VIEWPOINT / SUPERVISOR / WRITER
-========================= */
-
-#story-viewpoint-select span,
-#story-supervisor-select span,
-#story-writer-select span {
-
-  padding: 4px 9px;
-
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 11px;
-
-  letter-spacing: 0.03em;
-
-}
-
-
-   /* =========================
-   SUB FILTER BUTTONS
-   VIEWPOINT / SUPERVISOR / WRITER
-========================= */
+========================================= */
 
 #story-viewpoint-select label,
 #story-supervisor-select label,
 #story-writer-select label {
-  min-width: auto;
+  min-width: 0;
   height: 30px;
 
-  padding: 0 12px;
+  padding: 0 10px;
 
   border-radius: 999px;
 }
