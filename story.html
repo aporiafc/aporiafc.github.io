@@ -965,32 +965,44 @@ function renderCharacterFilters() {
   characterSelect.innerHTML = "";
 
 
-  const characters =
-    getStoryCharacters();
+  const categoryOrder = [
+    "main",
+    "other",
+    "sub",
+    "guest"
+  ];
 
 
-  characters.forEach(character => {
+  categoryOrder.forEach(category => {
 
-    const label =
-      document.createElement("label");
-
-
-    label.innerHTML = `
-
-      <input
-        type="checkbox"
-        name="story-character"
-        value="${character}"
-      >
-
-      <span>
-        ${characterNames[character] || character}
-      </span>
-
-    `;
+    const characters =
+      characterCategories[category] || [];
 
 
-    characterSelect.appendChild(label);
+    characters.forEach(character => {
+
+      const label =
+        document.createElement("label");
+
+
+      label.innerHTML = `
+
+        <input
+          type="checkbox"
+          name="story-character"
+          value="${character}"
+        >
+
+        <span>
+          ${characterNames[character] || character}
+        </span>
+
+      `;
+
+
+      characterSelect.appendChild(label);
+
+    });
 
   });
 
