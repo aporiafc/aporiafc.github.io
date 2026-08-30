@@ -1618,6 +1618,58 @@ const selectedWriters =
           }
 
 
+                    /* =========================
+             SUPERVISOR
+          ========================= */
+
+          if (
+            selectedSupervisors.length > 0
+          ) {
+
+            const hasAllSupervisors =
+              selectedSupervisors.every(
+                supervisor =>
+                  (story.supervisors || [])
+                    .includes(supervisor)
+              );
+
+
+            if (!hasAllSupervisors) {
+
+              return false;
+
+            }
+
+          }
+
+
+
+          /* =========================
+             WRITER
+          ========================= */
+
+          if (
+            selectedWriters.length > 0
+          ) {
+
+            const hasAllWriters =
+              selectedWriters.every(
+                writer =>
+                  (story.writers || [])
+                    .includes(writer)
+              );
+
+
+            if (!hasAllWriters) {
+
+              return false;
+
+            }
+
+          }
+
+
+
           return true;
 
         });
@@ -1626,57 +1678,6 @@ const selectedWriters =
       renderStories(results);
 
     }
-
-
-    /* =========================
-   SUPERVISOR
-========================= */
-
-if (
-  selectedSupervisors.length > 0
-) {
-
-  const hasAllSupervisors =
-    selectedSupervisors.every(
-      supervisor =>
-        (story.supervisors || [])
-          .includes(supervisor)
-    );
-
-
-  if (!hasAllSupervisors) {
-
-    return false;
-
-  }
-
-}
-
-
-
-/* =========================
-   WRITER
-========================= */
-
-if (
-  selectedWriters.length > 0
-) {
-
-  const hasAllWriters =
-    selectedWriters.every(
-      writer =>
-        (story.writers || [])
-          .includes(writer)
-    );
-
-
-  if (!hasAllWriters) {
-
-    return false;
-
-  }
-
-}
     
 
     /* =========================
