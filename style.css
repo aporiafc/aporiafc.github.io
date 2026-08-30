@@ -4292,3 +4292,29 @@ body {
   letter-spacing: 0.03em;
 
 }
+
+
+   /* =========================
+   SUB FILTER BUTTONS
+   VIEWPOINT / SUPERVISOR / WRITER
+========================= */
+
+#story-viewpoint-select label,
+#story-supervisor-select label,
+#story-writer-select label {
+  min-width: auto;
+  height: 30px;
+
+  padding: 0 12px;
+
+  border-radius: 999px;
+}
+
+#story-viewpoint-select span,
+#story-supervisor-select span,
+#story-writer-select span {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+}
