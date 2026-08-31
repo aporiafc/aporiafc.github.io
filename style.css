@@ -2099,55 +2099,60 @@ body {
   font-size: 11px;
 }
 
+
 /* =========================
    X
 ========================= */
 
 .card-x-section {
-  margin-top: 100px;
+  margin-top: 75px;
 }
+
 
 /* =========================
-   X POST
+   X POSTS
 ========================= */
-
-.card-x-section {
-  margin-top: 100px;
-}
 
 .x-posts {
   display: grid;
-  grid-template-columns: repeat(3, 280px);
-  gap: 20px;
 
-  justify-content: start;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+
+  width: 100%;
+  margin-top: 30px;
 }
 
 .x-post {
   min-width: 0;
-  width: 280px;
+  width: 100%;
 }
 
 .x-post .twitter-tweet {
-  max-width: 280px !important;
+  width: 100% !important;
+  max-width: 100% !important;
   min-width: 0 !important;
+
   margin: 0 !important;
 }
 
 
 /* =========================
-   X POST レスポンシブ
+   X POST MOBILE
 ========================= */
 
 @media (max-width: 700px) {
 
   .x-posts {
     grid-template-columns: 1fr;
+
     gap: 30px;
   }
 
   .x-post {
-    width: 280px;
+    width: 100%;
   }
 
 }
