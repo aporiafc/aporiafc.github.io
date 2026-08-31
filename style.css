@@ -4183,8 +4183,28 @@ body {
 }
 
 .story-item-info p {
-  overflow-wrap: anywhere;
+  margin: 0;
+
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 10px;
   line-height: 1.7;
+  letter-spacing: 0.04em;
+
+  color: #777;
+
+  overflow-wrap: anywhere;
+}
+
+.story-item-info span {
+  display: inline;
+
+  margin-right: 8px;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+
+  color: #999;
 }
 
 
