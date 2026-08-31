@@ -4183,6 +4183,10 @@ body {
 }
 
 .story-item-info p {
+  display: grid;
+
+  grid-template-columns: 88px minmax(0, 1fr);
+
   margin: 0;
 
   font-family: "Noto Sans JP", sans-serif;
@@ -4195,8 +4199,12 @@ body {
   overflow-wrap: anywhere;
 }
 
+.story-item-info p + p {
+  margin-top: 5px;
+}
+
 .story-item-info span {
-  display: inline;
+  display: block;
 
   margin-right: 8px;
 
