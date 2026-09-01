@@ -4269,7 +4269,6 @@ body {
    VIEWPOINT / SUPERVISOR / WRITER
 ========================================= */
 
-#story-viewpoint-select label,
 #story-supervisor-select label,
 #story-writer-select label {
   min-width: auto;
@@ -4283,7 +4282,6 @@ body {
   background: #fff;
 }
 
-#story-viewpoint-select span,
 #story-supervisor-select span,
 #story-writer-select span {
   font-family: "Noto Sans JP", sans-serif;
@@ -4295,7 +4293,6 @@ body {
 
 /* ---------- SUB FILTER HOVER ---------- */
 
-#story-viewpoint-select label:hover,
 #story-supervisor-select label:hover,
 #story-writer-select label:hover {
   border-color: #aaa;
@@ -4304,14 +4301,12 @@ body {
 
 /* ---------- SUB FILTER CHECKED ---------- */
 
-#story-viewpoint-select label:has(input:checked),
 #story-supervisor-select label:has(input:checked),
 #story-writer-select label:has(input:checked) {
   border-color: #222;
   background: #222;
 }
 
-#story-viewpoint-select label:has(input:checked) span,
 #story-supervisor-select label:has(input:checked) span,
 #story-writer-select label:has(input:checked) span {
   color: #fff;
