@@ -4311,3 +4311,20 @@ body {
 #story-writer-select label:has(input:checked) span {
   color: #fff;
 }
+
+
+/* =========================================================
+   OKOGE CURSOR
+========================================================= */
+
+body {
+  cursor: url("images/okoge_cursor_32x32.png") 2 2, auto;
+}
+
+a,
+button,
+select,
+input[type="button"],
+input[type="submit"] {
+  cursor: url("images/okoge_cursor_32x32.png") 2 2, pointer;
+}
