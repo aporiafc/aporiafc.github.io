@@ -1685,13 +1685,6 @@ const summary =
   story.summary || "";
 
 
-        const viewpoints =
-          (story.viewpoints || [])
-            .map(viewpoint =>
-              characterNames[viewpoint] || viewpoint
-            )
-            .join(" / ");
-
         const supervisors =
   (story.supervisors || [])
     .map(supervisor =>
@@ -1751,17 +1744,6 @@ const writers =
     </span>
 
     ${characters}
-
-  </p>
-
-
-  <p>
-
-    <span>
-      VIEWPOINT
-    </span>
-
-    ${viewpoints}
 
   </p>
 
