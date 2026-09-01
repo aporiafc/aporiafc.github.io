@@ -1814,10 +1814,6 @@ const writers =
       const selectedCharacters =
         getCheckedValues("story-character");
 
-
-      const selectedViewpoints =
-        getCheckedValues("story-viewpoint");
-
       
       const selectedSupervisors =
   getCheckedValues("story-supervisor");
@@ -1886,35 +1882,9 @@ const selectedWriters =
             }
 
           }
-
-
-
+          
+          
           /* =========================
-             VIEWPOINT
-          ========================= */
-
-          if (
-            selectedViewpoints.length > 0
-          ) {
-
-            const hasAllViewpoints =
-              selectedViewpoints.every(
-                viewpoint =>
-                  (story.viewpoints || [])
-                    .includes(viewpoint)
-              );
-
-
-            if (!hasAllViewpoints) {
-
-              return false;
-
-            }
-
-          }
-
-
-                    /* =========================
              SUPERVISOR
           ========================= */
 
