@@ -467,6 +467,8 @@
       "tomose"
     ],
 
+    summary: "Aporiaを取り巻く人物たちの日常が描かれる、物語の序章。",
+
     viewpoints: [],
 
     supervisors: ["aida"],
@@ -1672,11 +1674,15 @@ function renderStaffFilters() {
 
 
         const characters =
-          story.characters
-            .map(character =>
-              characterNames[character] || character
-            )
-            .join(" / ");
+  story.characters
+    .map(character =>
+      characterNames[character] || character
+    )
+    .join(" / ");
+
+
+const summary =
+  story.summary || "";
 
 
         const viewpoints =
@@ -1713,18 +1719,27 @@ const writers =
 
           <div class="story-item-main">
 
-            <h3>
-              ${story.title}
-            </h3>
+  <h3>
+    ${story.title}
+  </h3>
 
 
-            <p class="story-item-episode">
+  <p class="story-item-episode">
+    第${story.episode}話
+  </p>
 
-  第${story.episode}話
 
-</p>
+  ${
+    summary
+      ? `
+        <p class="story-item-summary">
+          ${summary}
+        </p>
+      `
+      : ""
+  }
 
-          </div>
+</div>
 
 
           <div class="story-item-info">
