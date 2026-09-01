@@ -1371,9 +1371,6 @@ const staffNames = {
       document.querySelector("#story-result-count");
 
 
-    const viewpointSelect =
-      document.querySelector("#story-viewpoint-select");
-
     const characterSelect =
   document.querySelector("#story-character-select");
 
@@ -1470,30 +1467,6 @@ function renderCharacterFilters() {
 }
 
 
-    /* =========================
-       GENERATE VIEWPOINT LIST
-    =========================
-     *
-     * stories に登録されている
-     * viewpoints だけを自動的に取得する。
-     *
-     * 同じ人物が複数のストーリーに
-     * 登場していても重複しない。
-     */
-
-    function getViewpointCharacters() {
-
-      return [
-        ...new Set(
-          stories.flatMap(story =>
-            story.viewpoints || []
-          )
-        )
-      ];
-
-    }
-
-
 /* =========================
    RENDER TITLE FILTER
 ========================= */
@@ -1553,47 +1526,6 @@ function renderTitleFilter() {
   });
 
 }
-
-
-    /* =========================
-       RENDER VIEWPOINT FILTERS
-    ========================= */
-
-    function renderViewpointFilters() {
-
-      viewpointSelect.innerHTML = "";
-
-
-      const viewpointCharacters =
-        getViewpointCharacters();
-
-
-      viewpointCharacters.forEach(character => {
-
-        const label =
-          document.createElement("label");
-
-
-        label.innerHTML = `
-
-          <input
-            type="checkbox"
-            name="story-viewpoint"
-            value="${character}"
-          >
-
-          <span>
-            ${characterNames[character] || character}
-          </span>
-
-        `;
-
-
-        viewpointSelect.appendChild(label);
-
-      });
-
-    }
 
 
     /* =========================
@@ -2090,15 +2022,13 @@ resetButton.addEventListener(
     ========================= */
 
     renderTitleFilter();
-
-renderCharacterFilters();
-
-renderViewpointFilters();
-
-renderStaffFilters();
-
-renderStories(stories);
-
+    
+    renderCharacterFilters();
+    
+    renderStaffFilters();
+    
+    renderStories(stories);
+  
   </script>
 
 
