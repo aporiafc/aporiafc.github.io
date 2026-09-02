@@ -190,9 +190,9 @@ body {
 }
 
 .description {
-  margin: 50px 0 0;
+  margin: 100px 0 0;
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.04em;
   line-height: 1.8;
 }
