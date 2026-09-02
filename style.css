@@ -159,10 +159,8 @@ body {
 ========================= */
 
 .hero {
-  min-height: calc(100svh - 70px);
+  min-height: 100svh;
   box-sizing: border-box;
-
-  margin-top: 70px;
 
   display: flex;
   flex-direction: column;
@@ -171,7 +169,7 @@ body {
 
   text-align: center;
 
-  padding: 60px 24px;
+  padding: 80px 24px;
 }
 
 .eyebrow {
