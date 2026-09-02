@@ -212,7 +212,7 @@ body {
 }
 
 .page-description {
-  font-family: "Homemade Apple", serif;
+  font-family: "Noto Sans JP", serif;
   font-size: 14px;
   letter-spacing: 0.08em;
   color: #555;
@@ -645,7 +645,7 @@ body {
 .character-page .page-description {
   margin: 24px 0 0;
 
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Homemade Apple", sans-serif;
   font-size: 14px;
   line-height: 2;
   letter-spacing: 0.08em;
@@ -2679,7 +2679,7 @@ body {
   border: 1px solid #222;
   border-radius: 50%;
 
-  font-family: "Noto Sans JP", serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 16px;
   letter-spacing: 0.05em;
 }
