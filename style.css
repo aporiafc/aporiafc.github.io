@@ -182,7 +182,7 @@ body {
 
 .hero h1 {
   margin: 0;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Figtree", serif;
   font-size: clamp(64px, 8vw, 112px);
   line-height: 0.95;
   letter-spacing: 0.02em;
