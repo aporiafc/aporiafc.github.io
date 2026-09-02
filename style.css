@@ -20,7 +20,7 @@ body {
   margin: 0;
   background: #F7F8FA;
   color: #222222;
-  font-family: "ryo-gothic-plusn", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-weight: 400;
 }
 
@@ -983,13 +983,9 @@ body {
   font-size: 16px;
   letter-spacing: 0.05em;
   color: #888;
-}
 
-.character-intro {
-  max-width: 650px;
-  margin: 55px auto 100px;
-
-  text-align: center;
+  transform: rotate(-3deg);
+  transform-origin: center center;
 }
 
 .character-intro blockquote {
