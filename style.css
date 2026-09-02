@@ -2,7 +2,8 @@
    Base
 ========================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Homemade+Apple&family=Noto+Sans+JP:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Noto+Sans+JP:wght@400;500&family=Square+Peg&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -979,7 +980,7 @@ body {
 
   text-align: center;
 
-  font-family: "Homemade Apple", cursive;
+  font-family: "Square Peg", cursive;
   font-size: 16px;
   letter-spacing: 0.05em;
   color: #888;
