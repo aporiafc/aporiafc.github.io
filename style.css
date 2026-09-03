@@ -3150,6 +3150,64 @@ html {
 
 }
 
+/* =========================================================
+   MOBILE SNAP SECTIONS (SITE GUIDE / ABOUT)
+========================================================= */
+
+@media (max-width: 700px) {
+
+  /* ---------- SITE GUIDE ---------- */
+
+  .site-guide {
+    padding: 60px 24px;
+  }
+
+  .site-guide-label {
+    margin-bottom: 20px;
+
+    font-size: 10px;
+  }
+
+  .site-guide-list {
+    gap: 14px;
+  }
+
+  .site-guide-item h3 {
+    font-size: 12px;
+  }
+
+  .site-guide-item p {
+    font-size: 9px;
+    line-height: 1.6;
+  }
+
+
+  /* ---------- ABOUT ---------- */
+
+  .about {
+    padding: 70px 20px;
+  }
+
+  .about-label {
+    margin-bottom: 18px;
+  }
+
+  .about > p:not(.about-label):not(.site-name):not(.unofficial) {
+    margin-top: 22px;
+
+    font-size: 11px;
+    line-height: 1.8;
+  }
+
+  .contact-links {
+    margin-top: 22px;
+  }
+
+  .site-name {
+    margin-top: 26px;
+  }
+
+}
 
 /* =========================================================
    STORY PAGE
