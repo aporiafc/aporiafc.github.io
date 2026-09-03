@@ -359,6 +359,29 @@ body {
   transform: translateY(-2px);
 }
 
+/* =========================
+   SCROLL SNAP
+========================= */
+
+html {
+  scroll-snap-type: y mandatory;
+}
+
+.hero,
+.site-guide,
+.about {
+  min-height: 100svh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
 
 /* =========================
    WORLD PAGE
@@ -1125,10 +1148,6 @@ body {
   line-height: 1.8;
 }
 
-
-/* =========================
-   BIRTHDAY PAGE
-========================= */
 
 /* =========================
    SPECIAL VOICE → BIRTHDAY PAGE
