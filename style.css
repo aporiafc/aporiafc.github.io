@@ -155,33 +155,44 @@ body {
 
 
 /* =========================
-   Hero (画面幅に比例するフルイド指定)
+   Hero
 ========================= */
 
-.eyebrow {
-  margin: 0 0 3.5vw;
+.hero {
+  min-height: 100svh;
+  box-sizing: border-box;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 70px 24px;
+}
+
+.eyebrow {
+  margin: 0 0 28px;
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(10px, 1.6vw, 20px);
+  font-size: 16px;
   letter-spacing: 0.38em;
   font-weight: 400;
 }
 
 .hero h1 {
   margin: 0;
-
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(40px, 11vw, 140px);
+  font-size: clamp(64px, 8vw, 112px);
   line-height: 0.95;
   letter-spacing: 0.02em;
   font-weight: 400;
 }
 
 .description {
-  margin: 4vw 0 20px;
-
+  margin: 30px 0 20px;
   font-family: "ryo-gothic-plusn", sans-serif;
-  font-size: clamp(7px, 1vw, 13px);
+  font-size: 10px;
   letter-spacing: 0.5em;
   line-height: 1.8;
 }
@@ -4322,3 +4333,4 @@ input[type="button"],
 input[type="submit"] {
   cursor: url("images/okoge_cursor_32x32.png") 2 2, pointer;
 }
+
