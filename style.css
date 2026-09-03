@@ -190,10 +190,10 @@ body {
 }
 
 .description {
-  margin: 24px 0 20;
+  margin: 30px 0 20;
   font-family: "ryo-gothic-plusn", sans-serif;
   font-size: 10px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.5em;
   line-height: 1.8;
 }
 
