@@ -3840,9 +3840,9 @@ body {
   .description {
     margin-top: 30px;
 
-    font-size: 13px;
+    font-size: 8px;
     line-height: 1.8;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.5em;
   }
 
 
