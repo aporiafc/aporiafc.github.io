@@ -986,6 +986,12 @@ html {
 .character-detail-page > .page-label {
   margin: 0 0 24px;
   text-align: center;
+   
+　font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  font-weight: 400;
+  color: #777;
 }
 
 .character-detail-page h1 {
