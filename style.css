@@ -1043,6 +1043,12 @@ html {
   letter-spacing: 0.2em;
 }
 
+.character-detail-page h2::before {
+  content: "•";
+  color: var(--character-color);
+  margin-right: 0.8em;
+}
+
 
 /* =========================
    PROFILE
