@@ -980,7 +980,7 @@ body {
 
   text-align: center;
 
-  font-family: "Square Peg", cursive;
+  font-family:  "Noto Sans JP", sans-serif;
   font-size: 16px;
   letter-spacing: 0.05em;
   color: #888;
@@ -991,6 +991,8 @@ body {
 
 .character-intro blockquote {
   margin: 35px 0;
+
+　text-align: center;
 
   font-size: 16px;
   line-height: 2;
