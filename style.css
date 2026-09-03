@@ -235,7 +235,7 @@ body {
 }
 
 .about-label {
-  margin: 0 0 50px;
+  margin: 0 0 40px;
   font-family: "ryo-gothic-plusn", sans-serif;
   font-size: 11px;
   letter-spacing: 0.38em;
@@ -2635,10 +2635,10 @@ html {
 }
 
 .site-guide-label {
-  margin: 0 0 30px;
+  margin: 0 0 35px;
 
   font-family: "ryo-gothic-plusn", sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.38em;
 
