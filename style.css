@@ -2805,6 +2805,11 @@ html {
   object-fit: contain;
 }
 
+.contact-icon-x img {
+  width: 45%;
+  height: 45%;
+}
+
 
 /* =========================================================
    SITE GUIDE
