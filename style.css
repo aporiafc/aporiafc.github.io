@@ -2781,6 +2781,45 @@ html {
   width: 100%;
 }
 
+/* =========================
+   SITE MENU ICONS
+========================= */
+
+.site-menu-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  margin-top: auto;
+  padding-top: 30px;
+
+  border-top: 1px solid #eee;
+}
+
+.site-menu-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: inherit;
+  text-decoration: none;
+
+  transition: opacity 0.25s ease;
+}
+
+.site-menu-icons a:hover {
+  opacity: 0.6;
+}
+
+.site-menu-icons img {
+  display: block;
+
+  width: 20px;
+  height: 20px;
+
+  object-fit: contain;
+}
+
 
 /* =========================================================
    CONTACT LINKS
