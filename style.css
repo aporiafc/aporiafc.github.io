@@ -2783,8 +2783,8 @@ html {
   align-items: center;
   justify-content: center;
 
-  width: 38px;
-  height: 38px;
+  width: 35px;
+  height: 35px;
 
   border: none;
   border-radius: 50%;
@@ -2801,8 +2801,8 @@ html {
 .contact-icon img {
   display: block;
 
-  width: 46%;
-  height: 46%;
+  width: 49%;
+  height: 49%;
 
   object-fit: contain;
 
