@@ -360,6 +360,92 @@ body {
 }
 
 /* =========================
+   SCROLL INDICATOR
+========================= */
+
+.hero {
+  position: relative;
+}
+
+.scroll-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.scroll-indicator span:first-child {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  color: #999;
+}
+
+.scroll-indicator-line {
+  display: block;
+
+  width: 1px;
+  height: 40px;
+
+  background: #ccc;
+
+  animation: scroll-line 1.8s ease-in-out infinite;
+}
+
+
+/* ---------- ANIMATION ---------- */
+
+@keyframes scroll-line {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+  }
+  40% {
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 1;
+  }
+  60% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    opacity: 0;
+  }
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 700px) {
+
+  .scroll-indicator {
+    bottom: 28px;
+
+    gap: 10px;
+  }
+
+  .scroll-indicator span:first-child {
+    font-size: 9px;
+  }
+
+  .scroll-indicator-line {
+    height: 30px;
+  }
+
+}
+
+/* =========================
    SCROLL SNAP
 ========================= */
 
