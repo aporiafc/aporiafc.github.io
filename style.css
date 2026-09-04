@@ -4623,3 +4623,44 @@ input[type="button"],
 input[type="submit"] {
   cursor: url("images/okoge_cursor_32x32.png") 2 2, pointer;
 }
+
+/* =========================================================
+   REFINED BOX STYLE
+   輪郭線中心 → 淡い影中心の、柔らかい箱デザインへ
+========================================================= */
+
+.world-link,
+.spin-card,
+.story-search,
+.story-item {
+  border: 1px solid rgba(34, 34, 34, 0.05);
+
+  box-shadow:
+    0 1px 2px rgba(17, 17, 17, 0.02),
+    0 14px 28px -20px rgba(17, 17, 17, 0.14);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.world-link:hover,
+.story-item:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 2px 4px rgba(17, 17, 17, 0.03),
+    0 20px 36px -18px rgba(17, 17, 17, 0.18);
+}
+
+
+/* ---------- DEPARTMENT ---------- */
+
+.department {
+  border: 1px solid rgba(34, 34, 34, 0.05);
+  border-left: 3px solid var(--department-color);
+
+  box-shadow:
+    0 1px 2px rgba(17, 17, 17, 0.02),
+    0 14px 28px -20px rgba(17, 17, 17, 0.14);
+}
