@@ -268,7 +268,7 @@ body {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 12px;
   line-height: 2.25;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 
 
@@ -2828,7 +2828,7 @@ html {
   margin: 0 0 35px;
 
   font-family: "ryo-gothic-plusn", sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 400;
   letter-spacing: 0.38em;
 
@@ -4052,7 +4052,7 @@ html {
   .about-label {
     margin-bottom: 26px;
 
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .about h2 {
