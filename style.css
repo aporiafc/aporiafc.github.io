@@ -125,6 +125,45 @@ body {
   width: 100%;
 }
 
+/* =========================
+   SITE HEADER ICONS
+========================= */
+
+.site-header-icons {
+  position: absolute;
+  right: 42px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.site-header-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: inherit;
+  text-decoration: none;
+
+  transition: opacity 0.25s ease;
+}
+
+.site-header-icons a:hover {
+  opacity: 0.6;
+}
+
+.site-header-icons img {
+  display: block;
+
+  width: 18px;
+  height: 18px;
+
+  object-fit: contain;
+}
 
 /* =========================
    SIDE LABEL
@@ -4119,6 +4158,10 @@ html {
   }
 
   .site-header-nav {
+    display: none;
+  }
+
+     .site-header-icons {
     display: none;
   }
 
