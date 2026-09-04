@@ -3495,36 +3495,6 @@ html {
 }
 
 
-/* ---------- SEARCH HEADER ---------- */
-
-.story-search-header {
-  margin-bottom: 44px;
-}
-
-.story-search-header .section-label {
-  margin: 0 0 18px;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.35em;
-
-  color: #777;
-}
-
-.story-search-header h2 {
-  margin: 0;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: 32px;
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: 0.12em;
-
-  color: #222;
-}
-
-
 /* =========================================================
    STORY SEARCH GROUP
 ========================================================= */
