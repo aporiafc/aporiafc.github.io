@@ -66,8 +66,8 @@ body {
 
 .site-header-logo span {
   font-family: "Bodoni Moda", serif;
-  font-size: 15px;
-  letter-spacing: -0.02em;
+  font-size: 17px;
+  letter-spacing: -0.05em;
 }
 
 .site-header-logo small {
@@ -4209,8 +4209,9 @@ html {
   }
 
   .site-header-logo span {
-    font-size: 13px;
-    letter-spacing: 0.14em;
+  font-family: "Bodoni Moda", serif;
+  font-size: 17px;
+  letter-spacing: -0.05em;
   }
 
   .site-header-logo small {
