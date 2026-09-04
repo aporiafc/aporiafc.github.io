@@ -4676,3 +4676,100 @@ input[type="submit"] {
 .department:has(.department-watchdog) { --department-color: #BB3838; }
 .department:has(.department-negotiation) { --department-color: #9A22B3; }
 .department:has(.department-st) { --department-color: #74A450; }
+
+/* =========================================================
+   REFINED STORY SEARCH CONTROLS
+========================================================= */
+
+/* ---------- FILTER BUTTONS (STORY TYPE) ---------- */
+
+.story-filter-buttons label {
+  min-width: 0;
+  height: 38px;
+
+  padding: 0 22px;
+
+  border: 1px solid rgba(34, 34, 34, 0.14);
+  border-radius: 999px;
+
+  background: transparent;
+}
+
+.story-filter-buttons span {
+  letter-spacing: 0.18em;
+  color: #555;
+}
+
+.story-filter-buttons label:hover {
+  border-color: rgba(34, 34, 34, 0.32);
+}
+
+.story-filter-buttons label:has(input:checked) {
+  border-color: #222;
+  background: #222;
+}
+
+.story-filter-buttons label:has(input:checked) span {
+  color: #fff;
+}
+
+
+/* ---------- CHARACTER SELECT CONTAINER ---------- */
+
+.story-character-select {
+  border: none;
+  background: transparent;
+
+  padding: 0;
+}
+
+
+/* ---------- CHARACTER SELECT ITEMS ---------- */
+
+.story-character-select label {
+  padding: 6px 8px;
+}
+
+.story-character-select span {
+  padding-left: 20px;
+
+  color: #777;
+
+  transition: color 0.2s ease;
+}
+
+.story-character-select label:hover span {
+  color: #222;
+}
+
+
+/* ---------- CUSTOM DOT (四角→丸に変更) ---------- */
+
+.story-character-select span::before {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+  border: 1px solid rgba(34, 34, 34, 0.28);
+
+  background: transparent;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.story-character-select input:checked + span::before {
+  border-color: #222;
+  background: #222;
+}
+
+/* チェックマーク(✓)は丸ドットでは不要なため非表示に */
+.story-character-select input:checked + span::after {
+  content: none;
+}
+
+.story-character-select input:checked + span {
+  color: #222;
+  font-weight: 500;
+}
