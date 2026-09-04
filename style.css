@@ -2832,13 +2832,13 @@ html {
 }
 
 .site-menu-icons .icon-x {
-  width: 12px;   /* ← Xだけこの数値を調整 */
-  height: 12px;
+  width: 20px;   /* ← Xだけこの数値を調整 */
+  height: 20px;
 }
 
 .site-menu-icons .icon-wavebox {
-  width: 20px;   /* ← Waveboxだけこの数値を調整 */
-  height: 20px;
+  width: 28px;   /* ← Waveboxだけこの数値を調整 */
+  height: 28px;
 }
 
 
