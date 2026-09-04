@@ -2832,8 +2832,8 @@ html {
 }
 
 .site-menu-icons .icon-x {
-  width: 20px;   /* ← Xだけこの数値を調整 */
-  height: 20px;
+  width: 19px;   /* ← Xだけこの数値を調整 */
+  height: 19px;
 }
 
 .site-menu-icons .icon-wavebox {
