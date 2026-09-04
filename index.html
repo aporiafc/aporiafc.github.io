@@ -30,6 +30,7 @@
 </head>
 
 <body>
+<script>document.documentElement.classList.add('js-anim');</script>
 
   <header class="site-header">
 
@@ -38,27 +39,30 @@
     </a>
 
   </header>
-  
+
 <main class="hero">
 
   <div class="side-label">
     <span>UNOFFICIAL FAN SITE</span>
   </div>
 
-  <p class="eyebrow">A PERSONAL ARCHIVE</p>
+  <p class="eyebrow fade-in-item">A PERSONAL ARCHIVE</p>
 
-  <h1>Aporia FANCAFE</h1>
+  <h1>
+    <span class="typewriter-text" aria-hidden="true"></span><span class="typewriter-cursor" aria-hidden="true"></span>
+    <span class="sr-only">Aporia FANCAFE</span>
+  </h1>
 
-  <p class="description">
+  <p class="description fade-in-item">
     (　　a fan site for BREAK MY CASE _ 　)
   </p>
 
-  <a href="updates.html" class="update-log-link" aria-label="UPDATE LOG">
+  <a href="updates.html" class="update-log-link fade-in-item" aria-label="UPDATE LOG">
     <img src="images/update-icon.png" alt="">
     <span>UPDATE LOG</span>
   </a>
 
-  <nav class="main-navigation">
+  <nav class="main-navigation fade-in-item">
 
     <div class="navigation-links">
       <a href="world.html">WORLD</a>
@@ -72,7 +76,7 @@
 
   </nav>
 
-    <div class="scroll-indicator" aria-hidden="true">
+  <div class="scroll-indicator fade-in-item" aria-hidden="true">
     <span>SCROLL</span>
     <span class="scroll-indicator-line"></span>
   </div>
@@ -165,3 +169,42 @@
     <p class="site-name">by Aporia fancafe</p>
 
   </section>
+
+
+  <script>
+  /* =========================
+     HERO TYPEWRITER
+  ========================= */
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const typewriterEl = document.querySelector(".typewriter-text");
+    const srTextEl = document.querySelector(".hero h1 .sr-only");
+    const h1El = document.querySelector(".hero h1");
+    const fadeItems = document.querySelectorAll(".fade-in-item");
+
+    if (!typewriterEl || !srTextEl || !h1El) return;
+
+    const fullText = srTextEl.textContent;
+    const typingSpeed = 90;   // 1文字あたりのms
+    const startDelay = 300;   // 開始までの待機ms
+    let index = 0;
+
+    function typeNextChar() {
+      if (index <= fullText.length) {
+        typewriterEl.textContent = fullText.slice(0, index);
+        index++;
+        setTimeout(typeNextChar, typingSpeed);
+      } else {
+        h1El.classList.add("typing-done");
+
+        fadeItems.forEach((item, i) => {
+          setTimeout(() => {
+            item.classList.add("is-visible");
+          }, i * 150);
+        });
+      }
+    }
+
+    setTimeout(typeNextChar, startDelay);
+  });
+  </script>
