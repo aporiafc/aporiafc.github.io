@@ -65,9 +65,9 @@ body {
 }
 
 .site-header-logo span {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Bodoni Moda", serif;
   font-size: 15px;
-  letter-spacing: 0.18em;
+  letter-spacing: -0.02em;
 }
 
 .site-header-logo small {
