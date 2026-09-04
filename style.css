@@ -314,7 +314,7 @@ body {
   max-width: 520px;
   margin: 42px auto 0;
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 2.25;
   letter-spacing: 0.02em;
 }
@@ -799,7 +799,7 @@ html {
 
     font-size: 9px;
     line-height: 2;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.09em;
   }
 
 
@@ -1112,7 +1112,7 @@ html {
 
     font-size: 9px;
     line-height: 2;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.09em;
   }
 
 
@@ -2007,7 +2007,6 @@ html {
   }
 
 }
-
 
   /* PROFILE */
 
@@ -4245,10 +4244,10 @@ html {
   }
 
     .story-intro h1 {
-    font-size: 56px;        /* 48px → 56px */
+    font-size: 56px;
 
     line-height: 0.95;
-    letter-spacing: 0.04em; /* 0.08em → 0.04em */
+    letter-spacing: 0.04em;
   }
 
   .story-intro .page-description {
@@ -4256,7 +4255,7 @@ html {
 
     font-size: 9px;
     line-height: 2;
-    letter-spacing: 0.2em;  /* 0.09em → 0.2em */
+    letter-spacing: 0.2em;
   }
 
 
