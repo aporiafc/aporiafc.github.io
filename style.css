@@ -4802,3 +4802,41 @@ input[type="submit"] {
   margin-top: 16px;
   padding-top: 16px;
 }
+
+/* =========================================================
+   DEPARTMENT LABEL AS FLOATING TAG
+========================================================= */
+
+.department {
+  position: relative;
+
+  margin-top: 40px;
+
+  padding: 26px 26px 24px;
+}
+
+.department-label {
+  position: absolute;
+  top: -11px;
+  left: 24px;
+
+  margin: 0;
+  padding: 3px 12px;
+
+  display: inline-block;
+
+  background: #F7F8FA;
+  border: 1px solid var(--department-color);
+  border-radius: 999px;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+
+  color: var(--department-color);
+}
+
+.department h2 {
+  margin: 0;
+}
