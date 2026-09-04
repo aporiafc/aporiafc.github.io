@@ -797,9 +797,9 @@ html {
   .world-page .page-description {
     margin-top: 20px;
 
-    font-size: 10px;
+    font-size: 9px;
     line-height: 2;
-    letter-spacing: 0.5em;
+    letter-spacing: 0.04em;
   }
 
 
@@ -1110,9 +1110,9 @@ html {
     margin-top: 20px;
     margin-bottom: 55px;
 
-    font-size: 10px;
+    font-size: 9px;
     line-height: 2;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
   }
 
 
