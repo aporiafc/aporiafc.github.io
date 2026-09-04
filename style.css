@@ -2789,9 +2789,20 @@ html {
   border: 1px solid #222;
   border-radius: 50%;
 
+  overflow: hidden;
+
   font-family: "Noto Sans JP", sans-serif;
   font-size: 16px;
   letter-spacing: 0.05em;
+}
+
+.contact-icon img {
+  display: block;
+
+  width: 60%;
+  height: 60%;
+
+  object-fit: contain;
 }
 
 
