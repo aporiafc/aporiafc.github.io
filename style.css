@@ -1998,9 +1998,15 @@ html {
     padding: 90px 24px;
   }
 
+  @media (max-width: 700px) {
+
   .character-page h1 {
-    font-size: 48px;
+    font-size: 56px;
+    line-height: 0.95;
+    letter-spacing: 0.04em;
   }
+
+}
 
 
   /* PROFILE */
@@ -3484,7 +3490,7 @@ html {
 .story-search {
   width: 100%;
 
-  padding: 40px 40px 42px;
+  padding: 34px 40px 42px;   /* 40px → 34px */
 
   box-sizing: border-box;
 
@@ -4238,11 +4244,11 @@ html {
     letter-spacing: 0.32em;
   }
 
-  .story-intro h1 {
-    font-size: 48px;
+    .story-intro h1 {
+    font-size: 56px;        /* 48px → 56px */
 
     line-height: 0.95;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.04em; /* 0.08em → 0.04em */
   }
 
   .story-intro .page-description {
@@ -4250,7 +4256,7 @@ html {
 
     font-size: 9px;
     line-height: 2;
-    letter-spacing: 0.09em;
+    letter-spacing: 0.2em;  /* 0.09em → 0.2em */
   }
 
 
