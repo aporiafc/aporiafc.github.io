@@ -4626,7 +4626,6 @@ input[type="submit"] {
 
 /* =========================================================
    REFINED BOX STYLE
-   輪郭線中心 → 淡い影中心の、柔らかい箱デザインへ
 ========================================================= */
 
 .world-link,
@@ -4653,6 +4652,11 @@ input[type="submit"] {
     0 20px 36px -18px rgba(17, 17, 17, 0.18);
 }
 
+/* SPINカードの色帯を復元 */
+.spin-card {
+  border-left: 3px solid var(--character-color);
+}
+
 
 /* ---------- DEPARTMENT ---------- */
 
@@ -4664,3 +4668,11 @@ input[type="submit"] {
     0 1px 2px rgba(17, 17, 17, 0.02),
     0 14px 28px -20px rgba(17, 17, 17, 0.14);
 }
+
+/* 部署カラーを section 自身にも継承させる */
+.department:has(.department-headquarters) { --department-color: #2384DE; }
+.department:has(.department-dating) { --department-color: #F17EB3; }
+.department:has(.department-administrative) { --department-color: #E0A82B; }
+.department:has(.department-watchdog) { --department-color: #BB3838; }
+.department:has(.department-negotiation) { --department-color: #9A22B3; }
+.department:has(.department-st) { --department-color: #74A450; }
