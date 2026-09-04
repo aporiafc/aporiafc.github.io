@@ -4810,7 +4810,7 @@ input[type="submit"] {
 .department {
   position: relative;
 
-  margin-top: 40px;
+  margin-top: 28px;
 
   padding: 26px 26px 24px;
 }
@@ -4818,7 +4818,7 @@ input[type="submit"] {
 .department-label {
   position: absolute;
   top: -11px;
-  left: 24px;
+  left: 30px;
 
   margin: 0;
   padding: 3px 12px;
