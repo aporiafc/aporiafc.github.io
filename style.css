@@ -1759,7 +1759,8 @@ html {
   padding-bottom: 14px;
   border-bottom: 1px solid #ddd;
 
-  font-size: 0;   /* h2自体のフォントサイズをリセットし、中のspanに任せる */
+  font-size: 0;
+  font-weight: 400;
   line-height: 1.8;
 }
 
