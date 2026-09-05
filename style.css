@@ -4815,3 +4815,25 @@ input[type="submit"] {
 .department h2 {
   margin: 0;
 }
+
+/* =========================================================
+   COMMON SPACING: description → first block
+========================================================= */
+
+.world-page .page-description,
+.character-page .page-description,
+.story-intro .page-description {
+  margin-bottom: 60px;
+}
+
+.world-links {
+  margin-top: 0;
+}
+
+.department:first-of-type {
+  margin-top: 0;
+}
+
+.story-search {
+  margin-top: 0;
+}
