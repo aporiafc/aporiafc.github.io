@@ -4837,3 +4837,25 @@ input[type="submit"] {
 .story-search {
   margin-top: 0;
 }
+
+@media (max-width: 700px) {
+
+  .world-page .page-description,
+  .character-page .page-description,
+  .story-intro .page-description {
+    margin-bottom: 40px;
+  }
+
+  .world-links {
+    margin-top: 0;
+  }
+
+  .department:first-of-type {
+    margin-top: 0;
+  }
+
+  .story-search {
+    margin-top: 0;
+  }
+
+}
