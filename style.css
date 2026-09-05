@@ -1759,14 +1759,12 @@ html {
   padding-bottom: 14px;
   border-bottom: 1px solid #ddd;
 
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
+  font-size: 0;   /* h2自体のフォントサイズをリセットし、中のspanに任せる */
   line-height: 1.8;
 }
 
 .card-detail-rarity,
+.card-detail-character,
 .card-detail-name {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 15px;
