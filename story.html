@@ -1584,27 +1584,31 @@ const writers =
 
           <div class="story-item-main">
 
-  <h3>
-    ${story.title}
-  </h3>
+    <div class="story-item-type">
+      ${storyTypeNames[story.type]}
+    </div>
+
+    <h3>
+      ${story.title}
+    </h3>
 
 
-  <p class="story-item-episode">
-    第${story.episode}話
-  </p>
+    <p class="story-item-episode">
+      第${story.episode}話
+    </p>
 
 
-  ${
-    summary
-      ? `
-        <p class="story-item-summary">
-          ${summary}
-        </p>
-      `
-      : ""
-  }
+    ${
+      summary
+        ? `
+          <p class="story-item-summary">
+            ${summary}
+          </p>
+        `
+        : ""
+    }
 
-</div>
+  </div>
 
 
           <div class="story-item-info">
