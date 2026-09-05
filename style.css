@@ -3886,7 +3886,6 @@ html {
   display: grid;
 
   grid-template-columns:
-    90px
     minmax(0, 1fr)
     minmax(0, 1.6fr)
     auto;
@@ -3919,11 +3918,20 @@ html {
 /* ---------- STORY TYPE ---------- */
 
 .story-item-type {
+  display: inline-block;
+
+  margin-bottom: 8px;
+
+  padding: 3px 10px;
+
+  border: 1px solid rgba(34, 34, 34, 0.16);
+  border-radius: 999px;
+
   font-family: "Cormorant Garamond", serif;
   font-size: 11px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
 
-  color: #999;
+  color: #555;
 
   white-space: nowrap;
 }
@@ -4412,7 +4420,7 @@ html {
   }
 
   .story-item-type {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 
     font-size: 10px;
   }
@@ -4521,9 +4529,7 @@ html {
 
 .story-item-episode {
   margin-top: 14px;
-  padding-left: 10px;
-
-  border-left: 2px solid #999;
+  padding-left: 0px;
 
   font-family: "Noto Sans JP", sans-serif;
   font-size: 14px;
