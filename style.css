@@ -4909,3 +4909,35 @@ input[type="submit"] {
   }
 
 }
+
+/* =========================================================
+   EXTERNAL LINK
+========================================================= */
+
+.external-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  color: #222;
+  text-decoration: none;
+
+  border-bottom: 1px solid rgba(34, 34, 34, 0.3);
+
+  transition: opacity 0.2s ease;
+}
+
+.external-link:hover {
+  opacity: 0.6;
+}
+
+.external-link-icon {
+  display: inline-block;
+
+  width: 11px;
+  height: 11px;
+
+  object-fit: contain;
+
+  opacity: 0.7;
+}
