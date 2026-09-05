@@ -4474,7 +4474,6 @@ html {
 
 .story-item {
   grid-template-columns:
-    90px
     minmax(0, 1fr)
     minmax(0, 1.6fr)
     auto;
