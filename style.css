@@ -4838,6 +4838,10 @@ input[type="submit"] {
   margin-top: 0;
 }
 
+.story-intro {
+  margin-bottom: 0;
+}
+
 @media (max-width: 700px) {
 
   .world-page .page-description,
