@@ -4583,49 +4583,6 @@ html {
 }
 
 /* =========================================================
-   REFINED STORY RESULTS
-========================================================= */
-
-/* ---------- RESULT COUNT ---------- */
-
-#story-result-count {
-  color: #777;
-}
-
-
-/* ---------- STORY TYPE (ラベル化) ---------- */
-
-.story-item-type {
-  display: inline-block;
-
-  padding: 3px 10px;
-
-  border: 1px solid rgba(34, 34, 34, 0.16);
-  border-radius: 999px;
-
-  color: #555;
-  letter-spacing: 0.14em;
-}
-
-
-/* ---------- INFO: 縦棒 → 淡い区切りに ---------- */
-
-.story-item-info {
-  border-left: none;
-  padding-left: 24px;
-}
-
-.story-item-info p {
-  grid-template-columns: 92px minmax(0, 1fr);
-
-  color: #888;
-}
-
-.story-item-info span {
-  color: #aaa;
-}
-
-/* =========================================================
    OKOGE CURSOR
 ========================================================= */
 
@@ -4789,6 +4746,49 @@ input[type="submit"] {
 .story-character-select input:checked + span {
   color: #222;
   font-weight: 500;
+}
+
+/* =========================================================
+   REFINED STORY RESULTS
+========================================================= */
+
+/* ---------- RESULT COUNT ---------- */
+
+#story-result-count {
+  color: #777;
+}
+
+
+/* ---------- STORY TYPE (ラベル化) ---------- */
+
+.story-item-type {
+  display: inline-block;
+
+  padding: 3px 10px;
+
+  border: 1px solid rgba(34, 34, 34, 0.16);
+  border-radius: 999px;
+
+  color: #555;
+  letter-spacing: 0.14em;
+}
+
+
+/* ---------- INFO: 縦棒 → 淡い区切りに ---------- */
+
+.story-item-info {
+  border-left: none;
+  padding-left: 24px;
+}
+
+.story-item-info p {
+  grid-template-columns: 92px minmax(0, 1fr);
+
+  color: #888;
+}
+
+.story-item-info span {
+  color: #aaa;
 }
 
 /* =========================================================
