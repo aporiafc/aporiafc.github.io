@@ -3,125 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Update Log | Aporia fancafe</title>
-
   <link rel="icon" href="favicon.png" type="image/png">
-
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
   <!-- =========================
        SITE MENU
   ========================= -->
-
   <button class="site-menu-button" type="button" aria-label="サイトメニューを開く">
     <span>MENU</span>
   </button>
-
   <div class="site-menu-panel">
-
     <div class="site-menu-inner">
-
       <div class="site-menu-header">
         <span>SITE MENU</span>
-
         <button class="site-menu-close" type="button" aria-label="メニューを閉じる">
           ×
         </button>
       </div>
-
       <nav class="site-menu-nav">
-
         <a href="index.html">TOP</a>
         <a href="world.html">WORLD</a>
         <a href="character.html">CHARACTER</a>
-        <a href="STORY.html">STORY</a>
+        <a href="story.html">STORY</a>
         <a href="event.html">EVENT</a>
         <a href="music.html">MUSIC</a>
         <a href="media.html">MEDIA</a>
         <a href="xstmy.html">× stmy</a>
-
       </nav>
-
     </div>
   </div>
 
   <main class="updates">
 
     <p class="updates-label">UPDATE LOG</p>
-
     <h1>Update Log</h1>
-
     <p class="updates-description">
       サイトの更新履歴を記録しています。
     </p>
 
-    <div class="update-list">
+    <div class="receipt">
 
-      <article class="update-item">
-        <time datetime="2026-08-22">2026.08.22</time>
-        <h2>サイト公開準備</h2>
-        <p>
-          トップページのデザインを整えました。
-        </p>
-      </article>
+      <div class="receipt-header">
+        <p class="receipt-shop">Aporia fancafe</p>
+        <p class="receipt-sub">— update receipt —</p>
+      </div>
 
-      <article class="update-item">
-        <time datetime="2026-08-22">2026.08.22</time>
-        <h2>UPDATE LOGを追加</h2>
-        <p>
-          更新履歴ページへのリンクをトップページに追加しました。
-        </p>
-      </article>
+      <div class="receipt-list">
+
+        <article class="receipt-item">
+          <div class="receipt-row">
+            <time datetime="2026-08-22">2026.08.22</time>
+            <span class="receipt-leader"></span>
+            <h2>サイト公開準備</h2>
+          </div>
+          <p>トップページのデザインを整えました。</p>
+        </article>
+
+        <article class="receipt-item">
+          <div class="receipt-row">
+            <time datetime="2026-08-22">2026.08.22</time>
+            <span class="receipt-leader"></span>
+            <h2>UPDATE LOGを追加</h2>
+          </div>
+          <p>更新履歴ページへのリンクをトップページに追加しました。</p>
+        </article>
+
+      </div>
+
+      <div class="receipt-footer">
+        <p class="receipt-count">2 UPDATES</p>
+        <div class="receipt-barcode"></div>
+      </div>
 
     </div>
 
+    <a href="index.html" class="back-link">← TOP へ戻る</a>
+
   </main>
-  
 
   <script>
   /* =========================
      SITE MENU
   ========================= */
-
   const siteMenuButton = document.querySelector(".site-menu-button");
   const siteMenuPanel = document.querySelector(".site-menu-panel");
   const siteMenuClose = document.querySelector(".site-menu-close");
   const siteMenuLinks = document.querySelectorAll(".site-menu-nav a");
 
-
-  /* =========================
-     SITE MENU：OPEN / CLOSE
-  ========================= */
-
   siteMenuButton.addEventListener("click", () => {
     siteMenuPanel.classList.add("is-open");
     siteMenuButton.classList.add("is-hidden");
   });
-
   siteMenuClose.addEventListener("click", () => {
     siteMenuPanel.classList.remove("is-open");
     siteMenuButton.classList.remove("is-hidden");
   });
-
   siteMenuLinks.forEach(link => {
     link.addEventListener("click", () => {
       siteMenuPanel.classList.remove("is-open");
       siteMenuButton.classList.remove("is-hidden");
     });
   });
-
   siteMenuPanel.addEventListener("click", (event) => {
     if (event.target === siteMenuPanel) {
       siteMenuPanel.classList.remove("is-open");
       siteMenuButton.classList.remove("is-hidden");
     }
   });
-
-</script>
-
+  </script>
 </body>
 </html>
