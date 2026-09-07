@@ -1,1 +1,785 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>CARD | Aporia fancafe</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- =========================
+       OGP
+  ========================= -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CARD | Aporia fancafe">
+  <meta property="og:description" content="『ブレイクマイケース』にまつわるカード情報をまとめた非公式ファンサイトです。">
+  <meta property="og:url" content="https://aporiafc.github.io/card.html">
+  <meta property="og:image" content="https://aporiafc.github.io/images/ogp.png">
+
+  <meta property="og:site_name" content="Aporia fancafe">
+  <meta property="og:locale" content="ja_JP">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CARD | Aporia fancafe">
+  <meta name="twitter:description" content="『ブレイクマイケース』にまつわるカード情報をまとめた非公式ファンサイトです。">
+  <meta name="twitter:image" content="https://aporiafc.github.io/images/ogp.png">
+
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header class="site-header">
+
+    <a href="index.html" class="site-header-logo">
+      <span>Afc.</span>
+    </a>
+
+    <nav class="site-header-nav">
+      <a href="world.html">WORLD</a>
+      <a href="character.html">CHARACTER</a>
+      <a href="story.html">STORY</a>
+      <a href="event.html">EVENT</a>
+      <a href="card.html">CARD</a>
+      <a href="music.html">MUSIC</a>
+      <a href="media.html">MEDIA</a>
+      <a href="xstmy.html">× stmy</a>
+    </nav>
+
+    <div class="site-header-icons">
+
+      <a href="https://x.com/aporia_fc" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <img src="images/x-icon.png" alt="X" class="icon-x">
+      </a>
+
+      <a href="https://wavebox.me/wave/2uq3t1e36oxy5xeq/" target="_blank" rel="noopener noreferrer" aria-label="Wavebox">
+        <img src="images/wavebox-icon.png" alt="Wavebox" class="icon-wavebox">
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       SITE MENU
+  ========================= -->
+
+  <button class="site-menu-button" type="button" aria-label="サイトメニューを開く">
+    <span>MENU</span>
+  </button>
+
+  <div class="site-menu-panel">
+
+    <div class="site-menu-inner">
+
+      <div class="site-menu-header">
+        <span>SITE MENU</span>
+
+        <button class="site-menu-close" type="button" aria-label="メニューを閉じる">
+          ×
+        </button>
+      </div>
+
+      <nav class="site-menu-nav">
+
+        <a href="index.html">TOP</a>
+        <a href="world.html">WORLD</a>
+        <a href="character.html">CHARACTER</a>
+        <a href="story.html">STORY</a>
+        <a href="event.html">EVENT</a>
+        <a href="card.html">CARD</a>
+        <a href="music.html">MUSIC</a>
+        <a href="media.html">MEDIA</a>
+        <a href="media.html">× stmy</a>
+
+      </nav>
+
+      <div class="site-menu-icons">
+
+        <a href="https://x.com/aporia_fc" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <img src="images/x-icon.png" alt="X" class="icon-x">
+        </a>
+
+        <a href="https://wavebox.me/wave/2uq3t1e36oxy5xeq/" target="_blank" rel="noopener noreferrer" aria-label="Wavebox">
+          <img src="images/wavebox-icon.png" alt="Wavebox" class="icon-wavebox">
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       CARD PAGE
+  ========================= -->
+
+  <main class="story-page">
+
+
+    <!-- =========================
+         PAGE HEADER
+    ========================= -->
+
+    <section class="story-intro">
+
+      <p class="page-label">
+        CARD DATABASE
+      </p>
+
+      <h1>
+        CARD.
+      </h1>
+
+      <p class="page-description">
+        （　　search & explore the cards of BREAK MY CASE _ 　）
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         SEARCH
+    ========================= -->
+
+    <section class="story-search">
+
+
+      <!-- =========================
+           RARITY
+      ========================= -->
+
+      <div class="story-search-group">
+
+        <p class="story-search-label">
+          RARITY
+        </p>
+
+        <div class="story-filter-buttons story-type-buttons" id="card-rarity-select"></div>
+
+      </div>
+
+
+      <!-- =========================
+           CHARACTER
+      ========================= -->
+
+      <div class="story-search-group">
+
+        <p class="story-search-label">
+          CHARACTER
+        </p>
+
+        <div class="story-filter-buttons" id="card-character-select"></div>
+
+      </div>
+
+
+      <!-- =========================
+           COMBINATION
+      ========================= -->
+
+      <div class="story-search-group">
+
+        <label class="story-search-label" for="card-combination-select">
+          COMBINATION
+        </label>
+
+        <select id="card-combination-select" class="story-search-input">
+          <option value="">ALL</option>
+        </select>
+
+      </div>
+
+
+      <!-- =========================
+           ATTRIBUTE
+      ========================= -->
+
+      <div class="story-search-group">
+
+        <p class="story-search-label">
+          ATTRIBUTE
+        </p>
+
+        <div class="story-filter-buttons story-type-buttons" id="card-attribute-select"></div>
+
+      </div>
+
+
+      <!-- =========================
+           LEADER SKILL
+      ========================= -->
+
+      <div class="story-search-group">
+
+        <p class="story-search-label">
+          LEADER SKILL
+        </p>
+
+        <div class="story-filter-buttons story-type-buttons" id="card-leader-skill-select"></div>
+
+      </div>
+
+
+      <!-- =========================
+           AUTO SKILL
+      ========================= -->
+
+      <div class="story-search-group">
+
+        <p class="story-search-label">
+          AUTO SKILL
+        </p>
+
+        <div class="story-filter-buttons story-type-buttons" id="card-auto-skill-select"></div>
+
+      </div>
+
+
+      <!-- =========================
+           SP SKILL
+      ========================= -->
+
+      <div class="story-search-group">
+
+        <p class="story-search-label">
+          SP SKILL
+        </p>
+
+        <div class="story-filter-buttons story-type-buttons" id="card-sp-skill-select"></div>
+
+      </div>
+
+
+      <!-- =========================
+           SEARCH ACTION
+      ========================= -->
+
+      <div class="story-search-action">
+
+        <button type="button" id="card-search-button" class="story-search-button">
+          SEARCH
+        </button>
+
+        <button type="button" id="card-reset-button" class="story-reset-button">
+          RESET
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESULT
+    ========================= -->
+
+    <section class="story-results">
+
+      <div class="story-results-header">
+
+        <p class="section-label">
+          RESULT
+        </p>
+
+        <h2>
+          CARD LIST
+        </h2>
+
+        <p id="card-result-count">
+          ALL CARDS
+        </p>
+
+      </div>
+
+      <div id="card-search-grid" class="card-search-grid"></div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================
+       SCRIPT
+  ========================= -->
+
+  <script>
+
+    /* =========================
+       SITE MENU
+    ========================= */
+
+    const siteMenuButton = document.querySelector(".site-menu-button");
+    const siteMenuPanel = document.querySelector(".site-menu-panel");
+    const siteMenuClose = document.querySelector(".site-menu-close");
+    const siteMenuLinks = document.querySelectorAll(".site-menu-nav a");
+
+    siteMenuButton.addEventListener("click", () => {
+      siteMenuPanel.classList.add("is-open");
+      siteMenuButton.classList.add("is-hidden");
+    });
+
+    siteMenuClose.addEventListener("click", () => {
+      siteMenuPanel.classList.remove("is-open");
+      siteMenuButton.classList.remove("is-hidden");
+    });
+
+    siteMenuLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        siteMenuPanel.classList.remove("is-open");
+        siteMenuButton.classList.remove("is-hidden");
+      });
+    });
+
+    siteMenuPanel.addEventListener("click", (event) => {
+      if (event.target === siteMenuPanel) {
+        siteMenuPanel.classList.remove("is-open");
+        siteMenuButton.classList.remove("is-hidden");
+      }
+    });
+
+
+    /* =========================================================
+       ▼▼▼ ここから編集する場所 ▼▼▼
+    ========================================================= */
+
+    /* =========================
+       CHARACTER NAME / COLOR
+       （キャラを増やすときはここに追加）
+    ========================= */
+
+    const characterOrder = [
+      "ai", "yuzuru", "roka",
+      "kou", "mao", "akehoshi", "yuragi",
+      "taiga", "haruhi", "sei",
+      "shizuka", "takeru", "soyogu", "shinobu",
+      "kiho", "kyoya", "riku",
+      "tomose", "yu", "kamiya", "urara"
+    ];
+
+    const characterNames = {
+      ai: "皇坂 逢",
+      yuzuru: "城瀬 由鶴",
+      roka: "須王 芦佳",
+      kou: "綾戸 恋",
+      mao: "宇京 真央",
+      akehoshi: "樋宮 明星",
+      yuragi: "環野 揺",
+      taiga: "槻本 大河",
+      haruhi: "壱川 春日",
+      sei: "隠岐谷 誓",
+      shizuka: "節見 静",
+      takeru: "御門 尊",
+      soyogu: "新開 戦",
+      shinobu: "相沢 篠信",
+      kiho: "在間 樹帆",
+      kyoya: "祠堂 恭耶",
+      riku: "立科 吏来",
+      tomose: "恩田 灯世",
+      yu: "新名 有",
+      kamiya: "神家",
+      urara: "麻波 麗"
+    };
+
+    const characterColors = {
+      ai: "#B22222",
+      yuzuru: "#7DA852",
+      roka: "#FFC02D",
+      kou: "#FD1493",
+      mao: "#A553E8",
+      akehoshi: "#FE8A23",
+      yuragi: "#6495ED",
+      taiga: "#8BCCD6",
+      haruhi: "#E9DC69",
+      sei: "#9A98C1",
+      shizuka: "#3F60BE",
+      takeru: "#C437BC",
+      soyogu: "#E04D21",
+      shinobu: "#388138",
+      kiho: "#DF507F",
+      kyoya: "#F09C65",
+      riku: "#7043BB",
+      tomose: "#61C892",
+      yu: "#13BFFC",
+      kamiya: "#5E76BC",
+      urara: "#DE7DF3"
+    };
+
+
+    /* =========================
+       RARITY
+       （レアリティの並び順はここを編集）
+    ========================= */
+
+    const rarityOrder = ["SSR", "SR", "R", "XR", "CR"];
+
+
+    /* =========================
+       ATTRIBUTE
+       （属性を増やすときはここに追加）
+    ========================= */
+
+    const attributeNames = {
+      star: "スター",
+      moon: "ムーン",
+      sun: "サン"
+    };
+
+
+    /* =========================
+       SKILL TAGS
+       （スキル効果の種類を増やすときはここに追加）
+    ========================= */
+
+    const leaderSkillTags = {
+      aura_up: "オーラUP",
+      visual_up: "ビジュアルUP",
+      charisma_up: "カリスマUP",
+      all_up: "全パラメータUP"
+    };
+
+    const autoSkillTags = {
+      piece_rate_up: "ピース出現率UP",
+      combo_bonus: "コンボボーナスUP",
+      score_up: "スコアUP"
+    };
+
+    const spSkillTags = {
+      hirameki_create: "ひらめき生成",
+      cost_down: "コストDOWN",
+      time_extend: "時間延長"
+    };
+
+
+    /* =========================
+       CARDS
+       （カードを増やすときは、この配列に
+         オブジェクトを1つ追加するだけでOK）
+    ========================= */
+
+    const cards = [
+
+      {
+        character: "shizuka",
+        rarity: "SSR",
+        title: "光差すステンドグラス",
+        image: "images/card/hikari-sasu-sutendogurasu.png",
+        combination: "mao",
+        attribute: "star",
+        leaderSkillTags: ["all_up"],
+        autoSkillTags: ["piece_rate_up"],
+        spSkillTags: ["hirameki_create"],
+        link: "card-shizuka-hikari-sasu-sutendogurasu.html"
+      },
+
+      /*
+      {
+        character: "ai",
+        rarity: "SR",
+        title: "カードタイトル",
+        image: "",   // 画像がない場合は空文字のままでOK（CARDプレースホルダーが表示されます）
+        combination: "",   // コンビネーション相手がいない場合は空文字
+        attribute: "star",
+        leaderSkillTags: [],
+        autoSkillTags: [],
+        spSkillTags: [],
+        link: ""
+      },
+      */
+
+    ];
+
+    /* =========================================================
+       ▲▲▲ ここまで編集する場所 ▲▲▲
+    ========================================================= */
+
+
+    /* =========================
+       ELEMENTS
+    ========================= */
+
+    const rarityFilter = document.querySelector("#card-rarity-select");
+    const characterFilter = document.querySelector("#card-character-select");
+    const combinationSelect = document.querySelector("#card-combination-select");
+    const attributeFilter = document.querySelector("#card-attribute-select");
+    const leaderSkillFilter = document.querySelector("#card-leader-skill-select");
+    const autoSkillFilter = document.querySelector("#card-auto-skill-select");
+    const spSkillFilter = document.querySelector("#card-sp-skill-select");
+
+    const searchButton = document.querySelector("#card-search-button");
+    const resetButton = document.querySelector("#card-reset-button");
+
+    const cardGrid = document.querySelector("#card-search-grid");
+    const resultCount = document.querySelector("#card-result-count");
+
+
+    /* =========================
+       GET SELECTED VALUES
+    ========================= */
+
+    function getCheckedValues(name) {
+      return Array.from(
+        document.querySelectorAll(`input[name="${name}"]:checked`)
+      ).map(input => input.value);
+    }
+
+
+    /* =========================
+       RENDER: TAG PILL FILTER
+    ========================= */
+
+    function renderTagFilter(container, tagMap, inputName) {
+      container.innerHTML = "";
+
+      Object.keys(tagMap).forEach(key => {
+        const label = document.createElement("label");
+
+        label.innerHTML = `
+          <input type="checkbox" name="${inputName}" value="${key}">
+          <span>${tagMap[key]}</span>
+        `;
+
+        container.appendChild(label);
+      });
+    }
+
+
+    /* =========================
+       RENDER: FILTERS
+    ========================= */
+
+    function renderRarityFilter() {
+      rarityFilter.innerHTML = "";
+
+      rarityOrder.forEach(rarity => {
+        const label = document.createElement("label");
+
+        label.innerHTML = `
+          <input type="checkbox" name="card-rarity" value="${rarity}">
+          <span>${rarity}</span>
+        `;
+
+        rarityFilter.appendChild(label);
+      });
+    }
+
+    function renderCharacterFilter() {
+      characterFilter.innerHTML = "";
+
+      characterOrder.forEach(character => {
+        const label = document.createElement("label");
+
+        label.innerHTML = `
+          <input type="checkbox" name="card-character" value="${character}">
+          <span>${characterNames[character]}</span>
+        `;
+
+        characterFilter.appendChild(label);
+      });
+    }
+
+    function renderCombinationSelect() {
+      combinationSelect.innerHTML = `<option value="">ALL</option>`;
+
+      characterOrder.forEach(character => {
+        const option = document.createElement("option");
+
+        option.value = character;
+        option.textContent = characterNames[character];
+
+        combinationSelect.appendChild(option);
+      });
+    }
+
+    function renderAttributeFilter() {
+      attributeFilter.innerHTML = "";
+
+      Object.keys(attributeNames).forEach(key => {
+        const label = document.createElement("label");
+
+        label.innerHTML = `
+          <input type="checkbox" name="card-attribute" value="${key}">
+          <span>${attributeNames[key]}</span>
+        `;
+
+        attributeFilter.appendChild(label);
+      });
+    }
+
+
+    /* =========================
+       RENDER: CARDS
+    ========================= */
+
+    function renderCards(results) {
+      cardGrid.innerHTML = "";
+
+      if (results.length === 0) {
+        cardGrid.innerHTML = `<p class="story-no-result">該当するカードがありません。</p>`;
+        resultCount.textContent = "0 CARDS";
+        return;
+      }
+
+      resultCount.textContent = `${results.length} CARDS`;
+
+      results.forEach(card => {
+        const item = document.createElement("a");
+
+        item.className = "card-search-item";
+        item.href = card.link || "#";
+        item.style.setProperty(
+          "--character-color",
+          characterColors[card.character] || "#777"
+        );
+
+        const imageHTML = card.image
+          ? `<img src="${card.image}" alt="${card.title}">`
+          : `<span>CARD</span>`;
+
+        const combinationText = card.combination
+          ? characterNames[card.combination] || card.combination
+          : "-";
+
+        const attributeText = attributeNames[card.attribute] || "-";
+
+        item.innerHTML = `
+
+          <div class="card-search-image">
+            ${imageHTML}
+          </div>
+
+          <div class="card-search-info">
+
+            <p class="card-search-rarity">
+              ${card.rarity} ／ ${characterNames[card.character] || card.character}
+            </p>
+
+            <h3 class="card-search-title">
+              ${card.title}
+            </h3>
+
+            <p class="card-search-meta">
+              属性：${attributeText}<br>
+              コンビネーション：${combinationText}
+            </p>
+
+          </div>
+
+        `;
+
+        cardGrid.appendChild(item);
+      });
+    }
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    function searchCards() {
+
+      const selectedRarities = getCheckedValues("card-rarity");
+      const selectedCharacters = getCheckedValues("card-character");
+      const selectedCombination = combinationSelect.value;
+      const selectedAttributes = getCheckedValues("card-attribute");
+      const selectedLeaderTags = getCheckedValues("card-leader-skill");
+      const selectedAutoTags = getCheckedValues("card-auto-skill");
+      const selectedSpTags = getCheckedValues("card-sp-skill");
+
+      const results = cards.filter(card => {
+
+        if (selectedRarities.length > 0 && !selectedRarities.includes(card.rarity)) {
+          return false;
+        }
+
+        if (selectedCharacters.length > 0 && !selectedCharacters.includes(card.character)) {
+          return false;
+        }
+
+        if (selectedCombination && card.combination !== selectedCombination) {
+          return false;
+        }
+
+        if (selectedAttributes.length > 0 && !selectedAttributes.includes(card.attribute)) {
+          return false;
+        }
+
+        if (selectedLeaderTags.length > 0) {
+          const hasAll = selectedLeaderTags.every(tag =>
+            (card.leaderSkillTags || []).includes(tag)
+          );
+          if (!hasAll) return false;
+        }
+
+        if (selectedAutoTags.length > 0) {
+          const hasAll = selectedAutoTags.every(tag =>
+            (card.autoSkillTags || []).includes(tag)
+          );
+          if (!hasAll) return false;
+        }
+
+        if (selectedSpTags.length > 0) {
+          const hasAll = selectedSpTags.every(tag =>
+            (card.spSkillTags || []).includes(tag)
+          );
+          if (!hasAll) return false;
+        }
+
+        return true;
+
+      });
+
+      renderCards(results);
+    }
+
+
+    /* =========================
+       RESET
+    ========================= */
+
+    function resetSearch() {
+      document
+        .querySelectorAll('.story-search input[type="checkbox"]')
+        .forEach(input => { input.checked = false; });
+
+      combinationSelect.value = "";
+
+      renderCards(cards);
+    }
+
+
+    /* =========================
+       EVENTS
+    ========================= */
+
+    searchButton.addEventListener("click", searchCards);
+    resetButton.addEventListener("click", resetSearch);
+
+
+    /* =========================
+       INITIAL DISPLAY
+    ========================= */
+
+    renderRarityFilter();
+    renderCharacterFilter();
+    renderCombinationSelect();
+    renderAttributeFilter();
+    renderTagFilter(leaderSkillFilter, leaderSkillTags, "card-leader-skill");
+    renderTagFilter(autoSkillFilter, autoSkillTags, "card-auto-skill");
+    renderTagFilter(spSkillFilter, spSkillTags, "card-sp-skill");
+
+    renderCards(cards);
+
+  </script>
+
+</body>
+</html>
