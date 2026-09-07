@@ -165,8 +165,7 @@
         <div class="story-filter-buttons story-type-buttons" id="card-rarity-select"></div>
 
       </div>
-
-
+      
       <!-- =========================
            CHARACTER
       ========================= -->
@@ -177,7 +176,7 @@
           CHARACTER
         </p>
 
-        <div class="story-filter-buttons" id="card-character-select"></div>
+        <div class="story-character-select" id="card-character-select"></div>
 
       </div>
 
@@ -572,7 +571,7 @@
       });
     }
 
-    function renderCharacterFilter() {
+        function renderCharacterFilter() {
       characterFilter.innerHTML = "";
 
       characterOrder.forEach(character => {
