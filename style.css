@@ -5080,34 +5080,43 @@ input[type="submit"] {
 
 #card-search-button,
 #card-reset-button {
-  min-width: auto;
-  height: 28px;
+  position: relative;
 
-  padding: 0 10px;
+  padding: 0;
 
-  border: 1px solid #ddd;
-  border-radius: 999px;
-
-  background: #fff;
+  border: none;
+  background: none;
 
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 10px;
-  line-height: 1.3;
-  letter-spacing: 0.02em;
+  font-size: 11px;
+  letter-spacing: 0.16em;
 
   color: #555;
 
   cursor: pointer;
-
-  transition:
-    color 0.2s ease,
-    border-color 0.2s ease,
-    background-color 0.2s ease;
 }
 
-#card-search-button:hover,
-#card-reset-button:hover {
-  border-color: #aaa;
+#card-search-button::after,
+#card-reset-button::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+
+  width: 0;
+  height: 1px;
+
+  background: currentColor;
+
+  transform: translateX(-50%);
+
+  transition: width 0.25s ease;
+}
+
+#card-search-button:hover::after,
+#card-reset-button:hover::after {
+  width: 100%;
 }
 
 
@@ -5129,4 +5138,61 @@ input[type="submit"] {
     grid-template-columns: 1fr;
   }
 
+}
+
+/* =========================================================
+   COMPACT FILTER BUTTONS
+   (RARITY / ATTRIBUTE / LEADER SKILL / AUTO SKILL / SP SKILL)
+========================================================= */
+
+#card-rarity-select label,
+#card-attribute-select label,
+#card-leader-skill-select label,
+#card-auto-skill-select label,
+#card-sp-skill-select label {
+  min-width: auto;
+  height: 28px;
+
+  padding: 0 10px;
+
+  border: 1px solid #ddd;
+  border-radius: 999px;
+
+  background: #fff;
+}
+
+#card-rarity-select span,
+#card-attribute-select span,
+#card-leader-skill-select span,
+#card-auto-skill-select span,
+#card-sp-skill-select span {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 10px;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+
+#card-rarity-select label:hover,
+#card-attribute-select label:hover,
+#card-leader-skill-select label:hover,
+#card-auto-skill-select label:hover,
+#card-sp-skill-select label:hover {
+  border-color: #aaa;
+}
+
+#card-rarity-select label:has(input:checked),
+#card-attribute-select label:has(input:checked),
+#card-leader-skill-select label:has(input:checked),
+#card-auto-skill-select label:has(input:checked),
+#card-sp-skill-select label:has(input:checked) {
+  border-color: #222;
+  background: #222;
+}
+
+#card-rarity-select label:has(input:checked) span,
+#card-attribute-select label:has(input:checked) span,
+#card-leader-skill-select label:has(input:checked) span,
+#card-auto-skill-select label:has(input:checked) span,
+#card-sp-skill-select label:has(input:checked) span {
+  color: #fff;
 }
