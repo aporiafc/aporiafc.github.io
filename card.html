@@ -447,15 +447,24 @@
     };
 
     const autoSkillTags = {
-      piece_rate_up: "ピース出現率UP",
+      score_up: "スコアUP",
       combo_bonus: "コンボボーナスUP",
-      score_up: "スコアUP"
+      piece_rate_up: "ピース出現率UP",
+      piece_rate_down: "ピース出現率DOWN",
+      piece_rank_up: "コンボピースランクUP",
+      skill_copy: "スキルコピー",
+      match_repiece: "マッチしたピースの属性を変える",
+      sp_boost: "SP貯蓄",
+      assist: "他カードのスキル発動"
     };
 
     const spSkillTags = {
-      hirameki_create: "ひらめき生成",
-      cost_down: "コストDOWN",
-      time_extend: "時間延長"
+      delete: "消去",
+      conversion: "変換",
+      create: "作成",
+      recovery: "回復",
+      gimmick: "ギミック",
+      other: "その他"
     };
 
 
@@ -475,8 +484,8 @@
         combination: "yuzuru",
         attribute: "sun",
         leaderSkillTags: ["all_up"],
-        autoSkillTags: [""],
-        spSkillTags: [""],
+        autoSkillTags: ["score_up"],
+        spSkillTags: ["delete"],
         link: "card-ai-mede-mite-mimi-de-kiite.html"
       },
 
@@ -489,7 +498,7 @@
         attribute: "star",
         leaderSkillTags: ["all_up"],
         autoSkillTags: ["piece_rate_up"],
-        spSkillTags: ["hirameki_create"],
+        spSkillTags: ["create"],
         link: "card-shizuka-hikari-sasu-sutendogurasu.html"
       },
 
