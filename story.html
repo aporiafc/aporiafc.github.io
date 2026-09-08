@@ -430,7 +430,10 @@
 
     });
 
-
+    
+    /* =========================================================
+       ▼▼▼ 編集 ▼▼▼
+    ========================================================= */
 
     /* =========================
        STORY DATA
@@ -1582,6 +1585,9 @@
 },
 
 
+<!-- カードストーリー -->
+
+
 
       
       
@@ -1589,9 +1595,9 @@
       ];
 
     
-    /* =========================
-       CHARACTER NAME
-    ========================= */
+/* =========================
+      CHARACTER NAME
+========================= */
 
     const characterNames = {
 
@@ -1643,7 +1649,7 @@
     };
 
     
-    /* =========================
+/* =========================
    CHARACTER CATEGORY
 ========================= */
 
@@ -1707,7 +1713,7 @@ guest: [
 };
 
 
-    /* =========================
+/* =========================
    STAFF NAME
 ========================= */
 
@@ -1718,9 +1724,9 @@ const staffNames = {
 };
 
 
-    /* =========================
+/* =========================
        STORY TYPE NAME
-    ========================= */
+========================= */
 
     const storyTypeNames = {
 
@@ -1731,6 +1737,9 @@ const staffNames = {
 
     };
 
+/* =========================================================
+       ▲▲▲ 編集 ▲▲▲
+========================================================= */
 
 
     /* =========================
@@ -1739,32 +1748,19 @@ const staffNames = {
 
     const storyTitleInput =
       document.querySelector("#story-title");
-
-
     const searchButton =
       document.querySelector("#story-search-button");
-
-
     const resetButton =
       document.querySelector("#story-reset-button");
-
-
     const storyList =
       document.querySelector("#story-list");
-
-
     const resultCount =
       document.querySelector("#story-result-count");
-
-
     const characterSelect =
   document.querySelector("#story-character-select");
-
     const supervisorSelect =
   document.querySelector("#story-supervisor-select");
-
-
-const writerSelect =
+    const writerSelect =
   document.querySelector("#story-writer-select");
 
 
@@ -1784,8 +1780,8 @@ const writerSelect =
 
 
     /* =========================
-   GENERATE CHARACTER LIST
-========================= */
+   　GENERATE CHARACTER LIST
+   ========================= */
 
 function getStoryCharacters() {
 
@@ -1798,23 +1794,19 @@ function getStoryCharacters() {
   ];
 
 }
-
-
-/* =========================
-   RENDER CHARACTER FILTERS
-========================= */
-
-function renderCharacterFilters() {
-
-  characterSelect.innerHTML = "";
-
-
-  const categoryOrder = [
+    
+    /* =========================
+   　RENDER CHARACTER FILTERS
+    ========================= */
+    function renderCharacterFilters() {
+      characterSelect.innerHTML = "";
+      
+    const categoryOrder = [
     "main",
     "other",
     "sub",
     "guest"
-  ];
+    ];
 
 
   categoryOrder.forEach(category => {
@@ -1944,7 +1936,7 @@ function getWriterStaff() {
 }
 
 
-    /* =========================
+/* =========================
    RENDER STAFF FILTERS
 ========================= */
 
