@@ -3556,6 +3556,12 @@ html {
     grid-column: span 3;
   }
 
+     /* 3段目：× stmy */
+
+  .navigation-links a:nth-child(8) {
+    grid-column: span 12;
+  }
+
 }
 
 /* =========================================================
