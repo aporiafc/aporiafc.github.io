@@ -181,6 +181,21 @@
 
       </div>
 
+      
+      <!-- =========================
+           EVENT TYPE
+      ========================= -->
+
+      <div class="story-search-group">
+
+        <p class="story-search-label">
+          EVENT TYPE
+        </p>
+
+        <div class="story-filter-buttons story-type-buttons" id="event-type-select"></div>
+
+      </div>
+
 
       <!-- =========================
            CHARACTER
@@ -351,6 +366,21 @@
     };
 
 
+   /* =========================
+       EVENT TYPE
+       （イベント形式を増やすときはここに追加）
+    ========================= */
+
+    const eventTypeNames = {
+      normal: "通常",
+      point: "ポイント累計",
+      cafebar: "カフェバー",
+      ojt: "OJT",
+      vignette: "Vignette",
+      other: "その他"
+    };
+
+
     /* =========================
        EVENTS
        （イベントを増やすときは、この配列に
@@ -359,15 +389,16 @@
 
     const events = [
 
-      {
-        year: "2026",
-        genre: ["agency", "dressup"],
-        title: "Florist 花に染む言の葉",
-        image: "",
-        period: "2026.01.01 〜 2026.01.14",
-        characters: ["ai", "yuzuru"],
-        link: ""
-      },
+{
+  year: "2026",
+  genre: ["dressup", "parody"],
+  eventType: "normal",
+  title: "イベントタイトル",
+  image: "",
+  period: "2026.01.01 〜 2026.01.14",
+  characters: ["ai", "yuzuru"],
+  link: ""
+},
 
       /*
       {
@@ -401,6 +432,8 @@
 
     const eventGrid = document.querySelector("#event-search-grid");
     const resultCount = document.querySelector("#event-result-count");
+
+    const eventTypeFilter = document.querySelector("#event-type-select");
 
 
     /* =========================
@@ -463,6 +496,21 @@
       });
     }
 
+        function renderEventTypeFilter() {
+      eventTypeFilter.innerHTML = "";
+
+      Object.keys(eventTypeNames).forEach(key => {
+        const label = document.createElement("label");
+
+        label.innerHTML = `
+          <input type="checkbox" name="event-type" value="${key}">
+          <span>${eventTypeNames[key]}</span>
+        `;
+
+        eventTypeFilter.appendChild(label);
+      });
+    }
+
 
     /* =========================
        RENDER: EVENTS
@@ -488,8 +536,10 @@
         const imageHTML = event.image
           ? `<img src="${event.image}" alt="${event.title}">`
           : `<span>EVENT</span>`;
-
-        const genreText = genreNames[event.genre] || "-";
+        
+        const genreText = (event.genre || [])
+          .map(key => genreNames[key] || key)
+          .join(" / ");
 
         item.innerHTML = `
 
@@ -528,6 +578,7 @@
 
       const selectedYears = getCheckedValues("event-year");
       const selectedGenres = getCheckedValues("event-genre");
+      const selectedEventTypes = getCheckedValues("event-type");
       const selectedCharacters = getCheckedValues("event-character");
 
       const results = events.filter(event => {
@@ -536,7 +587,14 @@
           return false;
         }
 
-        if (selectedGenres.length > 0 && !selectedGenres.includes(event.genre)) {
+        if (selectedGenres.length > 0) {
+          const hasAny = selectedGenres.some(genreKey =>
+            (event.genre || []).includes(genreKey)
+          );
+          if (!hasAny) return false;
+        }
+
+        if (selectedEventTypes.length > 0 && !selectedEventTypes.includes(event.eventType)) {
           return false;
         }
 
@@ -582,6 +640,7 @@
 
     renderYearFilter();
     renderGenreFilter();
+    renderEventTypeFilter();
     renderCharacterFilter();
 
     renderEvents(events);
