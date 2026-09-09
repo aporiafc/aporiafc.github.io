@@ -1,1 +1,592 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>EVENT | Aporia fancafe</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- =========================
+       OGP
+  ========================= -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="EVENT | Aporia fancafe">
+  <meta property="og:description" content="『ブレイクマイケース』にまつわるイベント情報をまとめた非公式ファンサイトです。">
+  <meta property="og:url" content="https://aporiafc.github.io/event.html">
+  <meta property="og:image" content="https://aporiafc.github.io/images/ogp.png">
+
+  <meta property="og:site_name" content="Aporia fancafe">
+  <meta property="og:locale" content="ja_JP">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EVENT | Aporia fancafe">
+  <meta name="twitter:description" content="『ブレイクマイケース』にまつわるイベント情報をまとめた非公式ファンサイトです。">
+  <meta name="twitter:image" content="https://aporiafc.github.io/images/ogp.png">
+
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header class="site-header">
+
+    <a href="index.html" class="site-header-logo">
+      <span>Afc.</span>
+    </a>
+
+    <nav class="site-header-nav">
+      <a href="world.html">WORLD</a>
+      <a href="character.html">CHARACTER</a>
+      <a href="story.html">STORY</a>
+      <a href="card.html">CARD</a>
+      <a href="event.html">EVENT</a>
+      <a href="music.html">MUSIC</a>
+      <a href="media.html">MEDIA</a>
+      <a href="xstmy.html">× stmy</a>
+    </nav>
+
+    <div class="site-header-icons">
+
+      <a href="https://x.com/aporia_fc" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <img src="images/x-icon.png" alt="X" class="icon-x">
+      </a>
+
+      <a href="https://wavebox.me/wave/2uq3t1e36oxy5xeq/" target="_blank" rel="noopener noreferrer" aria-label="Wavebox">
+        <img src="images/wavebox-icon.png" alt="Wavebox" class="icon-wavebox">
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       SITE MENU
+  ========================= -->
+
+  <button class="site-menu-button" type="button" aria-label="サイトメニューを開く">
+    <span>MENU</span>
+  </button>
+
+  <div class="site-menu-panel">
+
+    <div class="site-menu-inner">
+
+      <div class="site-menu-header">
+        <span>SITE MENU</span>
+
+        <button class="site-menu-close" type="button" aria-label="メニューを閉じる">
+          ×
+        </button>
+      </div>
+
+      <nav class="site-menu-nav">
+
+        <a href="index.html">TOP</a>
+        <a href="world.html">WORLD</a>
+        <a href="character.html">CHARACTER</a>
+        <a href="story.html">STORY</a>
+        <a href="card.html">CARD</a>
+        <a href="event.html">EVENT</a>
+        <a href="music.html">MUSIC</a>
+        <a href="media.html">MEDIA</a>
+        <a href="media.html">× stmy</a>
+
+      </nav>
+
+      <div class="site-menu-icons">
+
+        <a href="https://x.com/aporia_fc" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <img src="images/x-icon.png" alt="X" class="icon-x">
+        </a>
+
+        <a href="https://wavebox.me/wave/2uq3t1e36oxy5xeq/" target="_blank" rel="noopener noreferrer" aria-label="Wavebox">
+          <img src="images/wavebox-icon.png" alt="Wavebox" class="icon-wavebox">
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       EVENT PAGE
+  ========================= -->
+
+  <main class="story-page">
+
+
+    <!-- =========================
+         PAGE HEADER
+    ========================= -->
+
+    <section class="story-intro">
+
+      <p class="page-label">
+        EVENT DATABASE
+      </p>
+
+      <h1>
+        EVENT.
+      </h1>
+
+      <p class="page-description">
+        （　　search & explore the events of BREAK MY CASE _ 　）
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         SEARCH
+    ========================= -->
+
+    <section class="story-search">
+
+
+      <!-- =========================
+           YEAR
+      ========================= -->
+
+      <div class="story-search-group">
+
+        <p class="story-search-label">
+          YEAR
+        </p>
+
+        <div class="story-filter-buttons story-type-buttons" id="event-year-select"></div>
+
+      </div>
+
+
+      <!-- =========================
+           GENRE
+      ========================= -->
+
+      <div class="story-search-group">
+
+        <p class="story-search-label">
+          GENRE
+        </p>
+
+        <div class="story-filter-buttons story-type-buttons" id="event-genre-select"></div>
+
+      </div>
+
+
+      <!-- =========================
+           CHARACTER
+      ========================= -->
+
+      <div class="story-search-group">
+
+        <p class="story-search-label">
+          CHARACTER
+        </p>
+
+        <div class="story-character-select" id="event-character-select"></div>
+
+      </div>
+
+
+      <!-- =========================
+           SEARCH ACTION
+      ========================= -->
+
+      <div class="story-search-action">
+
+        <button type="button" id="event-search-button" class="story-search-button">
+          SEARCH
+        </button>
+
+        <button type="button" id="event-reset-button" class="story-reset-button">
+          RESET
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESULT
+    ========================= -->
+
+    <section class="story-results">
+
+      <div class="story-results-header">
+
+        <p class="section-label">
+          RESULT
+        </p>
+
+        <h2>
+          EVENT LIST
+        </h2>
+
+        <p id="event-result-count">
+          ALL EVENTS
+        </p>
+
+      </div>
+
+      <div id="event-search-grid" class="event-search-grid"></div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================
+       SCRIPT
+  ========================= -->
+
+  <script>
+
+    /* =========================
+       SITE MENU
+    ========================= */
+
+    const siteMenuButton = document.querySelector(".site-menu-button");
+    const siteMenuPanel = document.querySelector(".site-menu-panel");
+    const siteMenuClose = document.querySelector(".site-menu-close");
+    const siteMenuLinks = document.querySelectorAll(".site-menu-nav a");
+
+    siteMenuButton.addEventListener("click", () => {
+      siteMenuPanel.classList.add("is-open");
+      siteMenuButton.classList.add("is-hidden");
+    });
+
+    siteMenuClose.addEventListener("click", () => {
+      siteMenuPanel.classList.remove("is-open");
+      siteMenuButton.classList.remove("is-hidden");
+    });
+
+    siteMenuLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        siteMenuPanel.classList.remove("is-open");
+        siteMenuButton.classList.remove("is-hidden");
+      });
+    });
+
+    siteMenuPanel.addEventListener("click", (event) => {
+      if (event.target === siteMenuPanel) {
+        siteMenuPanel.classList.remove("is-open");
+        siteMenuButton.classList.remove("is-hidden");
+      }
+    });
+
+
+    /* =========================================================
+       ▼▼▼ ここから編集する場所 ▼▼▼
+    ========================================================= */
+
+    /* =========================
+       CHARACTER NAME
+       （キャラを増やすときはここに追加）
+    ========================= */
+
+    const characterOrder = [
+      "ai", "yuzuru", "roka",
+      "kou", "mao", "akehoshi", "yuragi",
+      "taiga", "haruhi", "sei",
+      "shizuka", "takeru", "soyogu", "shinobu",
+      "kiho", "kyoya", "riku",
+      "tomose", "yu", "kamiya", "urara"
+    ];
+
+    const characterNames = {
+      ai: "皇坂 逢",
+      yuzuru: "城瀬 由鶴",
+      roka: "須王 芦佳",
+      kou: "綾戸 恋",
+      mao: "宇京 真央",
+      akehoshi: "樋宮 明星",
+      yuragi: "環野 揺",
+      taiga: "槻本 大河",
+      haruhi: "壱川 春日",
+      sei: "隠岐谷 誓",
+      shizuka: "節見 静",
+      takeru: "御門 尊",
+      soyogu: "新開 戦",
+      shinobu: "相沢 篠信",
+      kiho: "在間 樹帆",
+      kyoya: "祠堂 恭耶",
+      riku: "立科 吏来",
+      tomose: "恩田 灯世",
+      yu: "新名 有",
+      kamiya: "神家",
+      urara: "麻波 麗"
+    };
+
+
+    /* =========================
+       YEAR
+       （開催年を増やすときはここに追加）
+    ========================= */
+
+    const yearOrder = ["2024", "2025", "2026"];
+
+
+    /* =========================
+       GENRE
+       （ジャンルを増やすときはここに追加）
+    ========================= */
+
+    const genreNames = {
+      prequel: "前日譚",
+      dressup: "ドレスアップ",
+      agency: "代行業務",
+      daily: "日常",
+      parody: "パロ"
+    };
+
+
+    /* =========================
+       EVENTS
+       （イベントを増やすときは、この配列に
+         オブジェクトを1つ追加するだけでOK）
+    ========================= */
+
+    const events = [
+
+      {
+        year: "2026",
+        genre: "daily",
+        title: "イベントタイトル",
+        image: "",   // バナー画像がない場合は空文字のままでOK（EVENTプレースホルダーが表示されます）
+        period: "2026.01.01 〜 2026.01.14",   // 開催期間は手動入力
+        characters: ["ai", "yuzuru"],
+        link: ""
+      },
+
+      /*
+      {
+        year: "2026",
+        genre: "prequel",
+        title: "イベントタイトル",
+        image: "images/event/xxx.png",
+        period: "2026.02.01 〜 2026.02.14",
+        characters: ["shizuka", "takeru"],
+        link: "event-xxx.html"
+      },
+      */
+
+    ];
+
+    /* =========================================================
+       ▲▲▲ ここまで編集する場所 ▲▲▲
+    ========================================================= */
+
+
+    /* =========================
+       ELEMENTS
+    ========================= */
+
+    const yearFilter = document.querySelector("#event-year-select");
+    const genreFilter = document.querySelector("#event-genre-select");
+    const characterFilter = document.querySelector("#event-character-select");
+
+    const searchButton = document.querySelector("#event-search-button");
+    const resetButton = document.querySelector("#event-reset-button");
+
+    const eventGrid = document.querySelector("#event-search-grid");
+    const resultCount = document.querySelector("#event-result-count");
+
+
+    /* =========================
+       GET SELECTED VALUES
+    ========================= */
+
+    function getCheckedValues(name) {
+      return Array.from(
+        document.querySelectorAll(`input[name="${name}"]:checked`)
+      ).map(input => input.value);
+    }
+
+
+    /* =========================
+       RENDER: FILTERS
+    ========================= */
+
+    function renderYearFilter() {
+      yearFilter.innerHTML = "";
+
+      yearOrder.forEach(year => {
+        const label = document.createElement("label");
+
+        label.innerHTML = `
+          <input type="checkbox" name="event-year" value="${year}">
+          <span>${year}</span>
+        `;
+
+        yearFilter.appendChild(label);
+      });
+    }
+
+    function renderGenreFilter() {
+      genreFilter.innerHTML = "";
+
+      Object.keys(genreNames).forEach(key => {
+        const label = document.createElement("label");
+
+        label.innerHTML = `
+          <input type="checkbox" name="event-genre" value="${key}">
+          <span>${genreNames[key]}</span>
+        `;
+
+        genreFilter.appendChild(label);
+      });
+    }
+
+    function renderCharacterFilter() {
+      characterFilter.innerHTML = "";
+
+      characterOrder.forEach(character => {
+        const label = document.createElement("label");
+
+        label.innerHTML = `
+          <input type="checkbox" name="event-character" value="${character}">
+          <span>${characterNames[character]}</span>
+        `;
+
+        characterFilter.appendChild(label);
+      });
+    }
+
+
+    /* =========================
+       RENDER: EVENTS
+    ========================= */
+
+    function renderEvents(results) {
+      eventGrid.innerHTML = "";
+
+      if (results.length === 0) {
+        eventGrid.innerHTML = `<p class="story-no-result">該当するイベントがありません。</p>`;
+        resultCount.textContent = "0 EVENTS";
+        return;
+      }
+
+      resultCount.textContent = `${results.length} EVENTS`;
+
+      results.forEach(event => {
+        const item = document.createElement("a");
+
+        item.className = "event-search-item";
+        item.href = event.link || "#";
+
+        const imageHTML = event.image
+          ? `<img src="${event.image}" alt="${event.title}">`
+          : `<span>EVENT</span>`;
+
+        const genreText = genreNames[event.genre] || "-";
+
+        item.innerHTML = `
+
+          <div class="event-search-image">
+            ${imageHTML}
+          </div>
+
+          <div class="event-search-info">
+
+            <p class="event-search-genre">
+              ${genreText}
+            </p>
+
+            <h3 class="event-search-title">
+              ${event.title}
+            </h3>
+
+            <p class="event-search-meta">
+              期間：${event.period || "-"}
+            </p>
+
+          </div>
+
+        `;
+
+        eventGrid.appendChild(item);
+      });
+    }
+
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    function searchEvents() {
+
+      const selectedYears = getCheckedValues("event-year");
+      const selectedGenres = getCheckedValues("event-genre");
+      const selectedCharacters = getCheckedValues("event-character");
+
+      const results = events.filter(event => {
+
+        if (selectedYears.length > 0 && !selectedYears.includes(event.year)) {
+          return false;
+        }
+
+        if (selectedGenres.length > 0 && !selectedGenres.includes(event.genre)) {
+          return false;
+        }
+
+        if (selectedCharacters.length > 0) {
+          const hasAll = selectedCharacters.every(character =>
+            (event.characters || []).includes(character)
+          );
+          if (!hasAll) return false;
+        }
+
+        return true;
+
+      });
+
+      renderEvents(results);
+    }
+
+
+    /* =========================
+       RESET
+    ========================= */
+
+    function resetSearch() {
+      document
+        .querySelectorAll('.story-search input[type="checkbox"]')
+        .forEach(input => { input.checked = false; });
+
+      renderEvents(events);
+    }
+
+
+    /* =========================
+       EVENTS (LISTENERS)
+    ========================= */
+
+    searchButton.addEventListener("click", searchEvents);
+    resetButton.addEventListener("click", resetSearch);
+
+
+    /* =========================
+       INITIAL DISPLAY
+    ========================= */
+
+    renderYearFilter();
+    renderGenreFilter();
+    renderCharacterFilter();
+
+    renderEvents(events);
+
+  </script>
+
+</body>
+</html>
