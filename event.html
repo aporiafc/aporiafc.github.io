@@ -344,8 +344,8 @@
 
     const genreNames = {
       prequel: "前日譚",
-      dressup: "ドレスアップ",
       agency: "代行業務",
+      dressup: "ドレスアップ",
       daily: "日常",
       parody: "パロ"
     };
@@ -363,20 +363,30 @@
         year: "2026",
         genre: "daily",
         title: "イベントタイトル",
-        image: "",   // バナー画像がない場合は空文字のままでOK（EVENTプレースホルダーが表示されます）
-        period: "2026.01.01 〜 2026.01.14",   // 開催期間は手動入力
+        image: "",
+        period: "2026.01.01 〜 2026.01.14",
         characters: ["ai", "yuzuru"],
+        link: ""
+      },
+
+      {
+        year: "2024",
+        genre: "agency", "ドレスアップ"
+        title: "Florist 花に染む言の葉",
+        image: "",
+        period: "202.01.01 〜 2026.01.14",
+        characters: ["yuzuru", "kiho", "tomose", "riku", "mao", "ai"],
         link: ""
       },
 
       /*
       {
         year: "2026",
-        genre: "代行業務", "dressup",
-        title: "Florist 花に染む言の葉",
+        genre: "prequel",
+        title: "イベントタイトル",
         image: "images/event/xxx.png",
-        period: "2024.05.17 〜 2024.05.30",
-        characters: ["yuzuru", "kiho", "tomose", "riku", "mao", "ai"],
+        period: "2026.02.01 〜 2026.02.14",
+        characters: ["shizuka", "takeru"],
         link: "event-xxx.html"
       },
       */
