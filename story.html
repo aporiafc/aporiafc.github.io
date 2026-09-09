@@ -214,6 +214,22 @@
 
           </label>
 
+          
+          <label>
+
+            <input
+              type="checkbox"
+              name="story-type"
+              value="login"
+            >
+
+            <span>
+              LOGIN
+            </span>
+
+          </label>
+
+          
         </div>
 
       </div>
@@ -1733,7 +1749,8 @@ const staffNames = {
       main: "MAIN",
       personal: "PERSONAL",
       event: "EVENT",
-      card: "CARD"
+      card: "CARD",
+      login: "LOGIN"
 
     };
 
@@ -1861,8 +1878,8 @@ function renderTitleFilter() {
   const typeOrder = [
     "main",
     "personal",
-    "event",
-    "card"
+    "card",
+    "login" 
   ];
 
 
