@@ -5994,3 +5994,16 @@ input[type="submit"] {
   }
 
 }
+
+@media (max-width: 700px) {
+
+  .timeline-note {
+    padding: 14px 14px 14px 30px;
+  }
+
+  .timeline-note::before {
+    top: 13px;
+    left: 11px;
+  }
+
+}
