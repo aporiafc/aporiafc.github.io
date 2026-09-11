@@ -5707,7 +5707,7 @@ input[type="submit"] {
 }
 
 .timeline-year-number {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "ryo-gothic-plusn", sans-serif;
   font-size: 48px;
   font-weight: 400;
   letter-spacing: 0.04em;
@@ -5716,7 +5716,7 @@ input[type="submit"] {
 }
 
 .timeline-year-label {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "ryo-gothic-plusn", sans-serif;
   font-size: 12px;
   letter-spacing: 0.3em;
 
@@ -5792,7 +5792,7 @@ input[type="submit"] {
 }
 
 .timeline-entry-month {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "ryo-gothic-plusn", sans-serif;
   font-size: 22px;
   font-weight: 400;
   letter-spacing: 0.06em;
