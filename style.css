@@ -5966,7 +5966,7 @@ input[type="submit"] {
   }
 
   .timeline-unconfirmed-label {
-    margin-top: 40px;
+    margin-top: 20px;
   }
 
 }
@@ -5986,7 +5986,7 @@ input[type="submit"] {
   }
 
   .timeline-year-number {
-    font-size: 36px;
+    font-size: 28px;
   }
 
   .timeline-entry-month {
