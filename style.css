@@ -5925,7 +5925,7 @@ input[type="submit"] {
   border: 1px solid rgba(34, 34, 34, 0.3);
   border-radius: 50%;
 
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 10px;
 
   color: #999;
@@ -5934,7 +5934,7 @@ input[type="submit"] {
 .timeline-note-time {
   margin: 0 0 6px;
 
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 11px;
   letter-spacing: 0.14em;
 
