@@ -4261,6 +4261,30 @@ html {
 
 
 /* =========================================================
+   STORY TYPE COLORS
+========================================================= */
+
+.story-item-type[data-type="main"] {
+  border-color: rgba(166, 88, 226, 0.4);
+  color: #a658e2;
+}
+
+.story-item-type[data-type="personal"] {
+  border-color: rgba(212, 123, 177, 0.4);
+  color: #d47bb1;
+}
+
+.story-item-type[data-type="card"] {
+  border-color: rgba(155, 207, 239, 0.5);
+  color: #4a9dc4;
+}
+
+.story-item-type[data-type="event"] {
+  border-color: rgba(228, 211, 133, 0.5);
+  color: #b39a2e;
+}
+
+/* =========================================================
    STORY NO RESULT
 ========================================================= */
 
