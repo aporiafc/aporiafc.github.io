@@ -6043,3 +6043,20 @@ input[type="submit"] {
   }
 
 }
+
+/* =========================================================
+   MARKER HIGHLIGHT
+========================================================= */
+
+.marker-highlight {
+  background-image: linear-gradient(
+    to top,
+    rgba(230, 140, 130, 0.35) 0%,
+    rgba(230, 140, 130, 0.35) 40%,
+    transparent 40%
+  );
+
+  background-repeat: no-repeat;
+
+  padding: 0 2px;
+}
