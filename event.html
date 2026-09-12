@@ -560,8 +560,8 @@
           : `<span>EVENT</span>`;
         
         const genreText = (event.genre || [])
-          .map(key => genreNames[key] || key)
-          .join(" / ");
+          .map(key => `<span class="event-search-genre-tag">${genreNames[key] || key}</span>`)
+          .join("");
 
         item.innerHTML = `
 
