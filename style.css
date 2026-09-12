@@ -6052,8 +6052,8 @@ input[type="submit"] {
   background-image: linear-gradient(
     to top,
     rgba(230, 140, 130, 0.35) 0%,
-    rgba(230, 140, 130, 0.35) 110%,
-    transparent 110%
+    rgba(230, 140, 130, 0.35) 120%,
+    transparent 120%
   );
 
   background-repeat: no-repeat;
