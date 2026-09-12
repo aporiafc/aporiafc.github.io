@@ -5635,6 +5635,31 @@ input[type="submit"] {
 }
 
 /* =========================================================
+   EVENT GENRE TAGS (検索結果カード内)
+========================================================= */
+
+.event-search-genre {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.event-search-genre-tag {
+  display: inline-block;
+
+  padding: 2px 9px;
+
+  border: 1px solid rgba(34, 34, 34, 0.16);
+  border-radius: 999px;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+
+  color: #555;
+}
+
+/* =========================================================
    TIMELINE PAGE
 ========================================================= */
 
