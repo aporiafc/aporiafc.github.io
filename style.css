@@ -648,8 +648,8 @@ html {
   flex-direction: column;
   gap: 18px;
 
-  width: min(100%, 800px);
-  margin-top: 60px;
+  width: min(100%, 640px);
+  margin: 60px auto 0;
 }
 
 .world-link {
@@ -731,7 +731,7 @@ html {
 }
 
 .world-link:hover .world-link-title::after {
-  transform: scaleX(1);
+  transform: scaleX(0);
 }
 
 
