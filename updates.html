@@ -93,7 +93,7 @@
       </div>
 
       <div class="receipt-footer">
-        <p class="receipt-count">2 UPDATES</p>
+        <p class="receipt-count" id="update-count"></p>
         <div class="receipt-barcode"></div>
       </div>
 
@@ -132,6 +132,18 @@
       siteMenuButton.classList.remove("is-hidden");
     }
   });
+
+      /* =========================
+     UPDATE COUNT (自動カウント)
+  ========================= */
+
+  const updateItems = document.querySelectorAll(".receipt-item");
+  const updateCountEl = document.querySelector("#update-count");
+
+  if (updateCountEl) {
+    updateCountEl.textContent = `${updateItems.length} UPDATES`;
+  }
+    
   </script>
 </body>
 </html>
