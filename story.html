@@ -2500,9 +2500,15 @@ const writers =
     </h3>
 
 
-    <p class="story-item-episode">
-      第${story.episode}話
-    </p>
+    ${
+      story.episode
+        ? `
+          <p class="story-item-episode">
+            第${story.episode}話
+          </p>
+        `
+        : ""
+    }
 
 
     ${
