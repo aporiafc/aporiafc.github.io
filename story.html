@@ -2120,16 +2120,24 @@ guest: [
 };
 
 
-/* =========================
-   STAFF NAME
-========================= */
+    /* =========================
+       SUPERVISOR
+       （SUPERVISORはこれ以上増やさない想定）
+    ========================= */
 
-const staffNames = {
+    const supervisorNames = {
+      aida: "藍田 創"
+    };
 
-  aida: "藍田 創",
-  sonobe: "園部 漣"
 
-};
+    /* =========================
+       WRITER
+       （ライターを増やすときはここに追加）
+    ========================= */
+
+    const writerNames = {
+      aida: "藍田 創"
+    };
 
 
 /* =========================
@@ -2349,72 +2357,35 @@ function getWriterStaff() {
    RENDER STAFF FILTERS
 ========================= */
 
-function renderStaffFilters() {
+    function renderSupervisorFilter() {
+      supervisorFilter.innerHTML = "";
 
-  supervisorSelect.innerHTML = "";
-  writerSelect.innerHTML = "";
+      Object.keys(supervisorNames).forEach(key => {
+        const label = document.createElement("label");
 
+        label.innerHTML = `
+          <input type="checkbox" name="story-supervisor" value="${key}">
+          <span>${supervisorNames[key]}</span>
+        `;
 
-  const supervisors =
-    getSupervisorStaff();
+        supervisorFilter.appendChild(label);
+      });
+    }
 
+    function renderWriterFilter() {
+      writerFilter.innerHTML = "";
 
-  const writers =
-    getWriterStaff();
+      Object.keys(writerNames).forEach(key => {
+        const label = document.createElement("label");
 
+        label.innerHTML = `
+          <input type="checkbox" name="story-writer" value="${key}">
+          <span>${writerNames[key]}</span>
+        `;
 
-  supervisors.forEach(staff => {
-
-    const label =
-      document.createElement("label");
-
-
-    label.innerHTML = `
-
-      <input
-        type="checkbox"
-        name="story-supervisor"
-        value="${staff}"
-      >
-
-      <span>
-        ${staffNames[staff] || staff}
-      </span>
-
-    `;
-
-
-    supervisorSelect.appendChild(label);
-
-  });
-
-
-  writers.forEach(staff => {
-
-    const label =
-      document.createElement("label");
-
-
-    label.innerHTML = `
-
-      <input
-        type="checkbox"
-        name="story-writer"
-        value="${staff}"
-      >
-
-      <span>
-        ${staffNames[staff] || staff}
-      </span>
-
-    `;
-
-
-    writerSelect.appendChild(label);
-
-  });
-
-}
+        writerFilter.appendChild(label);
+      });
+    }
     
 
     /* =========================
@@ -2450,12 +2421,14 @@ function renderStaffFilters() {
 
       results.forEach(story => {
 
-        const article =
-          document.createElement("article");
+const article =
+  document.createElement("a");
 
 
-        article.className =
-          "story-item";
+article.className =
+  "story-item";
+
+article.href = story.link || "#";
 
 
         const characters =
@@ -2471,19 +2444,19 @@ const summary =
 
 
         const supervisors =
-  (story.supervisors || [])
-    .map(supervisor =>
-      staffNames[supervisor] || supervisor
-    )
-    .join(" / ");
+          (story.supervisors || [])
+            .map(supervisor =>
+              supervisorNames[supervisor] || supervisor
+            )
+            .join(" / ");
 
 
-const writers =
-  (story.writers || [])
-    .map(writer =>
-      staffNames[writer] || writer
-    )
-    .join(" / ");
+        const writers =
+          (story.writers || [])
+            .map(writer =>
+              writerNames[writer] || writer
+            )
+            .join(" / ");
 
 
         article.innerHTML = `
@@ -2560,20 +2533,6 @@ const writers =
 </div>
 
 
-          ${
-            story.link
-              ? `
-
-                
-                  href="${story.link}"
-                  class="story-item-link"
-                >
-                  DETAIL
-                </a>
-
-              `
-              : ""
-          }
 
         `;
 
