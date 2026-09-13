@@ -2744,7 +2744,7 @@ const selectedWriters =
         });
 
 
-      renderStories(results);
+      renderStories([...results].reverse());
 
     }
     
@@ -2801,7 +2801,7 @@ resetButton.addEventListener(
     renderSupervisorFilter();
     renderWriterFilter();
     
-    renderStories([...results].reverse());
+    renderStories([...stories].reverse());
   
   </script>
 
