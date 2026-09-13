@@ -6051,8 +6051,8 @@ input[type="submit"] {
 .marker-highlight {
   background-image: linear-gradient(
     to top,
-    rgba(230, 140, 130, 0.35) 0%,
-    rgba(230, 140, 130, 0.35) 120%,
+    rgba(224, 224, 130, 0.55) 0%,
+    rgba(224, 224, 130, 0.55) 120%,
     transparent 120%
   );
 
