@@ -2769,7 +2769,7 @@ const selectedWriters =
       storyTitleInput.value = "";
 
 
-      renderStories(stories);
+      renderStories([...stories].reverse());
 
     }
 
@@ -2801,7 +2801,7 @@ resetButton.addEventListener(
     renderSupervisorFilter();
     renderWriterFilter();
     
-    renderStories(stories);
+    renderStories([...results].reverse());
   
   </script>
 
