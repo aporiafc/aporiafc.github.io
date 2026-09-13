@@ -4103,6 +4103,9 @@ html {
   border: 1px solid #e5e5e5;
   border-radius: 8px;
 
+  color: #222;
+  text-decoration: none;
+
   transition:
     transform 0.25s ease,
     border-color 0.25s ease;
