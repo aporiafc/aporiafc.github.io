@@ -2332,50 +2332,28 @@ function renderTitleFilter() {
     </option>
   `;
 
+  const titles = [
+    ...new Set(
+      [...stories]
+        .reverse()
+        .map(story => story.title)
+    )
+  ];
 
-  const typeOrder = [
-  "main",
-  "personal",
-  "event",
-  "card",
-  "login"
-];
+  titles.forEach(title => {
 
+    const option =
+      document.createElement("option");
 
-  typeOrder.forEach(type => {
+    option.value =
+      title;
 
-    const titles = [
-      ...new Set(
-        stories
-          .filter(story =>
-            story.type === type
-          )
-          .map(story =>
-            story.title
-          )
-      )
-    ];
+    option.textContent =
+      title;
 
-
-    titles.forEach(title => {
-
-      const option =
-        document.createElement("option");
-
-
-      option.value =
-        title;
-
-
-      option.textContent =
-        title;
-
-
-      storyTitleInput.appendChild(
-        option
-      );
-
-    });
+    storyTitleInput.appendChild(
+      option
+    );
 
   });
 
