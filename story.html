@@ -2276,11 +2276,12 @@ function renderTitleFilter() {
 
 
   const typeOrder = [
-    "main",
-    "personal",
-    "card",
-    "login" 
-  ];
+  "main",
+  "personal",
+  "event",
+  "card",
+  "login"
+];
 
 
   typeOrder.forEach(type => {
@@ -2357,35 +2358,35 @@ function getWriterStaff() {
    RENDER STAFF FILTERS
 ========================= */
 
-    function renderSupervisorFilter() {
-      supervisorFilter.innerHTML = "";
+function renderSupervisorFilter() {
+  supervisorSelect.innerHTML = "";
 
-      Object.keys(supervisorNames).forEach(key => {
-        const label = document.createElement("label");
+  Object.keys(supervisorNames).forEach(key => {
+    const label = document.createElement("label");
 
-        label.innerHTML = `
-          <input type="checkbox" name="story-supervisor" value="${key}">
-          <span>${supervisorNames[key]}</span>
-        `;
+    label.innerHTML = `
+      <input type="checkbox" name="story-supervisor" value="${key}">
+      <span>${supervisorNames[key]}</span>
+    `;
 
-        supervisorFilter.appendChild(label);
-      });
-    }
+    supervisorSelect.appendChild(label);
+  });
+}
 
-    function renderWriterFilter() {
-      writerFilter.innerHTML = "";
+function renderWriterFilter() {
+  writerSelect.innerHTML = "";
 
-      Object.keys(writerNames).forEach(key => {
-        const label = document.createElement("label");
+  Object.keys(writerNames).forEach(key => {
+    const label = document.createElement("label");
 
-        label.innerHTML = `
-          <input type="checkbox" name="story-writer" value="${key}">
-          <span>${writerNames[key]}</span>
-        `;
+    label.innerHTML = `
+      <input type="checkbox" name="story-writer" value="${key}">
+      <span>${writerNames[key]}</span>
+    `;
 
-        writerFilter.appendChild(label);
-      });
-    }
+    writerSelect.appendChild(label);
+  });
+}
     
 
     /* =========================
@@ -2739,7 +2740,8 @@ resetButton.addEventListener(
     
     renderCharacterFilters();
     
-    renderStaffFilters();
+    renderSupervisorFilter();
+    renderWriterFilter();
     
     renderStories(stories);
   
