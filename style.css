@@ -1256,7 +1256,7 @@ html {
 }
 
 .character-detail-page h2::before {
-  content: "•";
+  content: "●";
   color: var(--character-color);
   margin-right: 0.8em;
 }
