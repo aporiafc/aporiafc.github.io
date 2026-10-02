@@ -1761,7 +1761,7 @@ html {
   box-sizing: border-box;
   width: 100%;
 
-  padding: 22px 20px;
+  padding: 12px 10px;
 
   border: 1px solid #e5e5e5;
   border-left: 3px solid var(--character-color);
@@ -1794,13 +1794,13 @@ html {
 /* ---------- BODY ---------- */
 
 .title-card-body {
-  margin-top: 16px;
+  margin-top: 13px;
 }
 
 .title-card-condition {
   margin: 0;
 
-  font-size: 9px;
+  font-size: 8px;
   line-height: 1.8;
   color: #555;
 }
