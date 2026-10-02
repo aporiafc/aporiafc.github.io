@@ -1322,16 +1322,6 @@ html {
   margin-top: 55px;
 }
 
-/* =========================================================
-   RELATION SOURCE (- ROLL'N GROOVE 表記)
-========================================================= */
-
-.relation-source {
-  font-size: 11px;
-
-  color: #999;
-  opacity: 0.7;
-}
 
 /* =========================
    呼び方 TABLE
@@ -1740,92 +1730,6 @@ html {
 .card-link:hover h3 {
   opacity: 0.7;
 }
-
-
-/* =========================================================
-   TITLE (称号一覧)
-========================================================= */
-
-.title-grid {
-  display: grid;
-
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-
-  gap: 24px;
-
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.title-card {
-  box-sizing: border-box;
-  width: 100%;
-
-  padding: 12px 10px;
-
-  border: 1px solid #e5e5e5;
-  border-left: 3px solid var(--character-color);
-  border-radius: 10px;
-
-  background: #fff;
-}
-
-
-/* ---------- HEADER ---------- */
-
-.title-card-header h3 {
-  margin: 0 0 8px;
-
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-}
-
-.title-card-event {
-  margin: 0;
-
-  font-size: 10px;
-  letter-spacing: 0.05em;
-
-  color: #777;
-}
-
-
-/* ---------- BODY ---------- */
-
-.title-card-body {
-  margin-top: 13px;
-}
-
-.title-card-condition {
-  margin: 0;
-
-  font-size: 8px;
-  line-height: 1.8;
-  color: #555;
-}
-
-.title-card-condition-label {
-  display: block;
-
-  margin-bottom: 4px;
-
-  font-size: 9px;
-  letter-spacing: 0.1em;
-
-  color: #999;
-}
-
-
-/* ---------- MOBILE ---------- */
-
-@media (max-width: 700px) {
-
-  .title-grid {
-    grid-template-columns: 1fr;
-
-    gap: 20px;
-  }
 
 
 /* =========================
