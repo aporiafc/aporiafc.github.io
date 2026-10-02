@@ -6106,7 +6106,7 @@ input[type="submit"] {
 /* ---------- HEADER ---------- */
 
 .title-card-header h3 {
-  margin: 0 0 8px;
+  margin: 0;
 
   font-size: 12px;
   font-weight: 500;
