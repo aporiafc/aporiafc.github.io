@@ -1827,6 +1827,91 @@ html {
     gap: 20px;
   }
 
+}/* =========================================================
+   TITLE (称号一覧)
+========================================================= */
+
+.title-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 24px;
+
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.title-card {
+  box-sizing: border-box;
+  width: 100%;
+
+  padding: 22px 20px;
+
+  border: 1px solid #e5e5e5;
+  border-left: 3px solid var(--character-color);
+  border-radius: 10px;
+
+  background: #fff;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.title-card-header h3 {
+  margin: 0 0 8px;
+
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.title-card-event {
+  margin: 0;
+
+  font-size: 12px;
+  letter-spacing: 0.05em;
+
+  color: #999;
+}
+
+
+/* ---------- BODY ---------- */
+
+.title-card-body {
+  margin-top: 16px;
+}
+
+.title-card-condition {
+  margin: 0;
+
+  font-size: 12px;
+  line-height: 1.8;
+  color: #999;
+}
+
+.title-card-condition-label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-size: 10px;
+  letter-spacing: 0.1em;
+
+  color: #555;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 700px) {
+
+  .title-grid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
 }
 
 
