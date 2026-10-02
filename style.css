@@ -6108,7 +6108,7 @@ input[type="submit"] {
 .title-card-header h3 {
   margin: 0 0 8px;
 
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.06em;
 }
@@ -6116,7 +6116,7 @@ input[type="submit"] {
 .title-card-event {
   margin: 0;
 
-  font-size: 12px;
+  font-size: 9px;
   letter-spacing: 0.05em;
 
   color: #999;
@@ -6126,7 +6126,7 @@ input[type="submit"] {
 /* ---------- BODY ---------- */
 
 .title-card-body {
-  margin-top: 11px;
+  margin-top: 3px;
 }
 
 .title-card-condition {
@@ -6140,7 +6140,7 @@ input[type="submit"] {
 .title-card-condition-label {
   display: block;
 
-  margin-bottom: 4px;
+  margin-bottom: 0px;
 
   font-size: 10px;
   letter-spacing: 0.1em;
