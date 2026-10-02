@@ -1794,7 +1794,7 @@ html {
 /* ---------- BODY ---------- */
 
 .title-card-body {
-  margin-top: 10px;
+  margin-top: 16px;
 }
 
 .title-card-condition {
@@ -1805,16 +1805,15 @@ html {
   color: #555;
 }
 
-.title-card {
-  box-sizing: border-box;
-  width: 100%;
+.title-card-condition-label {
+  display: block;
 
-  padding: 22px 20px;
+  margin-bottom: 4px;
 
-  border: 2px solid var(--character-color);
-  border-radius: 10px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
 
-  background: #fff;
+  color: #999;
 }
 
 
