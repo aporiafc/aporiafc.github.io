@@ -1774,7 +1774,7 @@ html {
 /* ---------- HEADER ---------- */
 
 .title-card-header h3 {
-  margin: 0 0 0px;
+  margin: 0 0 8px;
 
   font-size: 15px;
   font-weight: 500;
