@@ -6093,7 +6093,7 @@ input[type="submit"] {
   box-sizing: border-box;
   width: 100%;
 
-  padding: 22px 20px;
+  padding: 12px 20px;
 
   border: 1px solid #e5e5e5;
   border-left: 3px solid var(--character-color);
