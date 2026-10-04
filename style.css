@@ -1472,13 +1472,27 @@ html {
 }
 
 .voice-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
   color: var(--character-color);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  text-decoration: none;
+
+  border-bottom: 1px solid currentColor;
+
+  transition: opacity 0.2s ease;
 }
 
 .voice-link:hover {
-  opacity: 0.7;
+  opacity: 0.6;
+}
+
+.voice-link::after {
+  content: "→";
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
 }
 
 /* =========================
@@ -6170,25 +6184,3 @@ input[type="submit"] {
 
 }
 
-
-/* =========================================================
-   VOICE & MESSAGE
-========================================================= */
-
-.voice-message-text {
-  margin: 0 !important;
-  padding: 0 !important;
-
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-.voice-message-text a {
-  color: var(--character-color);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.voice-message-text a:hover {
-  opacity: 0.7;
-}
