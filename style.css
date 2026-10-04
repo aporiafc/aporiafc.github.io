@@ -1489,7 +1489,7 @@ html {
 }
 
 .voice-link::after {
-  content: "→";
+  content: "";
 
   font-family: "Cormorant Garamond", serif;
   font-size: 13px;
