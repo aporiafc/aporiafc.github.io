@@ -1471,6 +1471,15 @@ html {
   letter-spacing: 0.05em;
 }
 
+.voice-link {
+  color: var(--character-color);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.voice-link:hover {
+  opacity: 0.7;
+}
 
 /* =========================
    SPIN
