@@ -6160,3 +6160,35 @@ input[type="submit"] {
   }
 
 }
+
+
+/* =========================================================
+   VOICE & MESSAGE
+========================================================= */
+
+.voice-message-text {
+  margin: 0;
+
+  padding-left: 190px;
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.voice-message-text a {
+  color: var(--character-color);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.voice-message-text a:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 700px) {
+
+  .voice-message-text {
+    padding-left: 118px;
+  }
+
+}
