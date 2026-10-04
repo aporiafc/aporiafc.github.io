@@ -6169,8 +6169,6 @@ input[type="submit"] {
 .voice-message-text {
   margin: 0;
 
-  padding-left: 190px;
-
   font-size: 14px;
   line-height: 1.8;
 }
@@ -6183,12 +6181,4 @@ input[type="submit"] {
 
 .voice-message-text a:hover {
   opacity: 0.7;
-}
-
-@media (max-width: 700px) {
-
-  .voice-message-text {
-    padding-left: 118px;
-  }
-
 }
