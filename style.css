@@ -2101,17 +2101,15 @@ html {
   }
 
   .calling-table {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow-x: visible;
   }
 
   .calling-row {
-    min-width: 560px;
-    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-template-columns: 1.3fr 0.85fr 0.85fr;
   }
 
   .calling-row > div {
-    padding: 11px 13px;
+    padding: 11px 8px;
     font-size: 11px;
   }
 
