@@ -1384,14 +1384,14 @@ html {
 
 
 /* =========================
-   SPECIAL VOICE → BIRTHDAY COMMENT
+   SPECIAL VOICE → BIRTHDAY PAGE
 ========================= */
 
-.character-detail-page .birthday-comment {
+.character-detail-page .birthday-page {
   margin-top: -20px;
 }
 
-.birthday-comment .birthday-year {
+.birthday-page .birthday-year {
   margin: 28px 0 0;
 
   font-size: 11px;
@@ -1400,11 +1400,11 @@ html {
   color: #555;
 }
 
-.birthday-comment .birthday-year:first-child {
+.birthday-page .birthday-year:first-child {
   margin-top: 0;
 }
 
-.birthday-comment .profile-value {
+.birthday-page .profile-value {
   font-size: 12px;
   line-height: 1.8;
 }
@@ -2078,12 +2078,12 @@ html {
 
   /* BIRTHDAY */
 
-  .birthday-comment .birthday-year {
+  .birthday-page .birthday-year {
     margin-top: 24px;
     font-size: 11px;
   }
 
-  .birthday-comment .profile-value {
+  .birthday-page .profile-value {
     font-size: 12px;
     line-height: 1.8;
   }
