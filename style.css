@@ -6182,5 +6182,19 @@ input[type="submit"] {
     gap: 16px;
   }
 
+
+   
 }
 
+.birthday-year {
+  margin: 36px 0 18px;
+
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: #555;
+}
+
+.birthday-year:first-of-type {
+  margin-top: 0;
+}
