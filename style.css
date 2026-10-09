@@ -6182,4 +6182,21 @@ input[type="submit"] {
   }
 
 
-   
+/* =========================================================
+   CARD GRID MOBILE (2列)
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 18px;
+  }
+
+  .card-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+}
