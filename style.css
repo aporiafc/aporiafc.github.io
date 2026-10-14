@@ -5417,6 +5417,32 @@ input[type="submit"] {
 }
 
 /* =========================================================
+   CARD LIST: スマホ横向きは4列
+========================================================= */
+
+@media (orientation: landscape) and (max-height: 500px) {
+
+  .card-search-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 16px;
+  }
+
+  .card-search-info {
+    padding: 10px 10px 12px;
+  }
+
+  .card-search-title {
+    font-size: 11px;
+  }
+
+  .card-search-meta {
+    font-size: 9px;
+  }
+
+}
+
+/* =========================================================
    COMPACT FILTER BUTTONS
    (RARITY / ATTRIBUTE / LEADER SKILL / AUTO SKILL / SP SKILL)
 ========================================================= */
