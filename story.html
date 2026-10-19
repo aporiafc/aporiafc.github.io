@@ -231,62 +231,52 @@
 
 </div>
 
-      <!-- =========================
-           CHARACTERS
-      ========================= -->
-
+      
+  <!-- =========================
+      CHARACTERS
+  ========================= -->
+      
       <div class="story-search-group">
-
         <p class="story-search-label">
           CHARACTERS
         </p>
-
         <div
           id="story-character-select"
           class="story-character-select"
         ></div>
-
       </div>
       
       
-      <!-- =========================
-           STAFF
-     ========================= -->
-
-<div class="story-search-group">
-
-  <p class="story-search-label">
-    SUPERVISOR
-  </p>
-
-  <div
-    id="story-supervisor-select"
-    class="story-filter-buttons"
-  ></div>
-
-</div>
-
-
-<div class="story-search-group">
-
-  <p class="story-search-label">
-    WRITER
-  </p>
-
-  <div
-    id="story-writer-select"
-    class="story-filter-buttons"
-  ></div>
-
-</div>
+  <!-- =========================
+      STAFF
+  ========================= -->
+      
+      <div class="story-search-group">
+        <p class="story-search-label">
+          SUPERVISOR
+        </p>
+        <div
+          id="story-supervisor-select"
+          class="story-filter-buttons"
+          ></div>
+      </div>
+      
+      <div class="story-search-group">
+        <p class="story-search-label">
+          WRITER
+        </p>
+        <div
+          id="story-writer-select"
+          class="story-filter-buttons"
+          ></div>
+      </div>
 
 
-      <!-- =========================
-           SEARCH ACTION
-      ========================= -->
-
+  <!-- =========================
+      SEARCH ACTION
+  ========================= -->
+      
       <div class="story-search-action">
-
         <button
           type="button"
           id="story-reset-button"
@@ -294,7 +284,7 @@
         >
           RESET
         </button>
-
+        
         <button
           type="button"
           id="story-search-button"
@@ -302,21 +292,15 @@
         >
           SEARCH
         </button>
-
       </div>
-
     </section>
 
 
-
-    <!-- =========================
-         RESULT
-    ========================= -->
-
+  <!-- =========================
+    RESULT
+  ========================= -->
     <section class="story-results">
-
       <div class="story-results-header">
-
         <p class="section-label">
           RESULT
         </p>
@@ -328,32 +312,26 @@
         <p id="story-result-count">
           ALL STORIES
         </p>
-
       </div>
-
 
       <div
         id="story-list"
         class="story-list"
       ></div>
-
     </section>
-
-
+    
   </main>
 
-
-
   <!-- =========================
-       SCRIPT
+  SCRIPT
   ========================= -->
 
   <script>
 
 
-    /* =========================
-       SITE MENU
-    ========================= */
+  /* =========================
+  SITE MENU
+  ========================= */
 
     const siteMenuButton =
       document.querySelector(".site-menu-button");
@@ -3615,23 +3593,23 @@ const selectedWriters =
 
 
 
-    /* =========================
-       EVENTS
-    ========================= */
-      searchButton.addEventListener(
-        "click",
-  searchStories
+  /* =========================
+  EVENTS
+  ========================= */
+    searchButton.addEventListener(
+      "click",
+      searchStories
       );
-
-resetButton.addEventListener(
-  "click",
-  resetSearch
-);
+    
+    resetButton.addEventListener(
+      "click",
+      resetSearch
+    );
     
 
-    /* =========================
-       INITIAL DISPLAY
-    ========================= */
+  /* =========================
+  INITIAL DISPLAY
+  ========================= */
 
     renderTitleFilter();
     
