@@ -6244,3 +6244,20 @@ input[type="submit"] {
   }
 
 }
+
+/* =========================================================
+   button
+========================================================= */
+   
+.story-reset-button,
+#card-reset-button,
+#event-reset-button {
+  color: #999;
+}
+
+.story-search-button,
+#card-search-button,
+#event-search-button {
+  color: #222;
+  font-weight: 500;
+}
