@@ -6246,18 +6246,18 @@ input[type="submit"] {
 }
 
 /* =========================================================
-   button
+   SEARCH ACTION BUTTONS (色の強弱)
 ========================================================= */
-   
-.story-reset-button,
-#card-reset-button,
-#event-reset-button {
+
+.story-search-action .story-reset-button,
+.story-search-action #card-reset-button,
+.story-search-action #event-reset-button {
   color: #999;
 }
 
-.story-search-button,
-#card-search-button,
-#event-search-button {
+.story-search-action .story-search-button,
+.story-search-action #card-search-button,
+.story-search-action #event-search-button {
   color: #222;
   font-weight: 500;
 }
