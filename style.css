@@ -6267,13 +6267,13 @@ input[type="submit"] {
    STORY ITEM: 左右バランス調整
 ========================================================= */
 
-.story-item {
+.story-list .story-item {
   grid-template-columns:
     minmax(0, 1.5fr)
     minmax(0, 1fr)
     auto;
 }
 
-.story-item-info {
+.story-list .story-item .story-item-info {
   padding-left: 32px;
 }
