@@ -322,6 +322,24 @@
     
   </main>
 
+
+  <!-- =========================
+       PAGE JUMP BUTTONS
+  ========================= -->
+
+  <div class="page-jump">
+
+    <button type="button" class="page-jump-button" id="jump-top" aria-label="ページの先頭へ">
+      ↑
+    </button>
+
+    <button type="button" class="page-jump-button" id="jump-bottom" aria-label="ページの末尾へ">
+      ↓
+    </button>
+
+  </div>
+  
+
   <!-- =========================
   SCRIPT
   ========================= -->
@@ -4729,6 +4747,38 @@ const selectedWriters =
     renderWriterFilter();
     
     renderStories([...stories].reverse());
+
+
+    /* =========================
+       PAGE JUMP
+    ========================= */
+
+    const jumpTop =
+      document.querySelector("#jump-top");
+
+    const jumpBottom =
+      document.querySelector("#jump-bottom");
+
+
+    jumpTop.addEventListener("click", () => {
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    });
+
+
+    jumpBottom.addEventListener("click", () => {
+
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "smooth"
+      });
+
+    });
+
   
   </script>
 
