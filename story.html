@@ -3921,7 +3921,37 @@ guest: [
       vinaspin: "Vinaspin"
     };
 
+  
+    /* =========================
+       CHARACTER COLOR
+       （カードストーリーの色あしらい用）
+    ========================= */
 
+    const characterColors = {
+      ai: "#B22222",
+      yuzuru: "#7DA852",
+      roka: "#FFC02D",
+      kou: "#FD1493",
+      mao: "#A553E8",
+      akehoshi: "#FE8A23",
+      yuragi: "#6495ED",
+      taiga: "#8BCCD6",
+      haruhi: "#E9DC69",
+      sei: "#9A98C1",
+      shizuka: "#3F60BE",
+      takeru: "#C437BC",
+      soyogu: "#E04D21",
+      shinobu: "#388138",
+      kiho: "#DF507F",
+      kyoya: "#F09C65",
+      riku: "#7043BB",
+      tomose: "#61C892",
+      yu: "#13BFFC",
+      kamiya: "#5E76BC",
+      urara: "#DE7DF3"
+    };
+
+  
 /* =========================
        STORY TYPE NAME
 ========================= */
@@ -4210,6 +4240,16 @@ if (story.link) {
 }
 
 
+if (story.type === "card" || story.type === "personal") {
+  const mainCharacter = story.characters[0];
+  const color = characterColors[mainCharacter];
+
+  if (color) {
+    article.style.setProperty("--character-color", color);
+    article.classList.add("is-character-story");
+  }
+}
+        
         const characters =
   story.characters
     .map(character =>
