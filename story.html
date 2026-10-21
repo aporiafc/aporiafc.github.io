@@ -4190,6 +4190,18 @@ const article = story.link
 article.className =
   "story-item";
 
+
+if (story.type === "card") {
+  const mainCharacter = story.characters[0];
+  const color = characterColors[mainCharacter];
+
+  if (color) {
+    article.style.setProperty("--character-color", color);
+    article.classList.add("is-card-story");
+  }
+}
+
+        
 if (story.link) {
   article.href = story.link;
 } else {
