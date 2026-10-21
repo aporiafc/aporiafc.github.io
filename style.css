@@ -6277,3 +6277,20 @@ input[type="submit"] {
     0 1px 2px rgba(17, 17, 17, 0.02),
     0 14px 28px -20px rgba(17, 17, 17, 0.14);
 }
+
+/* =========================================================
+   STORY ITEM: リンクなし(ホバーで動かない)
+========================================================= */
+
+.story-list .story-item.is-no-link,
+.story-list .story-item.is-no-link:hover {
+  transform: none !important;
+
+  box-shadow:
+    0 1px 2px rgba(17, 17, 17, 0.02),
+    0 14px 28px -20px rgba(17, 17, 17, 0.14) !important;
+
+  border-color: rgba(34, 34, 34, 0.05) !important;
+
+  cursor: default;
+}
