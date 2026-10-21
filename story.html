@@ -4239,16 +4239,6 @@ if (story.link) {
   );
 }
 
-
-if (story.type === "card" || story.type === "personal") {
-  const mainCharacter = story.characters[0];
-  const color = characterColors[mainCharacter];
-
-  if (color) {
-    article.style.setProperty("--character-color", color);
-    article.classList.add("is-character-story");
-  }
-}
         
         const characters =
   story.characters
@@ -4355,7 +4345,24 @@ const summary =
 
         `;
 
+        
+        if (story.type === "card" || story.type === "personal") {
+          const mainCharacter = story.characters[0];
+          const color = characterColors[mainCharacter];
+          const typeLabel = article.querySelector(".story-item-type");
 
+          if (color && typeLabel) {
+            typeLabel.style.setProperty("background", color, "important");
+            typeLabel.style.setProperty("border-color", color, "important");
+            typeLabel.style.setProperty("color", "#fff", "important");
+          }
+        }
+
+
+        storyList.appendChild(article);
+
+
+        
         storyList.appendChild(article);
 
       });
