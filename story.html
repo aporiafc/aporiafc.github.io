@@ -4194,6 +4194,19 @@ if (story.link) {
   article.href = story.link;
 } else {
   article.classList.add("is-no-link");
+
+  article.style.setProperty("transform", "none", "important");
+  article.style.setProperty("transition", "none", "important");
+  article.style.setProperty(
+    "box-shadow",
+    "0 1px 2px rgba(17, 17, 17, 0.02), 0 14px 28px -20px rgba(17, 17, 17, 0.14)",
+    "important"
+  );
+  article.style.setProperty(
+    "border-color",
+    "rgba(34, 34, 34, 0.05)",
+    "important"
+  );
 }
 
 
