@@ -6294,3 +6294,24 @@ input[type="submit"] {
 
   cursor: default;
 }
+
+/* =========================================================
+   STORY ITEM: カードストーリーの色あしらい
+========================================================= */
+
+/* ラベルをキャラクターカラーに */
+
+.story-item.is-card-story .story-item-type {
+  border-color: var(--character-color);
+  color: var(--character-color);
+}
+
+/* 左端から淡く滲むグラデーション */
+
+.story-item.is-card-story {
+  background-image: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--character-color) 9%, transparent) 0%,
+    transparent 38%
+  );
+}
