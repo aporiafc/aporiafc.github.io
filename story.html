@@ -4162,14 +4162,19 @@ function renderWriterFilter() {
 
       results.forEach(story => {
 
-const article =
-  document.createElement("a");
+const article = story.link
+  ? document.createElement("a")
+  : document.createElement("div");
 
 
 article.className =
   "story-item";
 
-article.href = story.link || "#";
+if (story.link) {
+  article.href = story.link;
+} else {
+  article.classList.add("is-no-link");
+}
 
 
         const characters =
