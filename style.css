@@ -6410,3 +6410,23 @@ input[type="submit"] {
   visibility: visible;
   pointer-events: auto;
 }
+
+
+/* =========================================================
+   STORY ITEM: 左右バランス調整 (PCのみ)
+========================================================= */
+
+@media (min-width: 701px) {
+
+  .story-list .story-item {
+    grid-template-columns:
+      minmax(0, 1.5fr)
+      minmax(0, 1fr)
+      auto;
+  }
+
+  .story-list .story-item .story-item-info {
+    padding-left: 32px;
+  }
+
+}
