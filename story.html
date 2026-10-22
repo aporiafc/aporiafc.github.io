@@ -4763,8 +4763,8 @@ const selectedWriters =
     
     renderSupervisorFilter();
     renderWriterFilter();
-    
-    renderStories([...stories].reverse());
+  
+  renderStories([...stories].reverse());
 
 
     /* =========================
@@ -4797,9 +4797,18 @@ const selectedWriters =
 
     });
 
-  
-  </script>
 
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 400) {
+        jumpTop.classList.add("is-visible");
+      } else {
+        jumpTop.classList.remove("is-visible");
+      }
+
+    });
+
+  </script>
 
 </body>
 </html>
