@@ -4818,10 +4818,23 @@ const selectedWriters =
       document.querySelector("#jump-bottom");
 
 
+    const resultsSection =
+      document.querySelector(".story-results");
+
     jumpTop.addEventListener("click", () => {
 
+      const resultsTop =
+        resultsSection.getBoundingClientRect().top + window.scrollY;
+
+      // 検索結果の先頭より下にいるなら、まず結果の先頭へ。
+      // すでに結果の先頭付近(または、それより上)にいるなら、ページの一番上へ。
+      const target =
+        window.scrollY > resultsTop + 40
+          ? resultsTop - 90
+          : 0;
+
       window.scrollTo({
-        top: 0,
+        top: target,
         behavior: "smooth"
       });
 
