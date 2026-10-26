@@ -7533,15 +7533,21 @@ const summary =
   </p>
 
 
-  <p>
+  ${
+    supervisors
+      ? `
+        <p>
 
-    <span>
-      SUPERVISOR
-    </span>
+          <span>
+            SUPERVISOR
+          </span>
 
-    ${supervisors}
+          ${supervisors}
 
-  </p>
+        </p>
+      `
+      : ""
+  }
 
 
   <p>
