@@ -4304,6 +4304,11 @@ html {
   color: #a658e2;
 }
 
+.story-item-type[data-type="prequel"] {
+  border-color: rgba(166, 88, 226, 0.4);
+  color: #a658e2;
+}
+
 .story-item-type[data-type="personal"] {
   border-color: rgba(212, 123, 177, 0.4);
   color: #d47bb1;
