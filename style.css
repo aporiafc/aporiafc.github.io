@@ -6446,7 +6446,7 @@ input[type="submit"] {
   grid-template-columns: 1fr auto;
   align-items: center;
 
-  margin: 0 0 70px;
+  margin: 90px 0 0;
   padding: 20px 26px;
 
   background: #fff;
@@ -6506,7 +6506,7 @@ input[type="submit"] {
 
 .timeline-note-link-arrow {
   font-family: "Cormorant Garamond", serif;
-  font-size: 20px;
+  font-size: 15px;
 
   color: #777;
 
@@ -6527,7 +6527,8 @@ input[type="submit"] {
 @media (max-width: 700px) {
 
   .timeline-note-link {
-    margin-bottom: 50px;
+    margin-top: 60px;
+    margin-bottom: 0;
     padding: 16px 18px;
   }
 
