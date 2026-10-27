@@ -6121,6 +6121,8 @@ input[type="submit"] {
 
   .timeline-intro .page-description {
     font-size: 9px;
+    line-height: 2;
+    letter-spacing: 0.09em;
   }
 
   .timeline-year-number {
