@@ -6435,3 +6435,104 @@ input[type="submit"] {
   }
 
 }
+
+
+/* =========================================================
+   TIMELINE: NOTE LINK
+========================================================= */
+
+.timeline-note-link {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+
+  margin: 0 0 70px;
+  padding: 20px 26px;
+
+  background: #fff;
+
+  border: 1px solid rgba(34, 34, 34, 0.05);
+  border-left: 3px solid #222;
+  border-radius: 8px;
+
+  color: #222;
+  text-decoration: none;
+
+  box-shadow:
+    0 1px 2px rgba(17, 17, 17, 0.02),
+    0 14px 28px -20px rgba(17, 17, 17, 0.14);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.timeline-note-link:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 2px 4px rgba(17, 17, 17, 0.03),
+    0 20px 36px -18px rgba(17, 17, 17, 0.18);
+}
+
+
+/* ---------- TEXT ---------- */
+
+.timeline-note-link-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.timeline-note-link-label {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+
+  color: #999;
+}
+
+.timeline-note-link-title {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+
+  color: #222;
+}
+
+
+/* ---------- ARROW ---------- */
+
+.timeline-note-link-arrow {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+
+  color: #777;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.timeline-note-link:hover .timeline-note-link-arrow {
+  transform: translate(3px, -3px);
+
+  color: #222;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 700px) {
+
+  .timeline-note-link {
+    margin-bottom: 50px;
+    padding: 16px 18px;
+  }
+
+  .timeline-note-link-title {
+    font-size: 13px;
+  }
+
+}
