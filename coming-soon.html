@@ -12,6 +12,7 @@
   <style>
     /* =========================
        COMING SOON（このページ専用）
+       style.css と衝突しないよう wip- を頭に付けています
     ========================= */
 
     .wip-page {
@@ -198,9 +199,9 @@
     }
     .wip-links a {
       padding: 4px 2px;
-      color: rgba(34, 34, 34, 0.45);
+      color: var(--wip-soft);
       text-decoration: none;
-      font-size: 11px;
+      font-size: 12px;
       letter-spacing: 0.1em;
       border-bottom: 1px solid transparent;
       transition: color 0.2s, border-color 0.2s;
@@ -421,8 +422,18 @@
           "お届けの準備を、いま丁寧に進めています。",
           "香りを楽しみながら、暫しお待ちください。"
         ]
-      }
+      },
 
+      glossary: {
+        title: "GLOSSARY は準備中です",
+        label: "GLOSSARY",
+        back: "索引づくり中",
+        messages: [
+          "言葉を一つずつ、丁寧に拾い集めています。",
+          "付箋が増えすぎて、辞書がふくらんできました。",
+          "索引づくりは、思ったより奥が深いようです。",
+          "各分野に秀でたスタッフによる成果を、ご期待ください。"
+        ]
     };
 
     const fallbackPage = {
