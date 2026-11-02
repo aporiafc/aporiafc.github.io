@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+
+  <title>準備中 | Aporia fancafe</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =========================
+       COMING SOON（このページ専用）
+       style.css と衝突しないよう wip- を頭に付けています
+    ========================= */
+
+    .wip-page {
+      --wip-ink: #222;
+      --wip-paper: #fff;
+      --wip-line: rgba(34, 34, 34, 0.14);
+      --wip-soft: rgba(34, 34, 34, 0.6);
+
+      min-height: 100vh;
+      box-sizing: border-box;
+      padding: 140px 24px 96px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: var(--wip-ink);
+    }
+
+    .wip-name {
+      margin: 0 0 8px;
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      color: var(--wip-soft);
+    }
+
+    /* ---------- 吊り下げ看板 ---------- */
+
+    .wip-hanger {
+      position: relative;
+      width: 280px;
+      height: 200px;
+      margin: 24px 0 8px;
+      perspective: 900px;
+      transform-origin: 50% 0;
+      animation: wip-swing 3.2s ease-out 0.3s 1 both;
+    }
+
+    .wip-hanger::before,
+    .wip-hanger::after {
+      content: "";
+      position: absolute;
+      top: -48px;
+      width: 1px;
+      height: 64px;
+      background: var(--wip-ink);
+      opacity: 0.5;
+    }
+    .wip-hanger::before { left: 64px;  transform: rotate(-14deg); transform-origin: 50% 100%; top: -46px; }
+    .wip-hanger::after  { right: 64px; transform: rotate(14deg);  transform-origin: 50% 100%; top: -46px; }
+
+    .wip-sign {
+      all: unset;
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: transform 0.7s cubic-bezier(0.3, 1.4, 0.5, 1);
+    }
+    .wip-sign:focus-visible {
+      outline: 2px solid var(--wip-ink);
+      outline-offset: 8px;
+    }
+    .wip-sign.is-flipped { transform: rotateY(180deg); }
+
+    .wip-face {
+      position: absolute;
+      inset: 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border: 2px solid var(--wip-ink);
+      border-radius: 6px;
+      background: var(--wip-paper);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .wip-face::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border: 1px solid var(--wip-line);
+      border-radius: 3px;
+    }
+    .wip-face.is-back { transform: rotateY(180deg); }
+
+    .wip-face-main {
+      font-size: 56px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      padding-left: 0.18em;
+      line-height: 1.1;
+    }
+    .wip-face-sub {
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      color: var(--wip-soft);
+    }
+    .wip-face.is-back .wip-face-main { font-size: 30px; letter-spacing: 0.08em; }
+
+    @keyframes wip-swing {
+      0%   { transform: rotate(7deg); }
+      25%  { transform: rotate(-5deg); }
+      50%  { transform: rotate(3deg); }
+      75%  { transform: rotate(-1.5deg); }
+      100% { transform: rotate(0); }
+    }
+
+    .wip-hint {
+      margin: 20px 0 0;
+      font-size: 12px;
+      color: var(--wip-soft);
+    }
+
+    /* ---------- ひとこと ---------- */
+
+    .wip-title {
+      margin: 48px 0 0;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      color: var(--wip-soft);
+    }
+
+    .wip-message {
+      min-height: 4.8em;
+      max-width: 30em;
+      margin: 12px 0 0;
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    /* ---------- 進捗バー（87%から動かない） ---------- */
+
+    .wip-progress {
+      width: min(340px, 100%);
+      margin: 32px 0 0;
+    }
+    .wip-progress-head {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 0 8px;
+      font-size: 12px;
+      color: var(--wip-soft);
+    }
+    .wip-progress-bar {
+      height: 8px;
+      border: 1px solid var(--wip-ink);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .wip-progress-bar span {
+      display: block;
+      width: 87%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--wip-ink) 0 6px,
+        transparent 6px 12px
+      );
+      transform-origin: left;
+      animation: wip-fill 1.6s ease-out 0.4s both;
+    }
+    @keyframes wip-fill { from { transform: scaleX(0); } }
+
+    .wip-progress-note {
+      margin: 10px 0 0;
+      font-size: 12px;
+      color: var(--wip-soft);
+    }
+
+    /* ---------- 戻りリンク ---------- */
+
+    .wip-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 48px 0 0;
+    }
+    .wip-links a {
+      padding: 10px 22px;
+      border: 1px solid var(--wip-ink);
+      border-radius: 99px;
+      color: var(--wip-ink);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .wip-links a:hover,
+    .wip-links a:focus-visible {
+      background: var(--wip-ink);
+      color: var(--wip-paper);
+    }
+
+    @media (max-width: 600px) {
+      .wip-page { padding-top: 120px; }
+      .wip-face-main { font-size: 48px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wip-hanger,
+      .wip-progress-bar span { animation: none; }
+      .wip-sign { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header class="site-header">
+
+    <a href="index.html" class="site-header-logo">
+      <span>Afc.</span>
+    </a>
+
+    <nav class="site-header-nav">
+      <a href="world.html">WORLD</a>
+      <a href="character.html">CHARACTER</a>
+      <a href="story.html">STORY</a>
+      <a href="card.html">CARD</a>
+      <a href="event.html">EVENT</a>
+      <a href="coming-soon.html?page=music">MUSIC</a>
+      <a href="coming-soon.html?page=media">MEDIA</a>
+      <a href="coming-soon.html?page=xstmy">× stmy</a>
+    </nav>
+
+    <div class="site-header-icons">
+
+      <a href="https://x.com/aporia_fc" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <img src="images/x-icon.png" alt="X" class="icon-x">
+      </a>
+
+      <a href="https://wavebox.me/wave/2uq3t1e36oxy5xeq/" target="_blank" rel="noopener noreferrer" aria-label="Wavebox">
+        <img src="images/wavebox-icon.png" alt="Wavebox" class="icon-wavebox">
+      </a>
+
+    </div>
+
+  </header>
+
+  <!-- =========================
+       SITE MENU
+  ========================= -->
+
+  <button class="site-menu-button" type="button" aria-label="サイトメニューを開く">
+    <span>MENU</span>
+  </button>
+
+  <div class="site-menu-panel">
+    <div class="site-menu-inner">
+      <div class="site-menu-header">
+        <span>SITE MENU</span>
+        <button class="site-menu-close" type="button" aria-label="メニューを閉じる">
+          ×
+        </button>
+      </div>
+
+      <nav class="site-menu-nav">
+        <a href="index.html">TOP</a>
+        <a href="world.html">WORLD</a>
+        <a href="character.html">CHARACTER</a>
+        <a href="story.html">STORY</a>
+        <a href="card.html">CARD</a>
+        <a href="event.html">EVENT</a>
+        <a href="coming-soon.html?page=music">MUSIC</a>
+        <a href="coming-soon.html?page=media">MEDIA</a>
+        <a href="coming-soon.html?page=xstmy">× stmy</a>
+      </nav>
+
+      <div class="site-menu-icons">
+
+        <a href="https://x.com/aporia_fc" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <img src="images/x-icon.png" alt="X" class="icon-x">
+        </a>
+
+        <a href="https://wavebox.me/wave/2uq3t1e36oxy5xeq/" target="_blank" rel="noopener noreferrer" aria-label="Wavebox">
+          <img src="images/wavebox-icon.png" alt="Wavebox" class="icon-wavebox">
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       COMING SOON
+  ========================= -->
+
+  <main class="wip-page">
+
+    <p class="wip-name">Aporia fancafe</p>
+
+    <div class="wip-hanger">
+      <button type="button" class="wip-sign" id="wip-sign" aria-label="看板をひっくり返す">
+        <span class="wip-face">
+          <span class="wip-face-main">準備中</span>
+          <span class="wip-face-sub">ただいま仕込み中</span>
+        </span>
+        <span class="wip-face is-back">
+          <span class="wip-face-main">もうちょっと準備中</span>
+        </span>
+      </button>
+    </div>
+
+    <p class="wip-hint">看板をタップすると、ひっくり返ります。</p>
+
+    <h1 class="wip-title" id="wip-title">この先は準備中です</h1>
+
+    <p class="wip-message" id="wip-message" aria-live="polite"></p>
+
+    <div class="wip-progress">
+      <p class="wip-progress-head">
+        <span>仕込みの進み具合</span>
+        <span>87%</span>
+      </p>
+      <div class="wip-progress-bar" role="img" aria-label="仕込みの進み具合 87%">
+        <span></span>
+      </div>
+      <p class="wip-progress-note">残り13%が、いちばん長いです。</p>
+    </div>
+
+    <nav class="wip-links" aria-label="戻り先">
+      <a href="index.html">TOPへ戻る</a>
+      <a href="story.html">STORYを見る</a>
+    </nav>
+
+  </main>
+
+  <!-- =========================
+       SCRIPT
+  ========================= -->
+
+  <script>
+
+    /* =========================
+       SITE MENU
+    ========================= */
+
+    const siteMenuButton = document.querySelector(".site-menu-button");
+    const siteMenuPanel  = document.querySelector(".site-menu-panel");
+    const siteMenuClose  = document.querySelector(".site-menu-close");
+    const siteMenuLinks  = document.querySelectorAll(".site-menu-nav a");
+
+    function closeMenu() {
+      siteMenuPanel.classList.remove("is-open");
+      siteMenuButton.classList.remove("is-hidden");
+    }
+
+    siteMenuButton.addEventListener("click", () => {
+      siteMenuPanel.classList.add("is-open");
+      siteMenuButton.classList.add("is-hidden");
+    });
+
+    siteMenuClose.addEventListener("click", closeMenu);
+    siteMenuLinks.forEach(link => link.addEventListener("click", closeMenu));
+
+    siteMenuPanel.addEventListener("click", (event) => {
+      if (event.target === siteMenuPanel) closeMenu();
+    });
+
+
+    /* =========================================================
+       ▼▼▼ 編集（ページごとの表示内容） ▼▼▼
+    ========================================================= */
+
+    const pages = {
+
+      music: {
+        title: "MUSIC は準備中です",
+        label: "MUSIC",
+        messages: [
+          "ジュークボックスのコンセントを探しています。",
+          "選曲は慎重に。いまレコード棚の前で腕組みしています。",
+          "音量つまみは「ほどほど」に合わせました。",
+          "もう少しだけ、静かな店内でお待ちください。"
+        ]
+      },
+
+      media: {
+        title: "MEDIA は準備中です",
+        label: "MEDIA",
+        messages: [
+          "掲載情報を仕分け中です。段ボールがまだ半分残っています。",
+          "切り抜きの山が、机からはみ出しました。",
+          "整理整頓は、後回しにするほど大変になるそうです。",
+          "もう少しだけ、お待ちください。"
+        ]
+      },
+
+      xstmy: {
+        title: "× stmy は準備中です",
+        label: "× stmy",
+        messages: [
+          "打ち合わせの紅茶が、そろそろ冷めかけています。",
+          "お届けの準備を、いま丁寧に進めています。",
+          "ここだけの話、もうすぐ形になります。",
+          "もう少しだけ、お待ちください。"
+        ]
+      }
+
+    };
+
+    const fallbackPage = {
+      title: "この先は準備中です",
+      label: "",
+      messages: [
+        "ただいま仕込み中です。",
+        "もう少しだけ、お待ちください。"
+      ]
+    };
+
+    /* =========================================================
+       ▲▲▲ 編集 ▲▲▲
+    ========================================================= */
+
+
+    /* =========================
+       PAGE CONTENT
+    ========================= */
+
+    const key  = new URLSearchParams(location.search).get("page");
+    const data = pages[key] || fallbackPage;
+
+    const titleEl   = document.querySelector("#wip-title");
+    const messageEl = document.querySelector("#wip-message");
+    const signEl    = document.querySelector("#wip-sign");
+
+    titleEl.textContent = data.title;
+    document.title = (data.label ? data.label + " | " : "") + "準備中 | Aporia fancafe";
+
+    let index = 0;
+    messageEl.textContent = data.messages[index];
+
+
+    /* =========================
+       SIGN: クリックで看板を返し、ひとことも切り替える
+    ========================= */
+
+    signEl.addEventListener("click", () => {
+      signEl.classList.toggle("is-flipped");
+      index = (index + 1) % data.messages.length;
+      messageEl.textContent = data.messages[index];
+    });
+
+  </script>
+
+</body>
+</html>
