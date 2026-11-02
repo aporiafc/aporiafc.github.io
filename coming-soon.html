@@ -194,23 +194,22 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
-      margin: 48px 0 0;
+      gap: 8px 28px;
+      margin: 56px 0 0;
     }
     .wip-links a {
-      padding: 10px 22px;
-      border: 1px solid var(--wip-ink);
-      border-radius: 99px;
-      color: var(--wip-ink);
+      padding: 4px 2px;
+      color: rgba(34, 34, 34, 0.45);
       text-decoration: none;
-      font-size: 13px;
+      font-size: 11px;
       letter-spacing: 0.1em;
-      transition: background 0.2s, color 0.2s;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
     }
     .wip-links a:hover,
     .wip-links a:focus-visible {
-      background: var(--wip-ink);
-      color: var(--wip-paper);
+      color: var(--wip-ink);
+      border-bottom-color: var(--wip-ink);
     }
 
     @media (max-width: 600px) {
@@ -321,7 +320,7 @@
           <span class="wip-face-sub">ただいま仕込み中</span>
         </span>
         <span class="wip-face is-back">
-          <span class="wip-face-main">もうちょっと準備中</span>
+          <span class="wip-face-main" id="wip-back">もうちょっと準備中</span>
         </span>
       </button>
     </div>
@@ -392,6 +391,7 @@
       music: {
         title: "MUSIC は準備中です",
         label: "MUSIC",
+        back: "選曲会議中",
         messages: [
           "ジュークボックスのコンセントを探しています。",
           "選曲は慎重に。いまレコード棚の前で腕組みしています。",
@@ -403,6 +403,7 @@
       media: {
         title: "MEDIA は準備中です",
         label: "MEDIA",
+        back: "整理整頓中",
         messages: [
           "掲載情報を仕分け中です。段ボールがまだ半分残っています。",
           "切り抜きの山が、机からはみ出しました。",
@@ -414,6 +415,7 @@
       xstmy: {
         title: "× stmy は準備中です",
         label: "× stmy",
+        back: "紅茶を蒸らし中",
         messages: [
           "打ち合わせの紅茶が、そろそろ冷めかけています。",
           "お届けの準備を、いま丁寧に進めています。",
@@ -427,6 +429,7 @@
     const fallbackPage = {
       title: "この先は準備中です",
       label: "",
+      back: "もうちょっと準備中",
       messages: [
         "ただいま仕込み中です。",
         "もう少しだけ、お待ちください。"
@@ -450,6 +453,7 @@
     const signEl    = document.querySelector("#wip-sign");
 
     titleEl.textContent = data.title;
+    document.querySelector("#wip-back").textContent = data.back;
     document.title = (data.label ? data.label + " | " : "") + "準備中 | Aporia fancafe";
 
     let index = 0;
