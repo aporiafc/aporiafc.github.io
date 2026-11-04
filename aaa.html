@@ -375,6 +375,28 @@
       background: #f7f8fa;
     }
 
+    /* 全体の出来事の列（時期の列の右に固定） */
+
+    .fp-table .fp-common {
+      min-width: 200px;
+
+      background: #f7f8fa;
+    }
+
+    .fp-table thead .fp-common {
+      z-index: 3;
+    }
+
+    @media (min-width: 701px) {
+
+      .fp-table .fp-common {
+        position: sticky;
+        left: 104px;
+        z-index: 1;
+      }
+
+    }
+    
     .fp-none {
       margin: 0;
       padding: 50px 20px;
@@ -828,14 +850,10 @@
           yuragi: "不登校"
         }
       },
-
-      {
-        when: "2010年",
-        all: "副都心総合医療センターに対する医療訴訟"
-      },
       
       {
         when: "2010年",
+        common: "副都心総合医療センターに対する医療訴訟",
         events: {
           yuragi: "不登校"
         }
@@ -966,9 +984,12 @@
       const lo = Math.min(Number(fromEl.value), Number(toEl.value));
       const hi = Math.max(Number(fromEl.value), Number(toEl.value));
 
+      /* 全体の出来事。これまでの all も同じ列に入る */
+      const commonOf = row => row.common || row.all || "";
+
       const rows = timeline.filter((row, i) =>
         i >= lo && i <= hi &&
-        (row.all || visible.some(ch => row.events && row.events[ch.id]))
+        (commonOf(row) || visible.some(ch => row.events && row.events[ch.id]))
       );
 
       tableEl.innerHTML = "";
@@ -995,6 +1016,15 @@
       corner.setAttribute("aria-label", "時期");
       headRow.appendChild(corner);
 
+      const commonTh = document.createElement("th");
+      commonTh.className = "fp-common";
+      commonTh.style.setProperty("--c", "#bbb");
+      commonTh.append(
+        cell("span", "全体の出来事", "fp-name"),
+        cell("span", "EVENTS", "fp-tarot")
+      );
+      headRow.appendChild(commonTh);
+
       visible.forEach(ch => {
         const th = document.createElement("th");
         th.style.setProperty("--c", ch.color);
@@ -1020,16 +1050,15 @@
         const tr = document.createElement("tr");
         tr.appendChild(cell("th", row.when || "", "fp-when"));
 
-        if (row.all) {
-          const td = cell("td", row.all, "fp-all");
-          td.colSpan = visible.length;
-          tr.appendChild(td);
-        } else {
-          visible.forEach(ch => {
-            const text = (row.events && row.events[ch.id]) || "";
-            tr.appendChild(cell("td", text || "—", text ? "" : "fp-empty"));
-          });
-        }
+        const common = commonOf(row);
+        tr.appendChild(
+          cell("td", common || "—", common ? "fp-common" : "fp-common fp-empty")
+        );
+
+        visible.forEach(ch => {
+          const text = (row.events && row.events[ch.id]) || "";
+          tr.appendChild(cell("td", text || "—", text ? "" : "fp-empty"));
+        });
 
         tbody.appendChild(tr);
       });
