@@ -378,7 +378,8 @@
     /* 全体の出来事の列（時期の列の右に固定） */
 
     .fp-table .fp-common {
-      min-width: 200px;
+      width: 160px;
+      min-width: 160px;
 
       background: #fff;
       border-right: 1px solid #e6e6e6;   /* 人物の列との境目だけ少し濃く */
@@ -386,6 +387,8 @@
 
     .fp-table thead .fp-common {
       z-index: 3;
+
+      border-top-color: #222;   /* 上の線を黒に */
     }
 
     @media (min-width: 701px) {
@@ -396,19 +399,6 @@
         z-index: 1;
       }
 
-    }
-    
-    .fp-none {
-      margin: 0;
-      padding: 50px 20px;
-
-      text-align: center;
-
-      font-family: "Cormorant Garamond", serif;
-      font-size: 13px;
-      letter-spacing: 0.12em;
-
-      color: #999;
     }
 
     /* ---------- スマホ ---------- */
@@ -880,6 +870,13 @@
           ai: "高等学校卒業\n淑央大学法学部に入学"
         }
       },
+
+      {
+        when: "2018年",
+        events: {
+          ai: "淑央大学法学部を卒業"
+        }
+      },
       
     ];
 
@@ -985,12 +982,16 @@
       const lo = Math.min(Number(fromEl.value), Number(toEl.value));
       const hi = Math.max(Number(fromEl.value), Number(toEl.value));
 
-      /* 全体の出来事。これまでの all も同じ列に入る */
+      /* 人物を選んでいるときは、全体の出来事の列を出さない */
+      const showCommon = selected.length === 0;
       const commonOf = row => row.common || row.all || "";
 
       const rows = timeline.filter((row, i) =>
         i >= lo && i <= hi &&
-        (visible.some(ch => row.events && row.events[ch.id]))
+        (
+          (showCommon && commonOf(row)) ||
+          visible.some(ch => row.events && row.events[ch.id])
+        )
       );
 
       tableEl.innerHTML = "";
@@ -1017,14 +1018,15 @@
       corner.setAttribute("aria-label", "時期");
       headRow.appendChild(corner);
 
-      const commonTh = document.createElement("th");
-      commonTh.className = "fp-common";
-      commonTh.style.setProperty("--c", "#bbb");
-      commonTh.append(
-        cell("span", "全体の出来事", "fp-name"),
-        cell("span", "EVENTS", "fp-tarot")
-      );
-      headRow.appendChild(commonTh);
+      if (showCommon) {
+        const commonTh = document.createElement("th");
+        commonTh.className = "fp-common";
+        commonTh.append(
+          cell("span", "全体の出来事", "fp-name"),
+          cell("span", "EVENTS", "fp-tarot")
+        );
+        headRow.appendChild(commonTh);
+      }
 
       visible.forEach(ch => {
         const th = document.createElement("th");
@@ -1051,10 +1053,12 @@
         const tr = document.createElement("tr");
         tr.appendChild(cell("th", row.when || "", "fp-when"));
 
-        const common = commonOf(row);
-        tr.appendChild(
-          cell("td", common || "—", common ? "fp-common" : "fp-common fp-empty")
-        );
+        if (showCommon) {
+          const common = commonOf(row);
+          tr.appendChild(
+            cell("td", common || "—", common ? "fp-common" : "fp-common fp-empty")
+          );
+        }
 
         visible.forEach(ch => {
           const text = (row.events && row.events[ch.id]) || "";
