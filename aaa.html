@@ -1207,13 +1207,16 @@
       const lo = Math.min(Number(fromEl.value), Number(toEl.value));
       const hi = Math.max(Number(fromEl.value), Number(toEl.value));
 
-      /* 全体の出来事。これまでの all も同じ列に入る */
+      /* 人物を選んでいるときは、全体の出来事の列を出さない */
+      const showCommon = selected.length === 0;
       const commonOf = row => row.common || row.all || "";
 
-      /* 全体の出来事がある行は、人物を選んでいても常に出す */
       const rows = timeline.filter((row, i) =>
         i >= lo && i <= hi &&
-        (commonOf(row) || visible.some(ch => row.events && row.events[ch.id]))
+        (
+          (showCommon && commonOf(row)) ||
+          visible.some(ch => row.events && row.events[ch.id])
+        )
       );
 
       tableEl.innerHTML = "";
@@ -1240,13 +1243,15 @@
       corner.setAttribute("aria-label", "時期");
       headRow.appendChild(corner);
 
-      const commonTh = document.createElement("th");
-      commonTh.className = "fp-common";
-      commonTh.append(
-        cell("span", "全体の出来事", "fp-name"),
-        cell("span", "EVENTS", "fp-tarot")
-      );
-      headRow.appendChild(commonTh);
+      if (showCommon) {
+        const commonTh = document.createElement("th");
+        commonTh.className = "fp-common";
+        commonTh.append(
+          cell("span", "全体の出来事", "fp-name"),
+          cell("span", "EVENTS", "fp-tarot")
+        );
+        headRow.appendChild(commonTh);
+      }
 
       visible.forEach(ch => {
         const th = document.createElement("th");
@@ -1273,10 +1278,12 @@
         const tr = document.createElement("tr");
         tr.appendChild(cell("th", row.when || "", "fp-when"));
 
-        const common = commonOf(row);
-        tr.appendChild(
-          cell("td", common || "—", common ? "fp-common" : "fp-common fp-empty")
-        );
+        if (showCommon) {
+          const common = commonOf(row);
+          tr.appendChild(
+            cell("td", common || "—", common ? "fp-common" : "fp-common fp-empty")
+          );
+        }
 
         visible.forEach(ch => {
           const text = (row.events && row.events[ch.id]) || "";
