@@ -1024,15 +1024,10 @@
       /* 全体の出来事。これまでの all も同じ列に入る */
       const commonOf = row => row.common || row.all || "";
 
-      /* 人物を選んでいないときだけ、全体の出来事しかない行も出す */
-      const noSelection = selected.length === 0;
-
+      /* 全体の出来事がある行は、人物を選んでいても常に出す */
       const rows = timeline.filter((row, i) =>
         i >= lo && i <= hi &&
-        (
-          (noSelection && commonOf(row)) ||
-          visible.some(ch => row.events && row.events[ch.id])
-        )
+        (commonOf(row) || visible.some(ch => row.events && row.events[ch.id]))
       );
 
       tableEl.innerHTML = "";
