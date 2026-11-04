@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+
   <title>FOOTPRINTS | Aporia fancafe</title>
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
- 
+
   <style>
     /* =========================================================
        FOOTPRINTS（このページ専用 / fp- 始まり）
-       文字の種類（Cormorant Garamond / Noto Sans JP）
+       文字の種類（Cormorant Garamond / Noto Sans JP）、白いカード、
+       淡い影、丸いピルは他のページと同じ。余白だけ詰めてあります。
     ========================================================= */
- 
+
     .fp-page {
       max-width: 1100px;
       margin: 0 auto;
@@ -21,10 +22,10 @@
       box-sizing: border-box;
       text-align: left;
     }
- 
+
     /* ---------- 見出し ---------- */
 
-    /* 見出しまわりの大きさ・余白は STORY / WORLD ページと同じ値 */
+    /* 見出しまわりの大きさ・余白は、同じ WORLD 内の TIMELINE ページと同じ値 */
 
     .fp-intro {
       margin: 0 0 60px;
@@ -314,6 +315,29 @@
       color: #222;
     }
 
+    .fp-table .fp-name {
+      display: block;
+    }
+
+    /* キャラ名の下に固定で出るタロット欄 */
+
+    .fp-table .fp-tarot {
+      display: block;
+
+      margin-top: 2px;
+
+      font-family: "Cormorant Garamond", serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+
+      color: #999;
+    }
+
+    .fp-table .fp-tarot.is-empty {
+      color: #ddd;
+    }
+
     .fp-table .fp-when {
       position: sticky;
       left: 0;
@@ -370,29 +394,16 @@
     @media (max-width: 700px) {
 
       .fp-page {
-        margin: 58px 0 0;
-        padding: 85px 24px 90px;
-      }
-
-      .fp-intro {
-        margin-bottom: 40px;
-      }
-
-      .fp-intro .page-label {
-        margin-bottom: 20px;
-
-        font-size: 11px;
-        letter-spacing: 0.32em;
+        padding: 90px 20px 90px;
       }
 
       .fp-intro h1 {
-        font-size: 56px;
-        line-height: 0.95;
-        letter-spacing: 0.04em;
+        font-size: 44px;
       }
 
       .fp-intro .page-description {
         font-size: 9px;
+        line-height: 2;
         letter-spacing: 0.2em;
       }
 
@@ -411,6 +422,15 @@
 
       .fp-range-item {
         flex: 1 1 100%;
+      }
+
+      .fp-range-item > span {
+        min-width: 48px;
+      }
+
+      .fp-range-item > span {
+        flex-shrink: 0;
+        min-width: 42px;
       }
 
       .fp-select {
@@ -530,7 +550,7 @@
 
     <section class="fp-intro">
       <p class="page-label" id="fp-label">
-        CHARACTER DATABASE
+        CHARACTER HISTORY
       </p>
 
       <h1 id="fp-title">
@@ -637,37 +657,39 @@
     ========================= */
 
     const pageInfo = {
-      label: "CHARACTER DATABASE",
+      label: "CHARACTER HISTORY",
       name:  "FOOTPRINTS",
       sub:   "（　　trace the footprints of each character _ 　）"
     };
 
     /* =========================
        CHARACTERS（列の並び順・色）
+         tarot : キャラ名の下に固定で出るタロット欄（自由な文字列）
+                 例）"0" / "XIII" / "Ⅷ 力"   ※空のままなら「—」が出ます
     ========================= */
 
     const characters = [
-      { id: "ai",       name: "皇坂 逢",   color: "#B22222" },
-      { id: "yuzuru",   name: "城瀬 由鶴", color: "#7DA852" },
-      { id: "roka",     name: "須王 芦佳", color: "#FFC02D" },
-      { id: "kou",      name: "綾戸 恋",   color: "#FD1493" },
-      { id: "mao",      name: "宇京 真央", color: "#A553E8" },
-      { id: "akehoshi", name: "樋宮 明星", color: "#FE8A23" },
-      { id: "yuragi",   name: "環野 揺",   color: "#6495ED" },
-      { id: "taiga",    name: "槻本 大河", color: "#8BCCD6" },
-      { id: "haruhi",   name: "壱川 春日", color: "#E9DC69" },
-      { id: "sei",      name: "隠岐谷 誓", color: "#9A98C1" },
-      { id: "shizuka",  name: "節見 静",   color: "#3F60BE" },
-      { id: "takeru",   name: "御門 尊",   color: "#C437BC" },
-      { id: "soyogu",   name: "新開 戦",   color: "#E04D21" },
-      { id: "shinobu",  name: "相沢 篠信", color: "#388138" },
-      { id: "kiho",     name: "在間 樹帆", color: "#DF507F" },
-      { id: "kyoya",    name: "祠堂 恭耶", color: "#F09C65" },
-      { id: "riku",     name: "立科 吏来", color: "#7043BB" },
-      { id: "tomose",   name: "恩田 灯世", color: "#61C892" },
-      { id: "yu",       name: "新名 有",   color: "#13BFFC" },
-      { id: "kamiya",   name: "神家",      color: "#5E76BC" },
-      { id: "urara",    name: "麻波 麗",   color: "#DE7DF3" },
+      { id: "ai",       name: "皇坂 逢",   color: "#B22222", tarot: "4（皇帝 - 逆位置）" },
+      { id: "yuzuru",   name: "城瀬 由鶴", color: "#7DA852", tarot: "" },
+      { id: "roka",     name: "須王 芦佳", color: "#FFC02D", tarot: "" },
+      { id: "kou",      name: "綾戸 恋",   color: "#FD1493", tarot: "" },
+      { id: "mao",      name: "宇京 真央", color: "#A553E8", tarot: "" },
+      { id: "akehoshi", name: "樋宮 明星", color: "#FE8A23", tarot: "" },
+      { id: "yuragi",   name: "環野 揺",   color: "#6495ED", tarot: "" },
+      { id: "taiga",    name: "槻本 大河", color: "#8BCCD6", tarot: "" },
+      { id: "haruhi",   name: "壱川 春日", color: "#E9DC69", tarot: "" },
+      { id: "sei",      name: "隠岐谷 誓", color: "#9A98C1", tarot: "" },
+      { id: "shizuka",  name: "節見 静",   color: "#3F60BE", tarot: "" },
+      { id: "takeru",   name: "御門 尊",   color: "#C437BC", tarot: "" },
+      { id: "soyogu",   name: "新開 戦",   color: "#E04D21", tarot: "" },
+      { id: "shinobu",  name: "相沢 篠信", color: "#388138", tarot: "" },
+      { id: "kiho",     name: "在間 樹帆", color: "#DF507F", tarot: "" },
+      { id: "kyoya",    name: "祠堂 恭耶", color: "#F09C65", tarot: "" },
+      { id: "riku",     name: "立科 吏来", color: "#7043BB", tarot: "" },
+      { id: "tomose",   name: "恩田 灯世", color: "#61C892", tarot: "" },
+      { id: "yu",       name: "新名 有",   color: "#13BFFC", tarot: "" },
+      { id: "kamiya",   name: "神家",      color: "#5E76BC", tarot: "" },
+      { id: "urara",    name: "麻波 麗",   color: "#DE7DF3", tarot: "" },
       { id: "yashiro",  name: "弥代 衣都", color: "" },
       { id: "togo",     name: "弥代 透吾", color: "" },
       { id: "yukimura", name: "伊達 幸邑", color: "" },
@@ -681,7 +703,7 @@
 
     /* =========================
        TIMELINE DATA
-       1行 = 1つの時期。上から古い順。
+       1行 = 1つの時期。上から古い順に並べてください。
          when   : 左端に出る時期の表記（自由な文字列）
          events : { キャラID: "出来事" }  ※改行は \n
          all    : 全員に関わる出来事（この行は全幅で1つだけ表示）
@@ -723,7 +745,8 @@
         events: {
           ai: "4/15誕生",
           sei: "9/19誕生",
-          takeru: "10/4誕生"
+          takeru: "10/4誕生",
+          mayu: "誕生",
         }
       },
 
@@ -949,8 +972,17 @@
       headRow.appendChild(corner);
 
       visible.forEach(ch => {
-        const th = cell("th", ch.name);
+        const th = document.createElement("th");
         th.style.setProperty("--c", ch.color);
+
+        const name = cell("span", ch.name, "fp-name");
+        const tarot = cell(
+          "span",
+          ch.tarot || "—",
+          ch.tarot ? "fp-tarot" : "fp-tarot is-empty"
+        );
+
+        th.append(name, tarot);
         headRow.appendChild(th);
       });
 
