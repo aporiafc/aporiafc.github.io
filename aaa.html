@@ -990,7 +990,7 @@
 
       const rows = timeline.filter((row, i) =>
         i >= lo && i <= hi &&
-        visible.some(ch => row.events && row.events[ch.id]))
+        commonOf(row) ||visible.some(ch => row.events && row.events[ch.id]))
       );
 
       tableEl.innerHTML = "";
