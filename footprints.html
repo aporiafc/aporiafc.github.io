@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FOOTPRINTS | Aporia fancafe</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =========================================================
+       FOOTPRINTS（このページ専用 / fp- 始まり）
+       ページ見出し・検索ボックス・キャラ選択・RESULT見出しは
+       style.css の STORY ページ用クラスをそのまま使っています。
+       ここには「表」と「期間セレクト」だけを書いています。
+    ========================================================= */
+
+    /* ---------- キャラ選択：選択時のドットだけキャラカラーに ---------- */
+
+    .fp-page .story-character-select input:checked + span::before {
+      border-color: var(--c, #222);
+      background: var(--c, #222);
+    }
+
+    /* ---------- 期間 ---------- */
+
+    .fp-range {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .fp-range-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .fp-range-label {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: #999;
+    }
+
+    /* ---------- 表 ---------- */
+
+    .fp-table-wrap {
+      max-height: 78vh;
+      margin-top: 28px;
+
+      overflow: auto;
+
+      background: #fff;
+
+      border: 1px solid rgba(34, 34, 34, 0.05);
+      border-radius: 8px;
+
+      box-shadow:
+        0 1px 2px rgba(17, 17, 17, 0.02),
+        0 14px 28px -20px rgba(17, 17, 17, 0.14);
+    }
+
+    .fp-table {
+      width: 100%;
+
+      border-collapse: separate;
+      border-spacing: 0;
+
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 11px;
+      line-height: 1.9;
+      letter-spacing: 0.03em;
+
+      color: #555;
+    }
+
+    .fp-table th,
+    .fp-table td {
+      min-width: 168px;
+
+      padding: 14px 16px;
+
+      background: #fff;
+
+      border-bottom: 1px solid #eee;
+      border-right: 1px solid #f1f1f1;
+
+      text-align: left;
+      vertical-align: top;
+      white-space: pre-line;
+    }
+
+    .fp-table thead th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+
+      border-top: 3px solid var(--c, #222);
+
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+
+      color: #222;
+    }
+
+    .fp-table .fp-when {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+
+      width: 108px;
+      min-width: 108px;
+
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+
+      color: #222;
+    }
+
+    .fp-table thead .fp-when {
+      z-index: 3;
+
+      border-top-color: #222;
+
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+
+      color: #777;
+    }
+
+    .fp-table tbody tr:hover td {
+      background: #fafafa;
+    }
+
+    .fp-table td.fp-empty {
+      color: #ccc;
+    }
+
+    .fp-table td.fp-all {
+      text-align: center;
+      letter-spacing: 0.08em;
+
+      color: #888;
+      background: #f7f8fa;
+    }
+
+    .fp-none {
+      margin: 0;
+      padding: 50px 20px;
+
+      text-align: center;
+
+      font-family: "Cormorant Garamond", serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+
+      color: #999;
+    }
+
+    @media (max-width: 700px) {
+
+      .fp-range {
+        grid-template-columns: 1fr;
+      }
+
+      .fp-table th,
+      .fp-table td {
+        min-width: 150px;
+        padding: 12px 14px;
+      }
+
+      .fp-table .fp-when {
+        width: 92px;
+        min-width: 92px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header class="site-header">
+
+    <a href="index.html" class="site-header-logo">
+      <span>Afc.</span>
+    </a>
+
+    <nav class="site-header-nav">
+      <a href="world.html">WORLD</a>
+      <a href="character.html">CHARACTER</a>
+      <a href="story.html">STORY</a>
+      <a href="card.html">CARD</a>
+      <a href="event.html">EVENT</a>
+      <a href="music.html">MUSIC</a>
+      <a href="media.html">MEDIA</a>
+      <a href="xstmy.html">× stmy</a>
+    </nav>
+
+    <div class="site-header-icons">
+
+      <a href="https://x.com/aporia_fc" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <img src="images/x-icon.png" alt="X" class="icon-x">
+      </a>
+
+      <a href="https://wavebox.me/wave/2uq3t1e36oxy5xeq/" target="_blank" rel="noopener noreferrer" aria-label="Wavebox">
+        <img src="images/wavebox-icon.png" alt="Wavebox" class="icon-wavebox">
+      </a>
+
+    </div>
+
+  </header>
+
+  <!-- =========================
+       SITE MENU
+  ========================= -->
+
+  <button class="site-menu-button" type="button" aria-label="サイトメニューを開く">
+    <span>MENU</span>
+  </button>
+
+  <div class="site-menu-panel">
+    <div class="site-menu-inner">
+      <div class="site-menu-header">
+        <span>SITE MENU</span>
+        <button class="site-menu-close" type="button" aria-label="メニューを閉じる">
+          ×
+        </button>
+      </div>
+
+      <nav class="site-menu-nav">
+        <a href="index.html">TOP</a>
+        <a href="world.html">WORLD</a>
+        <a href="character.html">CHARACTER</a>
+        <a href="story.html">STORY</a>
+        <a href="card.html">CARD</a>
+        <a href="event.html">EVENT</a>
+        <a href="music.html">MUSIC</a>
+        <a href="media.html">MEDIA</a>
+        <a href="xstmy.html">× stmy</a>
+      </nav>
+
+      <div class="site-menu-icons">
+
+        <a href="https://x.com/aporia_fc" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <img src="images/x-icon.png" alt="X" class="icon-x">
+        </a>
+
+        <a href="https://wavebox.me/wave/2uq3t1e36oxy5xeq/" target="_blank" rel="noopener noreferrer" aria-label="Wavebox">
+          <img src="images/wavebox-icon.png" alt="Wavebox" class="icon-wavebox">
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================
+       FOOTPRINTS PAGE
+  ========================= -->
+
+  <main class="story-page fp-page">
+
+    <!-- PAGE HEADER -->
+
+    <section class="story-intro">
+      <p class="page-label" id="fp-label">
+        CHARACTER DATABASE
+      </p>
+
+      <h1 id="fp-title">
+        FOOTPRINTS.
+      </h1>
+
+      <p class="page-description" id="fp-sub">
+        （　　trace the footprints of each character _ 　）
+      </p>
+    </section>
+
+
+    <!-- FILTER -->
+
+    <section class="story-search">
+
+      <div class="story-search-group">
+        <p class="story-search-label">
+          CHARACTERS
+        </p>
+        <div id="fp-chips" class="story-character-select"></div>
+      </div>
+
+      <div class="story-search-group">
+        <p class="story-search-label">
+          PERIOD
+        </p>
+        <div class="fp-range">
+          <div class="fp-range-item">
+            <label class="fp-range-label" for="fp-from">FROM</label>
+            <select id="fp-from" class="story-search-input"></select>
+          </div>
+          <div class="fp-range-item">
+            <label class="fp-range-label" for="fp-to">TO</label>
+            <select id="fp-to" class="story-search-input"></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-search-action">
+        <button type="button" id="fp-reset" class="story-reset-button">
+          RESET
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- RESULT -->
+
+    <section class="story-results">
+      <div class="story-results-header">
+        <p class="section-label">
+          RESULT
+        </p>
+
+        <h2>
+          FOOTPRINT TABLE
+        </h2>
+
+        <p id="story-result-count">
+          ALL CHARACTERS
+        </p>
+      </div>
+
+      <div class="fp-table-wrap">
+        <table class="fp-table" id="fp-table"></table>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       PAGE JUMP BUTTONS
+  ========================= -->
+
+  <div class="page-jump">
+    <button type="button" class="page-jump-button" id="jump-top" aria-label="ページの先頭へ">↑</button>
+    <button type="button" class="page-jump-button" id="jump-bottom" aria-label="ページの末尾へ">↓</button>
+  </div>
+
+
+  <!-- =========================
+       SCRIPT
+  ========================= -->
+
+  <script>
+
+    /* =========================
+       SITE MENU
+    ========================= */
+
+    const siteMenuButton = document.querySelector(".site-menu-button");
+    const siteMenuPanel  = document.querySelector(".site-menu-panel");
+    const siteMenuClose  = document.querySelector(".site-menu-close");
+    const siteMenuLinks  = document.querySelectorAll(".site-menu-nav a");
+
+    function closeMenu() {
+      siteMenuPanel.classList.remove("is-open");
+      siteMenuButton.classList.remove("is-hidden");
+    }
+
+    siteMenuButton.addEventListener("click", () => {
+      siteMenuPanel.classList.add("is-open");
+      siteMenuButton.classList.add("is-hidden");
+    });
+
+    siteMenuClose.addEventListener("click", closeMenu);
+    siteMenuLinks.forEach(link => link.addEventListener("click", closeMenu));
+
+    siteMenuPanel.addEventListener("click", (event) => {
+      if (event.target === siteMenuPanel) closeMenu();
+    });
+
+
+    /* =========================================================
+       ▼▼▼ 編集 ▼▼▼
+    ========================================================= */
+
+    /* =========================
+       PAGE NAME（ページのタイトル。ここだけ変えればOK）
+    ========================= */
+
+    const pageInfo = {
+      label: "CHARACTER DATABASE",
+      name:  "FOOTPRINTS",
+      sub:   "（　　trace the footprints of each character _ 　）"
+    };
+
+    /* =========================
+       CHARACTERS（列の並び順・色）
+    ========================= */
+
+    const characters = [
+      { id: "ai",       name: "皇坂 逢",   color: "#B22222" },
+      { id: "yuzuru",   name: "城瀬 由鶴", color: "#7DA852" },
+      { id: "roka",     name: "須王 芦佳", color: "#FFC02D" },
+      { id: "kou",      name: "綾戸 恋",   color: "#FD1493" },
+      { id: "mao",      name: "宇京 真央", color: "#A553E8" },
+      { id: "akehoshi", name: "樋宮 明星", color: "#FE8A23" },
+      { id: "yuragi",   name: "環野 揺",   color: "#6495ED" },
+      { id: "taiga",    name: "槻本 大河", color: "#8BCCD6" },
+      { id: "haruhi",   name: "壱川 春日", color: "#E9DC69" },
+      { id: "sei",      name: "隠岐谷 誓", color: "#9A98C1" },
+      { id: "shizuka",  name: "節見 静",   color: "#3F60BE" },
+      { id: "takeru",   name: "御門 尊",   color: "#C437BC" },
+      { id: "soyogu",   name: "新開 戦",   color: "#E04D21" },
+      { id: "shinobu",  name: "相沢 篠信", color: "#388138" },
+      { id: "kiho",     name: "在間 樹帆", color: "#DF507F" },
+      { id: "kyoya",    name: "祠堂 恭耶", color: "#F09C65" },
+      { id: "riku",     name: "立科 吏来", color: "#7043BB" },
+      { id: "tomose",   name: "恩田 灯世", color: "#61C892" },
+      { id: "yu",       name: "新名 有",   color: "#13BFFC" },
+      { id: "kamiya",   name: "神家",      color: "#5E76BC" },
+      { id: "urara",    name: "麻波 麗",   color: "#DE7DF3" }
+    ];
+
+    /* =========================
+       TIMELINE DATA
+       1行 = 1つの時期。上から古い順に並べてください。
+         when   : 左端に出る時期の表記（自由な文字列）
+         events : { キャラID: "出来事" }  ※改行は \n
+         all    : 全員に関わる出来事（この行は全幅で1つだけ表示）
+       ※ 下はサンプルです。書き換えて使ってください。
+    ========================= */
+
+    const timeline = [
+
+      {
+        when: "〇〇年",
+        all: "（サンプル）全員に関わる出来事はここに書く"
+      },
+
+      {
+        when: "〇〇年〇月",
+        events: {
+          ai: "（サンプル）皇坂の出来事",
+          yuzuru: "（サンプル）城瀬の出来事",
+          roka: "（サンプル）須王の出来事\n改行もできます"
+        }
+      },
+
+      {
+        when: "〇〇年〇月",
+        events: {
+          ai: "（サンプル）同じ時期でも別の行にできます",
+          kamiya: "（サンプル）神家の出来事"
+        }
+      }
+
+    ];
+
+    /* =========================================================
+       ▲▲▲ 編集 ▲▲▲
+    ========================================================= */
+
+
+    /* =========================
+       ELEMENTS
+    ========================= */
+
+    const chipsEl  = document.querySelector("#fp-chips");
+    const tableEl  = document.querySelector("#fp-table");
+    const countEl  = document.querySelector("#story-result-count");
+    const resetBtn = document.querySelector("#fp-reset");
+    const fromEl   = document.querySelector("#fp-from");
+    const toEl     = document.querySelector("#fp-to");
+
+    document.querySelector("#fp-label").textContent = pageInfo.label;
+    document.querySelector("#fp-title").textContent = pageInfo.name + ".";
+    document.querySelector("#fp-sub").textContent   = pageInfo.sub;
+    document.title = pageInfo.name + " | Aporia fancafe";
+
+
+    /* =========================
+       CHARACTER FILTER
+    ========================= */
+
+    characters.forEach(ch => {
+      const label = document.createElement("label");
+      label.style.setProperty("--c", ch.color);
+
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.value = ch.id;
+      input.addEventListener("change", render);
+
+      const span = document.createElement("span");
+      span.textContent = ch.name;
+
+      label.append(input, span);
+      chipsEl.appendChild(label);
+    });
+
+
+    /* =========================
+       PERIOD FILTER
+       選択肢は timeline の並び順どおり。日付の形式は自由です。
+    ========================= */
+
+    timeline.forEach((row, i) => {
+      const text = String(i + 1).padStart(2, "0") + "　" + (row.when || "");
+      [fromEl, toEl].forEach(sel => {
+        const opt = document.createElement("option");
+        opt.value = i;
+        opt.textContent = text;
+        sel.appendChild(opt);
+      });
+    });
+
+    function resetRange() {
+      fromEl.value = 0;
+      toEl.value = Math.max(timeline.length - 1, 0);
+    }
+    resetRange();
+
+    fromEl.addEventListener("change", render);
+    toEl.addEventListener("change", render);
+
+
+    /* =========================
+       RESET
+    ========================= */
+
+    resetBtn.addEventListener("click", () => {
+      chipsEl.querySelectorAll("input").forEach(i => { i.checked = false; });
+      resetRange();
+      render();
+    });
+
+
+    /* =========================
+       RENDER
+    ========================= */
+
+    function cell(tag, text, className) {
+      const el = document.createElement(tag);
+      if (className) el.className = className;
+      el.textContent = text;
+      return el;
+    }
+
+    function render() {
+
+      const selected = Array.from(chipsEl.querySelectorAll("input:checked"))
+        .map(i => i.value);
+
+      const visible = selected.length
+        ? characters.filter(ch => selected.includes(ch.id))
+        : characters;
+
+      const lo = Math.min(Number(fromEl.value), Number(toEl.value));
+      const hi = Math.max(Number(fromEl.value), Number(toEl.value));
+
+      const rows = timeline.filter((row, i) =>
+        i >= lo && i <= hi &&
+        (row.all || visible.some(ch => row.events && row.events[ch.id]))
+      );
+
+      tableEl.innerHTML = "";
+
+      countEl.textContent = selected.length
+        ? `${visible.length} CHARACTERS / ${rows.length} ROWS`
+        : `ALL CHARACTERS / ${rows.length} ROWS`;
+
+      if (rows.length === 0) {
+        const tr = document.createElement("tr");
+        const td = document.createElement("td");
+        td.className = "fp-none";
+        td.textContent = "該当する出来事がありません。";
+        tr.appendChild(td);
+        tableEl.appendChild(tr);
+        return;
+      }
+
+      /* head */
+      const thead = document.createElement("thead");
+      const headRow = document.createElement("tr");
+      headRow.appendChild(cell("th", "PERIOD", "fp-when"));
+
+      visible.forEach(ch => {
+        const th = cell("th", ch.name);
+        th.style.setProperty("--c", ch.color);
+        headRow.appendChild(th);
+      });
+
+      thead.appendChild(headRow);
+      tableEl.appendChild(thead);
+
+      /* body */
+      const tbody = document.createElement("tbody");
+
+      rows.forEach(row => {
+        const tr = document.createElement("tr");
+        tr.appendChild(cell("th", row.when || "", "fp-when"));
+
+        if (row.all) {
+          const td = cell("td", row.all, "fp-all");
+          td.colSpan = visible.length;
+          tr.appendChild(td);
+        } else {
+          visible.forEach(ch => {
+            const text = (row.events && row.events[ch.id]) || "";
+            tr.appendChild(cell("td", text || "—", text ? "" : "fp-empty"));
+          });
+        }
+
+        tbody.appendChild(tr);
+      });
+
+      tableEl.appendChild(tbody);
+    }
+
+    render();
+
+
+    /* =========================
+       PAGE JUMP
+    ========================= */
+
+    const jumpTop    = document.querySelector("#jump-top");
+    const jumpBottom = document.querySelector("#jump-bottom");
+
+    jumpTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    });
+
+    jumpBottom.addEventListener("click", () => {
+      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "auto" });
+    });
+
+    window.addEventListener("scroll", () => {
+      jumpTop.classList.toggle("is-visible", window.scrollY > 200);
+    });
+
+  </script>
+
+</body>
+</html>
