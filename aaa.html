@@ -812,6 +812,13 @@
           ai: "小学校入学"
         }
       },
+
+      {
+        when: "2003年",
+        events: {
+          yuzuru: "小学校入学"
+        }
+      },
       
       {
         when: "2004年",
@@ -838,6 +845,7 @@
       {
         when: "2009年",
         events: {
+          yuzuru: "小学校卒業\n中学校入学"
           yuragi: "不登校"
         }
       },
@@ -858,6 +866,13 @@
       },
 
       {
+        when: "2012年",
+        events: {
+          yuzuru: "中学校卒業\n高等学校入学"
+        }
+      },
+
+      {
         when: "2013年",
         events: {
           urara: "祖母・八千代と同居開始"
@@ -872,9 +887,23 @@
       },
 
       {
+        when: "2015年",
+        events: {
+          yuzuru: "高等学校卒業\n（大学入学）"
+        }
+      },
+
+      {
         when: "2018年",
         events: {
           ai: "淑央大学法学部を卒業"
+        }
+      },
+
+      {
+        when: "2019年",
+        events: {
+          yuzuru: "（大学卒業）"
         }
       },
       
@@ -982,14 +1011,16 @@
       const lo = Math.min(Number(fromEl.value), Number(toEl.value));
       const hi = Math.max(Number(fromEl.value), Number(toEl.value));
 
-      /* 人物を選んでいるときは、全体の出来事の列を出さない */
-      const showCommon = selected.length === 0;
+      /* 全体の出来事。これまでの all も同じ列に入る */
       const commonOf = row => row.common || row.all || "";
+
+      /* 人物を選んでいないときだけ、全体の出来事しかない行も出す */
+      const noSelection = selected.length === 0;
 
       const rows = timeline.filter((row, i) =>
         i >= lo && i <= hi &&
         (
-          (showCommon && commonOf(row)) ||
+          (noSelection && commonOf(row)) ||
           visible.some(ch => row.events && row.events[ch.id])
         )
       );
@@ -1018,15 +1049,13 @@
       corner.setAttribute("aria-label", "時期");
       headRow.appendChild(corner);
 
-      if (showCommon) {
-        const commonTh = document.createElement("th");
-        commonTh.className = "fp-common";
-        commonTh.append(
-          cell("span", "全体の出来事", "fp-name"),
-          cell("span", "EVENTS", "fp-tarot")
-        );
-        headRow.appendChild(commonTh);
-      }
+      const commonTh = document.createElement("th");
+      commonTh.className = "fp-common";
+      commonTh.append(
+        cell("span", "全体の出来事", "fp-name"),
+        cell("span", "EVENTS", "fp-tarot")
+      );
+      headRow.appendChild(commonTh);
 
       visible.forEach(ch => {
         const th = document.createElement("th");
@@ -1053,12 +1082,10 @@
         const tr = document.createElement("tr");
         tr.appendChild(cell("th", row.when || "", "fp-when"));
 
-        if (showCommon) {
-          const common = commonOf(row);
-          tr.appendChild(
-            cell("td", common || "—", common ? "fp-common" : "fp-common fp-empty")
-          );
-        }
+        const common = commonOf(row);
+        tr.appendChild(
+          cell("td", common || "—", common ? "fp-common" : "fp-common fp-empty")
+        );
 
         visible.forEach(ch => {
           const text = (row.events && row.events[ch.id]) || "";
