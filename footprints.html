@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FOOTPRINTS | Aporia fancafe</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =========================
+       TIMELINE（このページ専用 / tl- 始まり）
+    ========================= */
+
+    .tl-page {
+      --tl-ink: #222;
+      --tl-soft: rgba(34, 34, 34, 0.6);
+      --tl-line: rgba(34, 34, 34, 0.12);
+      --tl-paper: #fff;
+
+      box-sizing: border-box;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 140px 24px 96px;
+      color: var(--tl-ink);
+    }
+
+    .tl-intro h1 {
+      margin: 0;
+      font-size: clamp(44px, 8vw, 72px);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+    }
+    .tl-intro p { margin: 12px 0 0; color: var(--tl-soft); font-size: 13px; letter-spacing: 0.15em; }
+
+    /* ---------- キャラ選択 ---------- */
+
+    .tl-filter { margin: 40px 0 20px; }
+    .tl-filter-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 12px;
+      font-size: 12px;
+      color: var(--tl-soft);
+    }
+    .tl-reset {
+      all: unset;
+      cursor: pointer;
+      padding: 2px 4px;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid var(--tl-line);
+    }
+    .tl-reset:hover, .tl-reset:focus-visible { color: var(--tl-ink); border-bottom-color: var(--tl-ink); }
+
+    .tl-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tl-chip input { position: absolute; opacity: 0; pointer-events: none; }
+    .tl-chip span {
+      display: inline-block;
+      padding: 6px 14px;
+      border: 1px solid var(--tl-line);
+      border-radius: 99px;
+      background: var(--tl-paper);
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .tl-chip span::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-right: 8px;
+      border-radius: 50%;
+      background: var(--c);
+    }
+    .tl-chip:hover span { border-color: var(--c); }
+    .tl-chip input:checked + span { background: var(--c); border-color: var(--c); color: #fff; }
+    .tl-chip input:checked + span::before { background: #fff; }
+    .tl-chip input:focus-visible + span { outline: 2px solid var(--tl-ink); outline-offset: 2px; }
+
+    /* ---------- 時期の範囲 ---------- */
+
+    .tl-range {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px 20px;
+      margin: 20px 0 0;
+      padding-top: 16px;
+      border-top: 1px solid var(--tl-line);
+      font-size: 12px;
+      color: var(--tl-soft);
+    }
+    .tl-range label { display: inline-flex; align-items: center; gap: 8px; }
+    .tl-range-label { letter-spacing: 0.15em; }
+    .tl-range select {
+      max-width: 220px;
+      padding: 6px 10px;
+      border: 1px solid var(--tl-line);
+      border-radius: 6px;
+      background: var(--tl-paper);
+      color: var(--tl-ink);
+      font: inherit;
+      font-size: 13px;
+    }
+
+    /* ---------- 表 ---------- */
+
+    .tl-count { margin: 0 0 8px; font-size: 12px; letter-spacing: 0.15em; color: var(--tl-soft); }
+
+    .tl-scroll {
+      max-height: 78vh;
+      overflow: auto;
+      border: 1px solid var(--tl-line);
+      border-radius: 8px;
+      background: var(--tl-paper);
+    }
+
+    .tl-table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 13px; line-height: 1.7; }
+    .tl-table th, .tl-table td {
+      min-width: 170px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--tl-line);
+      border-right: 1px solid var(--tl-line);
+      text-align: left;
+      vertical-align: top;
+      white-space: pre-line;
+      background: var(--tl-paper);
+    }
+    .tl-table thead th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      border-top: 3px solid var(--c, var(--tl-ink));
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .tl-table .tl-when {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      min-width: 110px;
+      width: 110px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .tl-table thead .tl-when { z-index: 3; border-top-color: var(--tl-ink); }
+    .tl-table tbody tr:hover td { background: rgba(34, 34, 34, 0.03); }
+    .tl-table td.tl-empty { color: rgba(34, 34, 34, 0.18); }
+    .tl-table td.tl-all {
+      text-align: center;
+      color: var(--tl-soft);
+      background: rgba(34, 34, 34, 0.04);
+      letter-spacing: 0.05em;
+    }
+    .tl-none { padding: 40px 0; text-align: center; color: var(--tl-soft); }
+
+    @media (max-width: 600px) {
+      .tl-page { padding: 120px 16px 72px; }
+      .tl-table th, .tl-table td { min-width: 150px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header class="site-header">
+
+    <a href="index.html" class="site-header-logo">
+      <span>Afc.</span>
+    </a>
+
+    <nav class="site-header-nav">
+      <a href="world.html">WORLD</a>
+      <a href="character.html">CHARACTER</a>
+      <a href="story.html">STORY</a>
+      <a href="card.html">CARD</a>
+      <a href="event.html">EVENT</a>
+      <a href="music.html">MUSIC</a>
+      <a href="media.html">MEDIA</a>
+      <a href="xstmy.html">× stmy</a>
+    </nav>
+
+    <div class="site-header-icons">
+      <a href="https://x.com/aporia_fc" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <img src="images/x-icon.png" alt="X" class="icon-x">
+      </a>
+      <a href="https://wavebox.me/wave/2uq3t1e36oxy5xeq/" target="_blank" rel="noopener noreferrer" aria-label="Wavebox">
+        <img src="images/wavebox-icon.png" alt="Wavebox" class="icon-wavebox">
+      </a>
+    </div>
+
+  </header>
+
+  <!-- =========================
+       SITE MENU
+  ========================= -->
+
+  <button class="site-menu-button" type="button" aria-label="サイトメニューを開く">
+    <span>MENU</span>
+  </button>
+
+  <div class="site-menu-panel">
+    <div class="site-menu-inner">
+      <div class="site-menu-header">
+        <span>SITE MENU</span>
+        <button class="site-menu-close" type="button" aria-label="メニューを閉じる">×</button>
+      </div>
+
+      <nav class="site-menu-nav">
+        <a href="index.html">TOP</a>
+        <a href="world.html">WORLD</a>
+        <a href="character.html">CHARACTER</a>
+        <a href="story.html">STORY</a>
+        <a href="card.html">CARD</a>
+        <a href="event.html">EVENT</a>
+        <a href="music.html">MUSIC</a>
+        <a href="media.html">MEDIA</a>
+        <a href="xstmy.html">× stmy</a>
+      </nav>
+
+      <div class="site-menu-icons">
+        <a href="https://x.com/aporia_fc" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <img src="images/x-icon.png" alt="X" class="icon-x">
+        </a>
+        <a href="https://wavebox.me/wave/2uq3t1e36oxy5xeq/" target="_blank" rel="noopener noreferrer" aria-label="Wavebox">
+          <img src="images/wavebox-icon.png" alt="Wavebox" class="icon-wavebox">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       TIMELINE
+  ========================= -->
+
+  <main class="tl-page">
+
+    <section class="tl-intro">
+      <h1 id="tl-title">FOOTPRINTS.</h1>
+      <p id="tl-sub">（　　trace each character’s footprints _ 　）</p>
+    </section>
+
+    <section class="tl-filter">
+      <div class="tl-filter-head">
+        <span>見たいキャラを選ぶと、その列だけ表示されます（未選択なら全員）</span>
+        <button type="button" class="tl-reset" id="tl-reset">RESET</button>
+      </div>
+      <div class="tl-chips" id="tl-chips"></div>
+
+      <div class="tl-range">
+        <span>時期</span>
+        <label><span class="tl-range-label">FROM</span><select id="tl-from"></select></label>
+        <label><span class="tl-range-label">TO</span><select id="tl-to"></select></label>
+      </div>
+    </section>
+
+    <p class="tl-count" id="tl-count"></p>
+
+    <div class="tl-scroll" id="tl-scroll">
+      <table class="tl-table" id="tl-table"></table>
+    </div>
+
+  </main>
+
+  <!-- =========================
+       SCRIPT
+  ========================= -->
+
+  <script>
+
+    /* =========================
+       SITE MENU
+    ========================= */
+
+    const siteMenuButton = document.querySelector(".site-menu-button");
+    const siteMenuPanel  = document.querySelector(".site-menu-panel");
+    const siteMenuClose  = document.querySelector(".site-menu-close");
+    const siteMenuLinks  = document.querySelectorAll(".site-menu-nav a");
+
+    function closeMenu() {
+      siteMenuPanel.classList.remove("is-open");
+      siteMenuButton.classList.remove("is-hidden");
+    }
+    siteMenuButton.addEventListener("click", () => {
+      siteMenuPanel.classList.add("is-open");
+      siteMenuButton.classList.add("is-hidden");
+    });
+    siteMenuClose.addEventListener("click", closeMenu);
+    siteMenuLinks.forEach(link => link.addEventListener("click", closeMenu));
+    siteMenuPanel.addEventListener("click", (e) => { if (e.target === siteMenuPanel) closeMenu(); });
+
+
+    /* =========================================================
+       ▼▼▼ 編集 ▼▼▼
+    ========================================================= */
+
+    /* =========================
+       PAGE NAME（ページのタイトル。ここだけ変えればOK）
+    ========================= */
+
+    const pageInfo = {
+      name: "FOOTPRINTS",
+      sub:  "（　　trace each character’s footprints _ 　）"
+    };
+
+    /* =========================
+       CHARACTERS（列の並び順・色）
+    ========================= */
+
+    const characters = [
+      { id: "ai",       name: "皇坂 逢",   color: "#B22222" },
+      { id: "yuzuru",   name: "城瀬 由鶴", color: "#7DA852" },
+      { id: "roka",     name: "須王 芦佳", color: "#FFC02D" },
+      { id: "kou",      name: "綾戸 恋",   color: "#FD1493" },
+      { id: "mao",      name: "宇京 真央", color: "#A553E8" },
+      { id: "akehoshi", name: "樋宮 明星", color: "#FE8A23" },
+      { id: "yuragi",   name: "環野 揺",   color: "#6495ED" },
+      { id: "taiga",    name: "槻本 大河", color: "#8BCCD6" },
+      { id: "haruhi",   name: "壱川 春日", color: "#E9DC69" },
+      { id: "sei",      name: "隠岐谷 誓", color: "#9A98C1" },
+      { id: "shizuka",  name: "節見 静",   color: "#3F60BE" },
+      { id: "takeru",   name: "御門 尊",   color: "#C437BC" },
+      { id: "soyogu",   name: "新開 戦",   color: "#E04D21" },
+      { id: "shinobu",  name: "相沢 篠信", color: "#388138" },
+      { id: "kiho",     name: "在間 樹帆", color: "#DF507F" },
+      { id: "kyoya",    name: "祠堂 恭耶", color: "#F09C65" },
+      { id: "riku",     name: "立科 吏来", color: "#7043BB" },
+      { id: "tomose",   name: "恩田 灯世", color: "#61C892" },
+      { id: "yu",       name: "新名 有",   color: "#13BFFC" },
+      { id: "kamiya",   name: "神家",      color: "#5E76BC" },
+      { id: "urara",    name: "麻波 麗",   color: "#DE7DF3" }
+    ];
+
+    /* =========================
+       TIMELINE DATA
+       1行 = 1つの時期。上から古い順に並べてください。
+         when   : 左端に出る時期の表記（自由な文字列）
+         events : { キャラID: "出来事" }  ※改行は \n
+         all    : 全員に関わる出来事（この行は全幅で1つだけ表示）
+       ※ 下はサンプルです。書き換えて使ってください。
+    ========================= */
+
+    const timeline = [
+
+      {
+        when: "〇〇年",
+        all: "（サンプル）全員に関わる出来事はここに書く"
+      },
+
+      {
+        when: "〇〇年〇月",
+        events: {
+          ai: "（サンプル）皇坂の出来事",
+          yuzuru: "（サンプル）城瀬の出来事",
+          roka: "（サンプル）須王の出来事\n改行もできます"
+        }
+      },
+
+      {
+        when: "〇〇年〇月",
+        events: {
+          ai: "（サンプル）同じ時期でも別の行にできます",
+          kamiya: "（サンプル）神家の出来事"
+        }
+      }
+
+    ];
+
+    /* =========================================================
+       ▲▲▲ 編集 ▲▲▲
+    ========================================================= */
+
+
+    /* =========================
+       ELEMENTS
+    ========================= */
+
+    const chipsEl  = document.querySelector("#tl-chips");
+    const tableEl  = document.querySelector("#tl-table");
+    const countEl  = document.querySelector("#tl-count");
+    const resetBtn = document.querySelector("#tl-reset");
+    const fromEl   = document.querySelector("#tl-from");
+    const toEl     = document.querySelector("#tl-to");
+
+    document.querySelector("#tl-title").textContent = pageInfo.name + ".";
+    document.querySelector("#tl-sub").textContent   = pageInfo.sub;
+    document.title = pageInfo.name + " | Aporia fancafe";
+
+
+    /* =========================
+       CHIPS
+    ========================= */
+
+    characters.forEach(ch => {
+      const label = document.createElement("label");
+      label.className = "tl-chip";
+      label.style.setProperty("--c", ch.color);
+
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.value = ch.id;
+      input.addEventListener("change", render);
+
+      const span = document.createElement("span");
+      span.textContent = ch.name;
+
+      label.append(input, span);
+      chipsEl.appendChild(label);
+    });
+
+    /* =========================
+       RANGE（時期の範囲）
+       選択肢は timeline の並び順どおり。日付の形式は自由です。
+    ========================= */
+
+    timeline.forEach((row, i) => {
+      const label = String(i + 1).padStart(2, "0") + "　" + (row.when || "");
+      [fromEl, toEl].forEach(sel => {
+        const opt = document.createElement("option");
+        opt.value = i;
+        opt.textContent = label;
+        sel.appendChild(opt);
+      });
+    });
+
+    function resetRange() {
+      fromEl.value = 0;
+      toEl.value = Math.max(timeline.length - 1, 0);
+    }
+    resetRange();
+
+    fromEl.addEventListener("change", render);
+    toEl.addEventListener("change", render);
+
+    resetBtn.addEventListener("click", () => {
+      chipsEl.querySelectorAll("input").forEach(i => { i.checked = false; });
+      resetRange();
+      render();
+    });
+
+
+    /* =========================
+       RENDER
+    ========================= */
+
+    function cell(tag, text, className) {
+      const el = document.createElement(tag);
+      if (className) el.className = className;
+      el.textContent = text;
+      return el;
+    }
+
+    function render() {
+
+      const selected = Array.from(chipsEl.querySelectorAll("input:checked"))
+        .map(i => i.value);
+
+      const visible = selected.length
+        ? characters.filter(ch => selected.includes(ch.id))
+        : characters;
+
+      const lo = Math.min(Number(fromEl.value), Number(toEl.value));
+      const hi = Math.max(Number(fromEl.value), Number(toEl.value));
+
+      const rows = timeline.filter((row, i) =>
+        i >= lo && i <= hi &&
+        (row.all || visible.some(ch => row.events && row.events[ch.id]))
+      );
+
+      tableEl.innerHTML = "";
+      countEl.textContent =
+        `${visible.length} CHARACTERS / ${rows.length} ROWS`;
+
+      if (rows.length === 0) {
+        const p = document.createElement("p");
+        p.className = "tl-none";
+        p.textContent = "該当する出来事がありません。";
+        tableEl.appendChild(p);
+        return;
+      }
+
+      /* head */
+      const thead = document.createElement("thead");
+      const headRow = document.createElement("tr");
+      headRow.appendChild(cell("th", "時期", "tl-when"));
+
+      visible.forEach(ch => {
+        const th = cell("th", ch.name);
+        th.style.setProperty("--c", ch.color);
+        headRow.appendChild(th);
+      });
+
+      thead.appendChild(headRow);
+      tableEl.appendChild(thead);
+
+      /* body */
+      const tbody = document.createElement("tbody");
+
+      rows.forEach(row => {
+        const tr = document.createElement("tr");
+        tr.appendChild(cell("th", row.when || "", "tl-when"));
+
+        if (row.all) {
+          const td = cell("td", row.all, "tl-all");
+          td.colSpan = visible.length;
+          tr.appendChild(td);
+        } else {
+          visible.forEach(ch => {
+            const text = (row.events && row.events[ch.id]) || "";
+            tr.appendChild(cell("td", text || "—", text ? "" : "tl-empty"));
+          });
+        }
+
+        tbody.appendChild(tr);
+      });
+
+      tableEl.appendChild(tbody);
+    }
+
+    render();
+
+  </script>
+
+</body>
+</html>
