@@ -375,6 +375,106 @@
       background: #f7f8fa;
     }
 
+    /* 1行ずつの表示。（ ）で囲まれた行は不確定事項として薄く */
+
+    .fp-table .fp-line {
+      display: block;
+    }
+
+    .fp-table .fp-unsure {
+      color: #aaa;
+    }
+
+    /* 絞り込み結果が0件のときの表示 */
+
+    .fp-none {
+      margin: 0;
+      padding: 50px 20px;
+
+      text-align: center;
+
+      font-family: "Cormorant Garamond", serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+
+      color: #999;
+    }
+
+    /* 全体の出来事のオン／オフ */
+
+    .fp-toggle {
+      position: relative;
+
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      cursor: pointer;
+    }
+
+    .fp-toggle input {
+      position: absolute;
+
+      width: 1px;
+      height: 1px;
+
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .fp-switch {
+      position: relative;
+
+      flex-shrink: 0;
+
+      width: 26px;
+      height: 14px;
+
+      border-radius: 999px;
+
+      background: #ddd;
+
+      transition: background-color 0.2s ease;
+    }
+
+    .fp-switch::after {
+      content: "";
+
+      position: absolute;
+      top: 2px;
+      left: 2px;
+
+      width: 10px;
+      height: 10px;
+
+      border-radius: 50%;
+
+      background: #fff;
+
+      transition: transform 0.2s ease;
+    }
+
+    .fp-toggle input:checked + .fp-switch {
+      background: #222;
+    }
+
+    .fp-toggle input:checked + .fp-switch::after {
+      transform: translateX(12px);
+    }
+
+    .fp-toggle input:focus-visible + .fp-switch {
+      outline: 2px solid #222;
+      outline-offset: 3px;
+    }
+
+    .fp-toggle-text {
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+
+      color: #555;
+    }
+
     /* 全体の出来事の列（時期の列の右に固定） */
 
     .fp-table .fp-common {
@@ -453,6 +553,8 @@
 
       .fp-meta {
         width: 100%;
+        flex-wrap: wrap;
+        gap: 12px 22px;
         justify-content: space-between;
       }
 
@@ -596,6 +698,11 @@
         </div>
 
         <div class="fp-meta">
+          <label class="fp-toggle">
+            <input type="checkbox" id="fp-common-toggle" checked>
+            <span class="fp-switch"></span>
+            <span class="fp-toggle-text">全体の出来事</span>
+          </label>
           <p class="fp-count" id="fp-count">ALL CHARACTERS</p>
 
           <button type="button" id="fp-reset" class="story-reset-button">
@@ -1120,6 +1227,7 @@
     const resetBtn = document.querySelector("#fp-reset");
     const fromEl   = document.querySelector("#fp-from");
     const toEl     = document.querySelector("#fp-to");
+    const commonToggle = document.querySelector("#fp-common-toggle");
 
     document.querySelector("#fp-label").textContent = pageInfo.label;
     document.querySelector("#fp-title").textContent = pageInfo.name + ".";
@@ -1171,6 +1279,7 @@
 
     fromEl.addEventListener("change", render);
     toEl.addEventListener("change", render);
+    commonToggle.addEventListener("change", render);
 
 
     /* =========================
@@ -1179,11 +1288,12 @@
 
     resetBtn.addEventListener("click", () => {
       chipsEl.querySelectorAll("input").forEach(i => { i.checked = false; });
+      commonToggle.checked = true;
       resetRange();
       render();
     });
-
-
+    
+    
     /* =========================
        RENDER
     ========================= */
@@ -1192,6 +1302,26 @@
       const el = document.createElement(tag);
       if (className) el.className = className;
       el.textContent = text;
+      return el;
+    }
+
+    /* 1行ずつ分けて表示。全体が（ ）で囲まれた行は薄くする */
+    function cellLines(tag, text, className) {
+      const el = document.createElement(tag);
+      if (className) el.className = className;
+
+      String(text).split("\n").forEach(line => {
+        const span = document.createElement("span");
+        span.className = "fp-line";
+
+        if (/^[（(].*[）)]$/.test(line.trim())) {
+          span.classList.add("fp-unsure");
+        }
+
+        span.textContent = line;
+        el.appendChild(span);
+      });
+
       return el;
     }
 
@@ -1207,8 +1337,8 @@
       const lo = Math.min(Number(fromEl.value), Number(toEl.value));
       const hi = Math.max(Number(fromEl.value), Number(toEl.value));
 
-      /* 人物を選んでいるときは、全体の出来事の列を出さない */
-      const showCommon = selected.length === 0;
+      /* 全体の出来事の列は、スイッチで表示／非表示 */
+      const showCommon = commonToggle.checked;
       const commonOf = row => row.common || row.all || "";
 
       const rows = timeline.filter((row, i) =>
@@ -1281,13 +1411,17 @@
         if (showCommon) {
           const common = commonOf(row);
           tr.appendChild(
-            cell("td", common || "—", common ? "fp-common" : "fp-common fp-empty")
+            common
+              ? cellLines("td", common, "fp-common")
+              : cell("td", "—", "fp-common fp-empty")
           );
         }
 
         visible.forEach(ch => {
           const text = (row.events && row.events[ch.id]) || "";
-          tr.appendChild(cell("td", text || "—", text ? "" : "fp-empty"));
+          tr.appendChild(
+            text ? cellLines("td", text) : cell("td", "—", "fp-empty")
+          );
         });
 
         tbody.appendChild(tr);
