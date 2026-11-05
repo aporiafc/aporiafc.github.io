@@ -1,1 +1,1609 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>FOOTPRINTS | Aporia fancafe</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =========================================================
+       FOOTPRINTS（このページ専用 / fp- 始まり）
+       文字の種類（Cormorant Garamond / Noto Sans JP）
+    ========================================================= */
+
+    .fp-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 140px 40px 140px;
+      box-sizing: border-box;
+      text-align: left;
+    }
+
+    /* ---------- 見出し ---------- */
+
+    /* 見出しまわりの大きさ・余白は、同じ WORLD 内の TIMELINE ページと同じ値 */
+
+    .fp-intro {
+      margin: 0 0 60px;
+    }
+
+    .fp-intro .page-label {
+      margin: 0 0 24px;
+    }
+
+    .fp-intro h1 {
+      margin: 0;
+
+      font-family: "Cormorant Garamond", serif;
+      font-size: 64px;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.12em;
+
+      color: #222;
+    }
+
+    .fp-intro .page-description {
+      margin: 20px 0 0;
+
+      font-family: "ryo-gothic-plusn", sans-serif;
+      font-size: 10px;
+      line-height: 2;
+      letter-spacing: 0.5em;
+
+      color: #555;
+    }
+
+    /* ---------- 絞り込みカード ---------- */
+
+    .fp-filter {
+      padding: 22px 26px;
+
+      background: #fff;
+
+      border: 1px solid rgba(34, 34, 34, 0.05);
+      border-radius: 8px;
+
+      box-shadow:
+        0 1px 2px rgba(17, 17, 17, 0.02),
+        0 14px 28px -20px rgba(17, 17, 17, 0.14);
+    }
+
+    /* キャラ選択（丸いピル + キャラカラーのドット） */
+
+    .fp-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .fp-chips label {
+      position: relative;
+
+      display: inline-flex;
+      align-items: center;
+
+      height: 30px;
+      padding: 0 13px;
+
+      border: 1px solid #ddd;
+      border-radius: 999px;
+
+      background: #fff;
+
+      cursor: pointer;
+
+      transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+    }
+
+    .fp-chips input {
+      position: absolute;
+
+      width: 1px;
+      height: 1px;
+
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .fp-chips span {
+      display: inline-flex;
+      align-items: center;
+
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 11px;
+      line-height: 1.3;
+      letter-spacing: 0.04em;
+
+      color: #555;
+
+      transition: color 0.2s ease;
+    }
+
+    .fp-chips span::before {
+      content: "";
+
+      flex-shrink: 0;
+
+      width: 7px;
+      height: 7px;
+
+      margin-right: 8px;
+
+      border-radius: 50%;
+
+      background: var(--c, #222);
+    }
+
+    .fp-chips label:hover {
+      border-color: var(--c, #aaa);
+    }
+
+    .fp-chips label:has(input:checked) {
+      border-color: #222;
+      background: #222;
+    }
+
+    .fp-chips label:has(input:checked) span {
+      color: #fff;
+    }
+
+    .fp-chips input:focus-visible + span {
+      outline: 2px solid #222;
+      outline-offset: 6px;
+      border-radius: 999px;
+    }
+
+    /* 期間 + 件数 + RESET（1行） */
+
+    .fp-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px 24px;
+
+      margin-top: 16px;
+      padding-top: 16px;
+
+      border-top: 1px solid #eee;
+    }
+
+    .fp-range {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 18px;
+    }
+
+    .fp-range-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .fp-range-item > span {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+
+      color: #999;
+    }
+
+    .fp-select {
+      height: 34px;
+      max-width: 210px;
+
+      padding: 0 32px 0 14px;
+
+      border: 1px solid #ddd;
+      border-radius: 999px;
+      outline: none;
+
+      appearance: none;
+      -webkit-appearance: none;
+
+      background:
+        #fff
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23777' stroke-width='1.2'/%3E%3C/svg%3E")
+        no-repeat right 13px center;
+
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+
+      color: #222;
+
+      transition: border-color 0.2s ease;
+    }
+
+    .fp-select:hover,
+    .fp-select:focus {
+      border-color: #999;
+    }
+
+    .fp-meta {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .fp-count {
+      margin: 0;
+
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+
+      color: #888;
+    }
+
+    .fp-meta .story-reset-button {
+      color: #999;
+    }
+
+    .fp-meta .story-reset-button:hover {
+      color: #222;
+    }
+
+    /* ---------- 表 ---------- */
+
+    .fp-table-wrap {
+      max-height: 75vh;
+      margin-top: 20px;
+
+      overflow: auto;
+
+      background: #fff;
+
+      border: 1px solid rgba(34, 34, 34, 0.05);
+      border-radius: 8px;
+
+      box-shadow:
+        0 1px 2px rgba(17, 17, 17, 0.02),
+        0 14px 28px -20px rgba(17, 17, 17, 0.14);
+    }
+
+    .fp-table {
+      width: 100%;
+
+      border-collapse: separate;
+      border-spacing: 0;
+
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 11px;
+      line-height: 1.9;
+      letter-spacing: 0.03em;
+
+      color: #555;
+    }
+
+    .fp-table th,
+    .fp-table td {
+      min-width: 168px;
+
+      padding: 13px 16px;
+
+      background: #fff;
+
+      border-bottom: 1px solid #eee;
+      border-right: 1px solid #f1f1f1;
+
+      text-align: left;
+      vertical-align: top;
+      white-space: pre-line;
+    }
+
+    .fp-table thead th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+
+      border-top: 3px solid var(--c, #222);
+
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+
+      color: #222;
+    }
+
+    .fp-table .fp-name {
+      display: block;
+    }
+
+    /* キャラ名の下に固定で出るタロット欄 */
+
+    .fp-table .fp-tarot {
+      display: block;
+
+      margin-top: 2px;
+
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+
+      color: #999;
+    }
+
+    .fp-table .fp-tarot.is-empty {
+      color: #ddd;
+    }
+
+    .fp-table .fp-when {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+
+      width: 104px;
+      min-width: 104px;
+
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+
+      color: #222;
+    }
+
+    .fp-table thead .fp-when {
+      z-index: 3;
+
+      border-top-color: #222;
+    }
+
+    .fp-table tbody tr:hover td {
+      background: #fafafa;
+    }
+
+    .fp-table td.fp-empty {
+      color: #ccc;
+    }
+
+    .fp-table td.fp-all {
+      text-align: center;
+      letter-spacing: 0.08em;
+
+      color: #888;
+      background: #f7f8fa;
+    }
+
+    /* 1行ずつの表示。（ ）で囲まれた行は不確定事項として薄く */
+
+    .fp-table .fp-line {
+      display: block;
+    }
+
+    .fp-table .fp-unsure {
+      color: #aaa;
+    }
+
+    /* 絞り込み結果が0件のときの表示 */
+
+    .fp-none {
+      margin: 0;
+      padding: 50px 20px;
+
+      text-align: center;
+
+      font-family: "Cormorant Garamond", serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+
+      color: #999;
+    }
+
+    /* 全体の出来事のオン／オフ */
+
+    .fp-toggle {
+      position: relative;
+
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      cursor: pointer;
+    }
+
+    .fp-toggle input {
+      position: absolute;
+
+      width: 1px;
+      height: 1px;
+
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .fp-switch {
+      position: relative;
+
+      flex-shrink: 0;
+
+      width: 26px;
+      height: 14px;
+
+      border-radius: 999px;
+
+      background: #ddd;
+
+      transition: background-color 0.2s ease;
+    }
+
+    .fp-switch::after {
+      content: "";
+
+      position: absolute;
+      top: 2px;
+      left: 2px;
+
+      width: 10px;
+      height: 10px;
+
+      border-radius: 50%;
+
+      background: #fff;
+
+      transition: transform 0.2s ease;
+    }
+
+    .fp-toggle input:checked + .fp-switch {
+      background: #222;
+    }
+
+    .fp-toggle input:checked + .fp-switch::after {
+      transform: translateX(12px);
+    }
+
+    .fp-toggle input:focus-visible + .fp-switch {
+      outline: 2px solid #222;
+      outline-offset: 3px;
+    }
+
+    .fp-toggle-text {
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+
+      color: #555;
+    }
+
+    /* 全体の出来事の列（時期の列の右に固定） */
+
+    .fp-table .fp-common {
+      width: 160px;
+      min-width: 160px;
+
+      background: #fff;
+      border-right: 1px solid #e6e6e6;   /* 人物の列との境目だけ少し濃く */
+    }
+
+    .fp-table thead .fp-common {
+      z-index: 3;
+
+      border-top-color: #222;   /* 上の線を黒に */
+    }
+
+    @media (min-width: 701px) {
+
+      .fp-table .fp-common {
+        position: sticky;
+        left: 104px;
+        z-index: 1;
+      }
+
+    }
+
+    /* ---------- スマホ ---------- */
+
+    @media (max-width: 700px) {
+
+      .fp-page {
+        padding: 90px 20px 90px;
+      }
+
+      .fp-intro h1 {
+        font-size: 44px;
+      }
+
+      .fp-intro .page-description {
+        font-size: 9px;
+        line-height: 2;
+        letter-spacing: 0.2em;
+      }
+
+      .fp-filter {
+        padding: 18px 16px;
+      }
+
+      .fp-controls {
+        gap: 12px;
+      }
+
+      .fp-range {
+        width: 100%;
+        gap: 10px;
+      }
+
+      .fp-range-item {
+        flex: 1 1 100%;
+      }
+
+      .fp-range-item > span {
+        min-width: 48px;
+      }
+
+      .fp-range-item > span {
+        flex-shrink: 0;
+        min-width: 42px;
+      }
+
+      .fp-select {
+        flex: 1;
+        max-width: none;
+        min-width: 0;
+      }
+
+      .fp-meta {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px 22px;
+        justify-content: space-between;
+      }
+
+      .fp-table th,
+      .fp-table td {
+        min-width: 150px;
+        padding: 12px 14px;
+      }
+
+      .fp-table .fp-when {
+        width: 88px;
+        min-width: 88px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header class="site-header">
+
+    <a href="index.html" class="site-header-logo">
+      <span>Afc.</span>
+    </a>
+
+    <nav class="site-header-nav">
+      <a href="world.html">WORLD</a>
+      <a href="character.html">CHARACTER</a>
+      <a href="story.html">STORY</a>
+      <a href="card.html">CARD</a>
+      <a href="event.html">EVENT</a>
+      <a href="music.html">MUSIC</a>
+      <a href="media.html">MEDIA</a>
+      <a href="xstmy.html">× stmy</a>
+    </nav>
+
+    <div class="site-header-icons">
+
+      <a href="https://x.com/aporia_fc" target="_blank" rel="noopener noreferrer" aria-label="X">
+        <img src="images/x-icon.png" alt="X" class="icon-x">
+      </a>
+
+      <a href="https://wavebox.me/wave/2uq3t1e36oxy5xeq/" target="_blank" rel="noopener noreferrer" aria-label="Wavebox">
+        <img src="images/wavebox-icon.png" alt="Wavebox" class="icon-wavebox">
+      </a>
+
+    </div>
+
+  </header>
+
+  <!-- =========================
+       SITE MENU
+  ========================= -->
+
+  <button class="site-menu-button" type="button" aria-label="サイトメニューを開く">
+    <span>MENU</span>
+  </button>
+
+  <div class="site-menu-panel">
+    <div class="site-menu-inner">
+      <div class="site-menu-header">
+        <span>SITE MENU</span>
+        <button class="site-menu-close" type="button" aria-label="メニューを閉じる">
+          ×
+        </button>
+      </div>
+
+      <nav class="site-menu-nav">
+        <a href="index.html">TOP</a>
+        <a href="world.html">WORLD</a>
+        <a href="character.html">CHARACTER</a>
+        <a href="story.html">STORY</a>
+        <a href="card.html">CARD</a>
+        <a href="event.html">EVENT</a>
+        <a href="music.html">MUSIC</a>
+        <a href="media.html">MEDIA</a>
+        <a href="xstmy.html">× stmy</a>
+      </nav>
+
+      <div class="site-menu-icons">
+
+        <a href="https://x.com/aporia_fc" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <img src="images/x-icon.png" alt="X" class="icon-x">
+        </a>
+
+        <a href="https://wavebox.me/wave/2uq3t1e36oxy5xeq/" target="_blank" rel="noopener noreferrer" aria-label="Wavebox">
+          <img src="images/wavebox-icon.png" alt="Wavebox" class="icon-wavebox">
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================
+       FOOTPRINTS PAGE
+  ========================= -->
+
+  <main class="fp-page">
+
+    <!-- PAGE HEADER -->
+
+    <section class="fp-intro">
+      <p class="page-label" id="fp-label">
+        CHARACTER HISTORY
+      </p>
+
+      <h1 id="fp-title">
+        FOOTPRINTS.
+      </h1>
+
+      <p class="page-description" id="fp-sub">
+        （　　trace the footprints of each character _ 　）
+      </p>
+    </section>
+
+
+    <!-- FILTER -->
+
+    <section class="fp-filter">
+
+      <div id="fp-chips" class="fp-chips"></div>
+
+      <div class="fp-controls">
+
+        <div class="fp-range">
+          <label class="fp-range-item">
+            <span>FROM</span>
+            <select id="fp-from" class="fp-select"></select>
+          </label>
+
+          <label class="fp-range-item">
+            <span>TO</span>
+            <select id="fp-to" class="fp-select"></select>
+          </label>
+        </div>
+
+        <div class="fp-meta">
+          <label class="fp-toggle">
+            <input type="checkbox" id="fp-common-toggle" checked>
+            <span class="fp-switch"></span>
+            <span class="fp-toggle-text">全体の出来事</span>
+          </label>
+          <p class="fp-count" id="fp-count">ALL CHARACTERS</p>
+
+          <button type="button" id="fp-reset" class="story-reset-button">
+            RESET
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TABLE -->
+
+    <div class="fp-table-wrap">
+      <table class="fp-table" id="fp-table"></table>
+    </div>
+
+  </main>
+
+
+  <!-- =========================
+       PAGE JUMP BUTTONS
+  ========================= -->
+
+  <div class="page-jump">
+    <button type="button" class="page-jump-button" id="jump-top" aria-label="ページの先頭へ">↑</button>
+    <button type="button" class="page-jump-button" id="jump-bottom" aria-label="ページの末尾へ">↓</button>
+  </div>
+
+
+  <!-- =========================
+       SCRIPT
+  ========================= -->
+
+  <script>
+
+    /* =========================
+       SITE MENU
+    ========================= */
+
+    const siteMenuButton = document.querySelector(".site-menu-button");
+    const siteMenuPanel  = document.querySelector(".site-menu-panel");
+    const siteMenuClose  = document.querySelector(".site-menu-close");
+    const siteMenuLinks  = document.querySelectorAll(".site-menu-nav a");
+
+    function closeMenu() {
+      siteMenuPanel.classList.remove("is-open");
+      siteMenuButton.classList.remove("is-hidden");
+    }
+
+    siteMenuButton.addEventListener("click", () => {
+      siteMenuPanel.classList.add("is-open");
+      siteMenuButton.classList.add("is-hidden");
+    });
+
+    siteMenuClose.addEventListener("click", closeMenu);
+    siteMenuLinks.forEach(link => link.addEventListener("click", closeMenu));
+
+    siteMenuPanel.addEventListener("click", (event) => {
+      if (event.target === siteMenuPanel) closeMenu();
+    });
+
+
+    /* =========================================================
+       ▼▼▼ 編集 ▼▼▼
+    ========================================================= */
+
+    /* =========================
+       PAGE NAME（ページのタイトル。ここだけ変えればOK）
+    ========================= */
+
+    const pageInfo = {
+      label: "CHARACTER HISTORY",
+      name:  "FOOTPRINTS",
+      sub:   "（　　trace the footprints of each character _ 　）"
+    };
+
+    /* =========================
+       CHARACTERS（列の並び順・色）
+         tarot : キャラ名の下に固定で出るタロット欄（自由な文字列）
+                 例）"0" / "XIII" / "Ⅷ 力"   ※空のままなら「—」が出ます
+    ========================= */
+
+    const characters = [
+      { id: "ai",       name: "皇坂 逢",   color: "#B22222", tarot: "4（皇帝 - 逆位置）" },
+      { id: "yuzuru",   name: "城瀬 由鶴", color: "#7DA852", tarot: "12（吊るされた男 - 逆位置）" },
+      { id: "roka",     name: "須王 芦佳", color: "#FFC02D", tarot: "0（愚者 - 正位置）" },
+      { id: "kou",      name: "綾戸 恋",   color: "#FD1493", tarot: "6（恋人 - 正位置）" },
+      { id: "mao",      name: "宇京 真央", color: "#A553E8", tarot: "2（女教皇 - 逆位置）" },
+      { id: "akehoshi", name: "樋宮 明星", color: "#FE8A23", tarot: "17（星 - 正位置）" },
+      { id: "yuragi",   name: "環野 揺",   color: "#6495ED", tarot: "10（運命の輪 - 正位置）" },
+      { id: "taiga",    name: "槻本 大河", color: "#8BCCD6", tarot: "18（月 - 正位置）" },
+      { id: "haruhi",   name: "壱川 春日", color: "#E9DC69", tarot: "19（太陽 - 逆位置）" },
+      { id: "sei",      name: "隠岐谷 誓", color: "#9A98C1", tarot: "9（隠者 - 逆位置）" },
+      { id: "shizuka",  name: "節見 静",   color: "#3F60BE", tarot: "14（節制 - 正位置）" },
+      { id: "takeru",   name: "御門 尊",   color: "#C437BC", tarot: "3（女帝 - 正位置）" },
+      { id: "soyogu",   name: "新開 戦",   color: "#E04D21", tarot: "7（戦車 - 正位置）" },
+      { id: "shinobu",  name: "相沢 篠信", color: "#388138", tarot: "13（死神 - 逆位置）" },
+      { id: "kiho",     name: "在間 樹帆", color: "#DF507F", tarot: "1（魔術師 - 逆位置）" },
+      { id: "kyoya",    name: "祠堂 恭耶", color: "#F09C65", tarot: "5（法王 - 逆位置）" },
+      { id: "riku",     name: "立科 吏来", color: "#7043BB", tarot: "8（力 - 正位置）" },
+      { id: "tomose",   name: "恩田 灯世", color: "#61C892", tarot: "21（世界 - 正位置）" },
+      { id: "yu",       name: "新名 有",   color: "#13BFFC", tarot: "20（審判 - 正位置）" },
+      { id: "kamiya",   name: "神家",      color: "#5E76BC", tarot: "16（塔 - 正位置）" },
+      { id: "urara",    name: "麻波 麗",   color: "#DE7DF3", tarot: "15（悪魔 - 正位置）" },
+      { id: "yashiro",  name: "弥代 衣都", color: "", tarot: "22" },
+      { id: "togo",     name: "弥代 透吾", color: "" },
+      { id: "yukimura", name: "伊達 幸邑", color: "" },
+      { id: "ran",      name: "天羽 嵐",   color: "" },
+      { id: "kai",      name: "木築 灰",   color: "" },
+      { id: "mayu",     name: "宇京 真由", color: "" },
+      { id: "riri",     name: "佐原 凛々", color: "" },
+      { id: "yutaka",   name: "皇坂 雄高", color: "" },
+      { id: "ida",      name: "伊田 正義", color: "", tarot: "11（正義 ※マルセイユ版は力）" }
+    ];
+
+    /* =========================
+       TIMELINE DATA
+       1行 = 1つの時期。上から古い順。
+         when   : 左端に出る時期の表記（自由な文字列）
+         events : { キャラID: "出来事" }  ※改行は \n
+         all    : 全員に関わる出来事（この行は全幅で1つだけ表示）
+    ========================= */
+
+    const timeline = [
+ 
+      {
+        when: "1988年",
+        events: {
+          roka: "●8/14誕生"
+        }
+      },
+ 
+      {
+        when: "1990年",
+        events: {
+          togo: "●誕生\n●医師の父・逸と母の息子として生まれる"
+        }
+      },
+
+      {
+        when: "1992年",
+        events: {
+          kiho: "●9/4誕生\n（どこかのタイミングで、顧客の親族である隠岐谷と出会う）"
+        }
+      },
+
+      {
+        when: "1993年",
+        events: {
+          riku: "●7/26誕生"
+        }
+      },  
+
+      {
+        when: "1995年",
+        events: {
+          ai: "●4/15誕生\n●議員・雄高の息子として生まれる",
+          roka: "●小学校入学",
+          sei: "●9/19誕生\n●北国出身\n●吹雪に認められた子として両親からは過剰な期待を寄せられ、吹雪からは他を遮断する役割を求められて育つ\n（どこかのタイミングで、母・牡丹が在間の顧客であることから在間と出会う）",
+          takeru: "●10/4誕生\n●兄・大和、姉・天の弟として生を受け、どこかのタイミングで妹・照が生まれる\n●幼い頃から就職活動期まで野球に打ち込む",
+          mayu: "●誕生\n●どこかのタイミングで両親が離婚",
+          yutaka: "●息子・逢が生まれる",
+        }
+      },
+
+      {
+        when: "1996年",
+        events: {
+          taiga: "●2/28誕生\n●山吉会組長の息子として生まれるも、組員として認められずに育つ",
+          kyoya: "●5/14誕生\n●祠堂商事の家系に、兄ふたり（綾・和真）の弟として生まれる\n●宗教団体『信己会』猊下の息子として育つ",
+          yu: "●11/27誕生\n●本名：宇航\n●幼い頃から銃が身近にある環境で育つ",
+          shizuka: "●12/5誕生\n●子どもの頃から幼馴染・副原 珪が自分に代わって感情を露わにする環境で育つ"
+        }
+      },
+      
+      {
+        when: "1997年",
+        events: {
+          yuzuru: "●3/20誕生\n●どこかのタイミングで弟が生まれる",
+          kou: "●5/26誕生",
+          mao: "●7/11誕生\n●二つ上の姉・真由の弟として生まれる\n●どこかのタイミングで両親が離婚し、父のもとで育つ",
+          togo: "●小学校入学",
+          ran: "●11/10誕生",
+          mayu: "●二つ下の弟・真央が生まれる",
+        }
+      },
+
+      {
+        when: "1998年",
+        events: {
+          tomose: "●1/22誕生\n●幼少期から英語が堪能",
+          soyogu: "●6/23誕生\n●どこかのタイミングで、歳の離れた妹・護里が生まれる\n（キックボクサー引退後、翻訳アシスタントの短期バイトを通じて隠岐谷と出会う）",
+          haruhi: "●8/22誕生",
+          shinobu: "●10/24誕生\n●雪国出身\n●どこかのタイミングで弟が生まれる",
+          yashiro: "●誕生\n●医師の父・逸、母、兄・透吾の妹として生まれる\n●赤子の頃に母と死別する",
+          togo: "●八つ下の妹・衣都が生まれる\n●妹が赤子の頃に母と死別する",
+        }
+      },
+      
+      {
+        when: "1999年",
+        events: {
+          akehoshi: "●2/4誕生",
+          kiho: "●小学校入学",
+        }
+      },
+
+      {
+        when: "2000年",
+        events: {
+          kou: "（双子の妹（望夢・歩希）が生まれる）",
+          riku: "●小学校入学",
+        }
+      },
+
+      {
+        when: "2001年",
+        events: {
+          roka: "●小学校卒業\n●中学校入学",
+          yuragi: "●12/2誕生",
+          haruhi: "（妹が生まれる）",
+        }
+      },
+
+      {
+        when: "2002年",
+        events: {
+          ai: "●小学校入学",
+          taiga: "●小学校入学",
+          sei: "●小学校入学",
+          takeru: "●小学校入学"
+        }
+      },
+
+      {
+        when: "2003年",
+        events: {
+          yuzuru: "●小学校入学",
+          shizuka: "●小学校入学",
+          kyoya: "●小学校入学",
+          togo: "●小学校卒業\n●中学校入学",
+        }
+      },
+      
+      {
+        when: "2004年",
+        events: {
+          roka: "●中学校卒業\n●高等学校入学",
+          kou: "●小学校入学",
+          mao: "●小学校入学",
+          urara: "●1/6誕生\n●父・久と母・晴良の子として生を受けるが、久は実父でない可能性がある",
+          ran: "●小学校入学",
+        }
+      },
+
+      {
+        when: "2005年",
+        events: {
+          akehoshi: "●小学校入学\n（二ノ宮明星として子役デビューする）",
+          haruhi: "●小学校入学",
+          soyogu: "●小学校入学",
+          shinobu: "●小学校入学",
+          kiho: "●小学校卒業\n●中学校入学（帰宅部）",
+          yashiro: "●小学校入学\n●中学入学まで、透吾に身の回りの世話を焼かれながら過ごす",
+        }
+      },
+
+      {
+        when: "2006年",
+        events: {
+          akehoshi: "（二ノ宮明星として子役デビューする）",
+          riku: "●小学校卒業\n●中学校入学",
+          togo: "●中学校卒業\n●高等学校入学",
+        }
+      },
+
+      {
+        when: "2006年以前",
+        events: {
+          tomose: "●海外で両親を殺害され、マフィアボスの子供(にんぎょう)となる\n●新名と主従関係になる",
+          yu: "●恩田の父を射殺する\n●マフィア内で恩田と主従関係になる"
+        }
+      },
+
+      {
+        when: "2007年",
+        events: {
+          akehoshi: "（二ノ宮明星として子役デビューする）",
+          roka: "●高等学校卒業"
+        }
+      },
+      
+      {
+        when: "2008年",
+        events: {
+          ai: "●小学校卒業\n●中学校入学",
+          yuragi: "●小学校入学",
+          taiga: "●小学校卒業\n●中学校入学",
+          sei: "●小学校卒業\n●中学校入学",
+          takeru: "●小学校卒業\n●中学校入学",
+          kiho: "●中学校卒業\n●高等学校入学（帰宅部）\n（高校在学中、銀座の料亭『初音』で給仕のアルバイト）",
+        }
+      },
+
+      {
+        when: "2009年",
+        events: {
+          yuzuru: "●小学校卒業\n●中学校入学",
+          yuragi: "●不登校",
+          shizuka: "●小学校卒業\n●中学校入学",
+          kiho: "（高校在学中、銀座の料亭『初音』で給仕のアルバイト）",
+          kyoya: "●小学校卒業\n●中学校入学",
+          riku: "●中学校卒業\n●高等学校入学（写真部／一年生から部長）",
+          togo: "●高等学校卒業\n●大学入学",
+        }
+      },
+      
+      {
+        when: "2010年",
+        common: "●副都心総合医療センターに対する医療訴訟",
+        events: {
+          kou: "●小学校卒業\n●中学校入学",
+          mao: "●小学校卒業\n●中学校入学",
+          yuragi: "●不登校",
+          kiho: "（高校在学中、銀座の料亭『初音』で給仕のアルバイト）",
+          urara: "●両親が離婚し、父・久と二人暮らしを始める\n●小学校入学",
+          ran: "●小学校卒業\n●中学校入学",
+        }
+      },
+      
+      {
+        when: "2011年",
+        events: {
+          ai: "●中学校卒業\n●高等学校入学",
+          roka: "（ホストクラブ『Colias』で在間と出会う）",
+          akehoshi: "●小学校卒業\n●中学校入学",
+          yuragi: "（近隣の住人に面倒を見てもらうようになり、家に帰らなくなる）",
+          taiga: "●中学校卒業\n（高等学校入学）",
+          haruhi: "●小学校卒業\n●中学校入学",
+          sei: "●中学校卒業\n●高等学校入学",
+          takeru: "●中学校卒業\n●高等学校入学",
+          soyogu: "●小学校卒業\n●中学校入学\n（部活は無所属）",
+          shinobu: "●小学校卒業\n●中学校入学",
+          kiho: "●高等学校卒業\n（ホストクラブ『Colias』で須王と出会う）",
+          urara: "（精神を病んだ久と別離し、親戚のもとを転々とする）",
+          yashiro: "●小学校卒業\n●中学校入学",
+        }
+      },
+
+      {
+        when: "2012年",
+        events: {
+          yuzuru: "●中学校卒業\n●高等学校入学",
+          roka: "（ホストクラブ『Colias』で在間と出会う）",
+          shizuka: "●中学校卒業\n●高等学校入学\n（弓道部）",
+          kiho: "（ホストクラブ『Colias』で須王と出会う）",
+          kyoya: "●中学校卒業\n●高等学校入学\n（馬術部）",
+          riku: "●高等学校卒業\n●大学入学（フットサルサークル所属）",
+          urara: "（精神を病んだ久と別離し、親戚のもとを転々とする）",
+        }
+      },
+
+      {
+        when: "2013年",
+        events: {
+          roka: "（ホストクラブ『Colias』で在間と出会う）",
+          kou: "●中学校卒業\n●高等学校入学",
+          mao: "●中学校卒業\n●高等学校入学",
+          shinobu: "●親友・タツキを亡くす",
+          kiho: "（ホストクラブ『Colias』で須王と出会う）",
+          urara: "●祖母・八千代と同居開始",
+          togo: "●大学卒業\n（のちに警察官として就職）",
+          ran: "●中学校卒業\n（高等学校入学）",
+        }
+      },
+      
+      {
+        when: "2014年",
+        common: "●ワンミリオン事件\n●人体冷凍保存プロジェクト／関連法案の立案",
+        events: {
+          ai: "●高等学校卒業\n●淑央大学法学部に入学",
+          roka: "（ホストクラブ『Colias』で在間と出会う）",
+          akehoshi: "●中学校卒業\n●高等学校入学\n（高校在学中に芸能界を引退）",
+          yuragi: "●小学校卒業\n●中学校入学",
+          taiga: "（高等学校卒業）",
+          haruhi: "●中学校卒業\n●高等学校入学（美術部）\n（以降、どこかのタイミングで新開と再会）",
+          sei: "●高等学校卒業\n（大学入学）",
+          takeru: "●高等学校卒業\n●大学入学",
+          soyogu: "●中学校卒業\n●高等学校入学\n（部活は無所属）\n（以降、どこかのタイミングで壱川と再会）",
+          shinobu: "●中学校卒業\n●高等学校進学を機に上京",
+          kiho: "（ホストクラブ『Colias』で須王と出会う）",
+          yashiro: "●中学校卒業\n●高等学校入学",
+        }
+      },
+
+      {
+        when: "2015年",
+        events: {
+          akehoshi: "（高校在学中に芸能界を引退）",
+          yuzuru: "●高等学校卒業\n（大学入学）",
+          shizuka: "●高等学校卒業\n（大学入学）",
+          soyogu: "（十代でキックボクサーを引退）",
+          kyoya: "●高等学校卒業\n（大学入学）",
+        }
+      },
+
+      {
+        when: "2016年",
+        events: {
+          ai: "（同じゼミの学生として綾戸と出会う）",
+          kou: "●高等学校卒業\n●淑央大学法学部に入学\n（同じゼミの学生として皇坂と出会う）",
+          mao: "●高等学校卒業\n（大学入学）",
+          akehoshi: "（高校在学中に芸能界を引退）",
+          soyogu: "（十代でキックボクサーを引退）",
+          riku: "●大学卒業\n（のちに心理カウンセラーとして活動）",
+          urara: "●小学校卒業\n●中学校入学",
+          ran: "（高等学校卒業）",
+        }
+      },
+
+      {
+        when: "2017年",
+        events: {
+          ai: "（同じゼミの学生として綾戸と出会う）",
+          kou: "（同じゼミの学生として皇坂と出会う）",
+          akehoshi: "●高等学校卒業\n●大学（教育学部）に入学",
+          yuragi: "●中学校卒業",
+          taiga: "●実父である山吉会先代組長と縁を切り、家を出る\n（以降、どこかのタイミングで現組長に何らかの形で世話になる）",
+          haruhi: "●高等学校卒業\n（大学入学）",
+          takeru: "（内定後、九段下のホテルのバーラウンジでアルバイトを開始）",
+          soyogu: "●高等学校卒業\n（十代でキックボクサーを引退）\n（大学入学）",
+          shinobu: "●高等学校卒業\n（大学入学）",
+          yashiro: "●高等学校卒業\n●大学入学",
+        }
+      },
+
+      {
+        when: "2018年",
+        common: "●Aporia創設（遅くとも2019年・春まで）\n初期メンバー：須王・在間・御門・立科・初南（立科の従妹）・宇京真由、れみ（真由の同級生）・他二名\n半年後加入：隠岐谷・木築灰・佐原凛々",
+        events: {
+          ai: "●淑央大学法学部を卒業\n（のちに政界に進出）",
+          roka: "●在間と共にAporiaを創設",
+          sei: "（大学卒業）\n（翻訳家として活動）\n●在間経由でAporiaに入社（他の初期メンバーより半年遅れ）",
+          takeru: "●大学卒業\n●アパレル販売員として就職\n●傷害で逮捕され、不起訴処分となるも退職\n●スターティングメンバーとしてAporiaに入社",
+          soyogu: "（十代でキックボクサーを引退）",
+          riku: "●スターティングメンバーとしてAporiaに入社",
+          mayu: "●Aporiaに入社（キャラ代行や調査案件で活躍）",
+          kai: "●Aporiaに入社（他の初期メンバーより半年遅れ）",
+          riri: "●他の初期メンバーより半年遅れでAporiaに入社（バーカン担当／調査案件や荒事担当）",
+        }
+      },
+
+      {
+        when: "2019年",
+        common: "●皇坂雄高都議の不正献金疑惑",
+        events: {
+          ai: "●両親が失踪\n●実家から遺書が発見される",
+          roka: "●麻波を引き取り、同居を始める",
+          yuzuru: "（大学卒業）\n（のちに議員秘書として就職）",
+          haruhi: "（就職活動をせず、在学中よりdaymoon名義で配信活動を開始）",
+          shizuka: "（大学卒業）\n（企業SEとして就職）\n（以降どこかのタイミングで退職、フリーランスSEへ）",
+          kyoya: "（大学卒業）\n（のちに高校の非常勤美術教師として就職）",
+          urara: "●祖母・八千代死去\n●中学校卒業\n●高等学校入学時に上京\n●須王との同居を開始",
+          yutaka: "●不正献金疑惑騒動の責任を取る形で議員を辞職\n●遺書を残し、妻と失踪",
+        }
+      },
+
+      {
+        when: "2020年",
+        common: "●Aporiaスタッフ不審死事件",
+        events: {
+          roka: "●Aporia休業",
+          kou: "●淑央大学法学部を卒業\n（桧山グループ系列のホテルに就職）",
+          mao: "（大学卒業）\n（化粧品業界に就職）",
+          akehoshi: "（教育実習を経験）",
+          sei: "●Aporia休業",
+          takeru: "●Aporia休業",
+          kiho: "●Aporia休業",
+          riku: "●Aporia休業",
+          mayu: "●Aporia休業",
+          kai: "●Aporia休業\n（のちにAporia退職）",
+          riri: "●死去（不審な点はあるものの、最終的に警察は事件性がないと判断）",
+        }
+      },
+
+      {
+        when: "2020年・初夏",
+        common: "●須王と立科より皇坂にAporia立て直しの相談",
+        events: {
+          ai: "●Aporia立て直しの相談を受ける\n●政界を離れ「再起動」の準備をする",
+          roka: "●皇坂にAporiaの立て直しを相談する",
+          riku: "●皇坂にAporiaの立て直しを相談する",
+        }
+      },
+      
+      {
+        when: "2020年・冬",
+        common: "●Aporia再起動\n退職：宇京真由\n再起動組：皇坂・城瀬・宇京・祠堂・綾戸・新開・環野（環野のみ遅れて入社）\n●本部・交際部・強行部・交渉部が設立",
+        events: {
+          ai: "●Aporiaに入社\n●本部部長に就任",
+          yuzuru: "●皇坂のスカウトによりAporiaに入社（本部）",
+          roka: "●Aporia再起動（本部）",
+          kou: "●皇坂のスカウトによりAporiaに入社\n●交際部部長に就任",
+          mao: "●真由経由でAporiaに入社（交際部）",
+          yuragi: "●他の再起動メンバーより遅れてAporiaに入社（交際部）",
+          sei: "●「再起動」以降、本部と交渉部を兼任",
+          takeru: "●「再起動」時、強行部部長に就任",
+          soyogu: "●隠岐谷経由でAporiaに入社（強行部）",
+          kiho: "●「再起動」時、交渉部部長に就任",
+          kyoya: "●在間経由でAporiaに入社（交渉部）",
+          riku: "●「再起動」時、本部と交渉部を兼任",
+          mayu: "●皇坂が正式入社する前にAporiaを退職",
+          kai: "（のちに外部スタッフとして隠岐谷・皇坂経由で監視業務に携わる）",
+        }
+      },
+
+      {
+        when: "2021年",
+        events: {
+          akehoshi: "●教員免許未取得のまま大学（教育学部）を卒業",
+          haruhi: "（大学卒業）\n（配信とクリエイティブ職を兼業）",
+          soyogu: "（大学卒業）",
+          shinobu: "（大学卒業）",
+          yashiro: "●大学卒業\n（会社員として就職／人事部に配属）",
+        }
+      },
+
+      {
+        when: "2021年・年末",
+        common: "●節見・相沢がAporiaに入社",
+        events: {
+          shizuka: "●皇坂のスカウトにより、業務委託の契約先だったAporiaに入社（本部預かり）\n（入寮）",
+          shinobu: "●Aporiaに入社（強行部）",
+        }
+      },
+
+      {
+        when: "2022年・早春",
+        common: "●樋宮・麻波・天羽がAporiaに入社",
+        events: {
+          roka: "●樋宮・麻波・天羽をスカウト\n●麻波が入寮し、同居を解消\n（相沢との同居を開始）",
+          kou: "●樋宮の加入により交際部が4人体制になる",
+          mao: "●樋宮の加入により交際部が4人体制になる",
+          akehoshi: "（入社までに客として宇京に兄代行を依頼）\n●須王のスカウトによりAporiaに入社（交際部）\n（入寮、環野との同居開始）",
+          yuragi: "●樋宮の加入により交際部が4人体制になる\n（樋宮との同居開始）",
+          sei: "●天羽の加入により交渉部が5人体制になる",
+          kiho: "●天羽の加入により交渉部が5人体制になる",
+          kyoya: "●天羽の加入により交渉部が5人体制になる",
+          riku: "●天羽の加入により交渉部が5人体制になる",
+          urara: "●高等学校卒業\n●須王の説得によりAporiaに入社（強行部）\n（入寮）",
+          ran: "●須王のスカウトによりAporiaに入社（交渉部）\n（入寮）",
+        }
+      },
+
+      {
+        when: "2022年・春",
+        common: "●交際部 前日譚『Prequel 揺蕩う泡沫の春に』\n●イベスト『Vignette-Couple-』",
+        events: {
+          kou: "●宇京に依頼し、ビジネスカップル契約を結ぶ",
+          mao: "●綾戸からの代行依頼を受け、ビジネスカップル契約を結ぶ",
+          akehoshi: "●環野とともに綾戸・宇京へビジネスカップルを提案する",
+          yuragi: "●樋宮とともに綾戸・宇京へビジネスカップルを提案する",
+        }
+      },
+
+      {
+        when: "2022年・初夏",
+        common: "●本部 前日譚『Prequel 幾望の晩餐』\n●天羽、無期限謹慎処分",
+       events: {
+          roka: "●天羽の件をきっかけに「とかげのしっぽ」になる",
+          yuzuru: "●天羽に“壊され”かける",
+          ran: "●謹慎処分となり、寮に帰らなくなる",
+        }
+      },
+      
+      {
+        when: "2022年・真夏",
+        common: "●強行部 前日譚『Prequel 強かな熱を抱いて』",
+        events: {
+          shizuka: "●強行部部長に就任",
+          takeru: "●節見の加入により部長職を退く\n●強行部が5人体制となる",
+          soyogu: "●節見の加入により強行部が5人体制となる",
+          shinobu: "●節見の加入により強行部が5人体制となる",
+          urara: "●節見の加入により強行部が5人体制となる",
+        }
+      },
+
+      {
+        when: "2022年",
+        common: "●恩田・新名、共にAporiaに入社（特務部門設立）\n●槻本・壱川がAporiaに入社",
+        events: {
+          roka: "●恩人に託され恩田・新名をAporiaに迎え入れる",
+          yuragi: "●ハウスをアポなしで訪問。以降、頻繁に通うようになる",
+          taiga: "●前職を辞職し、住居の賃貸契約を切る\n●皇坂に採用されAporiaに入社（試用期間）\n●ハウスへ引っ越し",
+          haruhi: "●新開経由でAporiaに入社（試用期間）\n●ハウスへ引っ越し",
+          sei: "●槻本と壱川を誘い、自宅で同居を開始",
+          tomose: "（これより以前に新名と共に日本へ帰国）\n●須王の恩人経由でAporiaに入社（特務部門）",
+          yu: "（これより以前にボスと何らかの約束をした上で、恩田と共に日本へ渡航）\n●須王の恩人経由でAporiaに入社（特務部門）",
+        }
+      },
+
+      {
+        when: "2022年・晩秋",
+        common: "●交渉部 前日譚『Prequel 礎を仰ぐ瞳』\n●神家、恩田・新名の保護を経てAporiaに入社\n●天羽、正式に解雇処分",
+        events: {
+          yuzuru: "●経理業務を槻本へ、広報・デザイン業務を壱川へ引き継ぐ",
+          tomose: "●大怪我を負った神家を新名と共に拾う",
+          yu: "●大怪我を負った神家を恩田と共に拾う",
+          kamiya: "●大怪我を負った状態で恩田と新名に保護される\n●須王と在間に神家と名付けて貰い、Aporiaに入社（本部預かり）\n●本名：颯一",
+          ran: "●Aporiaを正式に解雇となる",
+        }
+      },
+
+      {
+        when: "2022年・初冬",
+        common: "●管理部 前日譚『Prequel 深雪に差す薄日』",
+      },
+
+      {
+        when: "2023年・年始",
+        common: "●管理部設立",
+        events: {
+          taiga: "●管理部の部長に就任",
+          haruhi: "●管理部所属になる",
+          sei: "●交渉部から管理部へ異動",
+        }
+      },
+      
+      {
+        when: "2023年・晩夏-初秋",
+        common: "●特務部 前日譚『Prequel 誰そ彼の家路』\n●イベスト『Vignette-Baby-』",
+        events: {
+          shizuka: "●麻波の異動により強行部が4人体制となる",
+          takeru: "●麻波の異動により強行部が4人体制となる",
+          soyogu: "●麻波の異動により強行部が4人体制となる",
+          shinobu: "●麻波の異動により強行部が4人体制となる",
+          tomose: "●神家と麻波の加入により特務部が4人体制となる",
+          yu: "●神家と麻波の加入により特務部が4人体制となる",
+          kamiya: "●本人の希望により特務部に配属\n●神家と麻波の加入により4人体制となる",
+          urara: "●強行部から特務部に異動\n●神家と麻波の加入により4人体制となる",
+        }
+      },
+
+      {
+        when: "2024年",
+        common: "●メインスト『Thread 0』\n●弥代がAporiaに入社\n●メインスト『Thread 1 Irresponsible Pink』\n●メインスト『Thread 1 Aloof Yellow』\n●イベスト『Vignette-Engawa-』\n●メインスト『Thread 1 Sly Red』\n●イベスト『Vignette-Line-』\n●メインスト『Thread 1 Phony Violet』\n●メインスト『Thread 1 Chilling Green』\n●イベスト『Vignette-Skip-』\n●メインスト『Thread 1 Vindictive Blue』\n●メインスト『Interlude I』\n●イベスト『Vignette-Emperor-』\n●イベスト『Florist 花に染む言の葉』\n●メインスト『Interlude II』\n●メインスト『Thread 2 APPLE of my eye』\n●メインスト『Interlude Ⅲ』\n●メインスト『Thread 2 PIE in the sky』",
+        events: {
+          roka: "●弥代をオーナー代理として迎え入れ、長期休暇を取る",
+          sei: "●木築にワンミリオン事件の調査を依頼する",
+          yashiro: "●須王のスカウトによりAporiaに入社（オーナー代理・本部所属）",
+          urara: "●横浜駅で天羽に遭遇する",
+          ran: "●横浜駅で麻波と弥代に遭遇する",
+          kai: "●隠岐谷よりワンミリオン事件の調査依頼を受ける",
+        }
+      },
+      
+    ];
+
+    /* =========================================================
+       ▲▲▲ 編集 ▲▲▲
+    ========================================================= */
+
+
+    /* =========================
+       ELEMENTS
+    ========================= */
+
+    const chipsEl  = document.querySelector("#fp-chips");
+    const tableEl  = document.querySelector("#fp-table");
+    const countEl  = document.querySelector("#fp-count");
+    const resetBtn = document.querySelector("#fp-reset");
+    const fromEl   = document.querySelector("#fp-from");
+    const toEl     = document.querySelector("#fp-to");
+    const commonToggle = document.querySelector("#fp-common-toggle");
+
+    document.querySelector("#fp-label").textContent = pageInfo.label;
+    document.querySelector("#fp-title").textContent = pageInfo.name + ".";
+    document.querySelector("#fp-sub").textContent   = pageInfo.sub;
+    document.title = pageInfo.name + " | Aporia fancafe";
+
+
+    /* =========================
+       CHARACTER FILTER
+    ========================= */
+
+    characters.forEach(ch => {
+      const label = document.createElement("label");
+      label.style.setProperty("--c", ch.color);
+
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.value = ch.id;
+      input.addEventListener("change", render);
+
+      const span = document.createElement("span");
+      span.textContent = ch.name;
+
+      label.append(input, span);
+      chipsEl.appendChild(label);
+    });
+
+
+    /* =========================
+       PERIOD FILTER
+       選択肢は timeline の並び順どおり。日付の形式は自由。
+    ========================= */
+
+    timeline.forEach((row, i) => {
+      const text = String(i + 1).padStart(2, "0") + "　" + (row.when || "");
+      [fromEl, toEl].forEach(sel => {
+        const opt = document.createElement("option");
+        opt.value = i;
+        opt.textContent = text;
+        sel.appendChild(opt);
+      });
+    });
+
+    function resetRange() {
+      fromEl.value = 0;
+      toEl.value = Math.max(timeline.length - 1, 0);
+    }
+    resetRange();
+
+    fromEl.addEventListener("change", render);
+    toEl.addEventListener("change", render);
+    commonToggle.addEventListener("change", render);
+
+
+    /* =========================
+       RESET
+    ========================= */
+
+    resetBtn.addEventListener("click", () => {
+      chipsEl.querySelectorAll("input").forEach(i => { i.checked = false; });
+      commonToggle.checked = true;
+      resetRange();
+      render();
+    });
+    
+    
+    /* =========================
+       RENDER
+    ========================= */
+
+    function cell(tag, text, className) {
+      const el = document.createElement(tag);
+      if (className) el.className = className;
+      el.textContent = text;
+      return el;
+    }
+
+    /* 1行ずつ分けて表示。全体が（ ）で囲まれた行は薄くする */
+    function cellLines(tag, text, className) {
+      const el = document.createElement(tag);
+      if (className) el.className = className;
+
+      String(text).split("\n").forEach(line => {
+        const span = document.createElement("span");
+        span.className = "fp-line";
+
+        if (/^[（(].*[）)]$/.test(line.trim())) {
+          span.classList.add("fp-unsure");
+        }
+
+        span.textContent = line;
+        el.appendChild(span);
+      });
+
+      return el;
+    }
+
+    function render() {
+
+      const selected = Array.from(chipsEl.querySelectorAll("input:checked"))
+        .map(i => i.value);
+
+      const visible = selected.length
+        ? characters.filter(ch => selected.includes(ch.id))
+        : characters;
+
+      const lo = Math.min(Number(fromEl.value), Number(toEl.value));
+      const hi = Math.max(Number(fromEl.value), Number(toEl.value));
+
+      /* 全体の出来事の列は、スイッチで表示／非表示 */
+      const showCommon = commonToggle.checked;
+      const commonOf = row => row.common || row.all || "";
+
+      const rows = timeline.filter((row, i) =>
+        i >= lo && i <= hi &&
+        (
+          (showCommon && commonOf(row)) ||
+          visible.some(ch => row.events && row.events[ch.id])
+        )
+      );
+
+      tableEl.innerHTML = "";
+
+      countEl.textContent = selected.length
+        ? `${visible.length} CHARACTERS / ${rows.length} ROWS`
+        : `ALL CHARACTERS / ${rows.length} ROWS`;
+
+      if (rows.length === 0) {
+        const tr = document.createElement("tr");
+        const td = document.createElement("td");
+        td.className = "fp-none";
+        td.textContent = "該当する出来事がありません。";
+        tr.appendChild(td);
+        tableEl.appendChild(tr);
+        return;
+      }
+
+      /* head */
+      const thead = document.createElement("thead");
+      const headRow = document.createElement("tr");
+
+      const corner = cell("th", "", "fp-when");
+      corner.setAttribute("aria-label", "時期");
+      headRow.appendChild(corner);
+
+      if (showCommon) {
+        const commonTh = document.createElement("th");
+        commonTh.className = "fp-common";
+        commonTh.append(
+          cell("span", "全体の出来事", "fp-name"),
+          cell("span", "EVENTS", "fp-tarot")
+        );
+        headRow.appendChild(commonTh);
+      }
+
+      visible.forEach(ch => {
+        const th = document.createElement("th");
+        th.style.setProperty("--c", ch.color);
+
+        const name = cell("span", ch.name, "fp-name");
+        const tarot = cell(
+          "span",
+          ch.tarot || "—",
+          ch.tarot ? "fp-tarot" : "fp-tarot is-empty"
+        );
+
+        th.append(name, tarot);
+        headRow.appendChild(th);
+      });
+
+      thead.appendChild(headRow);
+      tableEl.appendChild(thead);
+
+      /* body */
+      const tbody = document.createElement("tbody");
+
+      rows.forEach(row => {
+        const tr = document.createElement("tr");
+        tr.appendChild(cell("th", row.when || "", "fp-when"));
+
+        if (showCommon) {
+          const common = commonOf(row);
+          tr.appendChild(
+            common
+              ? cellLines("td", common, "fp-common")
+              : cell("td", "—", "fp-common fp-empty")
+          );
+        }
+
+        visible.forEach(ch => {
+          const text = (row.events && row.events[ch.id]) || "";
+          tr.appendChild(
+            text ? cellLines("td", text) : cell("td", "—", "fp-empty")
+          );
+        });
+
+        tbody.appendChild(tr);
+      });
+
+      tableEl.appendChild(tbody);
+    }
+
+    render();
+
+
+    /* =========================
+       PAGE JUMP
+    ========================= */
+
+    const jumpTop    = document.querySelector("#jump-top");
+    const jumpBottom = document.querySelector("#jump-bottom");
+
+    jumpTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    });
+
+    jumpBottom.addEventListener("click", () => {
+      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: "auto" });
+    });
+
+    window.addEventListener("scroll", () => {
+      jumpTop.classList.toggle("is-visible", window.scrollY > 200);
+    });
+
+  </script>
+
+</body>
+</html>
