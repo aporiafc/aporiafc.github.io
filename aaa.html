@@ -475,6 +475,84 @@
       color: #555;
     }
 
+    /* 年齢の基準の切り替え */
+
+    .fp-basis {
+      flex: 1 1 100%;
+
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 10px;
+    }
+
+    .fp-basis-label {
+      margin-right: 4px;
+
+      font-family: "Cormorant Garamond", serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+
+      color: #999;
+    }
+
+    .fp-basis-opt {
+      position: relative;
+
+      display: inline-flex;
+      align-items: center;
+
+      height: 28px;
+      padding: 0 13px;
+
+      border: 1px solid #ddd;
+      border-radius: 999px;
+
+      background: #fff;
+
+      cursor: pointer;
+
+      transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+    }
+
+    .fp-basis-opt input {
+      position: absolute;
+
+      width: 1px;
+      height: 1px;
+
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .fp-basis-opt span {
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+
+      color: #555;
+    }
+
+    .fp-basis-opt:hover {
+      border-color: #aaa;
+    }
+
+    .fp-basis-opt:has(input:checked) {
+      border-color: #222;
+      background: #222;
+    }
+
+    .fp-basis-opt:has(input:checked) span {
+      color: #fff;
+    }
+
+    .fp-basis-opt:has(input:focus-visible) {
+      outline: 2px solid #222;
+      outline-offset: 3px;
+    }
+
     /* 全体の出来事の列（時期の列の右に固定） */
 
     .fp-table .fp-common {
@@ -685,6 +763,21 @@
 
       <div class="fp-controls">
 
+        <div class="fp-basis" role="radiogroup" aria-label="年齢の基準">
+          <span class="fp-basis-label">AGE</span>
+
+          <label class="fp-basis-opt">
+            <input type="radio" name="fp-basis" value="year" checked>
+            <span>2024年の満年齢</span>
+          </label>
+
+          <label class="fp-basis-opt">
+            <input type="radio" name="fp-basis" value="release">
+            <span>公式プロフィール（2024/5/9時点）</span>
+          </label>
+        </div>
+        
+        
         <div class="fp-range">
           <label class="fp-range-item">
             <span>FROM</span>
@@ -821,6 +914,25 @@
     ];
 
     /* =========================
+       BIRTHDAYS（公式の誕生日 月/日）
+         公式基準の年表では、誕生日が基準日より後の人は、
+         誕生・入学・卒業など年齢から決まる出来事が1年前にずれます。
+         ※未発表のキャラは書かなくてOK（ずれません）
+         ※数字で直接指定もできます（例: mayu: -1）
+    ========================= */
+
+    const RELEASE = { month: 5, day: 9 };   // 公式プロフィールの基準日（リリース日）
+
+    const birthdays = {
+      ai: "4/15",    yuzuru: "3/20",  roka: "8/14",   kou: "5/26",   mao: "7/11",
+      akehoshi: "2/4", yuragi: "12/2", taiga: "2/28",  haruhi: "8/22", sei: "9/19",
+      shizuka: "12/5", takeru: "10/4", soyogu: "6/23", shinobu: "10/24",
+      kiho: "9/4",   kyoya: "5/14",   riku: "7/26",   tomose: "1/22", yu: "11/27",
+      urara: "1/6",  ran: "11/10",
+      mayu: -1,
+    };
+
+    /* =========================
        TIMELINE DATA
        1行 = 1つの時期。上から古い順。
          when   : 左端に出る時期の表記（自由な文字列）
@@ -899,8 +1011,8 @@
           soyogu: "●6/23誕生\n●どこかのタイミングで、歳の離れた妹・護里が生まれる\n（キックボクサー引退後、翻訳アシスタントの短期バイトを通じて隠岐谷と出会う）",
           haruhi: "●8/22誕生",
           shinobu: "●10/24誕生\n●雪国出身\n●どこかのタイミングで弟が生まれる",
-          yashiro: "●誕生\n●医師の父・逸、母、兄・透吾の妹として生まれる\n●赤子の頃に母と死別する",
-          togo: "●八つ下の妹・衣都が生まれる\n●妹が赤子の頃に母と死別する",
+          yashiro: "●誕生\n●医師の父・逸の娘、兄・透吾の妹として生まれる\n●赤子の頃に母と死別する",
+          togo: "●八つ下の妹・衣都が生まれる\n●衣都が赤子の頃に母と死別する",
         }
       },
       
@@ -948,6 +1060,14 @@
           togo: "●小学校卒業\n●中学校入学",
         }
       },
+
+      {
+        when: "2004年以前",
+        events: {
+          tomose: "●海外で両親を殺害され、マフィアボスの子供(にんぎょう)となる\n●新名と主従関係になる",
+          yu: "●恩田の父を射殺する\n●マフィア内で恩田と主従関係になる"
+        }
+      },
       
       {
         when: "2004年",
@@ -955,7 +1075,7 @@
           roka: "●中学校卒業\n●高等学校入学",
           kou: "●小学校入学",
           mao: "●小学校入学",
-          urara: "●1/6誕生\n●父・久と母・晴良の子として生を受けるが、久は実父でない可能性がある",
+          urara: "●1/6誕生\n●父・久と母・晴良の子とされていたが、久は実父でない可能性がある",
           ran: "●小学校入学",
         }
       },
@@ -966,7 +1086,7 @@
           akehoshi: "●小学校入学\n（二ノ宮明星として子役デビューする）",
           haruhi: "●小学校入学",
           soyogu: "●小学校入学",
-          shinobu: "●小学校入学",
+          shinobu: "●小学校入学\n（小学生の頃に機械体操を経験）",
           kiho: "●小学校卒業\n●中学校入学（帰宅部）",
           yashiro: "●小学校入学\n●中学入学まで、透吾に身の回りの世話を焼かれながら過ごす",
         }
@@ -978,14 +1098,6 @@
           akehoshi: "（二ノ宮明星として子役デビューする）",
           riku: "●小学校卒業\n●中学校入学",
           togo: "●中学校卒業\n●高等学校入学",
-        }
-      },
-
-      {
-        when: "2006年以前",
-        events: {
-          tomose: "●海外で両親を殺害され、マフィアボスの子供(にんぎょう)となる\n●新名と主従関係になる",
-          yu: "●恩田の父を射殺する\n●マフィア内で恩田と主従関係になる"
         }
       },
 
@@ -1013,7 +1125,7 @@
         when: "2009年",
         events: {
           yuzuru: "●小学校卒業\n●中学校入学",
-          yuragi: "●不登校",
+          yuragi: "●~不登校",
           shizuka: "●小学校卒業\n●中学校入学",
           kiho: "（高校在学中、銀座の料亭『初音』で給仕のアルバイト）",
           kyoya: "●小学校卒業\n●中学校入学",
@@ -1028,7 +1140,7 @@
         events: {
           kou: "●小学校卒業\n●中学校入学",
           mao: "●小学校卒業\n●中学校入学",
-          yuragi: "●不登校",
+          yuragi: "●~不登校",
           kiho: "（高校在学中、銀座の料亭『初音』で給仕のアルバイト）",
           urara: "●両親が離婚し、父・久と二人暮らしを始める\n●小学校入学",
           ran: "●小学校卒業\n●中学校入学",
@@ -1037,20 +1149,23 @@
       
       {
         when: "2011年",
+        common: "●美術展『レンブラント 光の探求／闇の誘惑』上野の国立西洋美術館にて開催（3月2日〜6月12日）",
         events: {
           ai: "●中学校卒業\n●高等学校入学",
           roka: "（ホストクラブ『Colias』で在間と出会う）",
           akehoshi: "●小学校卒業\n●中学校入学",
-          yuragi: "（近隣の住人に面倒を見てもらうようになり、家に帰らなくなる）",
+          yuragi: "~（近隣の住人に面倒を見てもらうようになり、家に帰らなくなる）",
           taiga: "●中学校卒業\n（高等学校入学）",
           haruhi: "●小学校卒業\n●中学校入学",
           sei: "●中学校卒業\n●高等学校入学",
           takeru: "●中学校卒業\n●高等学校入学",
-          soyogu: "●小学校卒業\n●中学校入学\n（部活は無所属）",
+          soyogu: "●小学校卒業\n●中学校入学（部活は無所属）",
           shinobu: "●小学校卒業\n●中学校入学",
           kiho: "●高等学校卒業\n（ホストクラブ『Colias』で須王と出会う）",
+          kyoya: "●美術展『レンブラント 光の探求／闇の誘惑』鑑賞",
           urara: "（精神を病んだ久と別離し、親戚のもとを転々とする）",
-          yashiro: "●小学校卒業\n●中学校入学",
+          yashiro: "●小学校卒業\n●中学校入学\n●美術展『レンブラント 光の探求／闇の誘惑』を透吾と鑑賞",
+          togo: "●美術展『レンブラント 光の探求／闇の誘惑』を衣都と鑑賞",
         }
       },
 
@@ -1059,7 +1174,7 @@
         events: {
           yuzuru: "●中学校卒業\n●高等学校入学",
           roka: "（ホストクラブ『Colias』で在間と出会う）",
-          shizuka: "●中学校卒業\n●高等学校入学\n（弓道部）",
+          shizuka: "●中学校卒業\n●高等学校入学\n~（弓道部）",
           kiho: "（ホストクラブ『Colias』で須王と出会う）",
           kyoya: "●中学校卒業\n●高等学校入学\n（馬術部）",
           riku: "●高等学校卒業\n●大学入学（フットサルサークル所属）",
@@ -1093,7 +1208,7 @@
           haruhi: "●中学校卒業\n●高等学校入学（美術部）\n（以降、どこかのタイミングで新開と再会）",
           sei: "●高等学校卒業\n（大学入学）",
           takeru: "●高等学校卒業\n●大学入学",
-          soyogu: "●中学校卒業\n●高等学校入学\n（部活は無所属）\n（以降、どこかのタイミングで壱川と再会）",
+          soyogu: "●中学校卒業\n●高等学校入学（部活は無所属）\n（以降、どこかのタイミングで壱川と再会）",
           shinobu: "●中学校卒業\n●高等学校進学を機に上京",
           kiho: "（ホストクラブ『Colias』で須王と出会う）",
           yashiro: "●中学校卒業\n●高等学校入学",
@@ -1106,7 +1221,7 @@
           akehoshi: "（高校在学中に芸能界を引退）",
           yuzuru: "●高等学校卒業\n（大学入学）",
           shizuka: "●高等学校卒業\n（大学入学）",
-          soyogu: "（十代でキックボクサーを引退）",
+          soyogu: "~（十代でキックボクサーを引退）",
           kyoya: "●高等学校卒業\n（大学入学）",
         }
       },
@@ -1118,7 +1233,7 @@
           kou: "●高等学校卒業\n●淑央大学法学部に入学\n（同じゼミの学生として皇坂と出会う）",
           mao: "●高等学校卒業\n（大学入学）",
           akehoshi: "（高校在学中に芸能界を引退）",
-          soyogu: "（十代でキックボクサーを引退）",
+          soyogu: "~（十代でキックボクサーを引退）",
           riku: "●大学卒業\n（のちに心理カウンセラーとして活動）",
           urara: "●小学校卒業\n●中学校入学",
           ran: "（高等学校卒業）",
@@ -1135,7 +1250,7 @@
           taiga: "●実父である山吉会先代組長と縁を切り、家を出る\n（以降、どこかのタイミングで現組長に何らかの形で世話になる）",
           haruhi: "●高等学校卒業\n（大学入学）",
           takeru: "（内定後、九段下のホテルのバーラウンジでアルバイトを開始）",
-          soyogu: "●高等学校卒業\n（十代でキックボクサーを引退）\n（大学入学）",
+          soyogu: "●高等学校卒業\n~（十代でキックボクサーを引退）\n（大学入学）",
           shinobu: "●高等学校卒業\n（大学入学）",
           yashiro: "●高等学校卒業\n●大学入学",
         }
@@ -1143,17 +1258,17 @@
 
       {
         when: "2018年",
-        common: "●Aporia創設（遅くとも2019年・春まで）\n初期メンバー：須王・在間・御門・立科・初南（立科の従妹）・宇京真由、れみ（真由の同級生）・他二名\n半年後加入：隠岐谷・木築灰・佐原凛々",
+        common: "●Aporia創設（遅くとも2019年・春までには存在）\n初期メンバー：須王・在間・御門・立科・初南（立科の従妹）・宇京真由、れみ（真由の同級生）・他二名\n半年後加入：隠岐谷・木築灰・佐原凛々",
         events: {
           ai: "●淑央大学法学部を卒業\n（のちに政界に進出）",
           roka: "●在間と共にAporiaを創設",
           sei: "（大学卒業）\n（翻訳家として活動）\n●在間経由でAporiaに入社（他の初期メンバーより半年遅れ）",
           takeru: "●大学卒業\n●アパレル販売員として就職\n●傷害で逮捕され、不起訴処分となるも退職\n●スターティングメンバーとしてAporiaに入社",
-          soyogu: "（十代でキックボクサーを引退）",
+          soyogu: "~（十代でキックボクサーを引退）",
           riku: "●スターティングメンバーとしてAporiaに入社",
-          mayu: "●Aporiaに入社（キャラ代行や調査案件で活躍）",
+          mayu: "（数年間、興信所で調査員として従事）\n●れみ経由でAporiaに入社（キャラ代行や調査案件で活躍）",
           kai: "●Aporiaに入社（他の初期メンバーより半年遅れ）",
-          riri: "●他の初期メンバーより半年遅れでAporiaに入社（バーカン担当／調査案件や荒事担当）",
+          riri: "●他の初期メンバーより半年遅れで隠岐谷経由にてAporiaに入社（バーカン担当／調査案件や荒事担当）",
         }
       },
 
@@ -1237,6 +1352,8 @@
         common: "●節見・相沢がAporiaに入社",
         events: {
           shizuka: "●皇坂のスカウトにより、業務委託の契約先だったAporiaに入社（本部預かり）\n（入寮）",
+          takeru: "●相沢の加入により強行部が3人体制となる",
+          soyogu: "●相沢の加入により強行部が3人体制となる",
           shinobu: "●Aporiaに入社（強行部）",
         }
       },
@@ -1246,16 +1363,19 @@
         common: "●樋宮・麻波・天羽がAporiaに入社",
         events: {
           roka: "●樋宮・麻波・天羽をスカウト\n●麻波が入寮し、同居を解消\n（相沢との同居を開始）",
-          kou: "●樋宮の加入により交際部が4人体制になる",
-          mao: "●樋宮の加入により交際部が4人体制になる",
+          kou: "●樋宮の加入により交際部が4人体制となる",
+          mao: "●樋宮の加入により交際部が4人体制となる",
           akehoshi: "（入社までに客として宇京に兄代行を依頼）\n●須王のスカウトによりAporiaに入社（交際部）\n（入寮、環野との同居開始）",
-          yuragi: "●樋宮の加入により交際部が4人体制になる\n（樋宮との同居開始）",
-          sei: "●天羽の加入により交渉部が5人体制になる",
-          kiho: "●天羽の加入により交渉部が5人体制になる",
-          kyoya: "●天羽の加入により交渉部が5人体制になる",
-          riku: "●天羽の加入により交渉部が5人体制になる",
+          yuragi: "●樋宮の加入により交際部が4人体制となる\n（樋宮との同居開始）",
+          sei: "●天羽の加入により交渉部が5人体制となる",
+          takeru: "●麻波の加入により強行部が4人体制となる",
+          soyogu: "●麻波の加入により強行部が4人体制となる",
+          shinobu: "●麻波の加入により強行部が4人体制となる",
+          kiho: "●天羽の加入により交渉部が5人体制となる",
+          kyoya: "●天羽の加入により交渉部が5人体制となる",
+          riku: "●天羽の加入により交渉部が5人体制となる\n●入社以降問題を起こし続ける天羽にかかりっきりとなる",
           urara: "●高等学校卒業\n●須王の説得によりAporiaに入社（強行部）\n（入寮）",
-          ran: "●須王のスカウトによりAporiaに入社（交渉部）\n（入寮）",
+          ran: "●須王のスカウトによりAporiaに入社（交渉部）\n●入社以降問題を起こし続ける\n（入寮）",
         }
       },
 
@@ -1276,7 +1396,7 @@
        events: {
           roka: "●天羽の件をきっかけに「とかげのしっぽ」になる",
           yuzuru: "●天羽に“壊され”かける",
-          ran: "●謹慎処分となり、寮に帰らなくなる",
+          ran: "●重大なルール違反に関して口止めを試み、城瀬を“壊し”かけたことをきっかけに謹慎処分となり、寮に帰らなくなる",
         }
       },
       
@@ -1314,7 +1434,7 @@
           tomose: "●大怪我を負った神家を新名と共に拾う",
           yu: "●大怪我を負った神家を恩田と共に拾う",
           kamiya: "●大怪我を負った状態で恩田と新名に保護される\n●須王と在間に神家と名付けて貰い、Aporiaに入社（本部預かり）\n●本名：颯一",
-          ran: "●Aporiaを正式に解雇となる",
+          ran: "●Aporiaを正式に解雇となる（スタッフとの接触禁止）",
         }
       },
 
@@ -1327,9 +1447,12 @@
         when: "2023年・年始",
         common: "●管理部設立",
         events: {
-          taiga: "●管理部の部長に就任",
+          taiga: "●管理部部長に就任",
           haruhi: "●管理部所属になる",
           sei: "●交渉部から管理部へ異動",
+          kiho: "●隠岐谷の異動により交渉部が3人体制になる",
+          kyoya: "●隠岐谷の異動により交渉部が3人体制になる",
+          riku: "●隠岐谷の異動により交渉部が3人体制になる",
         }
       },
       
@@ -1343,8 +1466,8 @@
           shinobu: "●麻波の異動により強行部が4人体制となる",
           tomose: "●神家と麻波の加入により特務部が4人体制となる",
           yu: "●神家と麻波の加入により特務部が4人体制となる",
-          kamiya: "●本人の希望により特務部に配属\n●神家と麻波の加入により4人体制となる",
-          urara: "●強行部から特務部に異動\n●神家と麻波の加入により4人体制となる",
+          kamiya: "●本人の希望により特務部に配属\n●特務部が4人体制となる",
+          urara: "●強行部から特務部へ異動\n●特務部が4人体制となる",
         }
       },
 
@@ -1352,9 +1475,10 @@
         when: "2024年",
         common: "●メインスト『Thread 0』\n●弥代がAporiaに入社\n●メインスト『Thread 1 Irresponsible Pink』\n●メインスト『Thread 1 Aloof Yellow』\n●イベスト『Vignette-Engawa-』\n●メインスト『Thread 1 Sly Red』\n●イベスト『Vignette-Line-』\n●メインスト『Thread 1 Phony Violet』\n●メインスト『Thread 1 Chilling Green』\n●イベスト『Vignette-Skip-』\n●メインスト『Thread 1 Vindictive Blue』\n●メインスト『Interlude I』\n●イベスト『Vignette-Emperor-』\n●イベスト『Florist 花に染む言の葉』\n●メインスト『Interlude II』\n●メインスト『Thread 2 APPLE of my eye』\n●メインスト『Interlude Ⅲ』\n●メインスト『Thread 2 PIE in the sky』",
         events: {
-          roka: "●弥代をオーナー代理として迎え入れ、長期休暇を取る",
+          roka: "●弥代をオーナー代理にスカウトし、長期休暇を取る",
+          akehoshi: "●接触禁止の天羽と個人的に会っている",
           sei: "●木築にワンミリオン事件の調査を依頼する",
-          yashiro: "●須王のスカウトによりAporiaに入社（オーナー代理・本部所属）",
+          yashiro: "●須王のスカウトによりオーナー代理としてAporiaに入社（本部）",
           urara: "●横浜駅で天羽に遭遇する",
           ran: "●横浜駅で麻波と弥代に遭遇する",
           kai: "●隠岐谷よりワンミリオン事件の調査依頼を受ける",
@@ -1408,29 +1532,165 @@
 
 
     /* =========================
-       PERIOD FILTER
-       選択肢は timeline の並び順どおり。日付の形式は自由。
+       OFFICIAL AGE（公式プロフィール基準の年表を、元の年表からつくる）
+         ずれる行 : 「誕生」「小学校」「中学校」「高等学校」「大学」
+                    「就職」「在学中」「内定」を含む行
+                    ／誕生の行があるセルはセル全体
+                    ／その直後の「（のちに…」「（以降…」
+         目印     : 行の頭に ~ を付けると必ずずれる、= を付けると必ずずれない
+                    （目印は画面には出ません）
     ========================= */
 
-    timeline.forEach((row, i) => {
-      const text = String(i + 1).padStart(2, "0") + "　" + (row.when || "");
-      [fromEl, toEl].forEach(sel => {
-        const opt = document.createElement("option");
-        opt.value = i;
-        opt.textContent = text;
-        sel.appendChild(opt);
+    const AGE_WORDS = /誕生|小学校|中学校|高等学校|大学|就職|在学中|内定/;
+
+    function officialShift(id) {
+      const b = birthdays[id];
+      if (b === undefined) return 0;               // 未発表はずらさない
+      if (typeof b === "number") return b;         // 数字で直接指定
+      const [m, d] = b.split("/").map(Number);
+      const after = m > RELEASE.month || (m === RELEASE.month && d > RELEASE.day);
+      return after ? -1 : 0;
+    }
+
+    function parseLine(raw) {
+      const m = /^\s*([~=])(.*)$/.exec(raw);
+      return m ? { mark: m[1], text: m[2] } : { mark: "", text: raw };
+    }
+
+    function plainYear(when) {
+      const m = /^(\d{4})年$/.exec(when || "");
+      return m ? Number(m[1]) : null;
+    }
+
+    function anyYear(when) {
+      const m = /^(\d{4})/.exec(when || "");
+      return m ? Number(m[1]) : Infinity;
+    }
+
+    /* 1つのセルを、ずれる行 / ずれない行 に分ける */
+    function splitByAge(text) {
+      const lines = String(text).split("\n").map(parseLine);
+      const hasBirth = lines.some(p => /誕生/.test(p.text));
+
+      let prev = false;
+      const moving = [];
+      const staying = [];
+
+      lines.forEach(p => {
+        let shift;
+        if (p.mark === "~") shift = true;
+        else if (p.mark === "=") shift = false;
+        else if (hasBirth) shift = true;
+        else if (AGE_WORDS.test(p.text)) shift = true;
+        else if (prev && /^（(のちに|以降)/.test(p.text.trim())) shift = true;
+        else shift = false;
+
+        prev = shift;
+        (shift ? moving : staying).push(p.text);
       });
-    });
+
+      return { moving, staying };
+    }
+
+    function buildOfficialTimeline(base) {
+
+      const copies = base.map(r => ({
+        when: r.when,
+        common: r.common,
+        all: r.all,
+        events: {}
+      }));
+
+      const rows = copies.slice();
+
+      /* 移動先の年の行。なければ、年の順に差し込んで作る */
+      function targetRow(year) {
+        let row = rows.find(r => r.when === year + "年");
+        if (row) return row;
+
+        row = { when: year + "年", events: {} };
+        const idx = rows.findIndex(r => anyYear(r.when) >= year);
+        if (idx === -1) rows.push(row);
+        else rows.splice(idx, 0, row);
+        return row;
+      }
+
+      function put(row, id, lines) {
+        if (!lines.length) return;
+        const cur = row.events[id] ? row.events[id].split("\n") : [];
+        lines.forEach(l => { if (!cur.includes(l)) cur.push(l); });
+        row.events[id] = cur.join("\n");
+      }
+
+      base.forEach((src, i) => {
+        const dst = copies[i];
+        const year = plainYear(src.when);
+
+        Object.keys(src.events || {}).forEach(id => {
+          const shift = officialShift(id);
+
+          /* ずれない人、「2020年・初夏」のような行は、そのまま */
+          if (!shift || year === null) {
+            put(dst, id, String(src.events[id]).split("\n").map(l => parseLine(l).text));
+            return;
+          }
+
+          const { moving, staying } = splitByAge(src.events[id]);
+          put(dst, id, staying);
+          put(targetRow(year + shift), id, moving);
+        });
+      });
+
+      /* 空になった行は消す */
+      return rows.filter(r => r.common || r.all || Object.keys(r.events).length > 0);
+    }
+
+    /* =========================
+       AGE BASIS & PERIOD FILTER
+       選択肢は年表の並び順どおり。日付の形式は自由。
+    ========================= */
+
+    const basisInputs = document.querySelectorAll('input[name="fp-basis"]');
+
+    const officialTimeline = buildOfficialTimeline(timeline);
+    let currentTimeline = timeline;
+
+    function fillPeriodOptions() {
+      [fromEl, toEl].forEach(sel => { sel.innerHTML = ""; });
+
+      currentTimeline.forEach((row, i) => {
+        const text = String(i + 1).padStart(2, "0") + "　" + (row.when || "");
+        [fromEl, toEl].forEach(sel => {
+          const opt = document.createElement("option");
+          opt.value = i;
+          opt.textContent = text;
+          sel.appendChild(opt);
+        });
+      });
+    }
 
     function resetRange() {
       fromEl.value = 0;
-      toEl.value = Math.max(timeline.length - 1, 0);
+      toEl.value = Math.max(currentTimeline.length - 1, 0);
     }
+
+    function applyBasis(value) {
+      currentTimeline = value === "release" ? officialTimeline : timeline;
+      fillPeriodOptions();
+      resetRange();
+      render();
+    }
+
+    fillPeriodOptions();
     resetRange();
 
     fromEl.addEventListener("change", render);
     toEl.addEventListener("change", render);
     commonToggle.addEventListener("change", render);
+
+    basisInputs.forEach(input => {
+      input.addEventListener("change", () => applyBasis(input.value));
+    });
 
 
     /* =========================
@@ -1440,8 +1700,8 @@
     resetBtn.addEventListener("click", () => {
       chipsEl.querySelectorAll("input").forEach(i => { i.checked = false; });
       commonToggle.checked = true;
-      resetRange();
-      render();
+      basisInputs.forEach(i => { i.checked = (i.value === "year"); });
+      applyBasis("year");
     });
     
     
@@ -1461,7 +1721,8 @@
       const el = document.createElement(tag);
       if (className) el.className = className;
 
-      String(text).split("\n").forEach(line => {
+      String(text).split("\n").forEach(raw => {
+        const line = raw.replace(/^\s*[~=]/, "");   // 年齢連動の目印は表示しない
         const span = document.createElement("span");
         span.className = "fp-line";
 
@@ -1492,7 +1753,7 @@
       const showCommon = commonToggle.checked;
       const commonOf = row => row.common || row.all || "";
 
-      const rows = timeline.filter((row, i) =>
+      const rows = currentTimeline.filter((row, i) =>
         i >= lo && i <= hi &&
         (
           (showCommon && commonOf(row)) ||
