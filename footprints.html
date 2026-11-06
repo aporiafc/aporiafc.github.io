@@ -475,6 +475,84 @@
       color: #555;
     }
 
+    /* 年齢の基準の切り替え */
+
+    .fp-basis {
+      flex: 1 1 100%;
+
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 10px;
+    }
+
+    .fp-basis-label {
+      margin-right: 4px;
+
+      font-family: "Cormorant Garamond", serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+
+      color: #999;
+    }
+
+    .fp-basis-opt {
+      position: relative;
+
+      display: inline-flex;
+      align-items: center;
+
+      height: 28px;
+      padding: 0 13px;
+
+      border: 1px solid #ddd;
+      border-radius: 999px;
+
+      background: #fff;
+
+      cursor: pointer;
+
+      transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+    }
+
+    .fp-basis-opt input {
+      position: absolute;
+
+      width: 1px;
+      height: 1px;
+
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .fp-basis-opt span {
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+
+      color: #555;
+    }
+
+    .fp-basis-opt:hover {
+      border-color: #aaa;
+    }
+
+    .fp-basis-opt:has(input:checked) {
+      border-color: #222;
+      background: #222;
+    }
+
+    .fp-basis-opt:has(input:checked) span {
+      color: #fff;
+    }
+
+    .fp-basis-opt:has(input:focus-visible) {
+      outline: 2px solid #222;
+      outline-offset: 3px;
+    }
+
     /* 全体の出来事の列（時期の列の右に固定） */
 
     .fp-table .fp-common {
@@ -685,6 +763,20 @@
 
       <div class="fp-controls">
 
+        <div class="fp-basis" role="radiogroup" aria-label="年齢の基準">
+          <span class="fp-basis-label">AGE</span>
+
+          <label class="fp-basis-opt">
+            <input type="radio" name="fp-basis" value="release" checked>
+            <span>公式プロフィール（2024/5/9時点）</span>
+          </label>
+
+          <label class="fp-basis-opt">
+            <input type="radio" name="fp-basis" value="year">
+            <span>2024年の満年齢</span>
+          </label>
+        </div>
+
         <div class="fp-range">
           <label class="fp-range-item">
             <span>FROM</span>
@@ -821,6 +913,25 @@
     ];
 
     /* =========================
+       BIRTHDAYS（公式の誕生日 月/日）
+         公式基準の年表では、誕生日が基準日より後の人は、
+         誕生・入学・卒業など年齢から決まる出来事が1年前にずれる。
+         ※未発表のキャラは未記入でもずれない
+         ※数字で直接指定も可能（例: mayu: -1）
+    ========================= */
+
+    const RELEASE = { month: 5, day: 9 };   // 公式プロフィールの基準日（リリース日）
+
+    const birthdays = {
+      ai: "4/15",    yuzuru: "3/20",  roka: "8/14",   kou: "5/26",   mao: "7/11",
+      akehoshi: "2/4", yuragi: "12/2", taiga: "2/28",  haruhi: "8/22", sei: "9/19",
+      shizuka: "12/5", takeru: "10/4", soyogu: "6/23", shinobu: "10/24",
+      kiho: "9/4",   kyoya: "5/14",   riku: "7/26",   tomose: "1/22", yu: "11/27",
+      urara: "1/6",  ran: "11/10",
+      mayu: -1,
+    };
+
+    /* =========================
        TIMELINE DATA
        1行 = 1つの時期。上から古い順。
          when   : 左端に出る時期の表記（自由な文字列）
@@ -888,7 +999,7 @@
           mao: "●7/11誕生\n●二つ上の姉・真由の弟として生まれる\n●どこかのタイミングで両親が離婚し、父のもとで育つ",
           togo: "●小学校入学",
           ran: "●11/10誕生",
-          mayu: "●二つ下の弟・真央が生まれる",
+          mayu: "~●二つ下の弟・真央が生まれる",
         }
       },
 
@@ -1013,7 +1124,7 @@
         when: "2009年",
         events: {
           yuzuru: "●小学校卒業\n●中学校入学",
-          yuragi: "●不登校",
+          yuragi: "~●不登校",
           shizuka: "●小学校卒業\n●中学校入学",
           kiho: "（高校在学中、銀座の料亭『初音』で給仕のアルバイト）",
           kyoya: "●小学校卒業\n●中学校入学",
@@ -1028,7 +1139,7 @@
         events: {
           kou: "●小学校卒業\n●中学校入学",
           mao: "●小学校卒業\n●中学校入学",
-          yuragi: "●不登校",
+          yuragi: "~●不登校",
           kiho: "（高校在学中、銀座の料亭『初音』で給仕のアルバイト）",
           urara: "●両親が離婚し、父・久と二人暮らしを始める\n●小学校入学",
           ran: "●小学校卒業\n●中学校入学",
@@ -1042,7 +1153,7 @@
           ai: "●中学校卒業\n●高等学校入学",
           roka: "（ホストクラブ『Colias』で在間と出会う）",
           akehoshi: "●小学校卒業\n●中学校入学",
-          yuragi: "（近隣の住人に面倒を見てもらうようになり、家に帰らなくなる）",
+          yuragi: "~（近隣の住人に面倒を見てもらうようになり、家に帰らなくなる）",
           taiga: "●中学校卒業\n（高等学校入学）",
           haruhi: "●小学校卒業\n●中学校入学",
           sei: "●中学校卒業\n●高等学校入学",
@@ -1062,7 +1173,7 @@
         events: {
           yuzuru: "●中学校卒業\n●高等学校入学",
           roka: "（ホストクラブ『Colias』で在間と出会う）",
-          shizuka: "●中学校卒業\n●高等学校入学\n（弓道部）",
+          shizuka: "●中学校卒業\n●高等学校入学\n~（弓道部）",
           kiho: "（ホストクラブ『Colias』で須王と出会う）",
           kyoya: "●中学校卒業\n●高等学校入学\n（馬術部）",
           riku: "●高等学校卒業\n●大学入学（フットサルサークル所属）",
@@ -1109,7 +1220,7 @@
           akehoshi: "（高校在学中に芸能界を引退）",
           yuzuru: "●高等学校卒業\n（大学入学）",
           shizuka: "●高等学校卒業\n（大学入学）",
-          soyogu: "（十代でキックボクサーを引退）",
+          soyogu: "~（十代でキックボクサーを引退）",
           kyoya: "●高等学校卒業\n（大学入学）",
         }
       },
@@ -1121,7 +1232,7 @@
           kou: "●高等学校卒業\n●淑央大学法学部に入学\n（同じゼミの学生として皇坂と出会う）",
           mao: "●高等学校卒業\n（大学入学）",
           akehoshi: "（高校在学中に芸能界を引退）",
-          soyogu: "（十代でキックボクサーを引退）",
+          soyogu: "~（十代でキックボクサーを引退）",
           riku: "●大学卒業\n（のちに心理カウンセラーとして活動）",
           urara: "●小学校卒業\n●中学校入学",
           ran: "（高等学校卒業）",
@@ -1138,7 +1249,7 @@
           taiga: "●実父である山吉会先代組長と縁を切り、家を出る\n（以降、どこかのタイミングで現組長に何らかの形で世話になる）",
           haruhi: "●高等学校卒業\n（大学入学）",
           takeru: "（内定後、九段下のホテルのバーラウンジでアルバイトを開始）",
-          soyogu: "●高等学校卒業\n（十代でキックボクサーを引退）\n（大学入学）",
+          soyogu: "●高等学校卒業\n~（十代でキックボクサーを引退）\n（大学入学）",
           shinobu: "●高等学校卒業\n（大学入学）",
           yashiro: "●高等学校卒業\n●大学入学",
         }
@@ -1152,7 +1263,7 @@
           roka: "●在間と共にAporiaを創設",
           sei: "（大学卒業）\n（翻訳家として活動）\n●在間経由でAporiaに入社（他の初期メンバーより半年遅れ）",
           takeru: "●大学卒業\n●アパレル販売員として就職\n●傷害で逮捕され、不起訴処分となるも退職\n●スターティングメンバーとしてAporiaに入社",
-          soyogu: "（十代でキックボクサーを引退）",
+          soyogu: "~（十代でキックボクサーを引退）",
           riku: "●スターティングメンバーとしてAporiaに入社",
           mayu: "（数年間、興信所で調査員として従事）\n●れみ経由でAporiaに入社（キャラ代行や調査案件で活躍）",
           kai: "●Aporiaに入社（他の初期メンバーより半年遅れ）",
@@ -1420,29 +1531,170 @@
 
 
     /* =========================
-       PERIOD FILTER
-       選択肢は timeline の並び順どおり。日付の形式は自由。
+       OFFICIAL AGE（公式プロフィール基準の年表を、元の年表からつくる）
+         ずれる行 : 「誕生」「小学校」「中学校」「高等学校」「大学」
+                    「就職」「在学中」「内定」を含む行
+                    ／誕生の行があるセルはセル全体
+                    ／その直後の「（のちに…」「（以降…」
+         目印     : 行の頭に ~ を付けると必ずずれる、= を付けると必ずずれない
+                    （目印は画面には出ません）
     ========================= */
 
-    timeline.forEach((row, i) => {
-      const text = String(i + 1).padStart(2, "0") + "　" + (row.when || "");
-      [fromEl, toEl].forEach(sel => {
-        const opt = document.createElement("option");
-        opt.value = i;
-        opt.textContent = text;
-        sel.appendChild(opt);
+    const AGE_WORDS = /誕生|小学校|中学校|高等学校|大学|就職|在学中|内定/;
+
+    function officialShift(id) {
+      const b = birthdays[id];
+      if (b === undefined) return 0;               // 未発表はずらさない
+      if (typeof b === "number") return b;         // 数字で直接指定
+      const [m, d] = b.split("/").map(Number);
+      const after = m > RELEASE.month || (m === RELEASE.month && d > RELEASE.day);
+      return after ? -1 : 0;
+    }
+
+    function parseLine(raw) {
+      const m = /^\s*([~=])(.*)$/.exec(raw);
+      return m ? { mark: m[1], text: m[2] } : { mark: "", text: raw };
+    }
+
+    function plainYear(when) {
+      const m = /^(\d{4})年$/.exec(when || "");
+      return m ? Number(m[1]) : null;
+    }
+
+    function anyYear(when) {
+      const m = /^(\d{4})/.exec(when || "");
+      return m ? Number(m[1]) : Infinity;
+    }
+
+    /* 1つのセルを、ずれる行 / ずれない行 に分ける */
+    function splitByAge(text) {
+      const lines = String(text).split("\n").map(parseLine);
+      const hasBirth = lines.some(p => /誕生/.test(p.text));
+
+      let prev = false;
+      const moving = [];
+      const staying = [];
+
+      lines.forEach(p => {
+        let shift;
+        if (p.mark === "~") shift = true;
+        else if (p.mark === "=") shift = false;
+        else if (hasBirth) shift = true;
+        else if (AGE_WORDS.test(p.text)) shift = true;
+        else if (prev && /^（(のちに|以降)/.test(p.text.trim())) shift = true;
+        else shift = false;
+
+        prev = shift;
+        (shift ? moving : staying).push(p.text);
       });
-    });
+
+      return { moving, staying };
+    }
+
+    function buildOfficialTimeline(base) {
+
+      const copies = base.map(r => ({
+        when: r.when,
+        common: r.common,
+        all: r.all,
+        events: {}
+      }));
+
+      const rows = copies.slice();
+
+      /* 移動先の年の行。なければ、年の順に差し込んで作る */
+      function targetRow(year) {
+        let row = rows.find(r => r.when === year + "年");
+        if (row) return row;
+
+        row = { when: year + "年", events: {} };
+        const idx = rows.findIndex(r => anyYear(r.when) >= year);
+        if (idx === -1) rows.push(row);
+        else rows.splice(idx, 0, row);
+        return row;
+      }
+
+      function put(row, id, lines) {
+        if (!lines.length) return;
+        const cur = row.events[id] ? row.events[id].split("\n") : [];
+        lines.forEach(l => { if (!cur.includes(l)) cur.push(l); });
+        row.events[id] = cur.join("\n");
+      }
+
+      base.forEach((src, i) => {
+        const dst = copies[i];
+        const year = plainYear(src.when);
+
+        Object.keys(src.events || {}).forEach(id => {
+          const shift = officialShift(id);
+
+          /* ずれない人、「2020年・初夏」のような行は、そのまま */
+          if (!shift || year === null) {
+            put(dst, id, String(src.events[id]).split("\n").map(l => parseLine(l).text));
+            return;
+          }
+
+          const { moving, staying } = splitByAge(src.events[id]);
+          put(dst, id, staying);
+          put(targetRow(year + shift), id, moving);
+        });
+      });
+
+      /* 空になった行は消す */
+      return rows.filter(r => r.common || r.all || Object.keys(r.events).length > 0);
+    }
+
+    /* =========================
+       AGE BASIS & PERIOD FILTER
+       選択肢は年表の並び順どおり。日付の形式は自由。
+    ========================= */
+
+    const basisInputs = document.querySelectorAll('input[name="fp-basis"]');
+
+    const officialTimeline = buildOfficialTimeline(timeline);
+
+    /* 最初に選ばれているボタンに合わせて、表示する年表を決める */
+    const checkedBasis = document.querySelector('input[name="fp-basis"]:checked');
+    let currentTimeline = (checkedBasis && checkedBasis.value === "release")
+      ? officialTimeline
+      : timeline;
+
+    function fillPeriodOptions() {
+      [fromEl, toEl].forEach(sel => { sel.innerHTML = ""; });
+
+      currentTimeline.forEach((row, i) => {
+        const text = String(i + 1).padStart(2, "0") + "　" + (row.when || "");
+        [fromEl, toEl].forEach(sel => {
+          const opt = document.createElement("option");
+          opt.value = i;
+          opt.textContent = text;
+          sel.appendChild(opt);
+        });
+      });
+    }
 
     function resetRange() {
       fromEl.value = 0;
-      toEl.value = Math.max(timeline.length - 1, 0);
+      toEl.value = Math.max(currentTimeline.length - 1, 0);
     }
+
+    function applyBasis(value) {
+      currentTimeline = value === "release" ? officialTimeline : timeline;
+      fillPeriodOptions();
+      resetRange();
+      render();
+    }
+
+    fillPeriodOptions();
     resetRange();
 
     fromEl.addEventListener("change", render);
     toEl.addEventListener("change", render);
     commonToggle.addEventListener("change", render);
+
+    basisInputs.forEach(input => {
+      input.addEventListener("change", () => applyBasis(input.value));
+    });
 
 
     /* =========================
@@ -1452,8 +1704,8 @@
     resetBtn.addEventListener("click", () => {
       chipsEl.querySelectorAll("input").forEach(i => { i.checked = false; });
       commonToggle.checked = true;
-      resetRange();
-      render();
+      basisInputs.forEach(i => { i.checked = (i.value === "release"); });
+      applyBasis("release");
     });
     
     
@@ -1473,7 +1725,8 @@
       const el = document.createElement(tag);
       if (className) el.className = className;
 
-      String(text).split("\n").forEach(line => {
+      String(text).split("\n").forEach(raw => {
+        const line = raw.replace(/^\s*[~=]/, "");   // 年齢連動の目印は表示しない
         const span = document.createElement("span");
         span.className = "fp-line";
 
@@ -1504,7 +1757,7 @@
       const showCommon = commonToggle.checked;
       const commonOf = row => row.common || row.all || "";
 
-      const rows = timeline.filter((row, i) =>
+      const rows = currentTimeline.filter((row, i) =>
         i >= lo && i <= hi &&
         (
           (showCommon && commonOf(row)) ||
