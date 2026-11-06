@@ -767,15 +767,14 @@
           <span class="fp-basis-label">AGE</span>
 
           <label class="fp-basis-opt">
-            <input type="radio" name="fp-basis" value="year" checked>
-            <span>2024年の満年齢</span>
+            <input type="radio" name="fp-basis" value="release" checked>
+            <span>公式プロフィール（2024/5/9時点）</span>
           </label>
 
           <label class="fp-basis-opt">
-            <input type="radio" name="fp-basis" value="release">
-            <span>公式プロフィール（2024/5/9時点）</span>
+            <input type="radio" name="fp-basis" value="year">
+            <span>2024年の満年齢</span>
           </label>
-        </div>
         
         
         <div class="fp-range">
@@ -1653,7 +1652,12 @@
     const basisInputs = document.querySelectorAll('input[name="fp-basis"]');
 
     const officialTimeline = buildOfficialTimeline(timeline);
-    let currentTimeline = timeline;
+
+    /* 最初に選ばれているボタンに合わせて、表示する年表を決める */
+    const checkedBasis = document.querySelector('input[name="fp-basis"]:checked');
+    let currentTimeline = (checkedBasis && checkedBasis.value === "release")
+      ? officialTimeline
+      : timeline;
 
     function fillPeriodOptions() {
       [fromEl, toEl].forEach(sel => { sel.innerHTML = ""; });
@@ -1700,8 +1704,8 @@
     resetBtn.addEventListener("click", () => {
       chipsEl.querySelectorAll("input").forEach(i => { i.checked = false; });
       commonToggle.checked = true;
-      basisInputs.forEach(i => { i.checked = (i.value === "year"); });
-      applyBasis("year");
+      basisInputs.forEach(i => { i.checked = (i.value === "release"); });
+      applyBasis("release");
     });
     
     
