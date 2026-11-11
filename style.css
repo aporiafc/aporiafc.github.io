@@ -6539,3 +6539,168 @@ input[type="submit"] {
   }
 
 }
+
+
+/* =========================================================
+   CHARACTER SELECT：丸いピル型（FOOTPRINTS と同じ見た目）
+   STORY / CARD / EVENT 共通
+========================================================= */
+
+.story-character-select {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  max-height: none;
+  overflow: visible;
+
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.story-character-select label {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  height: 30px;
+  min-height: 0;
+  padding: 0 13px;
+
+  border: 1px solid #ddd;
+  border-radius: 999px;
+
+  background: #fff;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.story-character-select label:hover {
+  border-color: var(--c, #aaa);
+  background: #fff;
+}
+
+.story-character-select span {
+  display: inline-flex;
+  align-items: center;
+
+  padding-left: 0;
+
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+
+  color: #555;
+}
+
+/* ドット（キャラカラーの丸） */
+.story-character-select span::before {
+  content: "";
+
+  position: static;
+  transform: none;
+  flex-shrink: 0;
+
+  width: 7px;
+  height: 7px;
+
+  margin-right: 8px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: var(--c, #222);
+}
+
+/* 選択中：黒く反転（ドットは色のまま） */
+.story-character-select label:has(input:checked) {
+  border-color: #222;
+  background: #222;
+}
+
+.story-character-select label:has(input:checked) span {
+  color: #fff;
+  font-weight: 400;
+}
+
+.story-character-select input:checked + span::before {
+  border: none;
+  background: var(--c, #222);
+}
+
+.story-character-select input:focus-visible + span {
+  outline: 2px solid #222;
+  outline-offset: 6px;
+  border-radius: 999px;
+}
+
+/* キャラカラー（ID ごと。ここに書いていないキャラは黒のドット） */
+.story-character-select label:has(input[value="ai"])       { --c: #B22222; }
+.story-character-select label:has(input[value="yuzuru"])   { --c: #7DA852; }
+.story-character-select label:has(input[value="roka"])     { --c: #FFC02D; }
+.story-character-select label:has(input[value="kou"])      { --c: #FD1493; }
+.story-character-select label:has(input[value="mao"])      { --c: #A553E8; }
+.story-character-select label:has(input[value="akehoshi"]) { --c: #FE8A23; }
+.story-character-select label:has(input[value="yuragi"])   { --c: #6495ED; }
+.story-character-select label:has(input[value="taiga"])    { --c: #8BCCD6; }
+.story-character-select label:has(input[value="haruhi"])   { --c: #E9DC69; }
+.story-character-select label:has(input[value="sei"])      { --c: #9A98C1; }
+.story-character-select label:has(input[value="shizuka"])  { --c: #3F60BE; }
+.story-character-select label:has(input[value="takeru"])   { --c: #C437BC; }
+.story-character-select label:has(input[value="soyogu"])   { --c: #E04D21; }
+.story-character-select label:has(input[value="shinobu"])  { --c: #388138; }
+.story-character-select label:has(input[value="kiho"])     { --c: #DF507F; }
+.story-character-select label:has(input[value="kyoya"])    { --c: #F09C65; }
+.story-character-select label:has(input[value="riku"])     { --c: #7043BB; }
+.story-character-select label:has(input[value="tomose"])   { --c: #61C892; }
+.story-character-select label:has(input[value="yu"])       { --c: #13BFFC; }
+.story-character-select label:has(input[value="kamiya"])   { --c: #5E76BC; }
+.story-character-select label:has(input[value="urara"])    { --c: #DE7DF3; }
+
+/* 「もっと見る」（STORY のみ使用） */
+.story-character-select:not(.is-expanded) label.is-more {
+  display: none;
+}
+
+/* 隠れている中のキャラでも、選択中なら出したままにする */
+.story-character-select:not(.is-expanded) label.is-more:has(input:checked) {
+  display: inline-flex;
+}
+
+.story-more-button {
+  display: inline-flex;
+  align-items: center;
+
+  height: 30px;
+  padding: 0 14px;
+
+  border: 1px dashed #ccc;
+  border-radius: 999px;
+
+  background: transparent;
+
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+
+  color: #777;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.story-more-button:hover {
+  border-color: #888;
+  color: #222;
+}
