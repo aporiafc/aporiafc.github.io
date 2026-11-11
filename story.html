@@ -12469,51 +12469,68 @@ function getStoryCharacters() {
     /* =========================
    　RENDER CHARACTER FILTERS
     ========================= */
+    /* 最初から表示するキャラ（「メイン」のほかに出したいキャラ）。
+       これ以外は「もっと見る」の中に入ります */
+    const alwaysShown = ["yashiro", "togo", "yukimura", "ran", "rare", "okoge"];
+
     function renderCharacterFilters() {
+
       characterSelect.innerHTML = "";
-      
-    const categoryOrder = [
-    "main",
-    "other",
-    "sub",
-    "guest"
-    ];
 
+      const categoryOrder = ["main", "other", "sub", "guest"];
 
-  categoryOrder.forEach(category => {
+      const firstShown = new Set([
+        ...(characterCategories.main || []),
+        ...alwaysShown
+      ]);
 
-    const characters =
-      characterCategories[category] || [];
+      categoryOrder.forEach(category => {
 
+        (characterCategories[category] || []).forEach(character => {
 
-    characters.forEach(character => {
+          const label = document.createElement("label");
 
-      const label =
-        document.createElement("label");
+          if (!firstShown.has(character)) {
+            label.classList.add("is-more");
+          }
 
+          label.innerHTML = `
+            <input
+              type="checkbox"
+              name="story-character"
+              value="${character}"
+            >
+            <span>
+              ${characterNames[character] || character}
+            </span>
+          `;
 
-      label.innerHTML = `
+          characterSelect.appendChild(label);
 
-        <input
-          type="checkbox"
-          name="story-character"
-          value="${character}"
-        >
+        });
 
-        <span>
-          ${characterNames[character] || character}
-        </span>
+      });
 
-      `;
+      /* 隠れているキャラがあるときだけ、「もっと見る」ボタンを付ける */
+      if (characterSelect.querySelector("label.is-more")) {
 
+        const moreButton = document.createElement("button");
+        moreButton.type = "button";
+        moreButton.className = "story-more-button";
+        moreButton.textContent = "もっと見る";
+        moreButton.setAttribute("aria-expanded", "false");
 
-      characterSelect.appendChild(label);
+        moreButton.addEventListener("click", () => {
+          const isOpen = characterSelect.classList.toggle("is-expanded");
+          moreButton.textContent = isOpen ? "閉じる" : "もっと見る";
+          moreButton.setAttribute("aria-expanded", String(isOpen));
+        });
 
-    });
+        characterSelect.appendChild(moreButton);
 
-  });
+      }
 
-}
+    }
 
 
 /* =========================
