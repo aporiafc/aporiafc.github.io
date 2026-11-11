@@ -1137,10 +1137,11 @@
         when: "2010年",
         common: "●副都心総合医療センターに対する医療訴訟",
         events: {
+          roka: "+（ホストクラブ『Colias』で在間と出会う）",
           kou: "●小学校卒業\n●中学校入学",
           mao: "●小学校卒業\n●中学校入学",
           yuragi: "~●不登校",
-          kiho: "（高校在学中、銀座の料亭『初音』で給仕のアルバイト）",
+          kiho: "（高校在学中、銀座の料亭『初音』で給仕のアルバイト）\n+（ホストクラブ『Colias』で須王と出会う）",
           urara: "●両親が離婚し、父・久と二人暮らしを始める\n●小学校入学",
           ran: "●小学校卒業\n●中学校入学",
         }
@@ -1566,6 +1567,34 @@
       return m ? Number(m[1]) : Infinity;
     }
 
+    /* 「+」で始まる行（公式版だけに表示する行）を分ける */
+    function splitPlus(text) {
+      const normal = [];
+      const plus = [];
+
+      String(text).split("\n").forEach(l => {
+        const m = /^\s*\+(.*)$/.exec(l);
+        if (m) plus.push(m[1]);
+        else normal.push(l);
+      });
+
+      return { normal, plus };
+    }
+
+    /* 2024年満年齢版：「+」の行を取り除いた年表 */
+    function buildYearTimeline(base) {
+      return base
+        .map(r => {
+          const events = {};
+          Object.keys(r.events || {}).forEach(id => {
+            const { normal } = splitPlus(r.events[id]);
+            if (normal.length) events[id] = normal.join("\n");
+          });
+          return { when: r.when, common: r.common, all: r.all, events };
+        })
+        .filter(r => r.common || r.all || Object.keys(r.events).length > 0);
+    }
+
     /* 1つのセルを、ずれる行 / ずれない行 に分ける */
     function splitByAge(text) {
       const lines = String(text).split("\n").map(parseLine);
@@ -1601,6 +1630,7 @@
       }));
 
       const rows = copies.slice();
+      const extras = [];   // 「+」の行は、最後にまとめて足す
 
       /* 移動先の年の行。なければ、年の順に差し込んで作る */
       function targetRow(year) {
@@ -1626,19 +1656,27 @@
         const year = plainYear(src.when);
 
         Object.keys(src.events || {}).forEach(id => {
+          const { normal, plus } = splitPlus(src.events[id]);
+
+          if (plus.length) extras.push({ row: dst, id, lines: plus });
+          if (!normal.length) return;
+
           const shift = officialShift(id);
 
           /* ずれない人、「2020年・初夏」のような行は、そのまま */
           if (!shift || year === null) {
-            put(dst, id, String(src.events[id]).split("\n").map(l => parseLine(l).text));
+            put(dst, id, normal.map(l => parseLine(l).text));
             return;
           }
 
-          const { moving, staying } = splitByAge(src.events[id]);
+          const { moving, staying } = splitByAge(normal.join("\n"));
           put(dst, id, staying);
           put(targetRow(year + shift), id, moving);
         });
       });
+
+      /* 「+」の行は、同じ行の他の内容のあとに足す */
+      extras.forEach(e => put(e.row, e.id, e.lines));
 
       /* 空になった行は消す */
       return rows.filter(r => r.common || r.all || Object.keys(r.events).length > 0);
@@ -1651,13 +1689,14 @@
 
     const basisInputs = document.querySelectorAll('input[name="fp-basis"]');
 
+    const yearTimeline     = buildYearTimeline(timeline);
     const officialTimeline = buildOfficialTimeline(timeline);
 
     /* 最初に選ばれているボタンに合わせて、表示する年表を決める */
     const checkedBasis = document.querySelector('input[name="fp-basis"]:checked');
     let currentTimeline = (checkedBasis && checkedBasis.value === "release")
       ? officialTimeline
-      : timeline;
+      : yearTimeline;
 
     function fillPeriodOptions() {
       [fromEl, toEl].forEach(sel => { sel.innerHTML = ""; });
@@ -1679,7 +1718,7 @@
     }
 
     function applyBasis(value) {
-      currentTimeline = value === "release" ? officialTimeline : timeline;
+      currentTimeline = value === "release" ? officialTimeline : yearTimeline;
       fillPeriodOptions();
       resetRange();
       render();
